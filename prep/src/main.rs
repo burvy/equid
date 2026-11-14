@@ -326,6 +326,13 @@ fn run() -> Result<(), String> {
             near_water_m: near(&water),
             tree: None,
             shade: None,
+            flood: None,
+            crossings: 0,
+            crossings_unsignalled: 0,
+            sidewalk: None,
+            kerb_raised: 0,
+            green: None,
+            water_view: None,
         });
     }
 

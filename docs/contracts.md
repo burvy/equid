@@ -118,7 +118,7 @@ Path: `data/<region>/places.json`.
 | `id` | string | OSM type letter + id: `n123` (node), `w456` (way, use its centroid) |
 | `name` | string? | |
 | `lon`, `lat` | f64 | place location |
-| `category` | string | one of `bench`, `toilets`, `drinking_water`, `cafe`, `restaurant`, `park`, `viewpoint`, `library`, `pharmacy`, `shelter`, `sunset` (others allowed; the UI shows unknown ones as "other") |
+| `category` | string | one of `bench`, `toilets`, `drinking_water`, `cafe`, `restaurant`, `park`, `viewpoint`, `library`, `pharmacy`, `shelter`, `sunset`, `stargazing` (others allowed; the UI shows unknown ones as "other") |
 | `tags` | object | selected OSM tags as-is (`opening_hours`, `wheelchair`, `website`, …) |
 | `node` | u32 | nearest graph node (that is where `field` reads the place's cost) |
 | `snap_m` | f32 | distance place → node |
@@ -128,6 +128,11 @@ Path: `data/<region>/places.json`.
 (`snap_m` 0), tags `sun_visible_until` ("16:35", local), `sun_visible_until_min` (minutes), `sunset` ("16:43"), `skyline_deg`
 (how high roofs/trees rise toward the setting sun), `date`, `source`. Parks, gardens, nature reserves and viewpoints also get a
 `sun_visible_until` tag when the sun is visible from their node in its last 90 minutes.
+
+**Stargazing places** (`prep-shade`, ids `stargazing-1`…`stargazing-8`, at least 400 m apart): category `stargazing`, `node` = the
+spot itself (`snap_m` 0), tags `sky_open` (0–1: share of the sky above 10° not hidden by roofs, crowns or hills, from 36 LiDAR
+skyline rays), `dark_m` (metres to the nearest lit street; a car street of unknown lighting counts at twice its distance; capped
+by the distance to the region edge), `score` (`sky_open` × min(`dark_m` / 250, 1); spots need `sky_open` ≥ 0.7), `source`.
 
 Place cost = cost of its snapped node (the `snap_m` walk is ignored for now; it is the same for every metric).
 

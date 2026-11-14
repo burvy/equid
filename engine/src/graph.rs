@@ -107,6 +107,25 @@ pub struct Edge {
     /// Shade fraction 0..1 per time slot (meta.slots values), null until the LiDAR task lands.
     #[serde(default)]
     pub shade: Option<Vec<f32>>,
+    /// Share 0..1 of the edge inside a FEMA 1% / 0.2% flood zone (null = unknown, counts 0).
+    #[serde(default)]
+    pub flood: Option<f32>,
+    /// Marked crossings on the edge, and the subset with no signal or stop.
+    #[serde(default)]
+    pub crossings: u8,
+    #[serde(default)]
+    pub crossings_unsignalled: u8,
+    /// Sidewalk on a road: true = yes, false = tagged none, null = unknown or not a road.
+    #[serde(default)]
+    pub sidewalk: Option<bool>,
+    /// Crossings with a raised kerb (a barrier for wheelchairs).
+    #[serde(default)]
+    pub kerb_raised: u8,
+    /// Share 0..1 within ~30 m of green space / open water (null = unknown, counts as scenic).
+    #[serde(default)]
+    pub green: Option<f32>,
+    #[serde(default)]
+    pub water_view: Option<f32>,
 }
 
 pub const NEAR_CAP_M: f32 = 500.0;
@@ -164,6 +183,14 @@ impl Graph {
             }
             if e.geom.len() < 2 {
                 return Err(format!("edge {i}: geom needs at least both endpoints"));
+            }
+            for (name, v) in [("flood", e.flood), ("green", e.green), ("water_view", e.water_view)] {
+                if v.is_some_and(|v| !(0.0..=1.0).contains(&v)) {
+                    return Err(format!("edge {i}: {name} must be in [0,1]"));
+                }
+            }
+            if e.crossings_unsignalled > e.crossings {
+                return Err(format!("edge {i}: crossings_unsignalled exceeds crossings"));
             }
             if let Some(s) = &e.shade {
                 if s.len() != slots || s.iter().any(|v| !(0.0..=1.0).contains(v)) {

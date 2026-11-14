@@ -45,9 +45,15 @@ pub const FEATURES: &[FeatureInfo] = &[
     FeatureInfo { id: "bench_gap", unit: "m", desc: "length x (distance to nearest bench / 500)" },
     FeatureInfo { id: "toilet_gap", unit: "m", desc: "length x (distance to nearest toilets / 500)" },
     FeatureInfo { id: "water_gap", unit: "m", desc: "length x (distance to nearest drinking water / 500)" },
+    FeatureInfo { id: "icy", unit: "m", desc: "length x ice share x shade: ice share 0 at <=3% grade, 1 at >=7%; shade = shade(t) by day, 1 at night (shaded hills stay icy)" },
+    FeatureInfo { id: "flood", unit: "m", desc: "length x share of the edge in a FEMA flood zone (unknown 0)" },
+    FeatureInfo { id: "crossing", unit: "n", desc: "weighted crossings: each unsignalled crossing 1, each signalled crossing .3" },
+    FeatureInfo { id: "no_sidewalk", unit: "m", desc: "length of road tagged without a sidewalk (unknown 0)" },
+    FeatureInfo { id: "kerb", unit: "n", desc: "number of crossings with a raised kerb (wheelchair barrier)" },
+    FeatureInfo { id: "dull", unit: "m", desc: "length x (1 - max(green share, water-view share)): not near greenery or water (unknown 0)" },
 ];
 
-pub const N_FEATURES: usize = 13;
+pub const N_FEATURES: usize = 19;
 const _: () = assert!(FEATURES.len() == N_FEATURES);
 
 pub fn feature_index(id: &str) -> Option<usize> {
@@ -88,6 +94,15 @@ pub fn edge_features(edge: &Edge, forward: bool, mode: Mode, meta: &Meta, t_min:
         _ => edge.tree.unwrap_or(0.0),
     }
     .clamp(0.0, 1.0);
+    // Shaded hills stay icy: by day the sun melts the sunny part; at night nothing does.
+    let ice_shade = if night { 1.0 } else { shade };
+    let ice = ((edge.max_grade_pct - 3.0) / 4.0).clamp(0.0, 1.0);
+    let signalled = edge.crossings.saturating_sub(edge.crossings_unsignalled.min(edge.crossings));
+    let no_sidewalk = if edge.sidewalk == Some(false) { len } else { 0.0 };
+    let dull = match (edge.green, edge.water_view) {
+        (None, None) => 0.0,
+        (g, w) => 1.0 - g.unwrap_or(0.0).max(w.unwrap_or(0.0)).clamp(0.0, 1.0),
+    };
     let lts = match edge.lts {
         Some(l) => (l.clamp(1, 4) as f32 - 1.0) / 3.0,
         None => 0.5,
@@ -108,5 +123,11 @@ pub fn edge_features(edge: &Edge, forward: bool, mode: Mode, meta: &Meta, t_min:
         len * gap(edge.near_bench_m),
         len * gap(edge.near_toilets_m),
         len * gap(edge.near_water_m),
+        len * ice * ice_shade,
+        len * edge.flood.unwrap_or(0.0).clamp(0.0, 1.0),
+        edge.crossings_unsignalled.min(edge.crossings) as f32 + 0.3 * signalled as f32,
+        no_sidewalk,
+        edge.kerb_raised as f32,
+        len * dull,
     ]
 }

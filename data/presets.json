@@ -16,9 +16,9 @@
   {
     "id": "wheelchair",
     "name": "Wheelchair",
-    "description": "No stairs; climbs, steep grades and rough surfaces cost a lot.",
+    "description": "No stairs; climbs, steep grades and rough surfaces cost a lot; raised kerbs, roads without sidewalks and icy slopes are avoided where the data knows them.",
     "mode": "foot",
-    "weights": { "time": 1, "climb": 15, "steep": 3, "rough": 2 },
+    "weights": { "time": 1, "climb": 15, "steep": 3, "rough": 2, "kerb": 40, "no_sidewalk": 2, "icy": 3 },
     "forbid": ["steps"]
   },
   {
@@ -26,7 +26,7 @@
     "name": "Stroller",
     "description": "Stairs possible but painful; rough and steep paths avoided.",
     "mode": "foot",
-    "weights": { "time": 1, "climb": 6, "steep": 1, "rough": 1, "steps": 30 }
+    "weights": { "time": 1, "climb": 6, "steep": 1, "rough": 1, "steps": 30, "kerb": 10, "no_sidewalk": 1.5 }
   },
   {
     "id": "shade",
@@ -62,5 +62,33 @@
     "description": "Cycling time plus hills, traffic stress and rough surfaces.",
     "mode": "bike",
     "weights": { "time": 1, "climb": 4, "stress": 0.3, "rough": 0.3 }
+  },
+  {
+    "id": "icy",
+    "name": "Icy day",
+    "description": "Winter: shady slopes stay icy, so avoid steep ground the sun does not reach.",
+    "mode": "foot",
+    "weights": { "time": 1, "icy": 4, "steps": 2 }
+  },
+  {
+    "id": "peaceful",
+    "name": "Peaceful",
+    "description": "Quiet streets with greenery or water; busy roads and bare stretches cost extra.",
+    "mode": "foot",
+    "weights": { "time": 1, "busy": 1, "dull": 0.6 }
+  },
+  {
+    "id": "flood",
+    "name": "Flood-safe",
+    "description": "Stay out of FEMA flood zones (Princeton flooded in Ida, 2021).",
+    "mode": "foot",
+    "weights": { "time": 1, "flood": 6 }
+  },
+  {
+    "id": "crossings",
+    "name": "Few crossings",
+    "description": "Fewer street crossings, unsignalled ones most of all (older walkers, kids, bikes).",
+    "mode": "foot",
+    "weights": { "time": 1, "crossing": 25 }
   }
 ]
