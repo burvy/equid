@@ -19,8 +19,8 @@ input[type=range] { width: 100%; }
 #play { border: 1px solid var(--line); background: #fff; border-radius: 4px; cursor: pointer; padding: 0 6px; }
 .formula { font-family: ui-monospace, Consolas, monospace; font-size: 12px; background: #f6f8fa; border-radius: 6px; padding: 6px 8px; }
 details summary { cursor: pointer; margin-top: 6px; color: var(--accent); }
-.w { display: grid; grid-template-columns: 74px 1fr 30px 16px; gap: 4px; align-items: center; margin: 2px 0; }
-.w span:first-child { font-family: ui-monospace, Consolas, monospace; font-size: 12px; }
+.w { display: grid; grid-template-columns: 86px 1fr 30px 16px; gap: 4px; align-items: center; margin: 2px 0; }
+.w span:first-child { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .w .num { text-align: right; color: var(--muted); }
 .w.forbid span:first-child { text-decoration: line-through; color: #b91c1c; }
 .list ol { margin: 6px 0 0; padding-left: 22px; max-height: 260px; overflow-y: auto; }

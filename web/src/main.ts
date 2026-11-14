@@ -408,7 +408,7 @@ function buildWeightSliders() {
     [...S.features, ...extra].map(f => {
       const a = S.metric.weights[f.id] ?? 0, max = f.id === 'time' ? 5 : 30;
       const forbid = S.metric.forbid.includes(f.id);
-      return `<div class="w${forbid ? ' forbid' : ''}" title="${termPhrase(f.id)}: ${f.desc} (${f.unit})"><span>${f.id}</span>` +
+      return `<div class="w${forbid ? ' forbid' : ''}" title="${termPhrase(f.id)}. ${f.id}: ${f.desc} (${f.unit})"><span>${termLabel(f.id)}</span>` +
         `<input type="range" min="0" max="${max}" step="0.1" value="${a}" data-f="${f.id}">` +
         `<span class="num">${a}</span><input type="checkbox" title="forbid: edges with any ${f.id} are impassable" data-forbid="${f.id}"${forbid ? ' checked' : ''}></div>`;
     }).join('');
@@ -499,29 +499,32 @@ function termDesc(id: string): string {
   return S.features.find(f => f.id === id)?.desc ?? id;
 }
 
-/** What a positive weight / a forbid on each feature means for the walker, in a few words (the formula is on hover). */
-const PHRASE: Record<string, [weight: string, forbid: string]> = {
-  time: ['get there quickly', 'no time limit'],
-  climb: ['avoid climbing', 'no uphill at all'],
-  steep: ['avoid steep slopes', 'no steep slopes'],
-  steps: ['avoid stairs', 'no stairs at all'],
-  rough: ['avoid rough surfaces', 'no rough surfaces'],
-  busy: ['stay off busy roads', 'no busy roads'],
-  unlit: ['stay on lit streets', 'no dark streets'],
-  sun: ['stay in the shade', 'no sunny stretches'],
-  exposed: ['stay under cover', 'no uncovered stretches'],
-  stress: ['stay on calm bike streets', 'no stressful bike streets'],
-  bench_gap: ['stay near benches', 'no stretches far from a bench'],
-  toilet_gap: ['stay near toilets', 'no stretches far from toilets'],
-  water_gap: ['stay near drinking water', 'no stretches far from water'],
-  // features being added in the engine (shown only once the engine lists them)
-  icy: ['avoid icy hills', 'no icy stretches'],
-  flood: ['avoid flood zones', 'no flood zones'],
-  crossing: ['fewer road crossings', 'no road crossings'],
-  no_sidewalk: ['stay on sidewalks', 'no roads without a sidewalk'],
-  kerb: ['avoid raised kerbs', 'no raised kerbs'],
-  dull: ['go past greenery and water', 'only green or waterside streets'],
+/** Per feature: what a positive weight means and what a forbid means (a few words, the formula is on hover),
+ * and a short slider label. */
+const PHRASE: Record<string, [weight: string, forbid: string, label: string]> = {
+  time: ['get there quickly', 'no time limit', 'time'],
+  climb: ['avoid climbing', 'no uphill at all', 'climbing'],
+  steep: ['avoid steep slopes', 'no steep slopes', 'steep'],
+  steps: ['avoid stairs', 'no stairs at all', 'stairs'],
+  rough: ['avoid rough surfaces', 'no rough surfaces', 'rough'],
+  busy: ['stay off busy roads', 'no busy roads', 'busy roads'],
+  unlit: ['stay on lit streets', 'no dark streets', 'dark'],
+  sun: ['stay in the shade', 'no sunny stretches', 'sun'],
+  exposed: ['stay under cover', 'no uncovered stretches', 'no cover'],
+  stress: ['stay on calm bike streets', 'no stressful bike streets', 'bike stress'],
+  bench_gap: ['stay near benches', 'no stretches far from a bench', 'far: bench'],
+  toilet_gap: ['stay near toilets', 'no stretches far from toilets', 'far: toilet'],
+  water_gap: ['stay near drinking water', 'no stretches far from water', 'far: water'],
+  // 028 features
+  icy: ['avoid icy hills', 'no icy stretches', 'icy'],
+  flood: ['avoid flood zones', 'no flood zones', 'flood zone'],
+  crossing: ['fewer road crossings', 'no road crossings', 'crossings'],
+  no_sidewalk: ['stay on sidewalks', 'no roads without a sidewalk', 'no sidewalk'],
+  kerb: ['avoid raised kerbs', 'no raised kerbs', 'kerbs'],
+  dull: ['go past greenery and water', 'only green or waterside streets', 'dull streets'],
+  stop: ['fewer stop signs and lights', 'no stop signs or lights', 'stops'],
 };
+const termLabel = (id: string) => id.startsWith('near:') ? `near ${id.slice(5)}` : PHRASE[id]?.[2] ?? id;
 function termPhrase(id: string, forbid = false): string {
   if (id.startsWith('near:')) return forbid ? `no ${id.slice(5)} nearby` : `stay near ${id.slice(5)}`;
   return PHRASE[id]?.[forbid ? 1 : 0] ?? (forbid ? `no ${id}` : `avoid ${id}`);
