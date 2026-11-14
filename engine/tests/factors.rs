@@ -18,6 +18,7 @@ fn base_edge(c: &Core) -> Edge {
     e.crossings_unsignalled = 0;
     e.sidewalk = None;
     e.kerb_raised = 0;
+    e.stops = 0;
     e.green = None;
     e.water_view = None;
     e.shade = None;
@@ -35,7 +36,7 @@ fn f(e: &Edge, c: &Core, id: &str, t: f32) -> f32 {
 fn new_features_are_zero_without_their_data() {
     let c = fixture();
     let e = base_edge(&c);
-    for id in ["icy", "flood", "crossing", "no_sidewalk", "kerb", "dull"] {
+    for id in ["icy", "flood", "crossing", "no_sidewalk", "kerb", "dull", "stop"] {
         assert_eq!(f(&e, &c, id, 720.0), 0.0, "{id}");
     }
 }
@@ -100,7 +101,7 @@ fn every_preset_compiles_and_factor_presets_exist() {
     for p in &ps {
         Metric::compile(&p.metric).unwrap_or_else(|e| panic!("{}: {e}", p.id));
     }
-    assert_eq!(N_FEATURES, 19);
+    assert_eq!(N_FEATURES, 20);
 }
 
 /// Princeton example: the icy preset on a winter morning (shade known from LiDAR) changes the route.

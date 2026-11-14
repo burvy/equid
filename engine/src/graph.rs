@@ -118,6 +118,9 @@ pub struct Edge {
     /// Sidewalk on a road: true = yes, false = tagged none, null = unknown or not a road.
     #[serde(default)]
     pub sidewalk: Option<bool>,
+    /// Stop signs, give-way signs and traffic signals on this road edge (each node charged once); a stop for bikes.
+    #[serde(default)]
+    pub stops: u8,
     /// Crossings with a raised kerb (a barrier for wheelchairs).
     #[serde(default)]
     pub kerb_raised: u8,

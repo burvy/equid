@@ -86,6 +86,12 @@ the engine swaps them for `to → from`. One example (all fields):
 | `lts` | 1–4 / null | bike Level of Traffic Stress (1 = kids OK, 4 = fast traffic); null if `bike` is false or unknown |
 | `wheelchair` | string? | OSM `wheelchair` tag as-is |
 | `near_bench_m`, `near_toilets_m`, `near_water_m` | f32, 0–500 | distance from the edge to the nearest bench / toilets / drinking water, **capped at 500** (500 = none nearby). Missing = 500 |
+| `flood` | f32 0–1 / null | share of the edge inside a FEMA 1 % / 0.2 % flood zone (task 027); null = unknown |
+| `crossings`, `crossings_unsignalled` | u8 | marked crossings on the edge, and the subset with no signal or stop (`unsignalled <= crossings`); default 0 |
+| `stops` | u8 | stop signs, give-way signs and traffic signals on a road edge (each node charged once); default 0 |
+| `sidewalk` | bool / null | on roads: sidewalk present / tagged none / unknown; null on paths |
+| `kerb_raised` | u8 | crossings with a raised kerb (wheelchair barrier); default 0 |
+| `green`, `water_view` | f32 0–1 / null | share within ~30 m of green space / open water; null = unknown |
 | `tree` | f32 0–1 / null | share of the cells within ±2 m of the edge that are tree crown (USGS 3DEP LiDAR, filled by `prep-shade`) |
 | `shade` | `[f32; slots]` 0–1 / null | shade per time slot (`meta.slots` values, slot i covers `[i·slot_min, (i+1)·slot_min)`): 1 − share of direct sun reaching head height along the edge on `meta.date` (roofs block, tree crowns dim by season). Night = 1, covered = 1. Filled by `prep-shade` (see prep-shade/README.md) |
 
@@ -186,6 +192,15 @@ A weight `aᵢ` therefore reads as *seconds of penalty per metre*, and total cos
 | `bench_gap` | m | `length · near_bench_m / 500` |
 | `toilet_gap` | m | `length · near_toilets_m / 500` |
 | `water_gap` | m | `length · near_water_m / 500` |
+| `icy` | m | `length · clamp((max_grade_pct − 3) / 4, 0, 1) · s`; s = shade(t) by day (as `sun`), 1 at night. Shady hills stay icy |
+| `flood` | m | `length · flood` (null = 0) |
+| `crossing` | n | `crossings_unsignalled + 0.3 · (crossings − crossings_unsignalled)`; weight = seconds per crossing |
+| `no_sidewalk` | m | `length` if `sidewalk == false` (unknown = 0) |
+| `kerb` | n | `kerb_raised` (use with `forbid` for a no-raised-kerb wheelchair route) |
+| `stop` | n | `stops`; weight = seconds per stop (bike preset: 8) |
+| `dull` | m | `length · (1 − max(green, water_view))`; 0 when both are null |
+
+Every new feature is 0 when its data is missing, so a region without the 027 fields behaves exactly as before.
 
 The feature list is **append-only** (the index is the position in the feature vector).
 Adding a feature = new row here + `FEATURES` entry + one line in `edge_features`.
@@ -204,7 +219,7 @@ Adding a feature = new row here + `FEATURES` entry + one line in `edge_features`
 
 An array of named metrics (a metric plus `id`, `name`, `description`). A preset object can be passed to
 `field` directly. The engine embeds the file (`Engine.presets_json()`), so the engine and web never disagree.
-Current presets: walk, hiking (Naismith), wheelchair, stroller, shade, night, rest, rain, bike.
+Current presets: walk, hiking (Naismith), wheelchair, stroller, shade, night, rest, rain, bike, icy, peaceful, flood, crossings. Wheelchair and stroller also weigh `kerb` and `no_sidewalk`.
 Weights are first guesses, to be tuned on the real data.
 
 ```json

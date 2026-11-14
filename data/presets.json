@@ -61,7 +61,7 @@
     "name": "Bike",
     "description": "Cycling time plus hills, traffic stress and rough surfaces.",
     "mode": "bike",
-    "weights": { "time": 1, "climb": 4, "stress": 0.3, "rough": 0.3 }
+    "weights": { "time": 1, "climb": 4, "stress": 0.3, "rough": 0.3, "stop": 8 }
   },
   {
     "id": "icy",
