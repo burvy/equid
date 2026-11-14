@@ -40,7 +40,7 @@ pub struct Core {
     /// Directed petgraph view, built once at load. Undirected edge i becomes arc 2i (from->to,
     /// weight (i, true)) and arc 2i+1 (to->from, weight (i, false)); costs are filled per query.
     arcs: DiGraph<(), (u32, bool), u32>,
-    shapes: view::Shapes,
+    pub shapes: view::Shapes,
     metres: objects::Metres,
     /// Open-vocabulary object layers by label (see `objects`).
     objects: std::collections::BTreeMap<String, objects::Layer>,
@@ -88,6 +88,17 @@ impl Core {
         }
         let pts: Vec<(f64, f64)> = self.places.places.iter().map(|q| (q.lon, q.lat)).collect();
         Ok(view::build(&self.graph, &self.shapes, &field.node_cost, &field.place_cost, &pts, origin, p))
+    }
+
+    /// Isochrone of cost `cost_s` around `origin` as a closed xyz path under the view parameters (see `view::isochrone`).
+    pub fn isochrone(&self, field: &FieldResult, origin: u32, cost_s: f32, p: &view::ViewParams) -> Result<Vec<f32>, String> {
+        if origin as usize >= self.graph.nodes.len() {
+            return Err("origin node out of range".into());
+        }
+        if field.node_cost.len() != self.graph.nodes.len() {
+            return Err("field does not match this graph".into());
+        }
+        Ok(view::isochrone(&self.graph, &self.shapes, &field.node_cost, origin, cost_s, p))
     }
 
     /// Warp-view ring of `radius_m` around `origin`, as (dLon, dLat) offsets (97 points, closed).

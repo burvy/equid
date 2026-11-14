@@ -264,6 +264,9 @@ vb.place_positions, vb.place_colors;   // per place, places.json order; unreacha
 vb.origin_lon, vb.origin_lat;          // bbox centre
 vb.free();
 engine.ring(origin, radiusM);          // Float32Array xy offsets, 97 points, closed (warp-view rings)
+engine.isochrone(f, origin, costS, warp, lift, metresPerS); // Float32Array xyz offsets, closed: where the field crosses costS
+// (outermost crossing per 2-degree bearing bin, gaps filled in polar coords). Same blend as view_buffers, so it is an
+// isochrone on the map and the circle of radius costS x metresPerS at warp 1 (task 024). Empty if nothing reaches costS.
 ```
 
 - `warp` 0..1 blends real -> warped: `warped = origin + direction-to-vertex x (cost x metresPerS)` (bearing kept, radius = cost).

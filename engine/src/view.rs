@@ -199,3 +199,89 @@ pub fn ring(g: &Graph, sh: &Shapes, origin: u32, radius_m: f32, steps: usize) ->
     }
     out
 }
+
+/// One point where the cost field crosses a level: on edge `edge` at `frac` (0..1 by length) of the way from `from` to `to`.
+#[derive(Debug, Clone, Copy)]
+pub struct ContourPt {
+    pub lon: f64,
+    pub lat: f64,
+    pub edge: u32,
+    pub frac: f32,
+}
+
+/// Bearing bins for the isochrone outline (2 degrees each).
+pub const ISO_BINS: usize = 180;
+
+/// Isochrone at cost `c` (s): along every edge whose end costs straddle `c`, the point where the (linearly
+/// interpolated, as in `vertex_cost`) cost equals `c`. Then, per bearing bin from `origin`, only the farthest
+/// such point, in bearing order: the outer reach of `c`, a simple closed outline (holes are ignored).
+pub fn contour(g: &Graph, sh: &Shapes, node_cost: &[f32], origin: u32, c: f32) -> Vec<ContourPt> {
+    let on = &g.nodes[origin as usize];
+    let k = on.lat.to_radians().cos();
+    let mut best: Vec<Option<(f64, ContourPt)>> = vec![None; ISO_BINS];
+    for (i, e) in g.edges.iter().enumerate() {
+        let (cf, ct) = (node_cost[e.from as usize], node_cost[e.to as usize]);
+        if !cf.is_finite() || !ct.is_finite() || (cf - c) * (ct - c) > 0.0 || cf == ct {
+            continue;
+        }
+        let s = (c - cf) / (ct - cf); // where vertex_cost(cf, ct, s) == c
+        // the geometry segment containing fraction s
+        let (a, b) = (sh.start[i] as usize, sh.start[i + 1] as usize);
+        let mut v = a;
+        while v + 2 < b && sh.frac[v + 1] < s {
+            v += 1;
+        }
+        let (f0, f1) = (sh.frac[v], sh.frac[v + 1]);
+        let u = if f1 > f0 { ((s - f0) / (f1 - f0)) as f64 } else { 0.0 };
+        let lon = sh.lon[v] + (sh.lon[v + 1] - sh.lon[v]) * u;
+        let lat = sh.lat[v] + (sh.lat[v + 1] - sh.lat[v]) * u;
+        let (dx, dy) = ((lon - on.lon) * k * M_PER_DEG_LON_EQ, (lat - on.lat) * M_PER_DEG_LAT);
+        let d = dx.hypot(dy);
+        let bin = (((dx.atan2(dy) + std::f64::consts::TAU) % std::f64::consts::TAU) / std::f64::consts::TAU * ISO_BINS as f64) as usize % ISO_BINS;
+        if best[bin].is_none_or(|(bd, _)| d > bd) {
+            best[bin] = Some((d, ContourPt { lon, lat, edge: i as u32, frac: s }));
+        }
+    }
+    best.into_iter().flatten().map(|(_, p)| p).collect()
+}
+
+/// The isochrone of cost `c` as a closed path of xyz offsets (as in `build`), under the view parameters.
+/// Every point has cost `c`, so it goes through the same blend as the streets: at warp 1 it lies on the circle
+/// of radius c x metres_per_s (bearing kept), and in between it morphs. Bearing gaps wider than one bin are
+/// filled by interpolating distance linearly in polar coordinates (so the warp circle stays round). Empty if
+/// nothing crosses `c`.
+pub fn isochrone(g: &Graph, sh: &Shapes, node_cost: &[f32], origin: u32, c: f32, p: &ViewParams) -> Vec<f32> {
+    use std::f64::consts::TAU;
+    let pts = contour(g, sh, node_cost, origin, c);
+    let on = &g.nodes[origin as usize];
+    let k = on.lat.to_radians().cos();
+    let o = (on.lon, on.lat, k);
+    // (bearing, metres) of each point
+    let polar: Vec<(f64, f64)> = pts
+        .iter()
+        .map(|q| {
+            let (dx, dy) = ((q.lon - on.lon) * k * M_PER_DEG_LON_EQ, (q.lat - on.lat) * M_PER_DEG_LAT);
+            (dx.atan2(dy).rem_euclid(TAU), dx.hypot(dy))
+        })
+        .collect();
+    let step = TAU / ISO_BINS as f64;
+    let mut out = Vec::with_capacity((ISO_BINS + 1) * 3);
+    let n = pts.len();
+    for i in 0..n {
+        out.extend(blend(sh, pts[i].lon, pts[i].lat, c, o, p));
+        let ((b0, d0), (b1, d1)) = (polar[i], polar[(i + 1) % n]);
+        let gap = (b1 - b0).rem_euclid(TAU);
+        let gap = if n == 1 { TAU } else { gap };
+        let fill = (gap / step).floor() as usize;
+        for j in 1..fill {
+            let t = j as f64 / fill as f64;
+            let (b, d) = (b0 + gap * t, d0 + (d1 - d0) * t);
+            let (lon, lat) = (on.lon + b.sin() * d / (k * M_PER_DEG_LON_EQ), on.lat + b.cos() * d / M_PER_DEG_LAT);
+            out.extend(blend(sh, lon, lat, c, o, p));
+        }
+    }
+    if n > 0 {
+        out.extend(blend(sh, pts[0].lon, pts[0].lat, c, o, p));
+    }
+    out
+}

@@ -119,6 +119,14 @@ impl Engine {
         self.core.view_buffers(&r, origin, &p).map(ViewBuffers).map_err(|e| JsError::new(&e))
     }
 
+    /// Isochrone of `cost_s` seconds around `origin`: closed path, xyz offsets as in `view_buffers`, under the same
+    /// warp/lift, so map-view isochrones morph into the warp circles. Empty if nothing reaches that cost.
+    pub fn isochrone(&self, field: &Field, origin: u32, cost_s: f32, warp: f32, lift: f32, metres_per_s: f32) -> Result<Vec<f32>, JsError> {
+        let r = crate::FieldResult { node_cost: field.node_cost.clone(), place_cost: Vec::new() };
+        let p = crate::view::ViewParams { warp, lift, metres_per_s, budget_s: cost_s, hide_beyond: 0.0 };
+        self.core.isochrone(&r, origin, cost_s, &p).map_err(|e| JsError::new(&e))
+    }
+
     /// Closed circle (97 points, xy offsets as in `view_buffers`) of `radius_m` around `origin`: warp-view rings.
     pub fn ring(&self, origin: u32, radius_m: f32) -> Result<Vec<f32>, JsError> {
         self.core.ring(origin, radius_m).map_err(|e| JsError::new(&e))

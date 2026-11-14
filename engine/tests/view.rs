@@ -205,3 +205,45 @@ fn hide_beyond_caps_height_fades_and_drops() {
         }
     }
 }
+
+#[test]
+fn isochrone_points_sit_at_cost_c_and_warp_onto_the_circle() {
+    let c = Core::load(G, P).unwrap();
+    let m = Metric::from_json(r#"{"weights":{"time":1,"climb":10}}"#).unwrap();
+    let origin = 5u32;
+    let f = c.field(origin, &m, 1e9).unwrap();
+    let level = 90.0;
+    let pts = engine::view::contour(&c.graph, &c.shapes, &f.node_cost, origin, level);
+    assert!(pts.len() >= 3, "fixture should cross 90 s on several edges");
+    let on = &c.graph.nodes[origin as usize];
+    let k = on.lat.to_radians().cos();
+    let mut last_bearing = -1.0;
+    for q in &pts {
+        let e = &c.graph.edges[q.edge as usize];
+        let (cf, ct) = (f.node_cost[e.from as usize], f.node_cost[e.to as usize]);
+        // cost at the point is the level (same interpolation as the street colours)
+        assert!((engine::view::vertex_cost(cf, ct, q.frac) - level).abs() < 1e-3);
+        // the point lies on the edge's geometry (within its bbox)
+        let (lo, hi) = e.geom.iter().fold(([f64::MAX; 2], [f64::MIN; 2]), |(lo, hi), p| {
+            ([lo[0].min(p[0]), lo[1].min(p[1])], [hi[0].max(p[0]), hi[1].max(p[1])])
+        });
+        assert!(q.lon >= lo[0] - 1e-9 && q.lon <= hi[0] + 1e-9 && q.lat >= lo[1] - 1e-9 && q.lat <= hi[1] + 1e-9);
+        // bearing order
+        let b = ((q.lon - on.lon) * k * M_LON).atan2((q.lat - on.lat) * M_LAT).rem_euclid(std::f64::consts::TAU);
+        assert!(b >= last_bearing);
+        last_bearing = b;
+    }
+    // at warp 1 every point is on the circle of radius level x metres_per_s, and the path is closed
+    let p = ViewParams { warp: 1.0, lift: 0.0, metres_per_s: 1.5, budget_s: level, hide_beyond: 0.0 };
+    let path = c.isochrone(&f, origin, level, &p).unwrap();
+    assert!(path.len() >= 3 * (pts.len() + 1)); // contour points + polar gap fill + closing point
+    assert_eq!(path[..3], path[path.len() - 3..]);
+    let ob = c.view_buffers(&f, origin, &p).unwrap();
+    for xyz in path.chunks(3) {
+        let (lon, lat) = (ob.origin_lon + xyz[0] as f64, ob.origin_lat + xyz[1] as f64);
+        let r = ((lon - on.lon) * k * M_LON).hypot((lat - on.lat) * M_LAT);
+        assert!((r - level as f64 * 1.5).abs() < 0.5, "radius {r}");
+    }
+    // nothing crosses a level beyond every cost
+    assert!(c.isochrone(&f, origin, 1e8, &p).unwrap().is_empty());
+}

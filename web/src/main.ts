@@ -138,8 +138,6 @@ function ringStep(budgetMin: number): number {
   return 30;
 }
 
-/** Flat [x0,y0,x1,y1,…] offsets → [[x,y],…] (deck path format). */
-const pairs = (a: Float32Array): [number, number][] => Array.from({ length: a.length / 2 }, (_, i) => [a[2 * i], a[2 * i + 1]]);
 
 // The per-vertex math (warp positions, 3D height, colours) runs in the engine (view_buffers); this
 // function only hands the typed arrays to deck.gl. Positions are offsets from (origin_lon, origin_lat)
@@ -156,22 +154,13 @@ function layers() {
   const geo = { coordinateSystem: COORDINATE_SYSTEM.LNGLAT_OFFSETS, coordinateOrigin };
 
   const out: unknown[] = [];
-  if (v.warp > 0.01) {
-    const step = ringStep(S.budgetMin);
-    const rings = [];
-    for (let m = step; m <= S.budgetMin + 1e-9; m += step) rings.push({ m, path: pairs(S.engine.ring(S.origin, m * 60 * v.metresPerSecond)) });
-    const a = Math.round(255 * v.warp);
-    out.push(new PathLayer({
-      id: 'rings', data: rings, ...geo, getPath: (d: { path: [number, number][] }) => d.path,
-      getColor: [11, 107, 203, Math.round(a * 0.6)], getWidth: 1.5, widthUnits: 'pixels',
-    }));
-    out.push(new TextLayer({
-      id: 'ring-labels', data: rings, ...geo,
-      getPosition: (d: { path: [number, number][] }) => d.path[0],
-      getText: (d: { m: number }) => `${d.m} min for you`,
-      getSize: 12, getColor: [11, 107, 203, a], getPixelOffset: [0, -8],
-      fontFamily: 'system-ui, sans-serif',
-    }));
+  // Budget rings = isochrones (engine: where the cost field crosses N min, outermost per bearing). Their points have
+  // cost exactly N min and go through the same warp as the streets, so the blobs on the map morph into the warp circles.
+  const step = ringStep(S.budgetMin);
+  const rings: { m: number; path: Float32Array }[] = [];
+  for (let m = step; m <= S.budgetMin + 1e-9; m += step) {
+    const path = S.engine.isochrone(S.field, S.origin, m * 60, v.warp, v.lift, v.metresPerSecond);
+    if (path.length >= 9) rings.push({ m, path });
   }
 
   out.push(new PathLayer({
@@ -185,6 +174,10 @@ function layers() {
     _pathType: 'open',
     getWidth: 4, widthUnits: 'pixels', widthMinPixels: 2, capRounded: true, jointRounded: true,
     billboard: true,
+  }));
+  out.push(new PathLayer({
+    id: 'rings', data: { length: rings.length, startIndices: ringStarts(rings), attributes: { getPath: { value: concat(rings.map(r => r.path)), size: 3 } } },
+    ...geo, _pathType: 'open', getColor: [11, 107, 203, 190], getWidth: 2, widthUnits: 'pixels', jointRounded: true,
   }));
 
   const placeData = S.places.map((p, i) => ({ p, i, c: S.placeCost[i], pos: [placePos[3 * i], placePos[3 * i + 1], placePos[3 * i + 2]] }))
@@ -225,8 +218,30 @@ function layers() {
     getPosition: (n: GNode) => [n.lon - coordinateOrigin[0], n.lat - coordinateOrigin[1], 0], getRadius: 9, radiusUnits: 'pixels',
     getFillColor: [11, 107, 203], getLineColor: [255, 255, 255], lineWidthMinPixels: 3, stroked: true,
   }));
+  // ring labels last, with a white halo, so streets and places never cover them; at the ring's northmost-bearing point
+  out.push(new TextLayer({
+    id: 'ring-labels', data: rings, ...geo,
+    getPosition: (d: { path: Float32Array }) => [d.path[0], d.path[1], d.path[2]],
+    getText: (d: { m: number }) => `${d.m} min for you`,
+    getSize: 12, getColor: [11, 107, 203], getPixelOffset: [0, -9],
+    fontFamily: 'system-ui, sans-serif', fontWeight: 600,
+    fontSettings: { sdf: true }, outlineWidth: 4, outlineColor: [255, 255, 255, 230],
+  }));
   return out;
 }
+
+/** deck binary paths: start index (in vertices) of each ring, then the total. */
+function ringStarts(rings: { path: Float32Array }[]): Uint32Array {
+  const out = new Uint32Array(rings.length + 1);
+  rings.forEach((r, i) => { out[i + 1] = out[i] + r.path.length / 3; });
+  return out;
+}
+const concat = (parts: Float32Array[]) => {
+  const out = new Float32Array(parts.reduce((n, p) => n + p.length, 0));
+  let o = 0;
+  for (const p of parts) { out.set(p, o); o += p.length; }
+  return out;
+};
 
 /** Graph edge under the cursor for a picked street path, or null. */
 function pickedEdge(info: PickingInfo): GEdge | null {
@@ -284,8 +299,9 @@ function renderFormula() {
 }
 
 function renderLegend() {
-  const extra = S.view === 'warp' ? `rings every ${ringStep(S.budgetMin)} min · radius = your cost`
-    : S.view === '3d' ? 'height = your cost' : 'grey = beyond budget';
+  const rings = `rings every ${ringStep(S.budgetMin)} min`;
+  const extra = S.view === 'warp' ? `${rings} · radius = your cost`
+    : S.view === '3d' ? `height = your cost · ${rings}` : `${rings} (isochrones) · grey = beyond budget`;
   $('legend').innerHTML = `<div>your cost (${S.metric.mode === 'bike' ? 'cycling' : 'walking'} minutes-equivalent)</div>` +
     `<div class="bar"></div><div class="ends"><span>0</span><span>${S.budgetMin} min</span></div><div>${extra}</div>`;
 }
