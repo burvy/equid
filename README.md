@@ -44,7 +44,7 @@ npm run preview  # serve web/dist
 One cost field, three views. `web/src/main.ts` is glue only; all math is in the engine.
 
 - **Data flow:** controls → metric JSON → `engine.field(origin, metric, t)` (Dijkstra) → per-node and per-place costs →
-  `engine.view_buffers(field, origin, warp, lift, metresPerS, budgetS)` → typed arrays → deck.gl layers
+  `engine.view_buffers(field, origin, warp, lift, metresPerS, budgetS, hideBeyond)` → typed arrays → deck.gl layers
   (`COORDINATE_SYSTEM.LNGLAT_OFFSETS`) over a MapLibre basemap (OpenFreeMap positron, no key).
 - **Views:** `map` (warp 0, flat), `warp` (warp 1: bearing kept, radius = your cost; rings every N min), `3d` (height = cost).
   `setView` animates warp/lift between them.

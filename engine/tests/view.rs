@@ -11,7 +11,7 @@ const M_LAT: f64 = 110_540.0;
 const M_LON: f64 = 111_320.0;
 
 fn params(warp: f32) -> ViewParams {
-    ViewParams { warp, lift: 2.0, metres_per_s: 1.5, budget_s: 600.0 }
+    ViewParams { warp, lift: 2.0, metres_per_s: 1.5, budget_s: 600.0, hide_beyond: 0.0 }
 }
 
 /// Real (lon, lat) of every vertex of the paths in `b`, in buffer order.
@@ -174,4 +174,34 @@ fn timing_on_20k_edges() {
         t0.elapsed().as_secs_f64() * 1000.0 / n as f64,
         if cfg!(debug_assertions) { "debug" } else { "release" }
     );
+}
+
+#[test]
+fn hide_beyond_caps_height_fades_and_drops() {
+    let c = Core::load(G, P).unwrap();
+    let m = Metric::from_json(r#"{"weights":{"time":1}}"#).unwrap();
+    let f = c.field(0, &m, 1e9).unwrap();
+    let budget = 60.0; // small, so part of the fixture is beyond it
+    let p = |h: f32| ViewParams { warp: 0.0, lift: 2.0, metres_per_s: 1.5, budget_s: budget, hide_beyond: h };
+    let half = c.view_buffers(&f, 0, &p(0.5)).unwrap();
+    let mut beyond = 0;
+    for (i, &vc) in half.vertex_cost.iter().enumerate() {
+        let z = half.positions[3 * i + 2];
+        if vc > budget {
+            beyond += 1;
+            assert!((z - 2.0 * (vc + budget) / 2.0).abs() < 1e-2, "half-way to the cap");
+            assert_eq!(half.colors[4 * i + 3], 35); // 70 x 0.5
+        } else {
+            assert!((z - 2.0 * vc).abs() < 1e-3);
+        }
+    }
+    assert!(beyond > 0);
+    let full = c.view_buffers(&f, 0, &p(1.0)).unwrap();
+    assert!(full.path_edge.len() < half.path_edge.len());
+    for (i, &vc) in full.vertex_cost.iter().enumerate() {
+        assert!(full.positions[3 * i + 2] <= 2.0 * budget + 1e-3);
+        if vc > budget {
+            assert_eq!(full.colors[4 * i + 3], 0);
+        }
+    }
 }

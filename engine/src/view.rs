@@ -22,6 +22,10 @@ pub struct ViewParams {
     pub metres_per_s: f32,
     /// Cost (s) at which the colour ramp reaches red; beyond it, grey.
     pub budget_s: f32,
+    /// 0..1: how far beyond-budget streets/places are put away. They fade out (alpha x (1 - hide)) and
+    /// their position cost is pulled down to the budget, so in 3D they don't rise as grey towers and in warp
+    /// they don't sit far out over the picture. At 1, edges wholly beyond the budget are dropped (no picking).
+    pub hide_beyond: f32,
 }
 
 /// Vertex data of every edge's geometry, flattened once at load.
@@ -111,6 +115,18 @@ pub fn cost_color(c: f32, budget_s: f32) -> [u8; 4] {
     [m(0), m(1), m(2), 230]
 }
 
+/// (position cost, rgba) for a point with cost `c`, applying `hide_beyond`.
+fn shown(c: f32, p: &ViewParams) -> (f32, [u8; 4]) {
+    let mut col = cost_color(c, p.budget_s);
+    let h = p.hide_beyond.clamp(0.0, 1.0);
+    if h > 0.0 && c > p.budget_s {
+        col[3] = (col[3] as f32 * (1.0 - h)) as u8;
+        let cap = if c.is_finite() { c + (p.budget_s - c) * h } else { p.budget_s };
+        return (cap, col);
+    }
+    (c, col)
+}
+
 /// Position of a point with cost `c` under the view parameters, as (dLon, dLat, z) offsets.
 fn blend(sh: &Shapes, lon: f64, lat: f64, c: f32, o: (f64, f64, f64), p: &ViewParams) -> [f32; 3] {
     let (olon, olat, k) = o;
@@ -145,22 +161,27 @@ pub fn build(
         if !cf.is_finite() && !ct.is_finite() {
             continue;
         }
+        if p.hide_beyond >= 1.0 && !(cf <= p.budget_s) && !(ct <= p.budget_s) {
+            continue;
+        }
         b.start_indices.push(b.vertex_cost.len() as u32);
         b.path_edge.push(i as u32);
         for v in sh.start[i] as usize..sh.start[i + 1] as usize {
             let c = vertex_cost(cf, ct, sh.frac[v]);
-            b.positions.extend(blend(sh, sh.lon[v], sh.lat[v], c, o, p));
-            b.colors.extend(cost_color(c, p.budget_s));
+            let (pc, col) = shown(c, p);
+            b.positions.extend(blend(sh, sh.lon[v], sh.lat[v], pc, o, p));
+            b.colors.extend(col);
             b.vertex_cost.push(c);
         }
     }
     for (&(lon, lat), &c) in places.iter().zip(place_cost) {
+        let (pc, col) = shown(c, p);
         if c.is_finite() {
-            b.place_positions.extend(blend(sh, lon, lat, c, o, p));
+            b.place_positions.extend(blend(sh, lon, lat, pc, o, p));
         } else {
             b.place_positions.extend([(lon - sh.origin_lon) as f32, (lat - sh.origin_lat) as f32, 0.0]);
         }
-        b.place_colors.extend(cost_color(c, p.budget_s));
+        b.place_colors.extend(col);
     }
     b
 }

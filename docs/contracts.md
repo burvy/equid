@@ -247,7 +247,9 @@ Features from `features_json()` stay the fixed built-in list; labels come from `
 The per-vertex math for the three views lives in the engine (`engine/src/view.rs`); the page hands the arrays to deck.gl.
 
 ```ts
-const vb = engine.view_buffers(f /* the Field from field() */, origin, warp, lift, metresPerS, budgetS);
+const vb = engine.view_buffers(f /* the Field from field() */, origin, warp, lift, metresPerS, budgetS, hideBeyond);
+// hideBeyond 0..1 (task 022): beyond-budget streets/places fade (alpha x (1 - h)) and their height/radius is
+// pulled to the budget; at 1, edges wholly beyond the budget are omitted. The web uses 0 on the map, 1 in warp/3D.
 vb.positions;      // Float32Array xyz per vertex: (dLon deg, dLat deg, z m) OFFSETS from (vb.origin_lon, vb.origin_lat)
 vb.colors;         // Uint8Array rgba per vertex (green -> yellow -> red at budgetS, grey beyond / unreachable)
 vb.vertex_cost;    // Float32Array seconds-equivalent per vertex (linear along the edge)

@@ -111,10 +111,11 @@ impl Engine {
 
     /// Buffers for the three views from a `field` result (docs/contracts.md section 4). `warp` 0..1 blends
     /// real -> warped positions, `lift` = metres of height per second of cost, `metres_per_s` = warp radius
-    /// per second of cost, `budget_s` = cost where the colour ramp reaches red.
-    pub fn view_buffers(&self, field: &Field, origin: u32, warp: f32, lift: f32, metres_per_s: f32, budget_s: f32) -> Result<ViewBuffers, JsError> {
+    /// per second of cost, `budget_s` = cost where the colour ramp reaches red, `hide_beyond` (0..1) fades out
+    /// beyond-budget streets/places and caps their height/radius at the budget (1 = drop them).
+    pub fn view_buffers(&self, field: &Field, origin: u32, warp: f32, lift: f32, metres_per_s: f32, budget_s: f32, hide_beyond: f32) -> Result<ViewBuffers, JsError> {
         let r = crate::FieldResult { node_cost: field.node_cost.clone(), place_cost: field.place_cost.clone() };
-        let p = crate::view::ViewParams { warp, lift, metres_per_s, budget_s };
+        let p = crate::view::ViewParams { warp, lift, metres_per_s, budget_s, hide_beyond };
         self.core.view_buffers(&r, origin, &p).map(ViewBuffers).map_err(|e| JsError::new(&e))
     }
 

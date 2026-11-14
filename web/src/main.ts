@@ -15,8 +15,9 @@ import init, { Engine, Field } from './pkg/engine.js';
 type GNode = { lon: number; lat: number; elev_m: number };
 type GEdge = { from: number; to: number; highway: string; steps?: boolean };
 type Graph = { meta: { bbox: [number, number, number, number]; region: string; sunrise_min: number; sunset_min: number }; nodes: GNode[]; edges: GEdge[] };
-/** How far we are between views: 0..1 warp blend, lift = metres of height per second of cost. */
-type ViewBlend = { warp: number; lift: number; metresPerSecond: number };
+/** How far we are between views: 0..1 warp blend, lift = metres of height per second of cost,
+ *  hide = 0..1 how far beyond-budget streets/places are put away (on in warp and 3D, off on the map). */
+type ViewBlend = { warp: number; lift: number; metresPerSecond: number; hide: number };
 type Place = { id: string; name: string | null; category: string; lon: number; lat: number; node: number; rating: number | null; n: number | null };
 type MetricSpec = { mode: 'foot' | 'bike'; weights: Record<string, number>; forbid: string[] };
 type Preset = MetricSpec & { id: string; name: string; description: string };
@@ -50,7 +51,7 @@ const S = {
   alpha: 0,
   category: 'all',
   view: (params.get('view') as View) ?? 'map',
-  blend: { warp: 0, lift: 0, metresPerSecond: 1.34 } as ViewBlend,
+  blend: { warp: 0, lift: 0, metresPerSecond: 1.34, hide: 0 } as ViewBlend,
   nodeCost: new Float32Array(0) as Float32Array<ArrayBufferLike>,
   placeCost: new Float32Array(0) as Float32Array<ArrayBufferLike>,
   fieldMs: 0,
@@ -135,7 +136,7 @@ function layers() {
   if (!S.graph || !S.engine || !S.field) return [];
   const budgetS = S.budgetMin * 60;
   const v = S.blend;
-  const vb = S.engine.view_buffers(S.field, S.origin, v.warp, v.lift, v.metresPerSecond, budgetS);
+  const vb = S.engine.view_buffers(S.field, S.origin, v.warp, v.lift, v.metresPerSecond, budgetS, v.hide);
   const positions = vb.positions, colors = vb.colors, startIndices = vb.start_indices;
   const pathEdge = vb.path_edge, placePos = vb.place_positions;
   const coordinateOrigin: [number, number, number] = [vb.origin_lon, vb.origin_lat, 0];
@@ -175,14 +176,16 @@ function layers() {
   }));
 
   const placeData = S.places.map((p, i) => ({ p, i, c: S.placeCost[i], pos: [placePos[3 * i], placePos[3 * i + 1], placePos[3 * i + 2]] }))
-    .filter(d => Number.isFinite(d.c) && (S.category === 'all' || d.p.category === S.category));
+    .filter(d => Number.isFinite(d.c) && (S.category === 'all' || d.p.category === S.category) && (v.hide < 1 || d.c <= budgetS));
+  const beyondAlpha = Math.round(150 * (1 - v.hide));
   out.push(new ScatterplotLayer({
     id: 'places', data: placeData, ...geo, pickable: true,
     getPosition: (d: { pos: [number, number, number] }) => d.pos,
     getRadius: (d: { i: number }) => (d.i === S.highlight ? 9 : 5), radiusUnits: 'pixels',
-    getFillColor: (d: { c: number }) => (d.c <= budgetS ? [124, 58, 237, 230] : [160, 160, 170, 150]),
-    getLineColor: [255, 255, 255], lineWidthMinPixels: 1.5, stroked: true, billboard: true,
-    updateTriggers: { getRadius: S.highlight, getFillColor: S.budgetMin },
+    getFillColor: (d: { c: number }) => (d.c <= budgetS ? [124, 58, 237, 230] : [160, 160, 170, beyondAlpha]),
+    getLineColor: (d: { c: number }) => [255, 255, 255, d.c <= budgetS ? 255 : beyondAlpha],
+    lineWidthMinPixels: 1.5, stroked: true, billboard: true,
+    updateTriggers: { getRadius: S.highlight, getFillColor: [S.budgetMin, beyondAlpha], getLineColor: [S.budgetMin, beyondAlpha] },
   }));
 
   const o = originNode();
@@ -217,6 +220,17 @@ function worth(p: Place): number {
   return Math.max(0.05, ((C * m0 + n * p.rating) / (C + n)) / 5);
 }
 
+// OSM categories as people say them; unnamed places show these instead of 'bicycle_parking'.
+const CATEGORY_LABELS: Record<string, string> = {
+  artwork: 'Public art', attraction: 'Attraction', bench: 'Bench', bicycle_parking: 'Bike parking', cafe: 'Café',
+  drinking_water: 'Drinking fountain', fast_food: 'Fast food', garden: 'Garden', ice_cream: 'Ice cream',
+  library: 'Library', museum: 'Museum', nature_reserve: 'Nature reserve', park: 'Park', playground: 'Playground',
+  restaurant: 'Restaurant', shelter: 'Shelter', toilets: 'Public toilets', viewpoint: 'Viewpoint',
+};
+/** Unknown categories: 'dog_park' -> 'Dog park'. */
+const categoryLabel = (c: string) => CATEGORY_LABELS[c] ?? (c.charAt(0).toUpperCase() + c.slice(1)).replace(/_/g, ' ');
+const placeLabel = (p: Place) => p.name ?? categoryLabel(p.category);
+
 function renderList() {
   const budgetS = S.budgetMin * 60;
   const rows = S.places.map((p, i) => ({ p, i, c: S.placeCost[i], d: S.placeCost[i] / Math.pow(worth(p), S.alpha) }))
@@ -224,7 +238,7 @@ function renderList() {
     .sort((a, b) => a.d - b.d)
     .slice(0, 50);
   $('places').innerHTML = rows.map(r =>
-    `<li data-i="${r.i}" class="${r.c > budgetS ? 'out' : ''}">${r.p.name ?? r.p.category}` +
+    `<li data-i="${r.i}" class="${r.c > budgetS ? 'out' : ''}">${placeLabel(r.p)}` +
     `${r.p.rating != null ? ` <small>★${r.p.rating}</small>` : ''}<span class="c">${fmtMin(r.c)} min</span></li>`).join('')
     || '<li class="out">nothing reachable</li>';
 }
@@ -251,7 +265,7 @@ function tooltip(info: PickingInfo): string | null {
     return `${e.highway}${e.steps ? ' (stairs)' : ''} · ${fmtMin(c)} min for you`;
   }
   const o = info.object as { p?: Place; c?: number } | null;
-  if (o?.p) return `${o.p.name ?? o.p.category} (${o.p.category}) · ${fmtMin(o.c!)} min for you`;
+  if (o?.p) return `${placeLabel(o.p)}${o.p.name ? ` (${categoryLabel(o.p.category)})` : ''} · ${fmtMin(o.c!)} min for you`;
   return null;
 }
 
@@ -271,11 +285,11 @@ let anim = 0;
 function setView(view: View, animate = true, refit = true) {
   S.view = view;
   document.querySelectorAll<HTMLButtonElement>('#views button').forEach(b => b.classList.toggle('on', b.dataset.view === view));
-  const target = { warp: view === 'warp' ? 1 : 0, lift: view === '3d' ? 0.3 * speed(S.metric) : 0 };
+  const target = { warp: view === 'warp' ? 1 : 0, lift: view === '3d' ? 0.3 * speed(S.metric) : 0, hide: view === 'map' ? 0 : 1 };
   if (refit) fitView(view, animate ? 800 : 0);
   // warp positions are not geographic, so the basemap fades out
   map.getCanvas().style.opacity = view === 'warp' ? '0.12' : '1';
-  const from = { warp: S.blend.warp, lift: S.blend.lift };
+  const from = { warp: S.blend.warp, lift: S.blend.lift, hide: S.blend.hide };
   const t0 = performance.now(), dur = animate ? 800 : 0, id = ++anim;
   const step = () => {
     if (id !== anim) return;
@@ -283,6 +297,7 @@ function setView(view: View, animate = true, refit = true) {
     const e = x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; // ease in-out
     S.blend.warp = from.warp + (target.warp - from.warp) * e;
     S.blend.lift = from.lift + (target.lift - from.lift) * e;
+    S.blend.hide = from.hide + (target.hide - from.hide) * e;
     if (S.graph) overlay.setProps({ layers: layers() as never });
     renderLegend();
     if (x < 1) requestAnimationFrame(step);
@@ -416,7 +431,7 @@ async function loadDataset(region: string) {
   const counts = new Map<string, number>();
   for (const p of S.places) counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
   $('category').innerHTML = `<option value="all">all (${S.places.length})</option>` +
-    [...counts].sort((a, b) => b[1] - a[1]).map(([c, k]) => `<option value="${c}">${c} (${k})</option>`).join('');
+    [...counts].sort((a, b) => b[1] - a[1]).map(([c, k]) => `<option value="${c}">${categoryLabel(c)} (${k})</option>`).join('');
   S.category = 'all';
   updateTimeLabel();
   applyPreset(S.presets.some(p => p.id === S.presetId) ? S.presetId : 'walk');
