@@ -129,6 +129,9 @@ pub struct Edge {
     pub green: Option<f32>,
     #[serde(default)]
     pub water_view: Option<f32>,
+    /// Derived at load (never in graph.json): street crossings at the edge's junctions, see `Graph::derive_junctions`.
+    #[serde(skip)]
+    pub junction_crossings: f32,
 }
 
 pub const NEAR_CAP_M: f32 = 500.0;
@@ -172,7 +175,54 @@ pub struct Places {
     pub places: Vec<Place>,
 }
 
+/// Car roads a pedestrian can walk along or must cross; weight = how much of a crossing passing one costs.
+pub fn road_class_weight(highway: &str) -> Option<f32> {
+    match highway {
+        "primary" | "trunk" | "primary_link" | "trunk_link" => Some(1.0),
+        "secondary" | "tertiary" | "secondary_link" | "tertiary_link" => Some(0.7),
+        "residential" | "service" | "unclassified" | "living_street" => Some(0.3),
+        _ => None,
+    }
+}
+
 impl Graph {
+    /// Fill `junction_crossings` from topology: walking a car road, each junction at either end charges
+    /// 0.5 x (sum of the class weights of the OTHER car roads there, minus the largest, which is taken as the road
+    /// continuing straight). So a walk along a primary past a residential T pays 0.3 per junction (0.15 per end of each
+    /// of the two edges), a bend or dead end pays 0. Approximation: turning into a side street is charged as if passing it.
+    /// Footways and mapped crossing ways get 0 here; their crossings are in `crossings`.
+    pub fn derive_junctions(&mut self) {
+        let mut inc: Vec<Vec<usize>> = vec![vec![]; self.nodes.len()];
+        for (i, e) in self.edges.iter().enumerate() {
+            if e.foot && road_class_weight(&e.highway).is_some() {
+                inc[e.from as usize].push(i);
+                inc[e.to as usize].push(i);
+            }
+        }
+        let charge = |at: usize, me: usize, edges: &[Edge]| -> f32 {
+            let (mut sum, mut max) = (0.0f32, 0.0f32);
+            for &j in inc[at].iter().filter(|&&j| j != me) {
+                let w = road_class_weight(&edges[j].highway).unwrap_or(0.0);
+                sum += w;
+                max = max.max(w);
+            }
+            0.5 * (sum - max)
+        };
+        let vals: Vec<f32> = (0..self.edges.len())
+            .map(|i| {
+                let e = &self.edges[i];
+                if e.foot && road_class_weight(&e.highway).is_some() {
+                    charge(e.from as usize, i, &self.edges) + charge(e.to as usize, i, &self.edges)
+                } else {
+                    0.0
+                }
+            })
+            .collect();
+        for (e, v) in self.edges.iter_mut().zip(vals) {
+            e.junction_crossings = v;
+        }
+    }
+
     /// Checks the invariants the engine relies on (indices in range, non-negative lengths, ...).
     pub fn validate(&self) -> Result<(), String> {
         let n = self.nodes.len() as u32;

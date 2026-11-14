@@ -99,24 +99,28 @@ fn crossing_dodge_diagnostic() {
     let mapped = |path: &[u32]| -> f32 {
         path.windows(2).map(|w| { let e = &core.graph.edges[by_ends[&(w[0].min(w[1]), w[0].max(w[1]))]]; e.crossings_unsignalled as f32 + 0.3 * (e.crossings - e.crossings_unsignalled) as f32 }).sum()
     };
-    let ps = presets();
-    let cr = Metric::compile(&ps.iter().find(|p| p.id == "crossings").unwrap().metric).unwrap();
+    let junction = |path: &[u32]| -> f32 { path.windows(2).map(|w| core.graph.edges[by_ends[&(w[0].min(w[1]), w[0].max(w[1]))]].junction_crossings).sum() };
     let walk = Metric::from_json(r#"{"weights":{"time":1}}"#).unwrap();
     let nn = n as u32;
     let step = (nn / 12).max(1) as usize;
-    let (mut c, mut mw, mut mc, mut sw, mut sc, mut lw, mut lc) = (0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-    for a in (0..nn).step_by(step) {
-        for b in (0..nn).step_by(step) {
-            let (Ok(w), Ok(r)) = (core.explain(a, &walk, 780.0, b), core.explain(a, &cr, 780.0, b)) else { continue };
-            if w.length_m < 500.0 || w.length_m > 3000.0 {
-                continue;
+    for weight in [0.0f32, 5.0, 10.0, 15.0, 25.0] {
+        let cr = Metric::from_json(&format!(r#"{{"weights":{{"time":1,"crossing":{weight}}}}}"#)).unwrap();
+        let (mut c, mut mc, mut sc, mut jc, mut lc, mut tc) = (0, 0.0, 0.0, 0.0, 0.0, 0.0);
+        for a in (0..nn).step_by(step) {
+            for b in (0..nn).step_by(step) {
+                let (Ok(w), Ok(r)) = (core.explain(a, &walk, 780.0, b), core.explain(a, &cr, 780.0, b)) else { continue };
+                if w.length_m < 500.0 || w.length_m > 3000.0 {
+                    continue;
+                }
+                c += 1;
+                mc += mapped(&r.path);
+                sc += side_roads(&r.path);
+                jc += junction(&r.path);
+                lc += r.length_m;
+                tc += r.length_m / 1.34 / 60.0;
             }
-            c += 1;
-            mw += mapped(&w.path); mc += mapped(&r.path);
-            sw += side_roads(&w.path); sc += side_roads(&r.path);
-            lw += w.length_m; lc += r.length_m;
         }
+        let k = c as f32;
+        println!("DODGE weight {weight:>4}: {c} routes: mapped {:.1}, junction {:.1}, side roads passed {:.1}, length {:.0} m, walk {:.1} min", mc / k, jc / k, sc / k, lc / k, tc / k);
     }
-    let k = c as f32;
-    println!("DODGE {c} routes: mapped crossings walk {:.1} -> few-crossings {:.1}; side roads passed walk {:.1} -> {:.1}; length {:.0} -> {:.0} m", mw / k, mc / k, sw / k, sc / k, lw / k, lc / k);
 }

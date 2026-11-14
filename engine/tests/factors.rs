@@ -19,6 +19,7 @@ fn base_edge(c: &Core) -> Edge {
     e.sidewalk = None;
     e.kerb_raised = 0;
     e.stops = 0;
+    e.junction_crossings = 0.0;
     e.green = None;
     e.water_view = None;
     e.shade = None;
@@ -137,4 +138,54 @@ fn icy_preset_changes_a_princeton_route() {
     let (gain, a, b, wl, rl, wi) = best.expect("some pair has icy ground to avoid");
     println!("icy example {a}->{b}: walk {wl:.0} m with {wi:.0} icy m; icy preset {rl:.0} m, {gain:.0} icy m fewer");
     assert!(gain > 0.0);
+}
+
+fn line_graph(c: &Core, edges: &[(u32, u32, &str)], n: usize) -> engine::graph::Graph {
+    let mut g = c.graph.clone();
+    g.nodes.truncate(n.max(1));
+    while g.nodes.len() < n {
+        g.nodes.push(g.nodes[0].clone());
+    }
+    let proto = base_edge(c);
+    g.edges = edges
+        .iter()
+        .map(|&(a, b, hw)| {
+            let mut e = proto.clone();
+            e.from = a;
+            e.to = b;
+            e.highway = hw.into();
+            e.foot = true;
+            e.steps = false;
+            e.length_m = 50.0;
+            e
+        })
+        .collect();
+    g.derive_junctions();
+    g
+}
+
+#[test]
+fn junction_crossings_from_topology() {
+    let c = fixture();
+    // primary A(0)-B(1)-C(2) with a residential T at B (B-D, node 3): walking A->C pays 0.3 total, not 1.3
+    let g = line_graph(&c, &[(0, 1, "primary"), (1, 2, "primary"), (1, 3, "residential")], 4);
+    let j: Vec<f32> = g.edges.iter().map(|e| e.junction_crossings).collect();
+    assert!((j[0] + j[1] - 0.3).abs() < 1e-5, "{j:?}");
+    // 4-way residential: straight through pays a small symmetric amount (W-E == N-S)
+    let g = line_graph(&c, &[(0, 4, "residential"), (4, 1, "residential"), (2, 4, "residential"), (4, 3, "residential")], 5);
+    let j: Vec<f32> = g.edges.iter().map(|e| e.junction_crossings).collect();
+    assert!((j[0] + j[1] - 0.6).abs() < 1e-5 && (j[2] + j[3] - 0.6).abs() < 1e-5, "{j:?}");
+    // a bend (two roads meeting) and a dead end charge nothing
+    let g = line_graph(&c, &[(0, 1, "residential"), (1, 2, "residential")], 3);
+    assert!(g.edges.iter().all(|e| e.junction_crossings == 0.0));
+    // footways and mapped crossing ways carry no junction charge; their crossings stay as mapped
+    let mut g = line_graph(&c, &[(0, 1, "footway"), (1, 2, "residential"), (1, 3, "residential"), (1, 4, "tertiary")], 5);
+    g.edges[0].crossings = 1;
+    g.edges[0].crossings_unsignalled = 1;
+    g.derive_junctions();
+    assert_eq!(g.edges[0].junction_crossings, 0.0);
+    let mut cc = fixture();
+    cc.graph = g;
+    assert_eq!(f(&cc.graph.edges[0], &cc, "crossing", 720.0), 1.0);
+    assert!(f(&cc.graph.edges[1], &cc, "crossing", 720.0) > 0.0); // road edge pays its junction
 }

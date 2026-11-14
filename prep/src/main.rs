@@ -344,6 +344,7 @@ fn run() -> Result<(), String> {
             sidewalk: None,
             kerb_raised: 0,
             stops: 0,
+            junction_crossings: 0.0,
             green: None,
             water_view: None,
         });

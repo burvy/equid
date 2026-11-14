@@ -48,8 +48,9 @@ pub struct Core {
 
 impl Core {
     pub fn load(graph_json: &str, places_json: &str) -> Result<Core, String> {
-        let graph: Graph = serde_json::from_str(graph_json).map_err(|e| format!("graph.json: {e}"))?;
+        let mut graph: Graph = serde_json::from_str(graph_json).map_err(|e| format!("graph.json: {e}"))?;
         graph.validate()?;
+        graph.derive_junctions();
         let places: Places = serde_json::from_str(places_json).map_err(|e| format!("places.json: {e}"))?;
         places.validate(&graph)?;
         let mut arcs = DiGraph::with_capacity(graph.nodes.len(), graph.edges.len() * 2);

@@ -194,7 +194,7 @@ A weight `aᵢ` therefore reads as *seconds of penalty per metre*, and total cos
 | `water_gap` | m | `length · near_water_m / 500` |
 | `icy` | m | `length · clamp((max_grade_pct − 3) / 4, 0, 1) · s`; s = shade(t) by day (as `sun`), 1 at night. Shady hills stay icy |
 | `flood` | m | `length · flood` (null = 0) |
-| `crossing` | n | `crossings_unsignalled + 0.3 · (crossings − crossings_unsignalled)`; weight = seconds per crossing |
+| `crossing` | n | `crossings_unsignalled + 0.3 · (crossings − crossings_unsignalled) + junction_crossings`; weight = seconds per crossing. `junction_crossings` is derived at load (`Graph::derive_junctions`, not in graph.json) for foot-walkable car roads only: at each end, `0.5 · (Σ other car roads' class weights − the largest, taken as the road continuing straight)`; class weight primary/trunk 1, secondary/tertiary .7, residential/service/unclassified .3. A primary walked past a residential T pays 0.3 per junction; bends and dead ends 0; footways and mapped crossing ways 0 (their crossings are mapped). Approximation: turning into a side street is charged as if passing it |
 | `no_sidewalk` | m | `length` if `sidewalk == false` (unknown = 0) |
 | `kerb` | n | `kerb_raised` (use with `forbid` for a no-raised-kerb wheelchair route) |
 | `dull` | m | `length · (1 − max(green, water_view))`; 0 when both are null |

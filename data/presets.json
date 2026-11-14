@@ -89,6 +89,6 @@
     "name": "Few crossings",
     "description": "Fewer street crossings, unsignalled ones most of all (older walkers, kids, bikes).",
     "mode": "foot",
-    "weights": { "time": 1, "crossing": 25 }
+    "weights": { "time": 1, "crossing": 15 }
   }
 ]
