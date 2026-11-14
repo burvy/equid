@@ -13,6 +13,10 @@ async fn main() {
         let n = core.load_objects(&objs).expect("objects.json loads");
         println!("loaded {n} objects, labels: {}", core.labels().iter().map(|l| l.label.as_str()).collect::<Vec<_>>().join(", "));
     }
+    // Optional, local-only (CoStar kit): without it the agent says there are no listings.
+    if let Ok(ls) = std::fs::read_to_string(format!("{dir}/listings.json")) {
+        println!("loaded {} listings", core.load_listings(&ls).expect("listings.json loads"));
+    }
     let detector = Detector::from_env();
     println!("live object detection: {}", if detector.is_some() { "on (Vexcel key found)" } else { "off (no VEXCEL_API_KEY)" });
     let llm = Llm::from_env();

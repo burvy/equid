@@ -52,6 +52,19 @@ pub struct AgentResponse {
     pub tools_called: Vec<String>,
     /// Objects found by live detects during this request (so the web can `engine.add_objects` and run the metric itself).
     pub detected: Vec<Object>,
+    /// Listings the pitch recommends (task 034), with the Matterport tour link; empty for ordinary trips.
+    pub listings: Vec<ListingPick>,
+}
+
+#[derive(Debug, Serialize)]
+pub struct ListingPick {
+    pub id: String,
+    pub name: String,
+    pub address: Option<String>,
+    /// Score under the current metric (0-100, see engine::listings).
+    pub score: Option<f64>,
+    pub tour_url: Option<String>,
+    pub why: String,
 }
 
 const SYSTEM: &str = "You are Equid's trip agent. Equid measures distance as personal cost: every street edge costs \
@@ -69,6 +82,7 @@ result; do not compute new numbers or invent facts (no opening hours or reviews 
 Costs are in minutes of personal cost, not clock time. Never output weights or costs as the final answer; call finish.\n\
 Opening hours: the context gives the day and time of the trip. Places with readable hours carry hours_today, open_at_departure \
 and closes_at; trust those (e.g. 'open until 21:00 tonight') rather than re-reading opening_hours, and prefer places that are open.\n\
+Homes: if the user wants somewhere to live (apartment, home, rent, buy), the trip is their daily life seen from each front door. Call make_metric for how THEY move (as above), then rank_listings: it scores every available listing by how cheaply (under their metric) its everyday destinations are reached, and returns rent/price, beds, amenities, the nearest places and a Matterport tour_url. Pitch the best one or two with finish(listings=[{id, why}]) quoting only numbers rank_listings returned, and put the tour_url of your top pick in the pitch as a link so they can walk through it. Optional categories narrow what the score counts (e.g. playground, park for a family; cafe, restaurant for nightlife).
 Writing: the pitch and each why are plain sentences for a person. Name places by their name (or category and street if unnamed); \
 never write place ids (like n4802855943 or w109782066), JSON, braces or quotes around the text.";
 
@@ -94,11 +108,18 @@ fn tools() -> Vec<Value> {
                    "limit": {"type": "integer", "minimum": 1, "maximum": 20}}}}),
         json!({"name": "explain", "description": "Why a place costs what it costs: route length and each feature's share of the cost on the cheapest route.",
                "input_schema": {"type": "object", "properties": {"place_id": {"type": "string"}}, "required": ["place_id"]}}),
-        json!({"name": "finish", "description": "Deliver the answer. stops: chosen place ids with a one-line why. pitch: 2-4 sentences, grounded in tool results.",
+        json!({"name": "rank_listings", "description": "Rank the available apartments/homes by how well they fit the current metric (call make_metric first): for each listing, the cost from its front door to the cheapest place of each category within a budget. Score 0-100 (100 = every category at the door). Returns the top ones with rent/price, beds, amenities, nearest places in minutes and a Matterport tour_url. Says so if the data has no listings.",
+               "input_schema": {"type": "object", "properties": {
+                   "limit": {"type": "integer", "minimum": 1, "maximum": 10},
+                   "categories": {"type": "array", "items": {"type": "string"}},
+                   "budget_min": {"type": "integer", "minimum": 5, "maximum": 60},
+                   "include_unavailable": {"type": "boolean"}}}}),
+        json!({"name": "finish", "description": "Deliver the answer. stops: chosen place ids with a one-line why. listings: for a housing request, the recommended listing ids from rank_listings with a one-line why. pitch: 2-4 sentences, grounded in tool results.",
                "input_schema": {"type": "object", "properties": {
                    "stops": {"type": "array", "items": {"type": "object", "properties": {"id": {"type": "string"}, "why": {"type": "string"}}, "required": ["id", "why"]}},
+                   "listings": {"type": "array", "items": {"type": "object", "properties": {"id": {"type": "string"}, "why": {"type": "string"}}, "required": ["id", "why"]}},
                    "pitch": {"type": "string"}},
-                 "required": ["stops", "pitch"]}}),
+                 "required": ["pitch"]}}),
     ]
 }
 
@@ -202,6 +223,9 @@ struct Session<'a> {
     /// Weekday of the trip (meta.date), Monday = 0; None if the date can't be read.
     day: Option<usize>,
     metric: Option<(MetricSpec, Metric)>,
+    /// Budget (minutes) of the last rank_listings call, reused to score the picks in `finish`.
+    budget: f32,
+    lens: Vec<String>,
     /// Everything the model may legitimately quote: the request and every tool result.
     grounding: String,
 }
@@ -278,6 +302,34 @@ impl Session<'_> {
                     .collect();
                 Ok(json!({"cheapest_places": places, "unreachable_places": unreachable}))
             }
+            "rank_listings" => {
+                let (_, m) = self.metric.as_ref().ok_or("call make_metric first")?;
+                if self.core.listings.is_empty() {
+                    return Ok(json!({"listings": [], "note": "this area has no listings data; say so and recommend places instead"}));
+                }
+                let lens: Vec<String> = args["categories"].as_array().map(|a| a.iter().filter_map(|x| x.as_str().map(String::from)).collect()).unwrap_or_default();
+                let budget = args["budget_min"].as_f64().unwrap_or(20.0).clamp(5.0, 60.0) as f32;
+                let limit = args["limit"].as_u64().unwrap_or(5).clamp(1, 10) as usize;
+                let only = !args["include_unavailable"].as_bool().unwrap_or(false);
+                let ranked = self.core.rank_listings(m, self.t, budget, &lens, only)?;
+                let top: Vec<Value> = ranked
+                    .iter()
+                    .take(limit)
+                    .map(|r| {
+                        let l = &self.core.listings[r.index];
+                        let near: Vec<Value> = r.nearest.iter().filter(|n| n.minutes.is_finite()).take(4)
+                            .map(|n| json!({"category": n.category, "place": n.place, "minutes": minutes(n.minutes * 60.0)})).collect();
+                        json!({"listing_id": l.id, "name": l.name, "address": l.address, "kind": l.kind,
+                            "rent_min": l.rent_min, "rent_max": l.rent_max, "price": l.price, "beds_min": l.beds_min, "beds_max": l.beds_max,
+                            "baths_min": l.baths_min, "sqft_min": l.sqft_min, "amenities": l.amenities, "tour_url": l.tour_url(),
+                            "score": (r.score as f64 * 10.0).round() / 10.0, "places_within_budget": r.reachable_places, "nearest": near})
+                    })
+                    .collect();
+                self.budget = budget;
+                self.lens = lens;
+                Ok(json!({"budget_minutes": budget as f64, "ranked_of": ranked.len(), "listings": top,
+                    "how": "score = mean over the categories of (1 - minutes/budget), cheapest place of each category from the front door under the current metric, x100"}))
+            }
             "explain" => {
                 let id = args["place_id"].as_str().ok_or("place_id required")?;
                 let (_, m) = self.metric.as_ref().ok_or("call make_metric first")?;
@@ -348,13 +400,14 @@ impl Session<'_> {
     fn finish(&self, args: &Value, llm: &str, called: Vec<String>) -> Result<AgentResponse, String> {
         let (spec, m) = self.metric.as_ref().ok_or("call make_metric before finish")?;
         let pitch = clean_text(args["pitch"].as_str().ok_or("pitch required")?);
-        let raw = args["stops"].as_array().ok_or("stops required")?;
-        if raw.is_empty() || pitch.is_empty() {
-            return Err("need at least one stop and a pitch".into());
+        let raw = args["stops"].as_array().cloned().unwrap_or_default();
+        let picks_raw = args["listings"].as_array().cloned().unwrap_or_default();
+        if (raw.is_empty() && picks_raw.is_empty()) || pitch.is_empty() {
+            return Err("need at least one stop (or listing) and a pitch".into());
         }
         let f = self.core.field(self.origin, m, self.t)?;
         let mut stops = vec![];
-        for s in raw {
+        for s in &raw {
             let id = s["id"].as_str().ok_or("stop id required")?;
             let i = self.core.places.places.iter().position(|p| p.id == id).ok_or(format!("unknown place id '{id}'"))?;
             let p = &self.core.places.places[i];
@@ -374,7 +427,19 @@ impl Session<'_> {
         if !bad.is_empty() {
             return Err(format!("these numbers in your pitch are not in any tool result: {bad:?}. Rewrite the pitch using only numbers the tools returned."));
         }
-        Ok(AgentResponse { metric: spec.clone(), stops, pitch, llm: llm.to_string(), tools_called: called, detected: self.detected.clone() })
+        let mut listings = vec![];
+        for s in &picks_raw {
+            let id = s["id"].as_str().ok_or("listing id required")?;
+            let l = self.core.listings.iter().find(|l| l.id == id).ok_or(format!("unknown listing id '{id}': use listing_id from rank_listings"))?;
+            let score = self.core.rank_listings(m, self.t, self.budget, &self.lens, false).ok().and_then(|r| r.iter().find(|x| self.core.listings[x.index].id == id).map(|x| (x.score as f64 * 10.0).round() / 10.0));
+            listings.push(ListingPick { id: l.id.clone(), name: l.name.clone(), address: l.address.clone(), score, tour_url: l.tour_url(), why: clean_text(s["why"].as_str().unwrap_or("")) });
+        }
+        if let Some(top) = listings.first().and_then(|p| p.tour_url.as_ref()) {
+            if !pitch.contains(top.as_str()) {
+                return Err(format!("put the Matterport link of your top listing in the pitch so the user can tour it: {top}"));
+            }
+        }
+        Ok(AgentResponse { metric: spec.clone(), stops, pitch, llm: llm.to_string(), tools_called: called, detected: self.detected.clone(), listings })
     }
 }
 
@@ -390,7 +455,7 @@ pub async fn run(core: &mut Core, llm: &Llm, detector: Option<&Detector>, req: A
     let when = day.map(|d| format!("{} {}, ", hours::DAY_NAMES[d], core.graph.meta.date)).unwrap_or_default();
     let ctx = format!("{}\n\n(Context: {when}leaving at {:02}:{:02} local time; sunrise {:02}:{:02}, sunset {:02}:{:02}.)", req.text.trim(), t as u32 / 60, t as u32 % 60,
         core.graph.meta.sunrise_min as u32 / 60, core.graph.meta.sunrise_min as u32 % 60, core.graph.meta.sunset_min as u32 / 60, core.graph.meta.sunset_min as u32 % 60);
-    let mut s = Session { core, detector, detected: vec![], origin, t, day, metric: None, grounding: ctx.clone() };
+    let mut s = Session { core, detector, detected: vec![], origin, t, day, metric: None, budget: 20.0, lens: vec![], grounding: ctx.clone() };
     let tools = tools();
     let mut messages = vec![json!({"role": "user", "content": ctx})];
     let mut called: Vec<String> = vec![];

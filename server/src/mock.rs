@@ -63,7 +63,12 @@ pub fn respond(messages: &[Value]) -> Value {
             plan.push("detect");
         }
     }
-    plan.extend(["make_metric", "list_places", "field", "explain", "finish"]);
+    let housing = has(&["apartment", "place to live", "somewhere to live", "rent a", "home to buy"]);
+    if housing {
+        plan = vec!["list_features", "make_metric", "rank_listings", "finish"];
+    } else {
+        plan.extend(["make_metric", "list_places", "field", "explain", "finish"]);
+    }
     let step = messages.iter().filter(|m| m["role"] == "assistant").count();
     let name = plan.get(step).copied().unwrap_or("finish");
 
@@ -85,6 +90,14 @@ pub fn respond(messages: &[Value]) -> Value {
         "list_labels" => tool(step, name, json!({})),
         "detect" => tool(step, name, json!({"label": wanted_label.unwrap_or("playground"), "radius_m": 200})),
         "make_metric" => tool(step, name, json!({"mode": "foot", "weights": weights, "forbid": forbid})),
+        "rank_listings" => tool(step, name, json!({"limit": 3})),
+        "finish" if housing => {
+            let r = last_result(messages, "rank_listings").unwrap_or(json!({}));
+            let top = &r["listings"][0];
+            let url = top["tour_url"].as_str().map(|u| format!(" Walk through it: {u}")).unwrap_or_default();
+            let pitch = format!("{} scores {} for how you get around, with {} places inside your {} minute budget.{url}", top["name"].as_str().unwrap_or("This home"), top["score"], top["places_within_budget"], r["budget_minutes"]);
+            tool(step, "finish", json!({"stops": [], "listings": [{"id": top["listing_id"], "why": "best fit for how you move"}], "pitch": pitch}))
+        }
         "list_places" => tool(step, name, json!({"categories": cats})),
         "field" => tool(step, name, json!({"categories": cats, "limit": 3})),
         "explain" => {

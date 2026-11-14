@@ -5,6 +5,7 @@ pub mod features;
 /// Feature formulas generated from the Lean proofs (proof/, `lake exe gen`); drop-in for `features::edge_features`.
 pub mod metrics_gen;
 pub mod graph;
+pub mod listings;
 pub mod metric;
 pub mod objects;
 pub mod view;
@@ -46,6 +47,8 @@ pub struct Core {
     metres: objects::Metres,
     /// Open-vocabulary object layers by label (see `objects`).
     objects: std::collections::BTreeMap<String, objects::Layer>,
+    /// Optional listings (local-only `listings.json`); empty if absent. See `listings`.
+    pub listings: Vec<listings::Listing>,
 }
 
 impl Core {
@@ -65,7 +68,7 @@ impl Core {
         }
         let shapes = view::Shapes::new(&graph);
         let metres = objects::Metres::new(&graph);
-        Ok(Core { graph, places, arcs, shapes, metres, objects: Default::default() })
+        Ok(Core { graph, places, arcs, shapes, metres, objects: Default::default(), listings: vec![] })
     }
 
     /// Nearest graph node to a point (linear scan; fine for ~10k nodes, called once per click).
