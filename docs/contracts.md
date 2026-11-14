@@ -320,7 +320,7 @@ without it a deterministic **mock** model drives the same loop, and the response
   "t": 840 }                                                                                // local minutes since midnight, default 720
 // response
 { "metric": {"mode":"foot","weights":{"time":1,"climb":10,"steep":3,"rough":3},"forbid":["steps"]},  // a valid §3 metric: pass to engine.field
-  "stops": [ {"id":"n1","name":"Toy Caf�","category":"cafe","minutes":13.5,"why":"..."} ],
+  "stops": [ {"id":"n1","name":"Toy Café","category":"cafe","minutes":13.5,"why":"..."} ],
   "pitch": "2-4 sentences, realtor tone",
   "llm": "anthropic:claude-sonnet-5-5", "tools_called": ["list_features","make_metric", "..."],
   "detected": [ {"label":"playground","lon":-74.659,"lat":40.349,"src":"vexcel","conf":0.8} ] }   // objects found live: web calls engine.add_objects
