@@ -1,0 +1,3861 @@
+{
+  "version": 1,
+  "places": [
+    {
+      "id": "n11957061880",
+      "name": "New Piece",
+      "lon": -74.668755,
+      "lat": 40.332718,
+      "category": "artwork",
+      "tags": {},
+      "node": 2194,
+      "snap_m": 73.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12145187373",
+      "name": "Double Sights",
+      "lon": -74.65517,
+      "lat": 40.348591,
+      "category": "artwork",
+      "tags": {},
+      "node": 1564,
+      "snap_m": 18.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254646381",
+      "name": "Albert Einstein",
+      "lon": -74.670839,
+      "lat": 40.341717,
+      "category": "artwork",
+      "tags": {},
+      "node": 3913,
+      "snap_m": 33.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12287008282",
+      "name": "Slate Oasis",
+      "lon": -74.666912,
+      "lat": 40.331393,
+      "category": "artwork",
+      "tags": {},
+      "node": 1684,
+      "snap_m": 9.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12287008283",
+      "name": null,
+      "lon": -74.667278,
+      "lat": 40.331725,
+      "category": "artwork",
+      "tags": {},
+      "node": 1673,
+      "snap_m": 9.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12287024605",
+      "name": "Forget Me Not",
+      "lon": -74.655492,
+      "lat": 40.342314,
+      "category": "artwork",
+      "tags": {},
+      "node": 5941,
+      "snap_m": 5.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12287024606",
+      "name": "The Dreaming Room",
+      "lon": -74.654103,
+      "lat": 40.342632,
+      "category": "artwork",
+      "tags": {},
+      "node": 6684,
+      "snap_m": 15.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12287024607",
+      "name": "Flower Fields Forever",
+      "lon": -74.654507,
+      "lat": 40.34144,
+      "category": "artwork",
+      "tags": {},
+      "node": 5934,
+      "snap_m": 18.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12556856055",
+      "name": null,
+      "lon": -74.653175,
+      "lat": 40.355844,
+      "category": "artwork",
+      "tags": {},
+      "node": 3024,
+      "snap_m": 31.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14249043756",
+      "name": null,
+      "lon": -74.666774,
+      "lat": 40.340776,
+      "category": "artwork",
+      "tags": {},
+      "node": 6840,
+      "snap_m": 10.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14272171941",
+      "name": null,
+      "lon": -74.666135,
+      "lat": 40.341216,
+      "category": "artwork",
+      "tags": {},
+      "node": 3600,
+      "snap_m": 7.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467637584",
+      "name": "The Hedgehog and the Fox",
+      "lon": -74.651965,
+      "lat": 40.346166,
+      "category": "artwork",
+      "tags": {},
+      "node": 1408,
+      "snap_m": 5.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648485",
+      "name": "Head of a Woman",
+      "lon": -74.659309,
+      "lat": 40.344297,
+      "category": "artwork",
+      "tags": {},
+      "node": 3015,
+      "snap_m": 27.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648486",
+      "name": "Oval with Points",
+      "lon": -74.659776,
+      "lat": 40.348312,
+      "category": "artwork",
+      "tags": {},
+      "node": 1795,
+      "snap_m": 11.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648487",
+      "name": "Five Disks: One Empty",
+      "lon": -74.652239,
+      "lat": 40.345536,
+      "category": "artwork",
+      "tags": {},
+      "node": 2240,
+      "snap_m": 25.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648488",
+      "name": "Construction in the Third and Fourth Dimension",
+      "lon": -74.651878,
+      "lat": 40.345071,
+      "category": "artwork",
+      "tags": {},
+      "node": 5704,
+      "snap_m": 33.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648489",
+      "name": "Upstart II",
+      "lon": -74.651807,
+      "lat": 40.350821,
+      "category": "artwork",
+      "tags": {},
+      "node": 5058,
+      "snap_m": 12.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648490",
+      "name": "URODA",
+      "lon": -74.651219,
+      "lat": 40.349648,
+      "category": "artwork",
+      "tags": {},
+      "node": 2873,
+      "snap_m": 7.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648491",
+      "name": "Thetis Circle",
+      "lon": -74.657833,
+      "lat": 40.344889,
+      "category": "artwork",
+      "tags": {},
+      "node": 2729,
+      "snap_m": 17.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648492",
+      "name": "Circle of Animals/Zodiac Heads",
+      "lon": -74.659293,
+      "lat": 40.343602,
+      "category": "artwork",
+      "tags": {},
+      "node": 5608,
+      "snap_m": 9.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648493",
+      "name": "Abraham and Isaac: In Memory of May 4, 1970, Kent State University",
+      "lon": -74.65671,
+      "lat": 40.349096,
+      "category": "artwork",
+      "tags": {},
+      "node": 2755,
+      "snap_m": 14.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648494",
+      "name": "Song of the Vowels",
+      "lon": -74.657553,
+      "lat": 40.348915,
+      "category": "artwork",
+      "tags": {},
+      "node": 2701,
+      "snap_m": 7.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648495",
+      "name": "Moses",
+      "lon": -74.656874,
+      "lat": 40.347588,
+      "category": "artwork",
+      "tags": {},
+      "node": 1576,
+      "snap_m": 28.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648496",
+      "name": "(Any) Body Oddly Propped",
+      "lon": -74.658742,
+      "lat": 40.347185,
+      "category": "artwork",
+      "tags": {},
+      "node": 1762,
+      "snap_m": 9.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648497",
+      "name": "Cubi XIII",
+      "lon": -74.658186,
+      "lat": 40.347786,
+      "category": "artwork",
+      "tags": {},
+      "node": 2960,
+      "snap_m": 17.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648499",
+      "name": "Two Planes Vertical Horizontal II",
+      "lon": -74.6579,
+      "lat": 40.348375,
+      "category": "artwork",
+      "tags": {},
+      "node": 1252,
+      "snap_m": 5.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648500",
+      "name": "Public Table",
+      "lon": -74.658317,
+      "lat": 40.348295,
+      "category": "artwork",
+      "tags": {},
+      "node": 1251,
+      "snap_m": 18.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648501",
+      "name": "John Witherspoon",
+      "lon": -74.657966,
+      "lat": 40.348632,
+      "category": "artwork",
+      "tags": {},
+      "node": 1108,
+      "snap_m": 9.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7467648502",
+      "name": "Remembrance",
+      "lon": -74.658707,
+      "lat": 40.348892,
+      "category": "artwork",
+      "tags": {},
+      "node": 6898,
+      "snap_m": 21.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9854401617",
+      "name": "Einstein Statue",
+      "lon": -74.664658,
+      "lat": 40.348295,
+      "category": "artwork",
+      "tags": {},
+      "node": 667,
+      "snap_m": 4.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1181443593",
+      "name": "Iconic Colonade",
+      "lon": -74.677116,
+      "lat": 40.333684,
+      "category": "artwork",
+      "tags": {},
+      "node": 3239,
+      "snap_m": 11.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11121833618",
+      "name": "Pond dialogue",
+      "lon": -74.668077,
+      "lat": 40.330195,
+      "category": "attraction",
+      "tags": {
+        "description": "Spot from Oppenheimer movie at which the famous dialogue of J. R. Oppenheimer (played by Cillian Murphy) and Albert Einstein (Tom Conti) took place"
+      },
+      "node": 1689,
+      "snap_m": 79.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w197903794",
+      "name": "Fuld Hall",
+      "lon": -74.668044,
+      "lat": 40.331737,
+      "category": "attraction",
+      "tags": {
+        "operator": "Institute for Advanced Study"
+      },
+      "node": 1664,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213786",
+      "name": null,
+      "lon": -74.646602,
+      "lat": 40.344721,
+      "category": "bench",
+      "tags": {},
+      "node": 6547,
+      "snap_m": 24.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213787",
+      "name": null,
+      "lon": -74.646597,
+      "lat": 40.34471,
+      "category": "bench",
+      "tags": {},
+      "node": 6547,
+      "snap_m": 25.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213788",
+      "name": null,
+      "lon": -74.646573,
+      "lat": 40.344577,
+      "category": "bench",
+      "tags": {},
+      "node": 6547,
+      "snap_m": 40.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213789",
+      "name": null,
+      "lon": -74.646574,
+      "lat": 40.344562,
+      "category": "bench",
+      "tags": {},
+      "node": 6547,
+      "snap_m": 42.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213790",
+      "name": null,
+      "lon": -74.646576,
+      "lat": 40.344438,
+      "category": "bench",
+      "tags": {},
+      "node": 6548,
+      "snap_m": 50.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213791",
+      "name": null,
+      "lon": -74.646577,
+      "lat": 40.344423,
+      "category": "bench",
+      "tags": {},
+      "node": 6548,
+      "snap_m": 48.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213792",
+      "name": null,
+      "lon": -74.646621,
+      "lat": 40.344272,
+      "category": "bench",
+      "tags": {},
+      "node": 6548,
+      "snap_m": 32.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213793",
+      "name": null,
+      "lon": -74.646614,
+      "lat": 40.344286,
+      "category": "bench",
+      "tags": {},
+      "node": 6548,
+      "snap_m": 33.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213797",
+      "name": null,
+      "lon": -74.646678,
+      "lat": 40.344161,
+      "category": "bench",
+      "tags": {},
+      "node": 6548,
+      "snap_m": 18.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213798",
+      "name": null,
+      "lon": -74.646685,
+      "lat": 40.34415,
+      "category": "bench",
+      "tags": {},
+      "node": 6548,
+      "snap_m": 17.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138779812",
+      "name": null,
+      "lon": -74.662276,
+      "lat": 40.351432,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6152,
+      "snap_m": 18.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138779813",
+      "name": null,
+      "lon": -74.662237,
+      "lat": 40.351244,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6148,
+      "snap_m": 5.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138779814",
+      "name": null,
+      "lon": -74.662253,
+      "lat": 40.351471,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6151,
+      "snap_m": 19.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138779815",
+      "name": null,
+      "lon": -74.662252,
+      "lat": 40.351226,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6148,
+      "snap_m": 4.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138779816",
+      "name": null,
+      "lon": -74.662288,
+      "lat": 40.351461,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6151,
+      "snap_m": 19.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138779817",
+      "name": null,
+      "lon": -74.66224,
+      "lat": 40.35144,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6152,
+      "snap_m": 18.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138779818",
+      "name": null,
+      "lon": -74.662313,
+      "lat": 40.351628,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6151,
+      "snap_m": 2.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138779819",
+      "name": null,
+      "lon": -74.662365,
+      "lat": 40.351615,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6151,
+      "snap_m": 2.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138779820",
+      "name": null,
+      "lon": -74.662098,
+      "lat": 40.351262,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6150,
+      "snap_m": 3.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138779821",
+      "name": null,
+      "lon": -74.662126,
+      "lat": 40.351272,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6149,
+      "snap_m": 5.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254646380",
+      "name": null,
+      "lon": -74.670841,
+      "lat": 40.341718,
+      "category": "bench",
+      "tags": {},
+      "node": 3913,
+      "snap_m": 33.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254646392",
+      "name": null,
+      "lon": -74.671328,
+      "lat": 40.341555,
+      "category": "bench",
+      "tags": {},
+      "node": 3906,
+      "snap_m": 18.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254646394",
+      "name": null,
+      "lon": -74.670916,
+      "lat": 40.341374,
+      "category": "bench",
+      "tags": {},
+      "node": 3913,
+      "snap_m": 11.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254671301",
+      "name": null,
+      "lon": -74.671223,
+      "lat": 40.341077,
+      "category": "bench",
+      "tags": {},
+      "node": 3907,
+      "snap_m": 29.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254671302",
+      "name": null,
+      "lon": -74.672145,
+      "lat": 40.341246,
+      "category": "bench",
+      "tags": {},
+      "node": 3910,
+      "snap_m": 52.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254671303",
+      "name": null,
+      "lon": -74.672108,
+      "lat": 40.341264,
+      "category": "bench",
+      "tags": {},
+      "node": 3910,
+      "snap_m": 50.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254671305",
+      "name": null,
+      "lon": -74.670807,
+      "lat": 40.342488,
+      "category": "bench",
+      "tags": {},
+      "node": 3914,
+      "snap_m": 17.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254671306",
+      "name": null,
+      "lon": -74.670683,
+      "lat": 40.342545,
+      "category": "bench",
+      "tags": {},
+      "node": 3914,
+      "snap_m": 10.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254671307",
+      "name": null,
+      "lon": -74.671715,
+      "lat": 40.340924,
+      "category": "bench",
+      "tags": {},
+      "node": 3910,
+      "snap_m": 9.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12254671313",
+      "name": null,
+      "lon": -74.671027,
+      "lat": 40.341804,
+      "category": "bench",
+      "tags": {},
+      "node": 3905,
+      "snap_m": 38.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12959805173",
+      "name": null,
+      "lon": -74.648996,
+      "lat": 40.337639,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 1293,
+      "snap_m": 186.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12959834958",
+      "name": null,
+      "lon": -74.653254,
+      "lat": 40.330622,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 651,
+      "snap_m": 40.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12959846943",
+      "name": null,
+      "lon": -74.653259,
+      "lat": 40.331741,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 1536,
+      "snap_m": 28.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12959849310",
+      "name": null,
+      "lon": -74.653159,
+      "lat": 40.331705,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 1538,
+      "snap_m": 27.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12959850570",
+      "name": null,
+      "lon": -74.652839,
+      "lat": 40.331883,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 1538,
+      "snap_m": 14.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12959851751",
+      "name": null,
+      "lon": -74.65365,
+      "lat": 40.33151,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 1536,
+      "snap_m": 69.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12959854462",
+      "name": null,
+      "lon": -74.653223,
+      "lat": 40.331691,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 1538,
+      "snap_m": 31.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12959859560",
+      "name": null,
+      "lon": -74.653064,
+      "lat": 40.331243,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 1538,
+      "snap_m": 75.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13119808683",
+      "name": null,
+      "lon": -74.64464,
+      "lat": 40.341365,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 1331,
+      "snap_m": 1.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13119877470",
+      "name": null,
+      "lon": -74.640863,
+      "lat": 40.34197,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 34,
+      "snap_m": 130.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13119880416",
+      "name": null,
+      "lon": -74.645072,
+      "lat": 40.341098,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 1331,
+      "snap_m": 48.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13119899935",
+      "name": null,
+      "lon": -74.63282,
+      "lat": 40.342724,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 1339,
+      "snap_m": 184.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13788047069",
+      "name": null,
+      "lon": -74.667131,
+      "lat": 40.358732,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 2137,
+      "snap_m": 32.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13807010170",
+      "name": null,
+      "lon": -74.640235,
+      "lat": 40.342338,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 426,
+      "snap_m": 170.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10031488839",
+      "name": null,
+      "lon": -74.651096,
+      "lat": 40.3447,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 2022,
+      "snap_m": 8.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10034457541",
+      "name": null,
+      "lon": -74.65493,
+      "lat": 40.349592,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 5627,
+      "snap_m": 7.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10084882799",
+      "name": null,
+      "lon": -74.651535,
+      "lat": 40.363217,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "2",
+        "covered": "no"
+      },
+      "node": 5852,
+      "snap_m": 5.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10084882813",
+      "name": null,
+      "lon": -74.651587,
+      "lat": 40.363278,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "2",
+        "covered": "no"
+      },
+      "node": 5852,
+      "snap_m": 5.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10084882815",
+      "name": null,
+      "lon": -74.650924,
+      "lat": 40.362503,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "8",
+        "covered": "no"
+      },
+      "node": 5865,
+      "snap_m": 3.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10085089054",
+      "name": null,
+      "lon": -74.6543,
+      "lat": 40.351516,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 4317,
+      "snap_m": 16.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10085089055",
+      "name": null,
+      "lon": -74.661055,
+      "lat": 40.350923,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "10",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4460,
+      "snap_m": 3.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10255567080",
+      "name": null,
+      "lon": -74.655677,
+      "lat": 40.346947,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "50",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 2210,
+      "snap_m": 9.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10817216073",
+      "name": null,
+      "lon": -74.659668,
+      "lat": 40.344066,
+      "category": "bicycle_parking",
+      "tags": {
+        "access": "yes"
+      },
+      "node": 1436,
+      "snap_m": 8.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10817224294",
+      "name": null,
+      "lon": -74.658977,
+      "lat": 40.341958,
+      "category": "bicycle_parking",
+      "tags": {
+        "access": "yes"
+      },
+      "node": 5677,
+      "snap_m": 15.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124008933",
+      "name": null,
+      "lon": -74.659873,
+      "lat": 40.348752,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 1793,
+      "snap_m": 6.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124012993",
+      "name": null,
+      "lon": -74.661172,
+      "lat": 40.346731,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 2967,
+      "snap_m": 14.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124015467",
+      "name": null,
+      "lon": -74.65978,
+      "lat": 40.343424,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "8",
+        "covered": "no"
+      },
+      "node": 4293,
+      "snap_m": 7.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124018222",
+      "name": null,
+      "lon": -74.658614,
+      "lat": 40.343406,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 1426,
+      "snap_m": 27.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124026009",
+      "name": null,
+      "lon": -74.658889,
+      "lat": 40.343508,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 1426,
+      "snap_m": 5.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124044332",
+      "name": null,
+      "lon": -74.655907,
+      "lat": 40.350862,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 4315,
+      "snap_m": 25.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124051058",
+      "name": null,
+      "lon": -74.660377,
+      "lat": 40.346285,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 1543,
+      "snap_m": 13.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124051059",
+      "name": null,
+      "lon": -74.661275,
+      "lat": 40.347111,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 1711,
+      "snap_m": 6.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124051067",
+      "name": null,
+      "lon": -74.655735,
+      "lat": 40.350919,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 4315,
+      "snap_m": 9.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124051712",
+      "name": null,
+      "lon": -74.660438,
+      "lat": 40.346368,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 2331,
+      "snap_m": 3.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124060830",
+      "name": null,
+      "lon": -74.659035,
+      "lat": 40.349406,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 1785,
+      "snap_m": 22.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124060831",
+      "name": null,
+      "lon": -74.659017,
+      "lat": 40.34936,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 1786,
+      "snap_m": 19.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11124063156",
+      "name": null,
+      "lon": -74.656171,
+      "lat": 40.350776,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 3684,
+      "snap_m": 30.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11959213782",
+      "name": null,
+      "lon": -74.646571,
+      "lat": 40.344805,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "12",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 6547,
+      "snap_m": 18.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12286395091",
+      "name": null,
+      "lon": -74.654402,
+      "lat": 40.357043,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "52",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4763,
+      "snap_m": 11.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12286395092",
+      "name": null,
+      "lon": -74.655081,
+      "lat": 40.358709,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4766,
+      "snap_m": 6.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12841081097",
+      "name": null,
+      "lon": -74.657107,
+      "lat": 40.348077,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "4",
+        "covered": "no"
+      },
+      "node": 2712,
+      "snap_m": 9.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3426168286",
+      "name": null,
+      "lon": -74.657797,
+      "lat": 40.349132,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 2696,
+      "snap_m": 11.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3426168287",
+      "name": null,
+      "lon": -74.660516,
+      "lat": 40.351593,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "20",
+        "covered": "no"
+      },
+      "node": 4423,
+      "snap_m": 22.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3427545255",
+      "name": null,
+      "lon": -74.655983,
+      "lat": 40.346525,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "12",
+        "covered": "no"
+      },
+      "node": 1778,
+      "snap_m": 14.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1199310293",
+      "name": null,
+      "lon": -74.658679,
+      "lat": 40.342119,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "yes"
+      },
+      "node": 5681,
+      "snap_m": 8.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w429752311",
+      "name": null,
+      "lon": -74.658834,
+      "lat": 40.330878,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 2936,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10085089043",
+      "name": "Ellinikon",
+      "lon": -74.654813,
+      "lat": 40.351303,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "greek",
+        "outdoor_seating": "yes"
+      },
+      "node": 2890,
+      "snap_m": 25.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10208613197",
+      "name": "maman",
+      "lon": -74.662341,
+      "lat": 40.350821,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "operator": "maman"
+      },
+      "node": 4433,
+      "snap_m": 11.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11110299405",
+      "name": "Starbucks",
+      "lon": -74.651812,
+      "lat": 40.363911,
+      "category": "cafe",
+      "tags": {
+        "brand": "Starbucks",
+        "cuisine": "coffee_shop",
+        "website": "https://www.starbucks.com/store-locator/store/1042940/princeton-harrison-st-cafe-301-north-harrison-street-space-580-princeton-nj-0"
+      },
+      "node": 5861,
+      "snap_m": 22.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12138697740",
+      "name": "Jammin’ Community Cafe",
+      "lon": -74.660313,
+      "lat": 40.351508,
+      "category": "cafe",
+      "tags": {},
+      "node": 4445,
+      "snap_m": 20.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1324536985",
+      "name": "Fresh Ó Tea",
+      "lon": -74.651748,
+      "lat": 40.352201,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "bubble_tea"
+      },
+      "node": 2498,
+      "snap_m": 12.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1324536996",
+      "name": "Small World Coffee",
+      "lon": -74.6512,
+      "lat": 40.352383,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "website": "https://smallworldcoffee.com/"
+      },
+      "node": 2502,
+      "snap_m": 14.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2201042063",
+      "name": "Small World Coffee",
+      "lon": -74.660157,
+      "lat": 40.350143,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "website": "https://smallworldcoffee.com/14-witherspoon/"
+      },
+      "node": 4448,
+      "snap_m": 25.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2202090896",
+      "name": "Starbucks",
+      "lon": -74.659455,
+      "lat": 40.349927,
+      "category": "cafe",
+      "tags": {
+        "brand": "Starbucks",
+        "cuisine": "coffee_shop",
+        "opening_hours": "Mo-Su 06:00-20:00",
+        "website": "https://www.starbucks.com/store-locator/store/15915/princeton-100-nassau-street-princeton-nj-085424516-us"
+      },
+      "node": 3923,
+      "snap_m": 9.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2302061025",
+      "name": "Teresa's Cafe & Wine Bar",
+      "lon": -74.660857,
+      "lat": 40.350619,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "italian",
+        "website": "https://www.teresacaffe.com/"
+      },
+      "node": 4459,
+      "snap_m": 5.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4806032631",
+      "name": "Rojo's Roastery",
+      "lon": -74.661831,
+      "lat": 40.349834,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop"
+      },
+      "node": 188,
+      "snap_m": 22.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827959907",
+      "name": "Junbi",
+      "lon": -74.660025,
+      "lat": 40.350661,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "bubble_tea",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "website": "https://junbishop.com",
+        "wheelchair": "limited"
+      },
+      "node": 604,
+      "snap_m": 13.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828008622",
+      "name": "Kung Fu Tea",
+      "lon": -74.660336,
+      "lat": 40.349682,
+      "category": "cafe",
+      "tags": {
+        "brand": "Kung Fu Tea",
+        "cuisine": "bubble_tea"
+      },
+      "node": 3253,
+      "snap_m": 18.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828014673",
+      "name": "Sakrid Coffee Roasters",
+      "lon": -74.662635,
+      "lat": 40.349046,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop"
+      },
+      "node": 4398,
+      "snap_m": 9.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4829764368",
+      "name": "Tico's Eatery & Juice Bar",
+      "lon": -74.659904,
+      "lat": 40.350869,
+      "category": "cafe",
+      "tags": {},
+      "node": 4447,
+      "snap_m": 21.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w491809778",
+      "name": "illy Coffee At Earth's End Princeton",
+      "lon": -74.658455,
+      "lat": 40.351191,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "website": "https://earthsend.com/coffee/"
+      },
+      "node": 340,
+      "snap_m": 14.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10085089056",
+      "name": null,
+      "lon": -74.653133,
+      "lat": 40.354944,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 3129,
+      "snap_m": 25.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12863579441",
+      "name": null,
+      "lon": -74.640208,
+      "lat": 40.339505,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "description": "Bottle filler only",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "node": 6883,
+      "snap_m": 8.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12959848085",
+      "name": null,
+      "lon": -74.653636,
+      "lat": 40.331525,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 1536,
+      "snap_m": 67.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10208534300",
+      "name": "Arlee's Raw Blends",
+      "lon": -74.660163,
+      "lat": 40.350224,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "juice"
+      },
+      "node": 4448,
+      "snap_m": 20.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10208605430",
+      "name": "Playa Bowls",
+      "lon": -74.660989,
+      "lat": 40.350957,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Playa Bowls",
+        "cuisine": "açaí"
+      },
+      "node": 4460,
+      "snap_m": 4.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3367037911",
+      "name": "Chuck's Spring Street Cafe",
+      "lon": -74.659712,
+      "lat": 40.35112,
+      "category": "fast_food",
+      "tags": {
+        "opening_hours": "Mo-Su 11:00-21:30",
+        "website": "http://chucksspringstreetcafe.com/"
+      },
+      "node": 3215,
+      "snap_m": 7.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4802855944",
+      "name": "Say Cheez",
+      "lon": -74.655538,
+      "lat": 40.35064,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "american",
+        "outdoor_seating": "yes",
+        "website": "https://saycheezcafe.com/"
+      },
+      "node": 2887,
+      "snap_m": 9.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827959914",
+      "name": "Tacoria",
+      "lon": -74.659124,
+      "lat": 40.350025,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "Mo-Th, Su 11:30-21:00; Fr, Sa 11:30-22:00",
+        "website": "https://tacoria.com/location/princeton"
+      },
+      "node": 3923,
+      "snap_m": 25.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827960022",
+      "name": "fruita bowl",
+      "lon": -74.657864,
+      "lat": 40.350363,
+      "category": "fast_food",
+      "tags": {},
+      "node": 4405,
+      "snap_m": 49.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828006420",
+      "name": "Princeton Soup & Sandwich Company",
+      "lon": -74.661258,
+      "lat": 40.350851,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "sandwich"
+      },
+      "node": 4519,
+      "snap_m": 8.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828008625",
+      "name": "Proof",
+      "lon": -74.660198,
+      "lat": 40.349718,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "pizza",
+        "website": "https://www.princetonpi.com/"
+      },
+      "node": 3253,
+      "snap_m": 19.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828008630",
+      "name": "Mamoun's Falafel",
+      "lon": -74.660242,
+      "lat": 40.350422,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "mediterranean",
+        "opening_hours": "Mo-Su 11:00-21:00"
+      },
+      "node": 4463,
+      "snap_m": 21.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7012912924",
+      "name": "Dunkin'",
+      "lon": -74.651139,
+      "lat": 40.362839,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Dunkin'",
+        "cuisine": "donut;coffee_shop"
+      },
+      "node": 3396,
+      "snap_m": 16.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9021559629",
+      "name": "Chopt",
+      "lon": -74.650695,
+      "lat": 40.362474,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Chopt",
+        "cuisine": "salad",
+        "opening_hours": "Mo-Su 10:30-20:00"
+      },
+      "node": 5860,
+      "snap_m": 21.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9036677337",
+      "name": "Domino's",
+      "lon": -74.663964,
+      "lat": 40.364647,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Domino's",
+        "cuisine": "pizza",
+        "opening_hours": "Mo-Th 10:30-24:00; Fr-Sa 10:30-01:00; Su 10:30-24:00",
+        "website": "https://pizza.dominos.com/new-jersey/princeton/61-state-road"
+      },
+      "node": 5555,
+      "snap_m": 5.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w488281773",
+      "name": "J S Foodies",
+      "lon": -74.658938,
+      "lat": 40.350508,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "japanese"
+      },
+      "node": 906,
+      "snap_m": 6.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w488376420",
+      "name": "Hoagie Haven",
+      "lon": -74.651908,
+      "lat": 40.352175,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "sandwich",
+        "website": "http://www.hoagiehaven.com/"
+      },
+      "node": 5156,
+      "snap_m": 7.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w488376423",
+      "name": "BurgerRunn",
+      "lon": -74.651682,
+      "lat": 40.35227,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "burger"
+      },
+      "node": 3581,
+      "snap_m": 5.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w490610249",
+      "name": "Alfalfa",
+      "lon": -74.658081,
+      "lat": 40.350514,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "salad",
+        "outdoor_seating": "no",
+        "website": "https://www.eatalfalfa.com/princeton"
+      },
+      "node": 4404,
+      "snap_m": 41.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1024271333",
+      "name": null,
+      "lon": -74.641232,
+      "lat": 40.367657,
+      "category": "garden",
+      "tags": {},
+      "node": 4897,
+      "snap_m": 42.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1198928201",
+      "name": null,
+      "lon": -74.668698,
+      "lat": 40.335247,
+      "category": "garden",
+      "tags": {
+        "access": "private",
+        "fee": "no"
+      },
+      "node": 385,
+      "snap_m": 5.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1351835339",
+      "name": null,
+      "lon": -74.665777,
+      "lat": 40.340425,
+      "category": "garden",
+      "tags": {},
+      "node": 3431,
+      "snap_m": 9.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w197907024",
+      "name": "Birch Garden",
+      "lon": -74.669092,
+      "lat": 40.331744,
+      "category": "garden",
+      "tags": {},
+      "node": 1670,
+      "snap_m": 16.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w27390529",
+      "name": "Prospect Gardens",
+      "lon": -74.65651,
+      "lat": 40.346661,
+      "category": "garden",
+      "tags": {},
+      "node": 2203,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w287891014",
+      "name": null,
+      "lon": -74.640569,
+      "lat": 40.34531,
+      "category": "garden",
+      "tags": {},
+      "node": 2047,
+      "snap_m": 16.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4802855943",
+      "name": "Thomas Sweet Ice Cream",
+      "lon": -74.655628,
+      "lat": 40.350753,
+      "category": "ice_cream",
+      "tags": {
+        "opening_hours": "Su-Th 12:00-22:00, Fr-Sa 12:00-23:00"
+      },
+      "node": 2888,
+      "snap_m": 9.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4806032632",
+      "name": "The Bent Spoon",
+      "lon": -74.661851,
+      "lat": 40.349881,
+      "category": "ice_cream",
+      "tags": {},
+      "node": 188,
+      "snap_m": 25.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827721577",
+      "name": "Fruity Yogurt",
+      "lon": -74.656502,
+      "lat": 40.350734,
+      "category": "ice_cream",
+      "tags": {},
+      "node": 3684,
+      "snap_m": 44.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827959903",
+      "name": "The Baked Bear",
+      "lon": -74.660194,
+      "lat": 40.351014,
+      "category": "ice_cream",
+      "tags": {},
+      "node": 4443,
+      "snap_m": 8.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9036644178",
+      "name": "Rita's Italian Ice",
+      "lon": -74.649906,
+      "lat": 40.363042,
+      "category": "ice_cream",
+      "tags": {
+        "brand": "Rita's Italian Ice",
+        "cuisine": "ice_cream"
+      },
+      "node": 5866,
+      "snap_m": 8.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w297183056",
+      "name": "Halo Pub",
+      "lon": -74.660994,
+      "lat": 40.351181,
+      "category": "ice_cream",
+      "tags": {
+        "cuisine": "ice_cream",
+        "website": "https://www.halofarm.com/halo-pub-princeton-2/"
+      },
+      "node": 6158,
+      "snap_m": 1.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12841077607",
+      "name": "Cotsen Children's Library",
+      "lon": -74.656928,
+      "lat": 40.349321,
+      "category": "library",
+      "tags": {
+        "opening_hours": "Tu-Fr 10:00-15:00",
+        "operator": "Princeton University",
+        "website": "https://cotsen.princeton.edu/"
+      },
+      "node": 5838,
+      "snap_m": 19.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w109782066",
+      "name": "Princeton Public Library",
+      "lon": -74.660323,
+      "lat": 40.351688,
+      "category": "library",
+      "tags": {
+        "access": "yes",
+        "opening_hours": "Mo-Th 09:00-21:00; Fr-Sa 09:00-18:00; Su 12:00-18:00",
+        "wheelchair": "yes"
+      },
+      "node": 4475,
+      "snap_m": 2.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w131929874",
+      "name": "Lewis Library",
+      "lon": -74.652704,
+      "lat": 40.34619,
+      "category": "library",
+      "tags": {
+        "operator": "Princeton University",
+        "wheelchair": "yes"
+      },
+      "node": 7045,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w27341305",
+      "name": "Firestone Library",
+      "lon": -74.657327,
+      "lat": 40.349644,
+      "category": "library",
+      "tags": {
+        "operator": "Princeton University",
+        "wheelchair": "yes"
+      },
+      "node": 5838,
+      "snap_m": 1.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w40717881",
+      "name": "Mudd Library",
+      "lon": -74.652092,
+      "lat": 40.349636,
+      "category": "library",
+      "tags": {},
+      "node": 3834,
+      "snap_m": 5.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w651632447",
+      "name": "Princeton Theological Seminary Library",
+      "lon": -74.666444,
+      "lat": 40.345792,
+      "category": "library",
+      "tags": {},
+      "node": 6664,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w198964332",
+      "name": "Morven Museum",
+      "lon": -74.666938,
+      "lat": 40.347798,
+      "category": "museum",
+      "tags": {},
+      "node": 1701,
+      "snap_m": 2.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w351946213",
+      "name": "Community Park North",
+      "lon": -74.667592,
+      "lat": 40.361762,
+      "category": "nature_reserve",
+      "tags": {},
+      "node": 6849,
+      "snap_m": 0.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w351960886",
+      "name": "John Witherspoon Woods",
+      "lon": -74.67383,
+      "lat": 40.369239,
+      "category": "nature_reserve",
+      "tags": {},
+      "node": 2545,
+      "snap_m": 10.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w870796286",
+      "name": "Billy Johnson Mountain Lakes Nature Preserve",
+      "lon": -74.674392,
+      "lat": 40.360148,
+      "category": "nature_reserve",
+      "tags": {},
+      "node": 6849,
+      "snap_m": 0.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w870862380",
+      "name": "Public Open Space",
+      "lon": -74.672775,
+      "lat": 40.365898,
+      "category": "nature_reserve",
+      "tags": {},
+      "node": 2169,
+      "snap_m": 18.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n357738838",
+      "name": "Princeton Battle Monument",
+      "lon": -74.663909,
+      "lat": 40.348288,
+      "category": "park",
+      "tags": {},
+      "node": 4413,
+      "snap_m": 10.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n357748778",
+      "name": "Marquand Park",
+      "lon": -74.670833,
+      "lat": 40.341389,
+      "category": "park",
+      "tags": {},
+      "node": 3913,
+      "snap_m": 4.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "r2918026",
+      "name": "Community Park South",
+      "lon": -74.666693,
+      "lat": 40.358391,
+      "category": "park",
+      "tags": {},
+      "node": 3425,
+      "snap_m": 3.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "r7930158",
+      "name": "Princeton Battlefield State Park",
+      "lon": -74.676792,
+      "lat": 40.331195,
+      "category": "park",
+      "tags": {
+        "opening_hours": "sunrise-sunset",
+        "operator": "New Jersey Department of Environmental Protection",
+        "website": "https://nj.gov/dep/parksandforests/parks/princetonbattlefieldstatepark.html"
+      },
+      "node": 7059,
+      "snap_m": 4.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w109783462",
+      "name": "Albert E. Hinds Plaza",
+      "lon": -74.660168,
+      "lat": 40.351349,
+      "category": "park",
+      "tags": {},
+      "node": 4444,
+      "snap_m": 4.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w128817019",
+      "name": null,
+      "lon": -74.651293,
+      "lat": 40.353898,
+      "category": "park",
+      "tags": {},
+      "node": 863,
+      "snap_m": 78.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w128817020",
+      "name": "Quarry Park",
+      "lon": -74.648493,
+      "lat": 40.355499,
+      "category": "park",
+      "tags": {},
+      "node": 2436,
+      "snap_m": 2.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w209950655",
+      "name": "Palmer Square Green",
+      "lon": -74.661324,
+      "lat": 40.350228,
+      "category": "park",
+      "tags": {},
+      "node": 3212,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w209951196",
+      "name": "Tiger Park",
+      "lon": -74.661116,
+      "lat": 40.34966,
+      "category": "park",
+      "tags": {},
+      "node": 4358,
+      "snap_m": 1.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w27336308",
+      "name": "Turning Basin Park",
+      "lon": -74.653633,
+      "lat": 40.331369,
+      "category": "park",
+      "tags": {},
+      "node": 1536,
+      "snap_m": 58.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w27341277",
+      "name": "Cannon Green",
+      "lon": -74.659178,
+      "lat": 40.348164,
+      "category": "park",
+      "tags": {},
+      "node": 1797,
+      "snap_m": 2.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w351950223",
+      "name": "Farmview Fields",
+      "lon": -74.686353,
+      "lat": 40.359046,
+      "category": "park",
+      "tags": {},
+      "node": 2641,
+      "snap_m": 10.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w351952481",
+      "name": "Harrison Street Park",
+      "lon": -74.645245,
+      "lat": 40.352632,
+      "category": "park",
+      "tags": {},
+      "node": 4200,
+      "snap_m": 5.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w351959080",
+      "name": "Potts Park",
+      "lon": -74.647776,
+      "lat": 40.3586,
+      "category": "park",
+      "tags": {},
+      "node": 598,
+      "snap_m": 11.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w351959636",
+      "name": "Sigmund Park",
+      "lon": -74.652756,
+      "lat": 40.355018,
+      "category": "park",
+      "tags": {},
+      "node": 3129,
+      "snap_m": 4.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w352056595",
+      "name": "Mary Moss Park",
+      "lon": -74.664181,
+      "lat": 40.355037,
+      "category": "park",
+      "tags": {},
+      "node": 565,
+      "snap_m": 6.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w39854040",
+      "name": "Greenway Meadows",
+      "lon": -74.684772,
+      "lat": 40.344064,
+      "category": "park",
+      "tags": {},
+      "node": 3981,
+      "snap_m": 3.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w40145668",
+      "name": "Grover Park",
+      "lon": -74.649239,
+      "lat": 40.364299,
+      "category": "park",
+      "tags": {},
+      "node": 7066,
+      "snap_m": 3.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w427931908",
+      "name": "Lake Field",
+      "lon": -74.648782,
+      "lat": 40.341387,
+      "category": "park",
+      "tags": {},
+      "node": 5388,
+      "snap_m": 1.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w468748945",
+      "name": "Lawrence Circle Park",
+      "lon": -74.657966,
+      "lat": 40.332512,
+      "category": "park",
+      "tags": {},
+      "node": 2299,
+      "snap_m": 17.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1422507876",
+      "name": "Maggie's Playground",
+      "lon": -74.648966,
+      "lat": 40.355427,
+      "category": "playground",
+      "tags": {},
+      "node": 827,
+      "snap_m": 21.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2830649258",
+      "name": "Marquard Park",
+      "lon": -74.672035,
+      "lat": 40.341023,
+      "category": "playground",
+      "tags": {
+        "access": "yes"
+      },
+      "node": 3908,
+      "snap_m": 27.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1024264330",
+      "name": null,
+      "lon": -74.638694,
+      "lat": 40.363233,
+      "category": "playground",
+      "tags": {},
+      "node": 5540,
+      "snap_m": 53.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1024264332",
+      "name": null,
+      "lon": -74.637633,
+      "lat": 40.363072,
+      "category": "playground",
+      "tags": {},
+      "node": 1930,
+      "snap_m": 21.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1311616257",
+      "name": null,
+      "lon": -74.684575,
+      "lat": 40.34932,
+      "category": "playground",
+      "tags": {},
+      "node": 3978,
+      "snap_m": 8.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1311616258",
+      "name": null,
+      "lon": -74.684279,
+      "lat": 40.349321,
+      "category": "playground",
+      "tags": {},
+      "node": 3978,
+      "snap_m": 3.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1311616264",
+      "name": null,
+      "lon": -74.685189,
+      "lat": 40.348144,
+      "category": "playground",
+      "tags": {},
+      "node": 6645,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1311619192",
+      "name": null,
+      "lon": -74.665962,
+      "lat": 40.358729,
+      "category": "playground",
+      "tags": {},
+      "node": 2138,
+      "snap_m": 92.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1312897561",
+      "name": null,
+      "lon": -74.663989,
+      "lat": 40.352183,
+      "category": "playground",
+      "tags": {},
+      "node": 6675,
+      "snap_m": 15.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1342265658",
+      "name": null,
+      "lon": -74.665456,
+      "lat": 40.353746,
+      "category": "playground",
+      "tags": {},
+      "node": 6798,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w287891013",
+      "name": null,
+      "lon": -74.640796,
+      "lat": 40.345225,
+      "category": "playground",
+      "tags": {},
+      "node": 2047,
+      "snap_m": 47.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w292439943",
+      "name": null,
+      "lon": -74.687695,
+      "lat": 40.344766,
+      "category": "playground",
+      "tags": {},
+      "node": 1902,
+      "snap_m": 17.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w292439944",
+      "name": null,
+      "lon": -74.687522,
+      "lat": 40.344502,
+      "category": "playground",
+      "tags": {},
+      "node": 1902,
+      "snap_m": 46.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w292439945",
+      "name": null,
+      "lon": -74.687616,
+      "lat": 40.344234,
+      "category": "playground",
+      "tags": {},
+      "node": 1903,
+      "snap_m": 35.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w618371750",
+      "name": null,
+      "lon": -74.662944,
+      "lat": 40.331672,
+      "category": "playground",
+      "tags": {},
+      "node": 1010,
+      "snap_m": 9.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10084882811",
+      "name": "Cross Culture",
+      "lon": -74.650902,
+      "lat": 40.362833,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "indian"
+      },
+      "node": 5859,
+      "snap_m": 28.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10895071685",
+      "name": "Tiger Noodles",
+      "lon": -74.651291,
+      "lat": 40.352376,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "chinese"
+      },
+      "node": 2502,
+      "snap_m": 16.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13233798365",
+      "name": "Pastiamo",
+      "lon": -74.651245,
+      "lat": 40.36343,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "italian",
+        "website": "https://pastiamoprinceton.com/menu"
+      },
+      "node": 5903,
+      "snap_m": 4.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13233815462",
+      "name": "Wonder Pho",
+      "lon": -74.65057,
+      "lat": 40.362606,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "vietnamese",
+        "website": "https://wonder-pho.com/"
+      },
+      "node": 5860,
+      "snap_m": 8.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1324536984",
+      "name": "Amazing Thai",
+      "lon": -74.650862,
+      "lat": 40.352515,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "thai"
+      },
+      "node": 6298,
+      "snap_m": 10.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1324537005",
+      "name": "Blue Point Grill",
+      "lon": -74.651089,
+      "lat": 40.352451,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "seafood",
+        "website": "https://www.bluepointgrill.com/"
+      },
+      "node": 4789,
+      "snap_m": 11.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1325970470",
+      "name": "Chennai Chimney",
+      "lon": -74.662654,
+      "lat": 40.34971,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "indian"
+      },
+      "node": 1063,
+      "snap_m": 30.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1325970475",
+      "name": "Ramen stop",
+      "lon": -74.651235,
+      "lat": 40.352163,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "noodle"
+      },
+      "node": 5148,
+      "snap_m": 5.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1325970485",
+      "name": "The Mint",
+      "lon": -74.656656,
+      "lat": 40.350752,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "indian"
+      },
+      "node": 4314,
+      "snap_m": 45.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1325970496",
+      "name": "Ajihei",
+      "lon": -74.662599,
+      "lat": 40.349571,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "sushi"
+      },
+      "node": 1063,
+      "snap_m": 45.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13618292128",
+      "name": "The Meeting House",
+      "lon": -74.662724,
+      "lat": 40.357314,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american",
+        "opening_hours": "Mo-Tu 16:00-22:00; We-Th 11:30-14:30,16:00-22:00;Fr 11:30-14:30,16:00-23:00; Sa 10:00-14:30,16:00-23:00; Su 10:00-14:30,16:00-22:00",
+        "outdoor_seating": "yes",
+        "website": "https://meetinghouseprinceton.com"
+      },
+      "node": 5479,
+      "snap_m": 22.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14104589664",
+      "name": "Maruichi Japanese Food & Deli",
+      "lon": -74.658273,
+      "lat": 40.350263,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "ramen"
+      },
+      "node": 4404,
+      "snap_m": 24.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2204853958",
+      "name": "Yankee Doodle Tap Room",
+      "lon": -74.661737,
+      "lat": 40.350539,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american"
+      },
+      "node": 4518,
+      "snap_m": 29.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3010370159",
+      "name": "Agricola Eatery",
+      "lon": -74.659806,
+      "lat": 40.350124,
+      "category": "restaurant",
+      "tags": {
+        "website": "https://www.agricolaeatery.com"
+      },
+      "node": 4448,
+      "snap_m": 23.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3089166040",
+      "name": "Mi Espana",
+      "lon": -74.651085,
+      "lat": 40.362773,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "spanish",
+        "opening_hours": "Mo-Su 11:00-20:00"
+      },
+      "node": 3396,
+      "snap_m": 15.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3366989025",
+      "name": "Pizza Star",
+      "lon": -74.650245,
+      "lat": 40.36293,
+      "category": "restaurant",
+      "tags": {},
+      "node": 6651,
+      "snap_m": 33.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3367015773",
+      "name": "Taste of Mexico",
+      "lon": -74.656026,
+      "lat": 40.3511,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican"
+      },
+      "node": 3684,
+      "snap_m": 13.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3813360081",
+      "name": "Mistral",
+      "lon": -74.660879,
+      "lat": 40.351458,
+      "category": "restaurant",
+      "tags": {
+        "capacity": "50",
+        "cuisine": "american",
+        "website": "https://www.mistralprinceton.com/",
+        "wheelchair": "limited"
+      },
+      "node": 6693,
+      "snap_m": 13.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3813361655",
+      "name": "elements",
+      "lon": -74.660748,
+      "lat": 40.351483,
+      "category": "restaurant",
+      "tags": {
+        "capacity": "30",
+        "cuisine": "american",
+        "website": "https://www.elementsprinceton.com"
+      },
+      "node": 6690,
+      "snap_m": 12.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4219999193",
+      "name": "Mediterra",
+      "lon": -74.662187,
+      "lat": 40.351056,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "italian"
+      },
+      "node": 6148,
+      "snap_m": 16.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4802855939",
+      "name": "Thai Village",
+      "lon": -74.652135,
+      "lat": 40.351832,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "thai",
+        "outdoor_seating": "yes"
+      },
+      "node": 5150,
+      "snap_m": 8.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4802855941",
+      "name": "Efes Mediterranean Grill",
+      "lon": -74.652188,
+      "lat": 40.351817,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mediterranean"
+      },
+      "node": 5150,
+      "snap_m": 11.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4802855942",
+      "name": "Nassau Sushi",
+      "lon": -74.655746,
+      "lat": 40.350697,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "asian",
+        "outdoor_seating": "yes"
+      },
+      "node": 2888,
+      "snap_m": 21.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827721617",
+      "name": "Aspendos Mediterranean Cuisine",
+      "lon": -74.655697,
+      "lat": 40.350998,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mediterranean"
+      },
+      "node": 4315,
+      "snap_m": 7.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827959899",
+      "name": "Witherspoon Grill",
+      "lon": -74.659955,
+      "lat": 40.351356,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american"
+      },
+      "node": 4445,
+      "snap_m": 35.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827959900",
+      "name": "Kristine",
+      "lon": -74.659933,
+      "lat": 40.351254,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "french"
+      },
+      "node": 3215,
+      "snap_m": 31.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827959902",
+      "name": "Xi Bei Cuisine",
+      "lon": -74.660212,
+      "lat": 40.351058,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "chinese"
+      },
+      "node": 3214,
+      "snap_m": 9.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827959908",
+      "name": "La Mezzaluna",
+      "lon": -74.659997,
+      "lat": 40.3506,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "italian"
+      },
+      "node": 604,
+      "snap_m": 15.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4827960024",
+      "name": "PJ's Pancake House",
+      "lon": -74.657732,
+      "lat": 40.35041,
+      "category": "restaurant",
+      "tags": {
+        "website": "https://pancakes.com/"
+      },
+      "node": 4405,
+      "snap_m": 37.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828008621",
+      "name": "Winberie's",
+      "lon": -74.660882,
+      "lat": 40.349888,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american"
+      },
+      "node": 4456,
+      "snap_m": 7.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828008626",
+      "name": "MTea Sushi & Dessert",
+      "lon": -74.660127,
+      "lat": 40.349734,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "sushi"
+      },
+      "node": 4400,
+      "snap_m": 21.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828008629",
+      "name": "Jules Thin Crust",
+      "lon": -74.660218,
+      "lat": 40.350369,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza"
+      },
+      "node": 4448,
+      "snap_m": 24.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828008632",
+      "name": "Olives",
+      "lon": -74.66028,
+      "lat": 40.35049,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "greek",
+        "opening_hours": "Mo-Sa 07:30-19:30; Su 08:30-16:00",
+        "outdoor_seating": "yes",
+        "website": "https://olivesprinceton.com",
+        "wheelchair": "yes"
+      },
+      "node": 4463,
+      "snap_m": 14.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828008634",
+      "name": "Purinsu Ramen",
+      "lon": -74.660383,
+      "lat": 40.350719,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "noodle"
+      },
+      "node": 4523,
+      "snap_m": 10.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4828014669",
+      "name": "Jammin' Crepes",
+      "lon": -74.662889,
+      "lat": 40.348972,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "crepe"
+      },
+      "node": 4397,
+      "snap_m": 19.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4829764365",
+      "name": "Ayat",
+      "lon": -74.659628,
+      "lat": 40.35094,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "palestinian;mediterranean"
+      },
+      "node": 3215,
+      "snap_m": 17.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4829841553",
+      "name": "Ficus",
+      "lon": -74.652302,
+      "lat": 40.351768,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "korean",
+        "opening_hours": "Tu-Th 11:00-19:30; Fr-Sa 11:00-20:00; Su-Mo 11:00-15:00",
+        "website": "https://www.ficusbv.com"
+      },
+      "node": 5065,
+      "snap_m": 10.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4838922573",
+      "name": "Hunan",
+      "lon": -74.661498,
+      "lat": 40.353983,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "asian"
+      },
+      "node": 4719,
+      "snap_m": 7.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9036644181",
+      "name": "The Blue Bears",
+      "lon": -74.65063,
+      "lat": 40.363915,
+      "category": "restaurant",
+      "tags": {},
+      "node": 5853,
+      "snap_m": 15.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9431596357",
+      "name": "Lan Ramen",
+      "lon": -74.660744,
+      "lat": 40.351011,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "ramen"
+      },
+      "node": 944,
+      "snap_m": 11.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1061987514",
+      "name": "Le Kiosk",
+      "lon": -74.650907,
+      "lat": 40.352177,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "italian;french",
+        "website": "http://www.le-kiosk.com/"
+      },
+      "node": 5147,
+      "snap_m": 12.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1207030278",
+      "name": "Conte's Pizza & Bar",
+      "lon": -74.663474,
+      "lat": 40.359647,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza",
+        "opening_hours": "Mo 11:30-21:00; Tu-Fr 11:30-22:00; Sa 16:00-22:00; Su 16:00-21:00",
+        "website": "https://contespizzaandbar.blog"
+      },
+      "node": 4129,
+      "snap_m": 9.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w210375361",
+      "name": "Triumph Brewing Company",
+      "lon": -74.661026,
+      "lat": 40.350179,
+      "category": "restaurant",
+      "tags": {
+        "website": "https://www.triumphbrewing.com/princeton/"
+      },
+      "node": 4455,
+      "snap_m": 4.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w238350860",
+      "name": "North End Bistro",
+      "lon": -74.645064,
+      "lat": 40.354299,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american"
+      },
+      "node": 1861,
+      "snap_m": 8.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w297185544",
+      "name": "Local Greek",
+      "lon": -74.664573,
+      "lat": 40.355975,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "greek",
+        "website": "https://localgreeknj.com/"
+      },
+      "node": 4638,
+      "snap_m": 5.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w297185545",
+      "name": "Tortuga's Mexican Village",
+      "lon": -74.66479,
+      "lat": 40.356303,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "website": "https://www.tortugasmv.com/"
+      },
+      "node": 4637,
+      "snap_m": 6.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w321045495",
+      "name": "Nomad",
+      "lon": -74.652143,
+      "lat": 40.36354,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza",
+        "website": "http://www.nomadpizzaco.com/princeton.html"
+      },
+      "node": 3934,
+      "snap_m": 12.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w488376419",
+      "name": "锦里 SC house",
+      "lon": -74.652183,
+      "lat": 40.352127,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "chinese"
+      },
+      "node": 5561,
+      "snap_m": 0.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w488376421",
+      "name": "Pizza Den",
+      "lon": -74.651831,
+      "lat": 40.352202,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza",
+        "opening_hours": "Mo-Th 10:30-21:00; Fr-Sa 10:30-21:30; Su off",
+        "website": "https://www.pizzadenprinceton.com/",
+        "wheelchair": "no"
+      },
+      "node": 2498,
+      "snap_m": 9.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w490583674",
+      "name": "Thai delight",
+      "lon": -74.655939,
+      "lat": 40.350955,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "thai"
+      },
+      "node": 3684,
+      "snap_m": 13.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w555502611",
+      "name": "Metro North",
+      "lon": -74.653976,
+      "lat": 40.33471,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "italian",
+        "opening_hours": "Mo-Th 11:00-22:00, Fr-Sa 11:00-24:00, Su 11:00-21:00"
+      },
+      "node": 3563,
+      "snap_m": 4.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w626575413",
+      "name": "Roots Ocean Prime",
+      "lon": -74.659438,
+      "lat": 40.343322,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "fish_and_chips;american;steak_house",
+        "website": "https://rootssteakhouse.com/roots_ocean_prime"
+      },
+      "node": 5617,
+      "snap_m": 0.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12959861408",
+      "name": null,
+      "lon": -74.653587,
+      "lat": 40.331231,
+      "category": "shelter",
+      "tags": {},
+      "node": 1538,
+      "snap_m": 91.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13788034761",
+      "name": null,
+      "lon": -74.66769,
+      "lat": 40.35897,
+      "category": "shelter",
+      "tags": {},
+      "node": 2137,
+      "snap_m": 42.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1311616256",
+      "name": null,
+      "lon": -74.684957,
+      "lat": 40.349392,
+      "category": "shelter",
+      "tags": {},
+      "node": 6633,
+      "snap_m": 4.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1342265648",
+      "name": null,
+      "lon": -74.665705,
+      "lat": 40.353554,
+      "category": "shelter",
+      "tags": {},
+      "node": 6723,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1420947258",
+      "name": "Visitors team dugout",
+      "lon": -74.641785,
+      "lat": 40.338512,
+      "category": "shelter",
+      "tags": {},
+      "node": 6962,
+      "snap_m": 31.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1420947259",
+      "name": "Princeton Tigers dugout",
+      "lon": -74.641315,
+      "lat": 40.338299,
+      "category": "shelter",
+      "tags": {},
+      "node": 6876,
+      "snap_m": 19.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12863579440",
+      "name": null,
+      "lon": -74.640206,
+      "lat": 40.339526,
+      "category": "toilets",
+      "tags": {},
+      "node": 6883,
+      "snap_m": 8.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13788121274",
+      "name": null,
+      "lon": -74.666624,
+      "lat": 40.357953,
+      "category": "toilets",
+      "tags": {},
+      "node": 4222,
+      "snap_m": 72.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13930142885",
+      "name": null,
+      "lon": -74.660149,
+      "lat": 40.350147,
+      "category": "toilets",
+      "tags": {
+        "access": "yes",
+        "changing_table": "no",
+        "fee": "no"
+      },
+      "node": 4448,
+      "snap_m": 24.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2407225579",
+      "name": null,
+      "lon": -74.671096,
+      "lat": 40.357985,
+      "category": "toilets",
+      "tags": {},
+      "node": 1884,
+      "snap_m": 15.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2407489811",
+      "name": null,
+      "lon": -74.687354,
+      "lat": 40.344352,
+      "category": "toilets",
+      "tags": {},
+      "node": 1903,
+      "snap_m": 44.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5600773421",
+      "name": null,
+      "lon": -74.656863,
+      "lat": 40.349366,
+      "category": "toilets",
+      "tags": {},
+      "node": 2757,
+      "snap_m": 20.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5852858466",
+      "name": null,
+      "lon": -74.6537,
+      "lat": 40.331519,
+      "category": "toilets",
+      "tags": {
+        "wheelchair": "limited"
+      },
+      "node": 1536,
+      "snap_m": 72.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1420947262",
+      "name": null,
+      "lon": -74.641205,
+      "lat": 40.338243,
+      "category": "toilets",
+      "tags": {
+        "access": "private",
+        "wheelchair": "yes"
+      },
+      "node": 6876,
+      "snap_m": 6.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11121846699",
+      "name": null,
+      "lon": -74.668221,
+      "lat": 40.334697,
+      "category": "viewpoint",
+      "tags": {
+        "description": "excellent view on Fuld Hall"
+      },
+      "node": 3455,
+      "snap_m": 65.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    }
+  ]
+}

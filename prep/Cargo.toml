@@ -1,0 +1,11 @@
+[package]
+name = "prep"
+version = "0.1.0"
+edition = "2021"
+description = "Builds data/princeton/{graph,places}.json from the raw downloads in data/raw/ (see prep/README.md)"
+publish = false
+
+[dependencies]
+# engine's contract structs ARE the file format: prep fills them, so output always parses.
+engine = { path = "../engine" }
+serde_json = "1"

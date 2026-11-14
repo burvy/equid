@@ -1,0 +1,29 @@
+Equid data prep stats (prep from OSM snapshot 2026-11-14T08:55:38Z)
+nodes 7133  edges 10080  network 442.9 km  (kept 1 of 46 connected pieces, 7133 of 7308 nodes)
+elevation 15.8..91.7 m; max edge grade 30.9%; sunrise 404 min, sunset 1003 min
+foot allowed       99.1% of edges,  98.3% of length
+bike allowed       50.7% of edges,  61.2% of length
+lit tagged          1.2% of edges,   2.6% of length
+  lit=yes           0.7% of edges,   0.8% of length
+surface tagged     36.1% of edges,  41.7% of length
+surface known      57.3% of edges,  67.1% of length  (untagged car roads assumed paved)
+  not paved         1.3% of edges,   3.7% of length
+steps               1.1% of edges,   0.2% of length
+covered             0.5% of edges,   0.1% of length
+wheelchair tagged   0.0% of edges,   0.0% of length
+grade > 5%         12.9% of edges,  23.3% of length
+busy=0             18.2% of edges,  17.8% of length
+busy=1             55.6% of edges,  59.2% of length
+busy=2             20.3% of edges,  18.1% of length
+busy=3              5.9% of edges,   4.9% of length
+bike lts=1         42.1% of edges,  50.6% of length
+bike lts=2          3.7% of edges,   4.1% of length
+bike lts=3          3.0% of edges,   3.6% of length
+bike lts=4          2.0% of edges,   3.0% of length
+cycleway=track     11.5% of edges,  13.5% of length
+cycleway=lane       0.1% of edges,   0.2% of length
+cycleway=shared     3.2% of edges,   3.4% of length
+bench within 100 m   2.4% of edges,   3.5% of length
+toilets within 250 m  11.8% of edges,  10.9% of length
+water within 250 m   3.2% of edges,   4.0% of length
+places 268 (154 named): artwork 31, attraction 2, bench 44, bicycle_parking 32, cafe 15, drinking_water 3, fast_food 16, garden 6, ice_cream 6, library 6, museum 1, nature_reserve 4, park 20, playground 15, restaurant 52, shelter 6, toilets 8, viewpoint 1
