@@ -246,3 +246,30 @@ Native Rust (tests, a future server) uses the same logic through `engine::Core`
 near Palmer Square. It is **not real data**. It covers every edge field: a busy oneway-for-bikes primary road, stairs,
 an unlit footway, a gravel path, a covered walkway with a full `shade` array, a sett (rough) pedestrian street,
 and an edge with unknown surface/lit. Use it in unit tests and for web work before the real data lands.
+
+## 6. Trip agent server (`POST /agent`)
+
+`cargo run -p server` (axum, `server/`): the only server we run. Plain English -> weight vector + stops + pitch, by
+Claude tool use (no framework). Env: `ANTHROPIC_API_KEY` (read from the environment only; never logged or committed;
+without it a deterministic **mock** model drives the same loop, and the response says `"llm":"mock"`),
+`EQUID_MODEL` (default `claude-sonnet-5-5`), `EQUID_DATA` (dir with graph.json + places.json, default `data/fixtures`),
+`PORT` (default 8787). CORS is open (dev).
+
+```jsonc
+// request
+{ "text": "stroller, want a coffee, it's hot", "origin": {"lon": -74.662, "lat": 40.348},  // or {"node": 12}; default: bbox centre
+  "t": 840 }                                                                                // local minutes since midnight, default 720
+// response
+{ "metric": {"mode":"foot","weights":{"time":1,"climb":10,"steep":3,"rough":3},"forbid":["steps"]},  // a valid §3 metric: pass to engine.field
+  "stops": [ {"id":"n1","name":"Toy Café","category":"cafe","minutes":13.5,"why":"..."} ],
+  "pitch": "2-4 sentences, realtor tone",
+  "llm": "anthropic:claude-sonnet-5-5", "tools_called": ["list_features","make_metric", "..."] }
+// errors: 502 {"error": "..."} (model/API failure, no finish, bad origin)
+```
+
+Tools the model gets: `list_features`, `list_places(categories)`, `make_metric(mode, weights, forbid)` (validated by
+`Metric::compile`: weights >= 0), `field(categories, limit)` (cheapest places, minutes, computed natively by `engine::Core`),
+`explain(place_id)` (route length + per-feature share of the cost on the cheapest route, `Core::explain`), and `finish(stops, pitch)`.
+The model's only outputs are a weight vector and place ids, so every cost comes from the engine over non-negative weights.
+**Grounding check:** `finish` is rejected (and the model must retry) if any number in the pitch is absent from the request
+or the tool results; stop ids must exist. Costs are quoted in minutes of personal cost.

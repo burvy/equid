@@ -190,3 +190,19 @@ fn timing_on_20k_edges() {
         if cfg!(debug_assertions) { "debug" } else { "release" }
     );
 }
+
+#[test]
+fn explain_terms_add_up_to_the_field_cost() {
+    let c = fixture();
+    for id in ["walk", "wheelchair", "night", "hiking"] {
+        let m = preset(id);
+        let f = c.field(0, &m, 22.0 * 60.0).unwrap();
+        for target in 0..12u32 {
+            let ex = c.explain(0, &m, 22.0 * 60.0, target).unwrap();
+            let sum: f32 = ex.terms.iter().map(|t| t.3).sum();
+            assert!(near(sum, f.node_cost[target as usize]), "{id} -> {target}: {sum} vs {}", f.node_cost[target as usize]);
+            assert_eq!(ex.path[0], 0);
+            assert_eq!(*ex.path.last().unwrap(), target);
+        }
+    }
+}

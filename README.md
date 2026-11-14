@@ -45,3 +45,13 @@ Work in progress (hackathon build). The engine's `field` is real (petgraph Dijks
 
 ## Credits
 Map data © OpenStreetMap contributors (ODbL).
+
+## AI trip agent
+
+```
+export ANTHROPIC_API_KEY=sk-ant-...      # optional: without it a mock model runs the same tool loop
+cargo run -p server                      # http://127.0.0.1:8787, data from data/fixtures (EQUID_DATA to change)
+curl -X POST localhost:8787/agent -H 'content-type: application/json'   -d '{"text":"stroller, want a coffee","origin":{"lon":-74.662,"lat":40.348},"t":600}'
+cargo test -p server                     # the three scripted prompts through the whole loop (mock)
+```
+Details: docs/contracts.md section 6.

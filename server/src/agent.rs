@@ -1,0 +1,286 @@
+//! The trip agent: plain Claude tool use, no framework. The model can only (1) pick a weight vector
+//! (`make_metric`), (2) look at what the engine computed (`field`, `explain`, `list_*`), and
+//! (3) `finish` with stop ids + a pitch. The engine does all the arithmetic, so whatever the model
+//! writes, costs come from `Core::field` over non-negative weights (the Lean-proved setting).
+//! The pitch is checked: every number in it must appear in a tool result or in the user's request.
+
+use crate::llm::Llm;
+use engine::features::FEATURES;
+use engine::metric::{Metric, MetricSpec};
+use engine::Core;
+use serde::{Deserialize, Serialize};
+use serde_json::{json, Value};
+
+const MAX_TURNS: usize = 14;
+
+#[derive(Debug, Deserialize)]
+pub struct AgentRequest {
+    pub text: String,
+    /// `{lon, lat}` (snapped to the nearest node) or `{node}`.
+    #[serde(default)]
+    pub origin: Option<Origin>,
+    /// Local minutes since midnight (default 12:00).
+    #[serde(default)]
+    pub t: Option<f32>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct Origin {
+    pub lon: Option<f64>,
+    pub lat: Option<f64>,
+    pub node: Option<u32>,
+}
+
+#[derive(Debug, Serialize)]
+pub struct Stop {
+    pub id: String,
+    pub name: Option<String>,
+    pub category: String,
+    pub minutes: Option<f32>,
+    pub why: String,
+}
+
+#[derive(Debug, Serialize)]
+pub struct AgentResponse {
+    pub metric: MetricSpec,
+    pub stops: Vec<Stop>,
+    pub pitch: String,
+    pub llm: String,
+    pub tools_called: Vec<String>,
+}
+
+const SYSTEM: &str = "You are Equid's trip agent. Equid measures distance as personal cost: every street edge costs \
+sum(weight_i x feature_i), and you choose the weights. Given the user's trip description:\n\
+1. Call list_features, then make_metric with weights (seconds of penalty per metre of each feature; 'time' is 1) and \
+'forbid' for features that make an edge impassable (e.g. steps for a stroller or wheelchair). Weights must be >= 0.\n\
+2. Call list_places / field to see what is reachable and what it costs, and pick the stops that make the trip best \
+(e.g. a bench or fountain along the way, plus the destination the user wants). Use explain on your top pick to learn why it costs what it does.\n\
+3. Finish by calling finish with stops (place ids from the tools, each with a short 'why') and a pitch: 2-4 sentences, \
+like a friendly realtor, about the top pick for THIS user.\n\
+Rules: use only facts the tools returned. Every number in your pitch (minutes, metres, counts) must appear in a tool \
+result; do not compute new numbers or invent facts (no opening hours or reviews unless a tool returned them). \
+Costs are in minutes of personal cost, not clock time. Never output weights or costs as the final answer; call finish.";
+
+fn tools() -> Vec<Value> {
+    vec![
+        json!({"name": "list_features", "description": "The features a metric can weight: id, unit, meaning.",
+               "input_schema": {"type": "object", "properties": {}}}),
+        json!({"name": "list_places", "description": "Places in the area (id, name, category, rating, tags), optionally filtered by category. No costs: use field for costs.",
+               "input_schema": {"type": "object", "properties": {"categories": {"type": "array", "items": {"type": "string"}}}}}),
+        json!({"name": "make_metric", "description": "Set the cost metric for this trip. weights: feature id -> non-negative number. forbid: feature ids that make an edge impassable. mode: foot or bike. Replaces any earlier metric.",
+               "input_schema": {"type": "object", "properties": {
+                   "mode": {"type": "string", "enum": ["foot", "bike"]},
+                   "weights": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0}},
+                   "forbid": {"type": "array", "items": {"type": "string"}}},
+                 "required": ["weights"]}}),
+        json!({"name": "field", "description": "Run the engine from the user's origin under the current metric. Returns the cheapest places (minutes of personal cost), optionally filtered by categories.",
+               "input_schema": {"type": "object", "properties": {
+                   "categories": {"type": "array", "items": {"type": "string"}},
+                   "limit": {"type": "integer", "minimum": 1, "maximum": 20}}}}),
+        json!({"name": "explain", "description": "Why a place costs what it costs: route length and each feature's share of the cost on the cheapest route.",
+               "input_schema": {"type": "object", "properties": {"place_id": {"type": "string"}}, "required": ["place_id"]}}),
+        json!({"name": "finish", "description": "Deliver the answer. stops: chosen place ids with a one-line why. pitch: 2-4 sentences, grounded in tool results.",
+               "input_schema": {"type": "object", "properties": {
+                   "stops": {"type": "array", "items": {"type": "object", "properties": {"id": {"type": "string"}, "why": {"type": "string"}}, "required": ["id", "why"]}},
+                   "pitch": {"type": "string"}},
+                 "required": ["stops", "pitch"]}}),
+    ]
+}
+
+/// All decimal numbers in `s` as f64 (e.g. "12.5 min, 3 stops" -> [12.5, 3.0]).
+pub fn numbers_in(s: &str) -> Vec<f64> {
+    let b = s.as_bytes();
+    let (mut out, mut i) = (vec![], 0);
+    while i < b.len() {
+        if b[i].is_ascii_digit() {
+            let st = i;
+            while i < b.len() && b[i].is_ascii_digit() {
+                i += 1;
+            }
+            if i + 1 < b.len() && b[i] == b'.' && b[i + 1].is_ascii_digit() {
+                i += 1;
+                while i < b.len() && b[i].is_ascii_digit() {
+                    i += 1;
+                }
+            }
+            if let Ok(v) = s[st..i].parse() {
+                out.push(v);
+            }
+        } else {
+            i += 1;
+        }
+    }
+    out
+}
+
+/// Numbers in `pitch` that appear nowhere in `grounding`.
+pub fn ungrounded_numbers(pitch: &str, grounding: &str) -> Vec<f64> {
+    let known = numbers_in(grounding);
+    numbers_in(pitch).into_iter().filter(|n| !known.iter().any(|k| (k - n).abs() < 1e-9)).collect()
+}
+
+fn minutes(s: f32) -> f64 {
+    ((s / 60.0 * 10.0).round() / 10.0) as f64
+}
+
+struct Session<'a> {
+    core: &'a Core,
+    origin: u32,
+    t: f32,
+    metric: Option<(MetricSpec, Metric)>,
+    /// Everything the model may legitimately quote: the request and every tool result.
+    grounding: String,
+}
+
+impl Session<'_> {
+    fn place_json(&self, i: usize) -> Value {
+        let p = &self.core.places.places[i];
+        json!({"id": p.id, "name": p.name, "category": p.category, "rating": p.rating,
+               "opening_hours": p.tags.get("opening_hours")})
+    }
+
+    fn wants(args: &Value, p: &engine::graph::Place) -> bool {
+        match args["categories"].as_array() {
+            Some(c) if !c.is_empty() => c.iter().any(|x| x.as_str() == Some(p.category.as_str())),
+            _ => true,
+        }
+    }
+
+    /// Run one tool. Ok = result for the model; Err = tool error the model can react to.
+    fn call(&mut self, name: &str, args: &Value) -> Result<Value, String> {
+        match name {
+            "list_features" => Ok(json!(FEATURES
+                .iter()
+                .map(|f| json!({"id": f.id, "unit": f.unit, "desc": f.desc}))
+                .collect::<Vec<_>>())),
+            "list_places" => {
+                let v: Vec<Value> = (0..self.core.places.places.len())
+                    .filter(|&i| Self::wants(args, &self.core.places.places[i]))
+                    .take(60)
+                    .map(|i| self.place_json(i))
+                    .collect();
+                Ok(json!({"places": v}))
+            }
+            "make_metric" => {
+                let spec: MetricSpec = serde_json::from_value(args.clone()).map_err(|e| format!("bad metric: {e}"))?;
+                let m = Metric::compile(&spec)?;
+                self.metric = Some((spec.clone(), m));
+                Ok(json!({"ok": true, "metric": spec}))
+            }
+            "field" => {
+                let (_, m) = self.metric.as_ref().ok_or("call make_metric first")?;
+                let f = self.core.field(self.origin, m, self.t)?;
+                let limit = args["limit"].as_u64().unwrap_or(8).clamp(1, 20) as usize;
+                let mut idx: Vec<usize> = (0..f.place_cost.len())
+                    .filter(|&i| f.place_cost[i].is_finite() && Self::wants(args, &self.core.places.places[i]))
+                    .collect();
+                idx.sort_by(|&a, &b| f.place_cost[a].total_cmp(&f.place_cost[b]));
+                let unreachable = f.place_cost.iter().filter(|c| c.is_infinite()).count();
+                let places: Vec<Value> = idx
+                    .iter()
+                    .take(limit)
+                    .map(|&i| {
+                        let mut v = self.place_json(i);
+                        v["minutes"] = json!(minutes(f.place_cost[i]));
+                        v
+                    })
+                    .collect();
+                Ok(json!({"cheapest_places": places, "unreachable_places": unreachable}))
+            }
+            "explain" => {
+                let id = args["place_id"].as_str().ok_or("place_id required")?;
+                let (_, m) = self.metric.as_ref().ok_or("call make_metric first")?;
+                let i = self.core.places.places.iter().position(|p| p.id == id).ok_or("unknown place id")?;
+                let ex = self.core.explain(self.origin, m, self.t, self.core.places.places[i].node)?;
+                let terms: Vec<Value> = ex
+                    .terms
+                    .iter()
+                    .map(|t| json!({"feature": t.0, "minutes": minutes(t.3), "share_pct": (t.3 / ex.total.max(1e-6) * 100.0).round() as i64}))
+                    .collect();
+                let mut v = self.place_json(i);
+                v["route_metres"] = json!(ex.length_m.round() as i64);
+                v["minutes"] = json!(minutes(ex.total));
+                v["breakdown"] = json!(terms);
+                Ok(v)
+            }
+            _ => Err(format!("unknown tool '{name}'")),
+        }
+    }
+
+    /// Validate a `finish` call; Ok = the final answer.
+    fn finish(&self, args: &Value, llm: &str, called: Vec<String>) -> Result<AgentResponse, String> {
+        let (spec, m) = self.metric.as_ref().ok_or("call make_metric before finish")?;
+        let pitch = args["pitch"].as_str().ok_or("pitch required")?.trim().to_string();
+        let raw = args["stops"].as_array().ok_or("stops required")?;
+        if raw.is_empty() || pitch.is_empty() {
+            return Err("need at least one stop and a pitch".into());
+        }
+        let f = self.core.field(self.origin, m, self.t)?;
+        let mut stops = vec![];
+        for s in raw {
+            let id = s["id"].as_str().ok_or("stop id required")?;
+            let i = self.core.places.places.iter().position(|p| p.id == id).ok_or(format!("unknown place id '{id}'"))?;
+            let p = &self.core.places.places[i];
+            stops.push(Stop {
+                id: p.id.clone(),
+                name: p.name.clone(),
+                category: p.category.clone(),
+                minutes: f.place_cost[i].is_finite().then(|| minutes(f.place_cost[i]) as f32),
+                why: s["why"].as_str().unwrap_or("").to_string(),
+            });
+        }
+        let bad = ungrounded_numbers(&pitch, &self.grounding);
+        if !bad.is_empty() {
+            return Err(format!("these numbers in your pitch are not in any tool result: {bad:?}. Rewrite the pitch using only numbers the tools returned."));
+        }
+        Ok(AgentResponse { metric: spec.clone(), stops, pitch, llm: llm.to_string(), tools_called: called })
+    }
+}
+
+pub async fn run(core: &Core, llm: &Llm, req: AgentRequest) -> Result<AgentResponse, String> {
+    let origin = match &req.origin {
+        Some(Origin { node: Some(n), .. }) if (*n as usize) < core.graph.nodes.len() => *n,
+        Some(Origin { lon: Some(lon), lat: Some(lat), .. }) => core.nearest_node(*lon, *lat),
+        None => core.nearest_node((core.graph.meta.bbox[0] + core.graph.meta.bbox[2]) / 2.0, (core.graph.meta.bbox[1] + core.graph.meta.bbox[3]) / 2.0),
+        _ => return Err("origin must be {lon, lat} or a valid {node}".into()),
+    };
+    let t = req.t.unwrap_or(720.0).rem_euclid(1440.0);
+    let ctx = format!("{}\n\n(Context: leaving at {:02}:{:02} local time; sunrise {:02}:{:02}, sunset {:02}:{:02}.)", req.text.trim(), t as u32 / 60, t as u32 % 60,
+        core.graph.meta.sunrise_min as u32 / 60, core.graph.meta.sunrise_min as u32 % 60, core.graph.meta.sunset_min as u32 / 60, core.graph.meta.sunset_min as u32 % 60);
+    let mut s = Session { core, origin, t, metric: None, grounding: ctx.clone() };
+    let tools = tools();
+    let mut messages = vec![json!({"role": "user", "content": ctx})];
+    let mut called: Vec<String> = vec![];
+    for _ in 0..MAX_TURNS {
+        let resp = llm.complete(SYSTEM, &messages, &tools).await?;
+        let content = resp["content"].as_array().cloned().unwrap_or_default();
+        let uses: Vec<&Value> = content.iter().filter(|b| b["type"] == "tool_use").collect();
+        if uses.is_empty() {
+            return Err("model ended without calling finish".into());
+        }
+        messages.push(json!({"role": "assistant", "content": content}));
+        let mut results = vec![];
+        for u in uses {
+            let (id, name, args) = (u["id"].clone(), u["name"].as_str().unwrap_or(""), &u["input"]);
+            called.push(name.to_string());
+            if name == "finish" {
+                match s.finish(args, &llm.name(), called.clone()) {
+                    Ok(r) => return Ok(r),
+                    Err(e) => results.push(json!({"type": "tool_result", "tool_use_id": id, "content": e, "is_error": true})),
+                }
+                continue;
+            }
+            match s.call(name, args) {
+                Ok(v) => {
+                    let text = v.to_string();
+                    s.grounding.push('\n');
+                    s.grounding.push_str(&text);
+                    results.push(json!({"type": "tool_result", "tool_use_id": id, "content": text}));
+                }
+                Err(e) => results.push(json!({"type": "tool_result", "tool_use_id": id, "content": e, "is_error": true})),
+            }
+        }
+        messages.push(json!({"role": "user", "content": results}));
+    }
+    Err("agent did not finish within the turn limit".into())
+}

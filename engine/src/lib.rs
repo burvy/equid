@@ -21,6 +21,18 @@ pub struct FieldResult {
     pub place_cost: Vec<f32>,
 }
 
+/// Why a place costs what it costs: the cheapest route's totals per feature (task 017 `explain`).
+#[derive(Debug, Clone)]
+pub struct Explain {
+    /// Graph nodes from origin to target.
+    pub path: Vec<u32>,
+    pub length_m: f32,
+    /// Total cost along the path (= field value at the target).
+    pub total: f32,
+    /// (feature id, raw amount in the feature's unit, weight, weight x raw = seconds-equivalent), only weight > 0 or raw > 0.
+    pub terms: Vec<(&'static str, f32, f32, f32)>,
+}
+
 pub struct Core {
     pub graph: Graph,
     pub places: Places,
@@ -110,6 +122,57 @@ impl Core {
         }
         let place_cost = self.places.places.iter().map(|p| node_cost[p.node as usize]).collect();
         Ok(FieldResult { node_cost, place_cost })
+    }
+}
+
+impl Core {
+    /// Cheapest route origin -> `target` under `metric` at `t_min`, with its cost split by feature.
+    /// Backtracks tight arcs of the Dijkstra field; `Err` if the target is unreachable.
+    pub fn explain(&self, origin: u32, metric: &Metric, t_min: f32, target: u32) -> Result<Explain, String> {
+        let d = self.field(origin, metric, t_min)?.node_cost;
+        let n = self.graph.nodes.len();
+        if target as usize >= n {
+            return Err("target node out of range".into());
+        }
+        if !d[target as usize].is_finite() {
+            return Err("unreachable under this metric".into());
+        }
+        let costs = self.arc_costs(metric, t_min);
+        let meta = &self.graph.meta;
+        let mut path = vec![target];
+        let mut seen = vec![false; n];
+        seen[target as usize] = true;
+        let mut raw = vec![0.0f32; features::FEATURES.len()];
+        let mut length_m = 0.0;
+        let mut v = target as usize;
+        while v != origin as usize {
+            let best = self
+                .arcs
+                .edges_directed(NodeIndex::new(v), petgraph::Direction::Incoming)
+                .filter(|a| costs[a.id().index()].is_finite() && !seen[a.source().index()])
+                .map(|a| (a, (d[a.source().index()] + costs[a.id().index()] - d[v]).abs()))
+                .min_by(|x, y| x.1.total_cmp(&y.1))
+                .ok_or("no predecessor found")?
+                .0;
+            let (ei, fwd) = *best.weight();
+            let e = &self.graph.edges[ei as usize];
+            let f = features::edge_features(e, fwd, metric.mode, meta, t_min);
+            for (r, x) in raw.iter_mut().zip(f.iter()) {
+                *r += x;
+            }
+            length_m += e.length_m;
+            v = best.source().index();
+            seen[v] = true;
+            path.push(v as u32);
+        }
+        path.reverse();
+        let terms = features::FEATURES
+            .iter()
+            .enumerate()
+            .filter(|(i, _)| raw[*i] > 0.0 && metric.weights[*i] > 0.0)
+            .map(|(i, fi)| (fi.id, raw[i], metric.weights[i], raw[i] * metric.weights[i]))
+            .collect();
+        Ok(Explain { path, length_m, total: d[target as usize], terms })
     }
 }
 
