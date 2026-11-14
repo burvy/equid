@@ -1,0 +1,131 @@
+prep-shade stats for princeton on 2026-11-15 (UTC-5)
+edges 10080 (0 without LiDAR), shade+tree in 0.5 s
+share of network length in shade (length-weighted mean of shade[slot]):
+  08:00-08:30  sun alt  14.0 az 129.5  shaded  76.0% of length,  78.5% of edges mostly shaded
+  10:00-10:30  sun alt  27.8 az 156.2  shaded  50.9% of length,  47.5% of edges mostly shaded
+  12:00-12:30  sun alt  30.9 az 188.7  shaded  49.0% of length,  44.7% of edges mostly shaded
+  13:00-13:30  sun alt  27.6 az 204.6  shaded  53.1% of length,  50.8% of edges mostly shaded
+  14:00-14:30  sun alt  21.6 az 218.8  shaded  61.6% of length,  61.8% of edges mostly shaded
+  15:00-15:30  sun alt  13.5 az 231.1  shaded  76.2% of length,  78.1% of edges mostly shaded
+  16:00-16:30  sun alt   4.1 az 241.8  shaded  95.7% of length,  97.3% of edges mostly shaded
+tree crown over/next to the path (+-2 m): 27.8% of length
+edges on bridge decks: 22
+sunset 16:43: 3 of 7133 nodes have an open view west (skyline <= 3 deg) and keep the sun until within 10 min of sunset; spots (>= 400 m apart):
+  Sunset spot: Rosedale Road: sun until 16:35 (sunset 16:43), skyline 0.7 deg, (-74.68183, 40.34531)
+  Sunset spot: Cross Country Course: sun until 16:31 (sunset 16:43), skyline 1.7 deg, (-74.63627, 40.33849)
+  Sunset spot: Stadium Drive West: sun until 16:31 (sunset 16:43), skyline 2.1 deg, (-74.65221, 40.34412)
+  Sunset spot: Tiger Trail: sun until 16:30 (sunset 16:43), skyline 2.7 deg, (-74.64491, 40.33902)
+  Sunset spot: Farmview Fields: sun until 16:29 (sunset 16:43), skyline 2.8 deg, (-74.68510, 40.36003)
+  Sunset spot: Russell Road: sun until 16:27 (sunset 16:43), skyline 2.5 deg, (-74.68499, 40.33648)
+  Sunset spot: Pauline Drive: sun until 16:24 (sunset 16:43), skyline 1.4 deg, (-74.66095, 40.35750)
+  Sunset spot: Witherspoon Street: sun until 16:23 (sunset 16:43), skyline 2.9 deg, (-74.66421, 40.36029)
+sunset + skylines in 0.3 s
+named streets >= 300 m, shade at 13:00 (and tree cover); 175 streets:
+  shadiest:
+    Pretty Brook Road              609 m  shade   92%  trees   36%
+    Johnson Trolley Line           905 m  shade   91%  trees   73%
+    Stuart Road                    873 m  shade   86%  trees   13%
+    Hardy Drive                    326 m  shade   86%  trees   12%
+    Von Neumann Drive              544 m  shade   85%  trees   46%
+    North Road                     562 m  shade   84%  trees   61%
+    Balsam Lane                    311 m  shade   84%  trees   18%
+    Allison Road                   310 m  shade   84%  trees   48%
+    Brearly Road                   400 m  shade   82%  trees   35%
+    Battle Road                    364 m  shade   82%  trees   60%
+  sunniest:
+    Luna Dr                        311 m  shade    0%  trees    0%
+    Cross Country Course          2659 m  shade    0%  trees    0%
+    Brunswick Pike                2043 m  shade    1%  trees    0%
+    Court Drive                    504 m  shade    9%  trees    4%
+    Tiger Trail                    994 m  shade   14%  trees   34%
+    Theater Drive                  323 m  shade   15%  trees    4%
+    Mount Lucas Road              1031 m  shade   18%  trees   11%
+    Ivy Lane                       377 m  shade   19%  trees    5%
+    Butler Avenue                  418 m  shade   20%  trees   18%
+    Haslet Avenue                  361 m  shade   21%  trees   15%
+  check: Nassau Street                 2314 m  shade   48%  trees   22%
+  check: Witherspoon Street            1349 m  shade   46%  trees   21%
+  check: Mercer Street                 1272 m  shade   40%  trees   24%
+  check: Library Place                 1045 m  shade   64%  trees   22%
+  check: Hodge Road                    1004 m  shade   72%  trees   46%
+  check: Prospect Avenue               2451 m  shade   52%  trees   13%
+  check: University Place               763 m  shade   41%  trees   21%
+  check: Washington Road               2972 m  shade   57%  trees   13%
+route demo: preset 'shade' (time + 1 s per sunny metre) at 13:00 vs 16:00, walk route for reference
+  Palmer Square -> Princeton station (Dinky):
+    walk       870 m, sunny  441 m at 13:00 /   19 m at 16:00
+    shade@13   988 m, sunny  287 m
+    shade@16   870 m, sunny   19 m
+    the 13:00 and 16:00 shade routes share 39% of their nodes
+  Palmer Square -> Princeton Battlefield:
+    walk      2549 m, sunny 1565 m at 13:00 /   31 m at 16:00
+    shade@13  2619 m, sunny 1020 m
+    shade@16  2549 m, sunny   31 m
+    the 13:00 and 16:00 shade routes share 41% of their nodes
+  Palmer Square -> Community Park North:
+    walk      2184 m, sunny  799 m at 13:00 /    6 m at 16:00
+    shade@13  2219 m, sunny  551 m
+    shade@16  2186 m, sunny    4 m
+    the 13:00 and 16:00 shade routes share 45% of their nodes
+  Palmer Square -> Lake Carnegie boathouse:
+    walk      2249 m, sunny  768 m at 13:00 /   47 m at 16:00
+    shade@13  2278 m, sunny  664 m
+    shade@16  2249 m, sunny   44 m
+    the 13:00 and 16:00 shade routes share 80% of their nodes
+  Palmer Square -> Institute for Advanced Study:
+    walk      2549 m, sunny 1085 m at 13:00 /   25 m at 16:00
+    shade@13  2574 m, sunny  826 m
+    shade@16  2549 m, sunny   25 m
+    the 13:00 and 16:00 shade routes share 79% of their nodes
+  Princeton station (Dinky) -> Princeton Battlefield:
+    walk      2449 m, sunny 1555 m at 13:00 /   64 m at 16:00
+    shade@13  2777 m, sunny  952 m
+    shade@16  2462 m, sunny   36 m
+    the 13:00 and 16:00 shade routes share 25% of their nodes
+  Princeton station (Dinky) -> Community Park North:
+    walk      2824 m, sunny 1184 m at 13:00 /   22 m at 16:00
+    shade@13  2874 m, sunny  916 m
+    shade@16  2824 m, sunny   22 m
+    the 13:00 and 16:00 shade routes share 42% of their nodes
+  Princeton station (Dinky) -> Lake Carnegie boathouse:
+    walk      1828 m, sunny  942 m at 13:00 /  176 m at 16:00
+    shade@13  2011 m, sunny  731 m
+    shade@16  1878 m, sunny   54 m
+    the 13:00 and 16:00 shade routes share 33% of their nodes
+  Princeton station (Dinky) -> Institute for Advanced Study:
+    walk      2163 m, sunny 1243 m at 13:00 /   59 m at 16:00
+    shade@13  2263 m, sunny  792 m
+    shade@16  2174 m, sunny   36 m
+    the 13:00 and 16:00 shade routes share 43% of their nodes
+  Princeton Battlefield -> Community Park North:
+    walk      4221 m, sunny 2089 m at 13:00 /   34 m at 16:00
+    shade@13  4317 m, sunny 1519 m
+    shade@16  4221 m, sunny   32 m
+    the 13:00 and 16:00 shade routes share 42% of their nodes
+  Princeton Battlefield -> Lake Carnegie boathouse:
+    walk      4197 m, sunny 2425 m at 13:00 /  229 m at 16:00
+    shade@13  4682 m, sunny 1512 m
+    shade@16  4266 m, sunny   43 m
+    the 13:00 and 16:00 shade routes share 5% of their nodes
+  Princeton Battlefield -> Institute for Advanced Study:
+    walk      1390 m, sunny  861 m at 13:00 /   35 m at 16:00
+    shade@13  1423 m, sunny  722 m
+    shade@16  1390 m, sunny   35 m
+    the 13:00 and 16:00 shade routes share 67% of their nodes
+  Community Park North -> Lake Carnegie boathouse:
+    walk      4383 m, sunny 1603 m at 13:00 /   58 m at 16:00
+    shade@13  4529 m, sunny 1164 m
+    shade@16  4397 m, sunny   43 m
+    the 13:00 and 16:00 shade routes share 26% of their nodes
+  Community Park North -> Institute for Advanced Study:
+    walk      4224 m, sunny 1847 m at 13:00 /   28 m at 16:00
+    shade@13  4272 m, sunny 1326 m
+    shade@16  4224 m, sunny   26 m
+    the 13:00 and 16:00 shade routes share 48% of their nodes
+  Lake Carnegie boathouse -> Institute for Advanced Study:
+    walk      2892 m, sunny 1183 m at 13:00 /   29 m at 16:00
+    shade@13  2892 m, sunny 1183 m
+    shade@16  2892 m, sunny   29 m
+    the 13:00 and 16:00 shade routes share 100% of their nodes
+  most different: Princeton Battlefield -> Lake Carnegie boathouse (5% shared)
+  pictures: docs/img/shade_route_1300.png, shade_route_1600.png (Princeton Battlefield -> Lake Carnegie boathouse; streets yellow = sun, blue = shade; white = walk route, red = shade route)

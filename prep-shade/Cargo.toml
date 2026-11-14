@@ -1,0 +1,18 @@
+[package]
+name = "prep-shade"
+version = "0.1.0"
+edition = "2021"
+description = "LiDAR (USGS 3DEP) -> per-edge shade by time of day, tree cover and sunset viewpoints for data/princeton (see prep-shade/README.md)"
+publish = false
+
+[dependencies]
+# engine's contract structs are the file format; Core::load validates what we write.
+engine = { path = "../engine" }
+serde_json = "1"
+# LAZ point clouds (the 3DEP Entwine tiles are LASzip-compressed)
+las = { version = "0.9", features = ["laz"] }
+# downloads (fetch step only; everything after is offline)
+ureq = "2"
+rayon = "1"
+# debug picture of the rasters (data/raw/lidar/ndsm.png)
+png = "0.17"

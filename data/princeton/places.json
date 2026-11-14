@@ -2133,7 +2133,9 @@
       "lon": -74.640569,
       "lat": 40.34531,
       "category": "garden",
-      "tags": {},
+      "tags": {
+        "sun_visible_until": "15:38"
+      },
       "node": 2047,
       "snap_m": 16.4,
       "rating": null,
@@ -2350,7 +2352,9 @@
       "lon": -74.67383,
       "lat": 40.369239,
       "category": "nature_reserve",
-      "tags": {},
+      "tags": {
+        "sun_visible_until": "15:41"
+      },
       "node": 2545,
       "snap_m": 10.0,
       "rating": null,
@@ -2402,7 +2406,9 @@
       "lon": -74.670833,
       "lat": 40.341389,
       "category": "park",
-      "tags": {},
+      "tags": {
+        "sun_visible_until": "15:38"
+      },
       "node": 3913,
       "snap_m": 4.5,
       "rating": null,
@@ -2415,7 +2421,9 @@
       "lon": -74.666693,
       "lat": 40.358391,
       "category": "park",
-      "tags": {},
+      "tags": {
+        "sun_visible_until": "15:58"
+      },
       "node": 3425,
       "snap_m": 3.7,
       "rating": null,
@@ -2536,7 +2544,9 @@
       "lon": -74.686353,
       "lat": 40.359046,
       "category": "park",
-      "tags": {},
+      "tags": {
+        "sun_visible_until": "16:24"
+      },
       "node": 2641,
       "snap_m": 10.4,
       "rating": null,
@@ -2575,7 +2585,9 @@
       "lon": -74.652756,
       "lat": 40.355018,
       "category": "park",
-      "tags": {},
+      "tags": {
+        "sun_visible_until": "15:22"
+      },
       "node": 3129,
       "snap_m": 4.7,
       "rating": null,
@@ -2614,7 +2626,9 @@
       "lon": -74.649239,
       "lat": 40.364299,
       "category": "park",
-      "tags": {},
+      "tags": {
+        "sun_visible_until": "16:19"
+      },
       "node": 7066,
       "snap_m": 3.6,
       "rating": null,
@@ -2640,7 +2654,9 @@
       "lon": -74.657966,
       "lat": 40.332512,
       "category": "park",
-      "tags": {},
+      "tags": {
+        "sun_visible_until": "16:05"
+      },
       "node": 2299,
       "snap_m": 17.9,
       "rating": null,
@@ -3853,6 +3869,166 @@
       },
       "node": 3455,
       "snap_m": 65.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "sunset-1",
+      "name": "Sunset spot: Rosedale Road",
+      "lon": -74.681827,
+      "lat": 40.345312,
+      "category": "sunset",
+      "tags": {
+        "date": "2026-11-15",
+        "skyline_deg": 0.7,
+        "source": "USGS 3DEP LiDAR 2015 + NOAA sun position (prep-shade)",
+        "sun_visible_until": "16:35",
+        "sun_visible_until_min": 995,
+        "sunset": "16:43"
+      },
+      "node": 1910,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "sunset-2",
+      "name": "Sunset spot: Cross Country Course",
+      "lon": -74.636271,
+      "lat": 40.338489,
+      "category": "sunset",
+      "tags": {
+        "date": "2026-11-15",
+        "skyline_deg": 1.7,
+        "source": "USGS 3DEP LiDAR 2015 + NOAA sun position (prep-shade)",
+        "sun_visible_until": "16:31",
+        "sun_visible_until_min": 991,
+        "sunset": "16:43"
+      },
+      "node": 6954,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "sunset-3",
+      "name": "Sunset spot: Stadium Drive West",
+      "lon": -74.652211,
+      "lat": 40.344121,
+      "category": "sunset",
+      "tags": {
+        "date": "2026-11-15",
+        "skyline_deg": 2.1,
+        "source": "USGS 3DEP LiDAR 2015 + NOAA sun position (prep-shade)",
+        "sun_visible_until": "16:31",
+        "sun_visible_until_min": 991,
+        "sunset": "16:43"
+      },
+      "node": 1275,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "sunset-4",
+      "name": "Sunset spot: Tiger Trail",
+      "lon": -74.644912,
+      "lat": 40.339024,
+      "category": "sunset",
+      "tags": {
+        "date": "2026-11-15",
+        "skyline_deg": 2.7,
+        "source": "USGS 3DEP LiDAR 2015 + NOAA sun position (prep-shade)",
+        "sun_visible_until": "16:30",
+        "sun_visible_until_min": 990,
+        "sunset": "16:43"
+      },
+      "node": 6952,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "sunset-5",
+      "name": "Sunset spot: Farmview Fields",
+      "lon": -74.685104,
+      "lat": 40.360031,
+      "category": "sunset",
+      "tags": {
+        "date": "2026-11-15",
+        "skyline_deg": 2.8,
+        "source": "USGS 3DEP LiDAR 2015 + NOAA sun position (prep-shade)",
+        "sun_visible_until": "16:29",
+        "sun_visible_until_min": 989,
+        "sunset": "16:43"
+      },
+      "node": 2642,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "sunset-6",
+      "name": "Sunset spot: Russell Road",
+      "lon": -74.684993,
+      "lat": 40.33648,
+      "category": "sunset",
+      "tags": {
+        "date": "2026-11-15",
+        "skyline_deg": 2.5,
+        "source": "USGS 3DEP LiDAR 2015 + NOAA sun position (prep-shade)",
+        "sun_visible_until": "16:27",
+        "sun_visible_until_min": 987,
+        "sunset": "16:43"
+      },
+      "node": 6031,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "sunset-7",
+      "name": "Sunset spot: Pauline Drive",
+      "lon": -74.660947,
+      "lat": 40.357496,
+      "category": "sunset",
+      "tags": {
+        "date": "2026-11-15",
+        "skyline_deg": 1.4,
+        "source": "USGS 3DEP LiDAR 2015 + NOAA sun position (prep-shade)",
+        "sun_visible_until": "16:24",
+        "sun_visible_until_min": 984,
+        "sunset": "16:43"
+      },
+      "node": 3224,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "sunset-8",
+      "name": "Sunset spot: Witherspoon Street",
+      "lon": -74.664215,
+      "lat": 40.36029,
+      "category": "sunset",
+      "tags": {
+        "date": "2026-11-15",
+        "skyline_deg": 2.9,
+        "source": "USGS 3DEP LiDAR 2015 + NOAA sun position (prep-shade)",
+        "sun_visible_until": "16:23",
+        "sun_visible_until_min": 983,
+        "sunset": "16:43"
+      },
+      "node": 5278,
+      "snap_m": 0.0,
       "rating": null,
       "n": null,
       "rating_src": null

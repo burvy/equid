@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["engine", "prep", "server"]
+members = ["engine", "prep", "server", "prep-shade"]
 
 [profile.release]
 opt-level = 3

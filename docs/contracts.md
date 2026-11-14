@@ -86,8 +86,8 @@ the engine swaps them for `to → from`. One example (all fields):
 | `lts` | 1–4 / null | bike Level of Traffic Stress (1 = kids OK, 4 = fast traffic); null if `bike` is false or unknown |
 | `wheelchair` | string? | OSM `wheelchair` tag as-is |
 | `near_bench_m`, `near_toilets_m`, `near_water_m` | f32, 0–500 | distance from the edge to the nearest bench / toilets / drinking water, **capped at 500** (500 = none nearby). Missing = 500 |
-| `tree` | f32 0–1 / null | static tree-cover fraction over the edge. **Slot for later** (null now) |
-| `shade` | `[f32; slots]` 0–1 / null | shade fraction per time slot (`meta.slots` values, slot i covers `[i·slot_min, (i+1)·slot_min)`). **Slot for the LiDAR task** (null now) |
+| `tree` | f32 0–1 / null | share of the cells within ±2 m of the edge that are tree crown (USGS 3DEP LiDAR, filled by `prep-shade`) |
+| `shade` | `[f32; slots]` 0–1 / null | shade per time slot (`meta.slots` values, slot i covers `[i·slot_min, (i+1)·slot_min)`): 1 − share of direct sun reaching head height along the edge on `meta.date` (roofs block, tree crowns dim by season). Night = 1, covered = 1. Filled by `prep-shade` (see prep-shade/README.md) |
 
 Nullable fields may also be omitted. Defaults when omitted: `oneway_bike` 0, `steps` false, `covered` false,
 `busy` 0, `near_*` 500, everything else null.
@@ -118,11 +118,16 @@ Path: `data/<region>/places.json`.
 | `id` | string | OSM type letter + id: `n123` (node), `w456` (way, use its centroid) |
 | `name` | string? | |
 | `lon`, `lat` | f64 | place location |
-| `category` | string | one of `bench`, `toilets`, `drinking_water`, `cafe`, `restaurant`, `park`, `viewpoint`, `library`, `pharmacy`, `shelter` (others allowed; the UI shows unknown ones as "other") |
+| `category` | string | one of `bench`, `toilets`, `drinking_water`, `cafe`, `restaurant`, `park`, `viewpoint`, `library`, `pharmacy`, `shelter`, `sunset` (others allowed; the UI shows unknown ones as "other") |
 | `tags` | object | selected OSM tags as-is (`opening_hours`, `wheelchair`, `website`, …) |
 | `node` | u32 | nearest graph node (that is where `field` reads the place's cost) |
 | `snap_m` | f32 | distance place → node |
 | `rating`, `n`, `rating_src` | f32? / u32? / string? | rating (0–5), number of reviews, where it came from. null until task 005 joins ratings |
+
+**Sunset places** (`prep-shade`, appended after prep's places, ids `sunset-1`…`sunset-8`): category `sunset`, `node` = the spot itself
+(`snap_m` 0), tags `sun_visible_until` ("16:35", local), `sun_visible_until_min` (minutes), `sunset` ("16:43"), `skyline_deg`
+(how high roofs/trees rise toward the setting sun), `date`, `source`. Parks, gardens, nature reserves and viewpoints also get a
+`sun_visible_until` tag when the sun is visible from their node in its last 90 minutes.
 
 Place cost = cost of its snapped node (the `snap_m` walk is ignored for now; it is the same for every metric).
 
