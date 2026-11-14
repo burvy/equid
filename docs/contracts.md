@@ -319,7 +319,7 @@ without it a deterministic **mock** model drives the same loop, and the response
 { "text": "stroller, want a coffee, it's hot", "origin": {"lon": -74.662, "lat": 40.348},  // or {"node": 12}; default: bbox centre
   "t": 840 }                                                                                // local minutes since midnight, default 720
 // response
-{ "metric": {"mode":"foot","weights":{"time":1,"climb":10,"steep":3,"rough":3},"forbid":["steps"]},  // a valid §3 metric: pass to engine.field
+{ "metric": {"mode":"foot","weights":{"time":1,"climb":10,"steep":3,"rough":3},"forbid":["steps"]},  // a valid Â§3 metric: pass to engine.field
   "stops": [ {"id":"n1","name":"Toy Café","category":"cafe","minutes":13.5,"why":"..."} ],
   "pitch": "2-4 sentences, realtor tone",
   "llm": "anthropic:claude-sonnet-5-5", "tools_called": ["list_features","make_metric", "..."],

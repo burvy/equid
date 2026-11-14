@@ -50,8 +50,8 @@ pub const FEATURES: &[FeatureInfo] = &[
     FeatureInfo { id: "crossing", unit: "n", desc: "weighted crossings: each unsignalled crossing 1, each signalled crossing .3" },
     FeatureInfo { id: "no_sidewalk", unit: "m", desc: "length of road tagged without a sidewalk (unknown 0)" },
     FeatureInfo { id: "kerb", unit: "n", desc: "number of crossings with a raised kerb (wheelchair barrier)" },
-    FeatureInfo { id: "stop", unit: "n", desc: "number of stop signs, give-ways and signals on the edge (a stop for bikes; weight = seconds per stop)" },
     FeatureInfo { id: "dull", unit: "m", desc: "length x (1 - max(green share, water-view share)): not near greenery or water (unknown 0)" },
+    FeatureInfo { id: "stop", unit: "n", desc: "number of stop signs, give-ways and signals on the edge (a stop for bikes; weight = seconds per stop)" },
 ];
 
 pub const N_FEATURES: usize = 20;
