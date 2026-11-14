@@ -1,0 +1,6 @@
+# Line endings: LF in the repo and the working copy (Windows editors and tools mixed CRLF in).
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary
+*.mp4 binary
