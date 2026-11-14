@@ -55,3 +55,4 @@ button:disabled { opacity: .55; cursor: wait; }
 #aiOut .meta { color: var(--muted); font-size: 11px; margin-top: 4px; }
 #aiOut .err { color: #b91c1c; }
 #aiOut .busy { color: #5b21b6; }
+.list li small.sun { color: #c2410c; }

@@ -13,12 +13,13 @@ import init, { Engine, Field } from './pkg/engine.js';
 
 // ---------- types ----------
 type GNode = { lon: number; lat: number; elev_m: number };
-type GEdge = { from: number; to: number; highway: string; steps?: boolean };
-type Graph = { meta: { bbox: [number, number, number, number]; region: string; sunrise_min: number; sunset_min: number }; nodes: GNode[]; edges: GEdge[] };
+type GEdge = { from: number; to: number; highway: string; steps?: boolean; tree?: number | null; shade?: number[] | null };
+type Graph = { meta: { bbox: [number, number, number, number]; region: string; sunrise_min: number; sunset_min: number; slot_min?: number }; nodes: GNode[]; edges: GEdge[] };
 /** How far we are between views: 0..1 warp blend, lift = metres of height per second of cost,
  *  hide = 0..1 how far beyond-budget streets/places are put away (on in warp and 3D, off on the map). */
 type ViewBlend = { warp: number; lift: number; metresPerSecond: number; hide: number };
-type Place = { id: string; name: string | null; category: string; lon: number; lat: number; node: number; rating: number | null; n: number | null };
+type Place = { id: string; name: string | null; category: string; lon: number; lat: number; node: number; rating: number | null; n: number | null;
+  tags?: Record<string, string | number> };
 type MetricSpec = { mode: 'foot' | 'bike'; weights: Record<string, number>; forbid: string[] };
 type Preset = MetricSpec & { id: string; name: string; description: string };
 type Feature = { id: string; unit: string; desc: string };
@@ -186,8 +187,8 @@ function layers() {
   out.push(new ScatterplotLayer({
     id: 'places', data: placeData, ...geo, pickable: true,
     getPosition: (d: { pos: [number, number, number] }) => d.pos,
-    getRadius: (d: { i: number }) => (d.i === S.highlight ? 9 : 5), radiusUnits: 'pixels',
-    getFillColor: (d: { c: number }) => (d.c <= budgetS ? [124, 58, 237, 230] : [160, 160, 170, beyondAlpha]),
+    getRadius: (d: { i: number; p: Place }) => (d.i === S.highlight ? 9 : d.p.category === 'sunset' ? 7 : 5), radiusUnits: 'pixels',
+    getFillColor: (d: { c: number; p: Place }) => (d.c > budgetS ? [160, 160, 170, beyondAlpha] : d.p.category === 'sunset' ? [234, 88, 12, 240] : [124, 58, 237, 230]),
     getLineColor: (d: { c: number }) => [255, 255, 255, d.c <= budgetS ? 255 : beyondAlpha],
     lineWidthMinPixels: 1.5, stroked: true, billboard: true,
     updateTriggers: { getRadius: S.highlight, getFillColor: [S.budgetMin, beyondAlpha], getLineColor: [S.budgetMin, beyondAlpha] },
@@ -272,11 +273,13 @@ const CATEGORY_LABELS: Record<string, string> = {
   artwork: 'Public art', attraction: 'Attraction', bench: 'Bench', bicycle_parking: 'Bike parking', cafe: 'Café',
   drinking_water: 'Drinking fountain', fast_food: 'Fast food', garden: 'Garden', ice_cream: 'Ice cream',
   library: 'Library', museum: 'Museum', nature_reserve: 'Nature reserve', park: 'Park', playground: 'Playground',
-  restaurant: 'Restaurant', shelter: 'Shelter', toilets: 'Public toilets', viewpoint: 'Viewpoint',
+  restaurant: 'Restaurant', shelter: 'Shelter', toilets: 'Public toilets', viewpoint: 'Viewpoint', sunset: 'Sunset spot',
 };
 /** Unknown categories: 'dog_park' -> 'Dog park'. */
 const categoryLabel = (c: string) => CATEGORY_LABELS[c] ?? (c.charAt(0).toUpperCase() + c.slice(1)).replace(/_/g, ' ');
 const placeLabel = (p: Place) => p.name ?? categoryLabel(p.category);
+/** 'sun until 16:35' for places where prep-shade found the low sun visible (sunset spots, some parks), else ''. */
+const sunUntil = (p: Place) => (p.tags?.sun_visible_until ? `sun until ${p.tags.sun_visible_until}` : '');
 
 function renderList() {
   const budgetS = S.budgetMin * 60;
@@ -286,7 +289,7 @@ function renderList() {
     .slice(0, 50);
   $('places').innerHTML = rows.map(r =>
     `<li data-i="${r.i}" class="${r.c > budgetS ? 'out' : ''}">${placeLabel(r.p)}` +
-    `${r.p.rating != null ? ` <small>★${r.p.rating}</small>` : ''}<span class="c">${fmtMin(r.c)} min</span></li>`).join('')
+    `${r.p.rating != null ? ` <small>★${r.p.rating}</small>` : ''}${sunUntil(r.p) ? ` <small class="sun">☀ ${sunUntil(r.p)}</small>` : ''}<span class="c">${fmtMin(r.c)} min</span></li>`).join('')
     || '<li class="out">nothing reachable</li>';
 }
 
@@ -306,18 +309,29 @@ function renderLegend() {
     `<div class="bar"></div><div class="ends"><span>0</span><span>${S.budgetMin} min</span></div><div>${extra}</div>`;
 }
 
+/** ' · 70% shade now · trees 40%' from the edge's LiDAR shade slots (current time) and tree cover, when present. */
+function shadeText(e: GEdge): string {
+  const m = S.graph!.meta, parts: string[] = [];
+  const night = S.t < m.sunrise_min || S.t >= m.sunset_min;
+  if (e.shade?.length && !night) parts.push(`${Math.round(100 * e.shade[Math.floor(S.t / (m.slot_min ?? 30)) % e.shade.length])}% shade now`);
+  if (e.tree != null) parts.push(`trees ${Math.round(100 * e.tree)}%`);
+  return parts.map(x => ` · ${x}`).join('');
+}
+
 function tooltip(info: PickingInfo): string | null {
   const e = pickedEdge(info);
   if (e) {
     const c = Math.min(S.nodeCost[e.from], S.nodeCost[e.to]);
-    return `${e.highway}${e.steps ? ' (stairs)' : ''} · ${fmtMin(c)} min for you`;
+    return `${e.highway}${e.steps ? ' (stairs)' : ''} · ${fmtMin(c)} min for you${shadeText(e)}`;
   }
   const o = info.object as { p?: Place; c?: number; k?: number; i?: number } | null;
   if (o?.k && o.i != null && S.ai) {
     const p = S.places[o.i];
     return `${o.k}. ${placeLabel(p)} · ${fmtMin(S.placeCost[o.i])} min for you\n${tidy(S.ai.reply.stops[o.k - 1]?.why ?? '')}`;
   }
-  if (o?.p) return `${placeLabel(o.p)}${o.p.name ? ` (${categoryLabel(o.p.category)})` : ''} · ${fmtMin(o.c!)} min for you`;
+  if (o?.p) return `${placeLabel(o.p)}${o.p.name && o.p.category !== 'sunset' ? ` (${categoryLabel(o.p.category)})` : ''} · ${fmtMin(o.c!)} min for you` +
+    `${sunUntil(o.p) ? `
+☀ ${sunUntil(o.p)}${o.p.tags?.sunset ? ` (sunset ${o.p.tags.sunset})` : ''}` : ''}`;
   return null;
 }
 
