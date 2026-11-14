@@ -197,8 +197,8 @@ A weight `aᵢ` therefore reads as *seconds of penalty per metre*, and total cos
 | `crossing` | n | `crossings_unsignalled + 0.3 · (crossings − crossings_unsignalled)`; weight = seconds per crossing |
 | `no_sidewalk` | m | `length` if `sidewalk == false` (unknown = 0) |
 | `kerb` | n | `kerb_raised` (use with `forbid` for a no-raised-kerb wheelchair route) |
-| `stop` | n | `stops`; weight = seconds per stop (bike preset: 8) |
 | `dull` | m | `length · (1 − max(green, water_view))`; 0 when both are null |
+| `stop` | n | `stops`; weight = seconds per stop (bike preset: 8) |
 
 Every new feature is 0 when its data is missing, so a region without the 027 fields behaves exactly as before.
 
