@@ -57,5 +57,11 @@ engine's loader on its output before writing, so the files always match the cont
   features, one plain label per tag (crosswalk, tree, trash can, bike rack, playground, dog park, swimming pool, ...;
   crossing ways count at their centre). Bench / toilets / drinking water are left out: they are built-in features.
   Re-running prep replaces the `src: "osm"` points and keeps the rest (Vexcel points from `build_objects`).
+- **listings.json** (prep/src/listings.rs), **LOCAL ONLY, gitignored**: apartment communities and MLS homes inside the
+  box from the CoStar data kit (`COSTAR_DIR`, default `Z:\App Data\Downloads\costar`; read as data, its scripts are
+  never run). One entry per community or home: `id` (`apt:<PropertyId>` / `home:<MLS id>`), `kind` (apartment,
+  home_rent, home_sale), `status`, name, address, lon/lat, `node`/`snap_m`, monthly `rent_min`/`rent_max` or sale
+  `price` (null on Texas sold homes), beds, baths, sqft, year, units, short `amenities`, `photo`, `matterport` model
+  ids. Written only when the kit exists and has listings in the box; its counts are printed, never put in stats.txt.
 
 `data/<region>/stats.txt` lists counts (and objects per label) and how much of the network carries each tag.

@@ -12,3 +12,5 @@ data/raw/
 *.laz
 *.las
 *.tif
+# CoStar data kit derivatives (task 033): the kit's terms are unknown and the repo is public. LOCAL ONLY.
+data/*/listings*

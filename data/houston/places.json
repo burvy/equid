@@ -2,13 +2,275 @@
   "version": 1,
   "places": [
     {
+      "id": "n12122942468",
+      "name": null,
+      "lon": -95.407488,
+      "lat": 29.764052,
+      "category": "artwork",
+      "tags": {},
+      "node": 7274,
+      "snap_m": 0.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12898767141",
+      "name": "Charmstone",
+      "lon": -95.398501,
+      "lat": 29.737463,
+      "category": "artwork",
+      "tags": {},
+      "node": 1814,
+      "snap_m": 13.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13462274379",
+      "name": null,
+      "lon": -95.420706,
+      "lat": 29.758217,
+      "category": "artwork",
+      "tags": {},
+      "node": 5631,
+      "snap_m": 2.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14116326283",
+      "name": "Isolated Mass / Circumflex (#2)",
+      "lon": -95.398654,
+      "lat": 29.737662,
+      "category": "artwork",
+      "tags": {},
+      "node": 1813,
+      "snap_m": 12.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14116330347",
+      "name": "Bygones",
+      "lon": -95.397135,
+      "lat": 29.737562,
+      "category": "artwork",
+      "tags": {},
+      "node": 8989,
+      "snap_m": 33.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2641138296",
+      "name": "Tolerance",
+      "lon": -95.391929,
+      "lat": 29.761973,
+      "category": "artwork",
+      "tags": {},
+      "node": 2033,
+      "snap_m": 11.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4324546565",
+      "name": "Two: The Dawn",
+      "lon": -95.391607,
+      "lat": 29.735632,
+      "category": "artwork",
+      "tags": {},
+      "node": 5781,
+      "snap_m": 20.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4324585747",
+      "name": "The Blue Trees",
+      "lon": -95.397847,
+      "lat": 29.764817,
+      "category": "artwork",
+      "tags": {},
+      "node": 2414,
+      "snap_m": 43.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4324585748",
+      "name": "Pueblo Bonito",
+      "lon": -95.397781,
+      "lat": 29.766362,
+      "category": "artwork",
+      "tags": {},
+      "node": 2395,
+      "snap_m": 25.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5904250594",
+      "name": null,
+      "lon": -95.423655,
+      "lat": 29.732903,
+      "category": "artwork",
+      "tags": {},
+      "node": 6321,
+      "snap_m": 15.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1393458740",
+      "name": "Menil Curve",
+      "lon": -95.397584,
+      "lat": 29.736291,
+      "category": "artwork",
+      "tags": {},
+      "node": 6708,
+      "snap_m": 11.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1393458741",
+      "name": "Rift",
+      "lon": -95.396089,
+      "lat": 29.736391,
+      "category": "artwork",
+      "tags": {
+        "website": "https://www.menil.org/collection/objects/7605-rift"
+      },
+      "node": 6706,
+      "snap_m": 43.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1393458742",
+      "name": "Dissipate",
+      "lon": -95.396414,
+      "lat": 29.736393,
+      "category": "artwork",
+      "tags": {},
+      "node": 7776,
+      "snap_m": 25.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1393571252",
+      "name": "Jack",
+      "lon": -95.398342,
+      "lat": 29.738202,
+      "category": "artwork",
+      "tags": {},
+      "node": 1817,
+      "snap_m": 11.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1393576367",
+      "name": "Broken Obelisk",
+      "lon": -95.396201,
+      "lat": 29.737136,
+      "category": "artwork",
+      "tags": {},
+      "node": 6479,
+      "snap_m": 33.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w874518448",
+      "name": "Beer Can House",
+      "lon": -95.419033,
+      "lat": 29.763766,
+      "category": "artwork",
+      "tags": {},
+      "node": 3867,
+      "snap_m": 17.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5904330425",
+      "name": "Copper Statue",
+      "lon": -95.425631,
+      "lat": 29.734179,
+      "category": "attraction",
+      "tags": {},
+      "node": 3465,
+      "snap_m": 18.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10099181150",
+      "name": null,
+      "lon": -95.406155,
+      "lat": 29.761258,
+      "category": "bench",
+      "tags": {},
+      "node": 1963,
+      "snap_m": 47.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10196197096",
+      "name": null,
+      "lon": -95.42155,
+      "lat": 29.749025,
+      "category": "bench",
+      "tags": {},
+      "node": 1071,
+      "snap_m": 37.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10196197097",
+      "name": null,
+      "lon": -95.421563,
+      "lat": 29.749135,
+      "category": "bench",
+      "tags": {},
+      "node": 1071,
+      "snap_m": 30.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
       "id": "n10239333240",
       "name": null,
       "lon": -95.40038,
       "lat": 29.751716,
       "category": "bench",
       "tags": {},
-      "node": 1001,
+      "node": 4553,
       "snap_m": 16.5,
       "rating": null,
       "n": null,
@@ -21,8 +283,174 @@
       "lat": 29.751365,
       "category": "bench",
       "tags": {},
-      "node": 561,
+      "node": 2423,
       "snap_m": 21.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10294254743",
+      "name": null,
+      "lon": -95.39536,
+      "lat": 29.766319,
+      "category": "bench",
+      "tags": {},
+      "node": 2024,
+      "snap_m": 3.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10294254744",
+      "name": null,
+      "lon": -95.395328,
+      "lat": 29.766325,
+      "category": "bench",
+      "tags": {},
+      "node": 2070,
+      "snap_m": 4.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12536656671",
+      "name": null,
+      "lon": -95.429255,
+      "lat": 29.765748,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 5946,
+      "snap_m": 5.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12536656672",
+      "name": null,
+      "lon": -95.429211,
+      "lat": 29.765688,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 5945,
+      "snap_m": 5.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12542829196",
+      "name": null,
+      "lon": -95.397532,
+      "lat": 29.736288,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 6708,
+      "snap_m": 15.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12542829197",
+      "name": null,
+      "lon": -95.397455,
+      "lat": 29.736221,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 6708,
+      "snap_m": 17.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12542829198",
+      "name": null,
+      "lon": -95.397299,
+      "lat": 29.736226,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 6708,
+      "snap_m": 31.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12898376417",
+      "name": null,
+      "lon": -95.402719,
+      "lat": 29.732303,
+      "category": "bench",
+      "tags": {},
+      "node": 2957,
+      "snap_m": 2.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12898759204",
+      "name": null,
+      "lon": -95.393583,
+      "lat": 29.738594,
+      "category": "bench",
+      "tags": {},
+      "node": 1777,
+      "snap_m": 18.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12898759205",
+      "name": null,
+      "lon": -95.393444,
+      "lat": 29.738591,
+      "category": "bench",
+      "tags": {},
+      "node": 6990,
+      "snap_m": 30.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12898759206",
+      "name": null,
+      "lon": -95.393404,
+      "lat": 29.738346,
+      "category": "bench",
+      "tags": {},
+      "node": 6990,
+      "snap_m": 6.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12898759207",
+      "name": null,
+      "lon": -95.393612,
+      "lat": 29.738344,
+      "category": "bench",
+      "tags": {},
+      "node": 6990,
+      "snap_m": 26.1,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -34,7 +462,7 @@
       "lat": 29.743226,
       "category": "bench",
       "tags": {},
-      "node": 1551,
+      "node": 7849,
       "snap_m": 5.1,
       "rating": null,
       "n": null,
@@ -47,7 +475,7 @@
       "lat": 29.743218,
       "category": "bench",
       "tags": {},
-      "node": 1551,
+      "node": 7849,
       "snap_m": 2.3,
       "rating": null,
       "n": null,
@@ -60,7 +488,7 @@
       "lat": 29.743219,
       "category": "bench",
       "tags": {},
-      "node": 1551,
+      "node": 7849,
       "snap_m": 2.2,
       "rating": null,
       "n": null,
@@ -73,8 +501,745 @@
       "lat": 29.743224,
       "category": "bench",
       "tags": {},
-      "node": 1551,
+      "node": 7849,
       "snap_m": 4.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13444668668",
+      "name": null,
+      "lon": -95.428666,
+      "lat": 29.767135,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 5512,
+      "snap_m": 6.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13444697492",
+      "name": null,
+      "lon": -95.428886,
+      "lat": 29.767787,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 4444,
+      "snap_m": 8.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13444737012",
+      "name": null,
+      "lon": -95.428899,
+      "lat": 29.767812,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 4444,
+      "snap_m": 6.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13444748583",
+      "name": null,
+      "lon": -95.428839,
+      "lat": 29.76654,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 4448,
+      "snap_m": 6.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13444755869",
+      "name": null,
+      "lon": -95.429395,
+      "lat": 29.76591,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 4450,
+      "snap_m": 7.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13444770694",
+      "name": null,
+      "lon": -95.429414,
+      "lat": 29.765899,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 4450,
+      "snap_m": 8.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13444774177",
+      "name": null,
+      "lon": -95.428668,
+      "lat": 29.767207,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 5512,
+      "snap_m": 6.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13444774178",
+      "name": null,
+      "lon": -95.428827,
+      "lat": 29.766564,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 4448,
+      "snap_m": 9.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13452269186",
+      "name": null,
+      "lon": -95.429159,
+      "lat": 29.767826,
+      "category": "bench",
+      "tags": {},
+      "node": 6030,
+      "snap_m": 9.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13452269194",
+      "name": null,
+      "lon": -95.429046,
+      "lat": 29.767619,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6029,
+      "snap_m": 16.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13452279502",
+      "name": null,
+      "lon": -95.429058,
+      "lat": 29.767647,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6030,
+      "snap_m": 14.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13452279508",
+      "name": null,
+      "lon": -95.429142,
+      "lat": 29.7678,
+      "category": "bench",
+      "tags": {},
+      "node": 6030,
+      "snap_m": 6.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13452279524",
+      "name": null,
+      "lon": -95.429034,
+      "lat": 29.767589,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6029,
+      "snap_m": 13.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13462274388",
+      "name": null,
+      "lon": -95.421726,
+      "lat": 29.758543,
+      "category": "bench",
+      "tags": {},
+      "node": 1946,
+      "snap_m": 5.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470737516",
+      "name": null,
+      "lon": -95.428963,
+      "lat": 29.767333,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6029,
+      "snap_m": 16.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470737519",
+      "name": null,
+      "lon": -95.42895,
+      "lat": 29.766957,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6028,
+      "snap_m": 12.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470737520",
+      "name": null,
+      "lon": -95.429106,
+      "lat": 29.766484,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6027,
+      "snap_m": 10.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470737546",
+      "name": null,
+      "lon": -95.429012,
+      "lat": 29.7667,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6027,
+      "snap_m": 15.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470737548",
+      "name": null,
+      "lon": -95.42932,
+      "lat": 29.766219,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6026,
+      "snap_m": 14.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470737573",
+      "name": null,
+      "lon": -95.428951,
+      "lat": 29.766988,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6028,
+      "snap_m": 15.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470737575",
+      "name": null,
+      "lon": -95.428967,
+      "lat": 29.76736,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6029,
+      "snap_m": 13.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470737581",
+      "name": null,
+      "lon": -95.42937,
+      "lat": 29.766176,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6025,
+      "snap_m": 12.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470737582",
+      "name": null,
+      "lon": -95.429091,
+      "lat": 29.766512,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6027,
+      "snap_m": 6.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470737598",
+      "name": null,
+      "lon": -95.429021,
+      "lat": 29.766673,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6027,
+      "snap_m": 12.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470748305",
+      "name": null,
+      "lon": -95.429344,
+      "lat": 29.766198,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6025,
+      "snap_m": 16.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13470748306",
+      "name": null,
+      "lon": -95.429001,
+      "lat": 29.766729,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6028,
+      "snap_m": 13.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13482644919",
+      "name": null,
+      "lon": -95.42982,
+      "lat": 29.765957,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6024,
+      "snap_m": 15.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13482644930",
+      "name": null,
+      "lon": -95.429846,
+      "lat": 29.765952,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6024,
+      "snap_m": 13.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13535485373",
+      "name": null,
+      "lon": -95.429281,
+      "lat": 29.765688,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 6044,
+      "snap_m": 2.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13568550520",
+      "name": null,
+      "lon": -95.420111,
+      "lat": 29.758196,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 5621,
+      "snap_m": 38.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13568550554",
+      "name": null,
+      "lon": -95.420394,
+      "lat": 29.758287,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 5622,
+      "snap_m": 10.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13568550561",
+      "name": null,
+      "lon": -95.420459,
+      "lat": 29.758272,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 5622,
+      "snap_m": 7.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13568550571",
+      "name": null,
+      "lon": -95.420231,
+      "lat": 29.758243,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 5622,
+      "snap_m": 26.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13568560705",
+      "name": null,
+      "lon": -95.420351,
+      "lat": 29.757947,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 5620,
+      "snap_m": 30.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13568560706",
+      "name": null,
+      "lon": -95.420497,
+      "lat": 29.757988,
+      "category": "bench",
+      "tags": {
+        "backrest": "no"
+      },
+      "node": 9139,
+      "snap_m": 25.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5904250641",
+      "name": null,
+      "lon": -95.423972,
+      "lat": 29.732909,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 5483,
+      "snap_m": 6.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5904250642",
+      "name": null,
+      "lon": -95.423735,
+      "lat": 29.732894,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 5483,
+      "snap_m": 20.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5904250643",
+      "name": null,
+      "lon": -95.42365,
+      "lat": 29.73282,
+      "category": "bench",
+      "tags": {
+        "backrest": "yes"
+      },
+      "node": 6321,
+      "snap_m": 13.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10568244370",
+      "name": null,
+      "lon": -95.402557,
+      "lat": 29.737721,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 4056,
+      "snap_m": 21.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10568244371",
+      "name": null,
+      "lon": -95.402322,
+      "lat": 29.737941,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 3755,
+      "snap_m": 18.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12122575645",
+      "name": null,
+      "lon": -95.409299,
+      "lat": 29.766176,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 7171,
+      "snap_m": 3.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328913878",
+      "name": null,
+      "lon": -95.428577,
+      "lat": 29.767056,
+      "category": "bicycle_parking",
+      "tags": {
+        "access": "yes",
+        "capacity": "10",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 5368,
+      "snap_m": 8.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328913879",
+      "name": null,
+      "lon": -95.428581,
+      "lat": 29.767292,
+      "category": "bicycle_parking",
+      "tags": {
+        "access": "yes",
+        "capacity": "10",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 5370,
+      "snap_m": 8.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328913896",
+      "name": null,
+      "lon": -95.392323,
+      "lat": 29.753528,
+      "category": "bicycle_parking",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 8539,
+      "snap_m": 9.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328913897",
+      "name": null,
+      "lon": -95.397282,
+      "lat": 29.758269,
+      "category": "bicycle_parking",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 3837,
+      "snap_m": 4.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328924302",
+      "name": null,
+      "lon": -95.390409,
+      "lat": 29.745714,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "18",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 9347,
+      "snap_m": 5.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328924303",
+      "name": null,
+      "lon": -95.393793,
+      "lat": 29.744593,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "8",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4613,
+      "snap_m": 8.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328924304",
+      "name": null,
+      "lon": -95.395907,
+      "lat": 29.743467,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 6483,
+      "snap_m": 5.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328924305",
+      "name": null,
+      "lon": -95.396956,
+      "lat": 29.742975,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 776,
+      "snap_m": 12.5,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -90,7 +1255,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 659,
+      "node": 2904,
       "snap_m": 9.6,
       "rating": null,
       "n": null,
@@ -107,8 +1272,107 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 656,
+      "node": 2901,
       "snap_m": 13.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328924310",
+      "name": null,
+      "lon": -95.391022,
+      "lat": 29.738654,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "4",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 6948,
+      "snap_m": 7.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328924311",
+      "name": null,
+      "lon": -95.395307,
+      "lat": 29.738807,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "8",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 7554,
+      "snap_m": 33.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328924312",
+      "name": null,
+      "lon": -95.397396,
+      "lat": 29.738443,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "yes",
+        "fee": "no"
+      },
+      "node": 3135,
+      "snap_m": 15.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328924313",
+      "name": null,
+      "lon": -95.399035,
+      "lat": 29.738785,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 8460,
+      "snap_m": 19.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13328924314",
+      "name": null,
+      "lon": -95.398907,
+      "lat": 29.738784,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 358,
+      "snap_m": 28.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329395473",
+      "name": null,
+      "lon": -95.398488,
+      "lat": 29.738288,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "56",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4037,
+      "snap_m": 8.9,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -123,8 +1387,42 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 404,
+      "node": 1432,
       "snap_m": 16.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329395476",
+      "name": null,
+      "lon": -95.394014,
+      "lat": 29.738929,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "5",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 6992,
+      "snap_m": 20.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329395478",
+      "name": null,
+      "lon": -95.392058,
+      "lat": 29.746355,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "5",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 7455,
+      "snap_m": 3.5,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -139,7 +1437,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 1981,
+      "node": 9239,
       "snap_m": 2.3,
       "rating": null,
       "n": null,
@@ -155,7 +1453,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 1986,
+      "node": 9244,
       "snap_m": 1.2,
       "rating": null,
       "n": null,
@@ -171,8 +1469,41 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 1986,
+      "node": 9244,
       "snap_m": 22.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329395499",
+      "name": null,
+      "lon": -95.396551,
+      "lat": 29.750068,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 8603,
+      "snap_m": 24.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329409348",
+      "name": null,
+      "lon": -95.411023,
+      "lat": 29.739196,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "8",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 2826,
+      "snap_m": 10.2,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -187,7 +1518,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 11,
+      "node": 23,
       "snap_m": 12.6,
       "rating": null,
       "n": null,
@@ -203,7 +1534,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 644,
+      "node": 2812,
       "snap_m": 9.7,
       "rating": null,
       "n": null,
@@ -219,8 +1550,397 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 287,
+      "node": 1089,
       "snap_m": 19.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329409363",
+      "name": null,
+      "lon": -95.39475,
+      "lat": 29.732506,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 7480,
+      "snap_m": 8.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329409367",
+      "name": null,
+      "lon": -95.390451,
+      "lat": 29.746513,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "3",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 697,
+      "snap_m": 18.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329409368",
+      "name": null,
+      "lon": -95.390451,
+      "lat": 29.746494,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "3",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 697,
+      "snap_m": 17.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329487742",
+      "name": null,
+      "lon": -95.391537,
+      "lat": 29.735635,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 5781,
+      "snap_m": 13.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329487743",
+      "name": null,
+      "lon": -95.391355,
+      "lat": 29.73393,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4701,
+      "snap_m": 8.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329632972",
+      "name": null,
+      "lon": -95.422371,
+      "lat": 29.732978,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 5549,
+      "snap_m": 9.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329632973",
+      "name": null,
+      "lon": -95.42455,
+      "lat": 29.735783,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 5666,
+      "snap_m": 15.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329632974",
+      "name": null,
+      "lon": -95.399632,
+      "lat": 29.734274,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 8371,
+      "snap_m": 2.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329663372",
+      "name": null,
+      "lon": -95.399232,
+      "lat": 29.746829,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4020,
+      "snap_m": 8.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13329663373",
+      "name": null,
+      "lon": -95.39881,
+      "lat": 29.74774,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 806,
+      "snap_m": 22.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13331802929",
+      "name": null,
+      "lon": -95.417753,
+      "lat": 29.761784,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "2",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4309,
+      "snap_m": 21.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13331802930",
+      "name": null,
+      "lon": -95.417982,
+      "lat": 29.761773,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4307,
+      "snap_m": 31.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13331802931",
+      "name": null,
+      "lon": -95.417956,
+      "lat": 29.761773,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4307,
+      "snap_m": 33.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13331802932",
+      "name": null,
+      "lon": -95.417403,
+      "lat": 29.761199,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 2343,
+      "snap_m": 11.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13331802933",
+      "name": null,
+      "lon": -95.417425,
+      "lat": 29.761212,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 2343,
+      "snap_m": 11.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13331802934",
+      "name": null,
+      "lon": -95.417425,
+      "lat": 29.761187,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 2343,
+      "snap_m": 8.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13331802935",
+      "name": null,
+      "lon": -95.420666,
+      "lat": 29.760804,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 1593,
+      "snap_m": 13.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13331802936",
+      "name": null,
+      "lon": -95.421673,
+      "lat": 29.76099,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "6",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 2468,
+      "snap_m": 3.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13331802937",
+      "name": null,
+      "lon": -95.39486,
+      "lat": 29.755891,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "8",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 1068,
+      "snap_m": 16.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13331802942",
+      "name": null,
+      "lon": -95.392582,
+      "lat": 29.744983,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4086,
+      "snap_m": 4.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13332637789",
+      "name": null,
+      "lon": -95.426149,
+      "lat": 29.733847,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 8471,
+      "snap_m": 7.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13332637790",
+      "name": null,
+      "lon": -95.416268,
+      "lat": 29.738789,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 3240,
+      "snap_m": 12.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13332637800",
+      "name": null,
+      "lon": -95.394424,
+      "lat": 29.745006,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4609,
+      "snap_m": 4.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13332741501",
+      "name": null,
+      "lon": -95.390931,
+      "lat": 29.743802,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 5210,
+      "snap_m": 10.2,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -236,7 +1956,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 1311,
+      "node": 6400,
       "snap_m": 23.7,
       "rating": null,
       "n": null,
@@ -253,7 +1973,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 1311,
+      "node": 6400,
       "snap_m": 15.0,
       "rating": null,
       "n": null,
@@ -269,7 +1989,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 1309,
+      "node": 6398,
       "snap_m": 28.0,
       "rating": null,
       "n": null,
@@ -286,8 +2006,88 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 1317,
+      "node": 6409,
       "snap_m": 11.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13335422906",
+      "name": null,
+      "lon": -95.395286,
+      "lat": 29.743804,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 5712,
+      "snap_m": 13.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13335422907",
+      "name": null,
+      "lon": -95.395242,
+      "lat": 29.743823,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 4600,
+      "snap_m": 13.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13335422908",
+      "name": null,
+      "lon": -95.393715,
+      "lat": 29.744335,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 6826,
+      "snap_m": 4.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13335422909",
+      "name": null,
+      "lon": -95.39073,
+      "lat": 29.744296,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 5763,
+      "snap_m": 12.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13335422911",
+      "name": null,
+      "lon": -95.399369,
+      "lat": 29.7358,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 9097,
+      "snap_m": 6.7,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -302,8 +2102,23 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 798,
+      "node": 3284,
       "snap_m": 8.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13344979904",
+      "name": null,
+      "lon": -95.418405,
+      "lat": 29.739254,
+      "category": "bicycle_parking",
+      "tags": {
+        "fee": "no"
+      },
+      "node": 2515,
+      "snap_m": 14.1,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -318,7 +2133,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 593,
+      "node": 2656,
       "snap_m": 10.8,
       "rating": null,
       "n": null,
@@ -334,7 +2149,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 595,
+      "node": 2658,
       "snap_m": 13.4,
       "rating": null,
       "n": null,
@@ -350,7 +2165,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 1228,
+      "node": 5903,
       "snap_m": 17.1,
       "rating": null,
       "n": null,
@@ -366,7 +2181,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 1228,
+      "node": 5903,
       "snap_m": 14.0,
       "rating": null,
       "n": null,
@@ -382,7 +2197,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 689,
+      "node": 2988,
       "snap_m": 18.9,
       "rating": null,
       "n": null,
@@ -398,7 +2213,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 27,
+      "node": 86,
       "snap_m": 14.6,
       "rating": null,
       "n": null,
@@ -415,7 +2230,7 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 212,
+      "node": 667,
       "snap_m": 25.5,
       "rating": null,
       "n": null,
@@ -432,8 +2247,24 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 841,
+      "node": 3348,
       "snap_m": 18.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13372687311",
+      "name": null,
+      "lon": -95.404711,
+      "lat": 29.733962,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 5850,
+      "snap_m": 8.5,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -448,8 +2279,138 @@
         "covered": "no",
         "fee": "no"
       },
-      "node": 741,
+      "node": 3119,
       "snap_m": 15.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13397950928",
+      "name": null,
+      "lon": -95.399184,
+      "lat": 29.759347,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 7575,
+      "snap_m": 7.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13397950929",
+      "name": null,
+      "lon": -95.399233,
+      "lat": 29.759347,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 7575,
+      "snap_m": 11.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13397950930",
+      "name": null,
+      "lon": -95.403385,
+      "lat": 29.76317,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 2496,
+      "snap_m": 17.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13497340224",
+      "name": null,
+      "lon": -95.393503,
+      "lat": 29.761775,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "4"
+      },
+      "node": 2435,
+      "snap_m": 7.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13497340225",
+      "name": null,
+      "lon": -95.396588,
+      "lat": 29.761931,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "4"
+      },
+      "node": 2440,
+      "snap_m": 10.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13730893190",
+      "name": null,
+      "lon": -95.391613,
+      "lat": 29.753596,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 7093,
+      "snap_m": 28.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13733713797",
+      "name": null,
+      "lon": -95.395632,
+      "lat": 29.762212,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 5499,
+      "snap_m": 20.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13733713798",
+      "name": null,
+      "lon": -95.404366,
+      "lat": 29.759433,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 5655,
+      "snap_m": 4.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13733713799",
+      "name": null,
+      "lon": -95.398317,
+      "lat": 29.762604,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 2330,
+      "snap_m": 31.9,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -461,7 +2422,7 @@
       "lat": 29.742873,
       "category": "bicycle_parking",
       "tags": {},
-      "node": 1348,
+      "node": 6522,
       "snap_m": 15.2,
       "rating": null,
       "n": null,
@@ -474,8 +2435,236 @@
       "lat": 29.74238,
       "category": "bicycle_parking",
       "tags": {},
-      "node": 1899,
+      "node": 9104,
       "snap_m": 4.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13760668584",
+      "name": null,
+      "lon": -95.398267,
+      "lat": 29.744547,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 5930,
+      "snap_m": 3.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13803139571",
+      "name": null,
+      "lon": -95.390505,
+      "lat": 29.738022,
+      "category": "bicycle_parking",
+      "tags": {},
+      "node": 5842,
+      "snap_m": 7.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13803139572",
+      "name": null,
+      "lon": -95.405871,
+      "lat": 29.738484,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 5886,
+      "snap_m": 14.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13808251081",
+      "name": null,
+      "lon": -95.415788,
+      "lat": 29.732026,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 3940,
+      "snap_m": 70.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13831080287",
+      "name": null,
+      "lon": -95.417461,
+      "lat": 29.737253,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 7050,
+      "snap_m": 38.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13831080288",
+      "name": null,
+      "lon": -95.420268,
+      "lat": 29.742422,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 3226,
+      "snap_m": 12.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13847339374",
+      "name": null,
+      "lon": -95.391546,
+      "lat": 29.748223,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 7168,
+      "snap_m": 2.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13888446052",
+      "name": null,
+      "lon": -95.398739,
+      "lat": 29.75722,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "4",
+        "covered": "no"
+      },
+      "node": 3026,
+      "snap_m": 11.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13888446053",
+      "name": null,
+      "lon": -95.398484,
+      "lat": 29.757238,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "6",
+        "covered": "no"
+      },
+      "node": 2593,
+      "snap_m": 12.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13888446054",
+      "name": null,
+      "lon": -95.398284,
+      "lat": 29.75713,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "6",
+        "covered": "no"
+      },
+      "node": 7568,
+      "snap_m": 13.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13888446055",
+      "name": null,
+      "lon": -95.398282,
+      "lat": 29.757041,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "6",
+        "covered": "no"
+      },
+      "node": 2266,
+      "snap_m": 17.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13929638040",
+      "name": null,
+      "lon": -95.397914,
+      "lat": 29.755862,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 2271,
+      "snap_m": 23.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13929638041",
+      "name": null,
+      "lon": -95.397914,
+      "lat": 29.755894,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 2271,
+      "snap_m": 21.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13929638042",
+      "name": null,
+      "lon": -95.394079,
+      "lat": 29.74594,
+      "category": "bicycle_parking",
+      "tags": {
+        "covered": "no"
+      },
+      "node": 7295,
+      "snap_m": 4.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13929638044",
+      "name": null,
+      "lon": -95.42432,
+      "lat": 29.732858,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "6",
+        "covered": "no"
+      },
+      "node": 5482,
+      "snap_m": 22.3,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -489,7 +2678,7 @@
       "tags": {
         "covered": "no"
       },
-      "node": 445,
+      "node": 1639,
       "snap_m": 14.0,
       "rating": null,
       "n": null,
@@ -504,7 +2693,7 @@
       "tags": {
         "covered": "no"
       },
-      "node": 865,
+      "node": 3571,
       "snap_m": 14.5,
       "rating": null,
       "n": null,
@@ -519,8 +2708,25 @@
       "tags": {
         "covered": "no"
       },
-      "node": 760,
+      "node": 3209,
       "snap_m": 13.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1453693182",
+      "name": null,
+      "lon": -95.395232,
+      "lat": 29.756604,
+      "category": "bicycle_parking",
+      "tags": {
+        "capacity": "16",
+        "covered": "no",
+        "fee": "no"
+      },
+      "node": 7324,
+      "snap_m": 11.7,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -532,8 +2738,123 @@
       "lat": 29.747274,
       "category": "cafe",
       "tags": {},
-      "node": 1149,
+      "node": 5434,
       "snap_m": 34.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10833850505",
+      "name": "Slowpokes",
+      "lon": -95.422648,
+      "lat": 29.733355,
+      "category": "cafe",
+      "tags": {},
+      "node": 5550,
+      "snap_m": 34.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11458360069",
+      "name": "Canary Coffee House",
+      "lon": -95.391712,
+      "lat": 29.751307,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "opening_hours": "Mo-Sa 07:00-19:00; Su 08:00-15:00",
+        "website": "https://www.canaryhtx.com/"
+      },
+      "node": 5798,
+      "snap_m": 26.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12463956788",
+      "name": "Pavón Coffee Den",
+      "lon": -95.395003,
+      "lat": 29.75564,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "outdoor_seating": "yes",
+        "website": "https://www.pavonhtx.com/"
+      },
+      "node": 1069,
+      "snap_m": 37.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12875528103",
+      "name": "La La Land Kind Cafe",
+      "lon": -95.410854,
+      "lat": 29.734884,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "opening_hours": "Mo-Su 06:30-19:00",
+        "website": "https://lalalandkindcafe.com/"
+      },
+      "node": 2297,
+      "snap_m": 24.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n13724611001",
+      "name": "Isa Matcha",
+      "lon": -95.398947,
+      "lat": 29.738862,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "tea",
+        "opening_hours": "Fr-Su 10:00-17:00",
+        "website": "https://isamatcha.com/"
+      },
+      "node": 8460,
+      "snap_m": 29.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14295179964",
+      "name": "The Path of Tea",
+      "lon": -95.41542,
+      "lat": 29.738878,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "tea"
+      },
+      "node": 3526,
+      "snap_m": 22.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1474266873",
+      "name": "Starbucks",
+      "lon": -95.41727,
+      "lat": 29.761085,
+      "category": "cafe",
+      "tags": {
+        "brand": "Starbucks",
+        "cuisine": "coffee_shop",
+        "opening_hours": "Mo-Sa 05:00-19:00; Su 05:30-19:00",
+        "outdoor_seating": "yes",
+        "website": "https://www.starbucks.com/store-locator/store/11482/memorial-asbury-5535-memorial-drive-a-houston-tx-770078023-us"
+      },
+      "node": 2343,
+      "snap_m": 20.6,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -545,8 +2866,40 @@
       "lat": 29.753412,
       "category": "cafe",
       "tags": {},
-      "node": 683,
+      "node": 2982,
       "snap_m": 17.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4074332967",
+      "name": "SouthSide Espresso",
+      "lon": -95.3907,
+      "lat": 29.744992,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "opening_hours": "Mo-Fr 06:30-21:00; Sa 07:30-21:00; Su 07:30-19:00",
+        "website": "https://www.southsideespresso.com/"
+      },
+      "node": 4677,
+      "snap_m": 16.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4736456635",
+      "name": "The Teahouse",
+      "lon": -95.419809,
+      "lat": 29.761765,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "tea"
+      },
+      "node": 2868,
+      "snap_m": 27.7,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -563,7 +2916,7 @@
         "outdoor_seating": "no",
         "wheelchair": "yes"
       },
-      "node": 12,
+      "node": 24,
       "snap_m": 19.0,
       "rating": null,
       "n": null,
@@ -580,8 +2933,93 @@
         "cuisine": "coffee_shop",
         "website": "https://www.starbucks.com/store-locator/store/1029258/target-houston-westheimer-3375-2075-westheimer-rd-houston-tx-77098-us"
       },
-      "node": 8,
+      "node": 20,
       "snap_m": 22.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1096430200",
+      "name": "Waygood",
+      "lon": -95.418428,
+      "lat": 29.732301,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "website": "https://baoshiyibunhouse.com"
+      },
+      "node": 3939,
+      "snap_m": 8.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1096441717",
+      "name": "Kung Fu Tea",
+      "lon": -95.392847,
+      "lat": 29.744158,
+      "category": "cafe",
+      "tags": {
+        "brand": "Kung Fu Tea",
+        "cuisine": "bubble_tea",
+        "opening_hours": "Su-Th 11:30-22:00; Fr-Sa 11:30-23:00",
+        "website": "https://www.kungfutea.com/"
+      },
+      "node": 6465,
+      "snap_m": 26.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1096451360",
+      "name": "Starbucks",
+      "lon": -95.390554,
+      "lat": 29.742199,
+      "category": "cafe",
+      "tags": {
+        "brand": "Starbucks",
+        "cuisine": "coffee_shop",
+        "outdoor_seating": "no",
+        "website": "https://www.starbucks.com/store-locator/store/16563/montrose-hawthorne-3407-montrose-blvd-houston-tx-770064342-us"
+      },
+      "node": 6890,
+      "snap_m": 8.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1277928553",
+      "name": "Campesino Coffee House",
+      "lon": -95.394211,
+      "lat": 29.745994,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "outdoor_seating": "yes",
+        "website": "http://www.campesinocoffeehouse.com/"
+      },
+      "node": 7297,
+      "snap_m": 0.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1384494553",
+      "name": "Black Hole Coffee House",
+      "lon": -95.395008,
+      "lat": 29.732498,
+      "category": "cafe",
+      "tags": {
+        "cuisine": "coffee_shop",
+        "opening_hours": "Mo-Su 06:30-22:00"
+      },
+      "node": 6717,
+      "snap_m": 10.0,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -598,7 +3036,7 @@
         "outdoor_seating": "yes",
         "website": "https://www.starbucks.com/store-locator/store/18511/river-oaks-ne-corner-2050-w-gray-houston-tx-770193602-us"
       },
-      "node": 668,
+      "node": 2967,
       "snap_m": 4.5,
       "rating": null,
       "n": null,
@@ -615,8 +3053,40 @@
         "opening_hours": "Mo-Sa 07:00-21:00; Su 07:00-20:00",
         "website": "https://www.commonbondbistro.com"
       },
-      "node": 1348,
+      "node": 6522,
       "snap_m": 5.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w428097006",
+      "name": "Blacksmith",
+      "lon": -95.392513,
+      "lat": 29.744825,
+      "category": "cafe",
+      "tags": {
+        "website": "https://www.blacksmithhouston.com"
+      },
+      "node": 6762,
+      "snap_m": 4.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w485985923",
+      "name": "Starbucks",
+      "lon": -95.410389,
+      "lat": 29.740508,
+      "category": "cafe",
+      "tags": {
+        "brand": "Starbucks",
+        "cuisine": "coffee_shop",
+        "website": "https://www.starbucks.com/store-locator/store/15652/shepherd-harold-2801-s-shepherd-drive-houston-tx-770981535-us"
+      },
+      "node": 3561,
+      "snap_m": 6.6,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -633,8 +3103,26 @@
         "website": "https://www.agorahouston.com/",
         "wheelchair": "yes"
       },
-      "node": 1345,
+      "node": 6519,
       "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w839477298",
+      "name": "Starbucks",
+      "lon": -95.404956,
+      "lat": 29.73399,
+      "category": "cafe",
+      "tags": {
+        "brand": "Starbucks",
+        "cuisine": "coffee_shop",
+        "outdoor_seating": "yes",
+        "website": "https://www.starbucks.com/store-locator/store/1019679/richmond-woodhead-1801-richmond-ave-houston-tx-770983509-us"
+      },
+      "node": 5849,
+      "snap_m": 10.0,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -650,8 +3138,396 @@
         "outdoor_seating": "yes",
         "website": "https://www.brasilcafehouston.com/"
       },
-      "node": 1339,
+      "node": 6501,
       "snap_m": 0.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10000705978",
+      "name": null,
+      "lon": -95.429289,
+      "lat": 29.765841,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "bottle": "yes",
+        "fee": "no",
+        "opening_hours": "24/7"
+      },
+      "node": 5637,
+      "snap_m": 1.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10099166276",
+      "name": null,
+      "lon": -95.41276,
+      "lat": 29.762279,
+      "category": "drinking_water",
+      "tags": {
+        "bottle": "no"
+      },
+      "node": 2893,
+      "snap_m": 74.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10861443422",
+      "name": null,
+      "lon": -95.398103,
+      "lat": 29.73619,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 5961,
+      "snap_m": 20.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12122692704",
+      "name": null,
+      "lon": -95.408514,
+      "lat": 29.760039,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 4362,
+      "snap_m": 3.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2330649107",
+      "name": null,
+      "lon": -95.427552,
+      "lat": 29.763721,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 5100,
+      "snap_m": 17.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2358509993",
+      "name": null,
+      "lon": -95.402738,
+      "lat": 29.763408,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 558,
+      "snap_m": 14.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2379172110",
+      "name": null,
+      "lon": -95.413135,
+      "lat": 29.763146,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 7090,
+      "snap_m": 22.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3782037713",
+      "name": null,
+      "lon": -95.40862,
+      "lat": 29.761396,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 2325,
+      "snap_m": 3.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4938630219",
+      "name": null,
+      "lon": -95.417199,
+      "lat": 29.76116,
+      "category": "drinking_water",
+      "tags": {
+        "fee": "no",
+        "operator": "spigot on side of building"
+      },
+      "node": 2343,
+      "snap_m": 27.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4938631221",
+      "name": null,
+      "lon": -95.391652,
+      "lat": 29.762937,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 2066,
+      "snap_m": 2.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4938631223",
+      "name": null,
+      "lon": -95.396668,
+      "lat": 29.761923,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 2440,
+      "snap_m": 4.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5054832262",
+      "name": null,
+      "lon": -95.401416,
+      "lat": 29.762527,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 2076,
+      "snap_m": 5.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5056337405",
+      "name": null,
+      "lon": -95.403555,
+      "lat": 29.761684,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 2075,
+      "snap_m": 4.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5056337406",
+      "name": null,
+      "lon": -95.393623,
+      "lat": 29.763126,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 2065,
+      "snap_m": 3.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5228378948",
+      "name": null,
+      "lon": -95.399191,
+      "lat": 29.733678,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 5302,
+      "snap_m": 12.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5866053572",
+      "name": null,
+      "lon": -95.402834,
+      "lat": 29.732253,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 2959,
+      "snap_m": 4.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5916460414",
+      "name": null,
+      "lon": -95.403177,
+      "lat": 29.763314,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 2491,
+      "snap_m": 4.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5927678622",
+      "name": null,
+      "lon": -95.400774,
+      "lat": 29.76123,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 3361,
+      "snap_m": 8.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6005626196",
+      "name": null,
+      "lon": -95.398224,
+      "lat": 29.744495,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 5930,
+      "snap_m": 4.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6005626197",
+      "name": null,
+      "lon": -95.398226,
+      "lat": 29.7445,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 5930,
+      "snap_m": 3.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6528486920",
+      "name": null,
+      "lon": -95.428682,
+      "lat": 29.76708,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 4446,
+      "snap_m": 12.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6746345157",
+      "name": null,
+      "lon": -95.398523,
+      "lat": 29.761466,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes",
+        "fee": "no"
+      },
+      "node": 2333,
+      "snap_m": 10.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7331825996",
+      "name": null,
+      "lon": -95.396968,
+      "lat": 29.765229,
+      "category": "drinking_water",
+      "tags": {},
+      "node": 2058,
+      "snap_m": 24.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n7695074350",
+      "name": null,
+      "lon": -95.422547,
+      "lat": 29.732714,
+      "category": "drinking_water",
+      "tags": {
+        "access": "yes"
+      },
+      "node": 5551,
+      "snap_m": 3.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10065879796",
+      "name": "Pepperoni's",
+      "lon": -95.391735,
+      "lat": 29.745284,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "pizza;wings",
+        "opening_hours": "Mo-We 10:00-24:00; Th,Su 10:00-01:00; Fr-Sa 10:00-03:00"
+      },
+      "node": 4088,
+      "snap_m": 10.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10598865780",
+      "name": "Main Bird Hot Chicken",
+      "lon": -95.390575,
+      "lat": 29.742128,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "chicken"
+      },
+      "node": 4667,
+      "snap_m": 20.1,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -668,8 +3544,42 @@
         "opening_hours": "Mo-Fr 06:00-19:00; Sa-Su 07:00-19:00",
         "website": "https://locations.panerabread.com/tx/houston/1705-w-gray.html"
       },
-      "node": 464,
+      "node": 2118,
       "snap_m": 25.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12044710866",
+      "name": "Domino's",
+      "lon": -95.399124,
+      "lat": 29.752847,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Domino's",
+        "cuisine": "pizza",
+        "opening_hours": "Mo-Th 10:00-24:00; Fr-Sa 10:00-01:00; Su 10:00-24:00",
+        "website": "https://pizza.dominos.com/texas/houston/1425-w-gray-st"
+      },
+      "node": 4016,
+      "snap_m": 14.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12463956791",
+      "name": "Marco's Pizza",
+      "lon": -95.397742,
+      "lat": 29.756483,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Marco's Pizza",
+        "cuisine": "pizza"
+      },
+      "node": 3683,
+      "snap_m": 19.1,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -681,8 +3591,77 @@
       "lat": 29.744984,
       "category": "fast_food",
       "tags": {},
-      "node": 1068,
+      "node": 4785,
       "snap_m": 11.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2349173751",
+      "name": "Smoothie King",
+      "lon": -95.417264,
+      "lat": 29.760846,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Smoothie King",
+        "cuisine": "juice",
+        "opening_hours": "Mo-Fr 07:00-21:00; Sa 08:00-21:00; Su 10:00-20:00"
+      },
+      "node": 4343,
+      "snap_m": 21.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2349174117",
+      "name": "Kolache Factory",
+      "lon": -95.417266,
+      "lat": 29.760926,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "kolache",
+        "opening_hours": "Mo-Sa 06:00-14:00; Su 07:00-14:00"
+      },
+      "node": 4345,
+      "snap_m": 20.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2352004058",
+      "name": "Subway",
+      "lon": -95.419459,
+      "lat": 29.761768,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Subway",
+        "cuisine": "sandwich",
+        "outdoor_seating": "no"
+      },
+      "node": 2879,
+      "snap_m": 22.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2406308909",
+      "name": "Freebirds",
+      "lon": -95.412748,
+      "lat": 29.732781,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Freebirds",
+        "cuisine": "mexican",
+        "opening_hours": "Mo-Sa 10:30-22:00; Su 10:30-21:00",
+        "outdoor_seating": "yes",
+        "website": "https://freebirds.com/"
+      },
+      "node": 3729,
+      "snap_m": 13.3,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -697,8 +3676,74 @@
         "brand": "Jamba",
         "cuisine": "juice"
       },
-      "node": 959,
+      "node": 4180,
       "snap_m": 29.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2587438434",
+      "name": "Subway",
+      "lon": -95.410989,
+      "lat": 29.734463,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Subway",
+        "cuisine": "sandwich",
+        "opening_hours": "08:00-21:00",
+        "outdoor_seating": "no",
+        "website": "https://restaurants.subway.com/united-states/tx/houston/3518-s-shepherd"
+      },
+      "node": 4872,
+      "snap_m": 24.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4373690959",
+      "name": "Piada Italian Street Food",
+      "lon": -95.420627,
+      "lat": 29.760998,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "italian",
+        "opening_hours": "Mo-Su 10:45-22:00"
+      },
+      "node": 5806,
+      "snap_m": 17.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6709094485",
+      "name": "Tacos Tierra Caliente",
+      "lon": -95.408257,
+      "lat": 29.738266,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "mexican"
+      },
+      "node": 5908,
+      "snap_m": 14.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6979164224",
+      "name": "Pollo Bravo",
+      "lon": -95.420421,
+      "lat": 29.760997,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "peruvian;mexican",
+        "opening_hours": "Mo-Fr 10:30-21:30; Sa,Su 11:00-21:00"
+      },
+      "node": 5805,
+      "snap_m": 23.9,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -713,8 +3758,78 @@
         "brand": "Shipley Do-Nuts",
         "cuisine": "donut"
       },
-      "node": 1775,
+      "node": 8727,
       "snap_m": 26.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9616227835",
+      "name": "Tropical Smoothie Cafe",
+      "lon": -95.391644,
+      "lat": 29.767808,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Tropical Smoothie Cafe",
+        "cuisine": "juice",
+        "opening_hours": "Mo-Fr 07:00-21:00; Sa 09:00-21:00; Su 10:00-20:00",
+        "website": "https://locations.tropicalsmoothiecafe.com/tx/houston/920-studemont-st"
+      },
+      "node": 5089,
+      "snap_m": 28.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9758539427",
+      "name": "Subway",
+      "lon": -95.398568,
+      "lat": 29.760285,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Subway",
+        "cuisine": "sandwich",
+        "opening_hours": "Mo-Fr 09:00-21:00; Sa-Su 10:00-18:00",
+        "website": "https://restaurants.subway.com/united-states/tx/houston/538-waugh-dr"
+      },
+      "node": 5284,
+      "snap_m": 17.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9758539429",
+      "name": "Pizza Birra Vino",
+      "lon": -95.398565,
+      "lat": 29.760011,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "pizza",
+        "opening_hours": "Su-Th 11:00-22:00; Fr-Sa 11:00-23:00",
+        "website": "https://www.pizzabirravino.com/"
+      },
+      "node": 5286,
+      "snap_m": 15.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1022649487",
+      "name": "Jack in the Box",
+      "lon": -95.398538,
+      "lat": 29.757725,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Jack in the Box",
+        "cuisine": "burger",
+        "website": "https://locations.jackinthebox.com/us/tx/houston/3110-w-dallas-st"
+      },
+      "node": 2596,
+      "snap_m": 7.7,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -731,7 +3846,7 @@
         "opening_hours": "Mo-Su 10:45-22:00",
         "website": "https://locations.chipotle.com/tx/houston/2027-s-shepherd-dr"
       },
-      "node": 722,
+      "node": 3078,
       "snap_m": 29.3,
       "rating": null,
       "n": null,
@@ -749,8 +3864,76 @@
         "opening_hours": "09:00-04:00",
         "website": "https://locations.tacobell.com/tx/houston/1817-s--shepherd-dr-.html"
       },
-      "node": 1414,
+      "node": 7061,
       "snap_m": 4.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1355249820",
+      "name": "Gaspachos Mexican Bites",
+      "lon": -95.424227,
+      "lat": 29.7328,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "mexican",
+        "website": "https://www.gaspachoshtx.com/parkkiosk"
+      },
+      "node": 5482,
+      "snap_m": 10.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w226936433",
+      "name": "Jack in the Box",
+      "lon": -95.426646,
+      "lat": 29.734461,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Jack in the Box",
+        "cuisine": "burger",
+        "website": "https://locations.jackinthebox.com/us/tx/houston/3302-richmond-ave"
+      },
+      "node": 3469,
+      "snap_m": 5.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w264616611",
+      "name": "Whataburger",
+      "lon": -95.410951,
+      "lat": 29.732882,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Whataburger",
+        "cuisine": "burger",
+        "opening_hours": "24/7",
+        "website": "https://locations.whataburger.com/tx/houston/3712-s-shepherd-dr.html",
+        "wheelchair": "yes"
+      },
+      "node": 5817,
+      "snap_m": 9.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w371764583",
+      "name": "Sunrise Taquitos Mexican Grill",
+      "lon": -95.418982,
+      "lat": 29.760934,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "Mo-Sa 06:00-14:00; Su 08:00-14:00"
+      },
+      "node": 4334,
+      "snap_m": 17.5,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -767,8 +3950,74 @@
         "outdoor_seating": "yes",
         "website": "https://torchystacos.com"
       },
-      "node": 1071,
+      "node": 4788,
       "snap_m": 13.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w428095814",
+      "name": "Smoothie King",
+      "lon": -95.390928,
+      "lat": 29.744459,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Smoothie King",
+        "cuisine": "juice"
+      },
+      "node": 6123,
+      "snap_m": 3.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w428095818",
+      "name": "The Burger Joint",
+      "lon": -95.391101,
+      "lat": 29.745383,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "american",
+        "website": "https://burgerjointhtx.com/"
+      },
+      "node": 6795,
+      "snap_m": 8.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w428095824",
+      "name": "McDonald's",
+      "lon": -95.394929,
+      "lat": 29.744209,
+      "category": "fast_food",
+      "tags": {
+        "brand": "McDonald's",
+        "cuisine": "burger",
+        "opening_hours": "Mo-Fr 05:30-23:00; Sa 06:00-23:00; Su 07:00-23:00",
+        "website": "https://www.mcdonalds.com/us/en-us/location/7728.html"
+      },
+      "node": 4605,
+      "snap_m": 8.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w428095827",
+      "name": "Voodoo Doughnut",
+      "lon": -95.393851,
+      "lat": 29.74476,
+      "category": "fast_food",
+      "tags": {
+        "brand": "Voodoo Doughnut",
+        "cuisine": "donut"
+      },
+      "node": 4619,
+      "snap_m": 9.7,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -785,8 +4034,23 @@
         "opening_hours": "Mo-Fr 05:00-21:00; Sa-Su 06:00-21:00",
         "website": "https://locations.dunkindonuts.com/en/tx/houston/2330-s-shepherd-dr/351712"
       },
-      "node": 1055,
+      "node": 4772,
       "snap_m": 5.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w846944325",
+      "name": "Trill Burgers",
+      "lon": -95.409945,
+      "lat": 29.733955,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "burger"
+      },
+      "node": 9377,
+      "snap_m": 10.0,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -807,6 +4071,21 @@
       "rating_src": null
     },
     {
+      "id": "w902286343",
+      "name": "Christy's",
+      "lon": -95.392401,
+      "lat": 29.753,
+      "category": "fast_food",
+      "tags": {
+        "cuisine": "donut"
+      },
+      "node": 4950,
+      "snap_m": 12.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
       "id": "w991209381",
       "name": "Raising Cane's",
       "lon": -95.407511,
@@ -817,7 +4096,7 @@
         "cuisine": "chicken",
         "opening_hours": "Su-We 10:00-01:00, Th-Sa 10:00-03:30"
       },
-      "node": 1509,
+      "node": 7800,
       "snap_m": 3.9,
       "rating": null,
       "n": null,
@@ -830,8 +4109,21 @@
       "lat": 29.741946,
       "category": "garden",
       "tags": {},
-      "node": 1208,
+      "node": 5809,
       "snap_m": 36.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "r19254749",
+      "name": "Rain Garden",
+      "lon": -95.423626,
+      "lat": 29.732323,
+      "category": "garden",
+      "tags": {},
+      "node": 5543,
+      "snap_m": 2.2,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -843,7 +4135,7 @@
       "lat": 29.752012,
       "category": "garden",
       "tags": {},
-      "node": 1015,
+      "node": 4567,
       "snap_m": 0.8,
       "rating": null,
       "n": null,
@@ -856,8 +4148,112 @@
       "lat": 29.755503,
       "category": "garden",
       "tags": {},
-      "node": 1729,
+      "node": 8619,
       "snap_m": 19.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1411621301",
+      "name": null,
+      "lon": -95.398791,
+      "lat": 29.74737,
+      "category": "garden",
+      "tags": {},
+      "node": 4022,
+      "snap_m": 19.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1419228419",
+      "name": null,
+      "lon": -95.419346,
+      "lat": 29.735864,
+      "category": "garden",
+      "tags": {},
+      "node": 6748,
+      "snap_m": 35.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1421450558",
+      "name": null,
+      "lon": -95.426507,
+      "lat": 29.752697,
+      "category": "garden",
+      "tags": {},
+      "node": 7959,
+      "snap_m": 1.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1421451397",
+      "name": null,
+      "lon": -95.426893,
+      "lat": 29.751552,
+      "category": "garden",
+      "tags": {},
+      "node": 7989,
+      "snap_m": 0.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1421477150",
+      "name": null,
+      "lon": -95.427292,
+      "lat": 29.751464,
+      "category": "garden",
+      "tags": {},
+      "node": 7978,
+      "snap_m": 20.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1421480687",
+      "name": null,
+      "lon": -95.426838,
+      "lat": 29.750401,
+      "category": "garden",
+      "tags": {},
+      "node": 2802,
+      "snap_m": 32.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w769978373",
+      "name": null,
+      "lon": -95.398279,
+      "lat": 29.744462,
+      "category": "garden",
+      "tags": {},
+      "node": 5931,
+      "snap_m": 1.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10598865777",
+      "name": "Tutti Frutti Frozen Yogurt",
+      "lon": -95.390574,
+      "lat": 29.742,
+      "category": "ice_cream",
+      "tags": {},
+      "node": 4670,
+      "snap_m": 28.8,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -872,8 +4268,26 @@
         "brand": "Jeni's Splendid Ice Creams",
         "website": "https://jenis.com/"
       },
-      "node": 1530,
+      "node": 7828,
       "snap_m": 18.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11512568917",
+      "name": "Baskin-Robbins",
+      "lon": -95.425744,
+      "lat": 29.742451,
+      "category": "ice_cream",
+      "tags": {
+        "brand": "Baskin-Robbins",
+        "cuisine": "ice_cream",
+        "opening_hours": "11:00-22:00",
+        "website": "https://locations.baskinrobbins.com/tx/houston/3266-westheimer-rd-360468-br"
+      },
+      "node": 5561,
+      "snap_m": 38.5,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -888,8 +4302,100 @@
         "brand": "Marble Slab Creamery",
         "cuisine": "ice_cream"
       },
-      "node": 1980,
+      "node": 9238,
       "snap_m": 30.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5759098743",
+      "name": "Amy's Ice Creams",
+      "lon": -95.412448,
+      "lat": 29.732775,
+      "category": "ice_cream",
+      "tags": {
+        "brand": "Amy's Ice Creams"
+      },
+      "node": 3721,
+      "snap_m": 19.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n8645719961",
+      "name": "Cloud10",
+      "lon": -95.411019,
+      "lat": 29.734906,
+      "category": "ice_cream",
+      "tags": {},
+      "node": 2297,
+      "snap_m": 39.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "r19228750",
+      "name": "Doherty Library",
+      "lon": -95.393178,
+      "lat": 29.736534,
+      "category": "library",
+      "tags": {
+        "operator": "University of St. Thomas",
+        "website": "http://library.stthom.edu/"
+      },
+      "node": 1804,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1098887698",
+      "name": "Freed-Montrose Neighborhood Library",
+      "lon": -95.390779,
+      "lat": 29.745293,
+      "category": "library",
+      "tags": {
+        "operator": "Houston Public Library"
+      },
+      "node": 4676,
+      "snap_m": 3.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "r11996387",
+      "name": "Menil Drawing Institute",
+      "lon": -95.397171,
+      "lat": 29.736359,
+      "category": "museum",
+      "tags": {
+        "opening_hours": "We-Su 11:00-19:00",
+        "operator": "Menil Foundation",
+        "website": "https://www.menil.org/drawing-institute"
+      },
+      "node": 7776,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "r21270446",
+      "name": "Menil Collection",
+      "lon": -95.398493,
+      "lat": 29.737375,
+      "category": "museum",
+      "tags": {
+        "opening_hours": "We-Su 09:00-19:00",
+        "website": "https://www.menil.org/"
+      },
+      "node": 1814,
+      "snap_m": 0.0,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -906,7 +4412,7 @@
         "operator": "Museum of Fine Arts, Houston",
         "website": "https://www.mfah.org/visit/rienzi"
       },
-      "node": 730,
+      "node": 3102,
       "snap_m": 9.1,
       "rating": null,
       "n": null,
@@ -922,8 +4428,24 @@
         "opening_hours": "Mo-Sa 10:00-19:00; Su \"by appointment\"",
         "website": "https://www.artoftheworldgallery.com/"
       },
-      "node": 202,
+      "node": 591,
       "snap_m": 11.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w148087198",
+      "name": "Bayou Bend Collection and Gardens",
+      "lon": -95.420658,
+      "lat": 29.757729,
+      "category": "museum",
+      "tags": {
+        "operator": "Museum of Fine Arts Houston",
+        "website": "https://www.mfah.org/visit/bayou-bend"
+      },
+      "node": 655,
+      "snap_m": 7.0,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -939,8 +4461,210 @@
         "operator": "Museum of Fine Arts, Houston",
         "wheelchair": "limited"
       },
-      "node": 731,
+      "node": 3103,
       "snap_m": 2.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w148087202",
+      "name": "Bayou Bend Collection and Gardens",
+      "lon": -95.421687,
+      "lat": 29.76063,
+      "category": "museum",
+      "tags": {
+        "fee": "yes",
+        "opening_hours": "Mo-Tu off; We-Sa 10:00-17:00; Su 13:00-17:00",
+        "operator": "Museum of Fine Arts, Houston",
+        "website": "https://www.mfah.org/visit/bayou-bend"
+      },
+      "node": 2458,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w484619239",
+      "name": "Bayou Bend Collection and Gardens",
+      "lon": -95.421815,
+      "lat": 29.760593,
+      "category": "museum",
+      "tags": {
+        "fee": "yes",
+        "operator": "Museum of Fine Arts, Houston"
+      },
+      "node": 3101,
+      "snap_m": 2.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w87644497",
+      "name": "Dan Flavin Installation at Richmond Hall",
+      "lon": -95.398075,
+      "lat": 29.734953,
+      "category": "museum",
+      "tags": {
+        "operator": "Menil Collection",
+        "website": "https://www.menil.org/visit/flavin.php"
+      },
+      "node": 1753,
+      "snap_m": 7.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w87657067",
+      "name": "Rothko Chapel",
+      "lon": -95.396205,
+      "lat": 29.737612,
+      "category": "museum",
+      "tags": {
+        "fee": "no",
+        "opening_hours": "Mo-Su 10:00-18:00"
+      },
+      "node": 6478,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w87657601",
+      "name": "Cy Twombly Gallery",
+      "lon": -95.397912,
+      "lat": 29.736716,
+      "category": "museum",
+      "tags": {
+        "operator": "Menil Collection",
+        "website": "https://www.menil.org/collection/CyTwomblyInDepth.php"
+      },
+      "node": 2734,
+      "snap_m": 10.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w87657668",
+      "name": "Byzantine Fresco Chapel Museum",
+      "lon": -95.395313,
+      "lat": 29.736472,
+      "category": "museum",
+      "tags": {
+        "description": "Currently off-view to the public, previously used to house Byzantine Frescos.",
+        "operator": "Menil Foundation",
+        "website": "http://www.byzantinefrescochapel.org/"
+      },
+      "node": 7556,
+      "snap_m": 1.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w484619238",
+      "name": "Hogg Bird Sanctuary",
+      "lon": -95.423516,
+      "lat": 29.758238,
+      "category": "nature_reserve",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 2182,
+      "snap_m": 3.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n356845965",
+      "name": "Taub Baseball Field",
+      "lon": -95.427996,
+      "lat": 29.739673,
+      "category": "park",
+      "tags": {},
+      "node": 6410,
+      "snap_m": 30.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "r19264365",
+      "name": "Lamar Park",
+      "lon": -95.395594,
+      "lat": 29.746724,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 9079,
+      "snap_m": 1.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1113163471",
+      "name": "Autry Park",
+      "lon": -95.407493,
+      "lat": 29.759659,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 6623,
+      "snap_m": 2.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w111515100",
+      "name": "Ervan Chew Park",
+      "lon": -95.402878,
+      "lat": 29.732165,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 2953,
+      "snap_m": 2.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w123419207",
+      "name": "Cleveland Park",
+      "lon": -95.402961,
+      "lat": 29.763294,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 2312,
+      "snap_m": 1.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w123419608",
+      "name": "Homewood Park",
+      "lon": -95.420286,
+      "lat": 29.754601,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 657,
+      "snap_m": 7.8,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -952,8 +4676,38 @@
       "lat": 29.758726,
       "category": "park",
       "tags": {},
-      "node": 823,
+      "node": 3316,
       "snap_m": 10.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1396718342",
+      "name": "Kirby Park",
+      "lon": -95.409302,
+      "lat": 29.759593,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 7198,
+      "snap_m": 1.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w194537258",
+      "name": "Mary Elliott Park",
+      "lon": -95.42099,
+      "lat": 29.749132,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 1071,
+      "snap_m": 11.3,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -967,8 +4721,88 @@
       "tags": {
         "operator": "Houston Parks and Recreation Department"
       },
-      "node": 190,
+      "node": 505,
       "snap_m": 6.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w194537260",
+      "name": "Rebecca Meyer Park",
+      "lon": -95.423853,
+      "lat": 29.744096,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 282,
+      "snap_m": 12.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w210836491",
+      "name": null,
+      "lon": -95.414537,
+      "lat": 29.765017,
+      "category": "park",
+      "tags": {},
+      "node": 5130,
+      "snap_m": 41.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w216488709",
+      "name": null,
+      "lon": -95.428206,
+      "lat": 29.745097,
+      "category": "park",
+      "tags": {},
+      "node": 444,
+      "snap_m": 8.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w216488712",
+      "name": null,
+      "lon": -95.42856,
+      "lat": 29.744358,
+      "category": "park",
+      "tags": {},
+      "node": 1618,
+      "snap_m": 3.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w216488714",
+      "name": null,
+      "lon": -95.42856,
+      "lat": 29.746089,
+      "category": "park",
+      "tags": {},
+      "node": 1616,
+      "snap_m": 10.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w216488715",
+      "name": null,
+      "lon": -95.428493,
+      "lat": 29.745125,
+      "category": "park",
+      "tags": {},
+      "node": 444,
+      "snap_m": 3.1,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -980,8 +4814,80 @@
       "lat": 29.755377,
       "category": "park",
       "tags": {},
-      "node": 189,
+      "node": 504,
       "snap_m": 10.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w216489233",
+      "name": "Clements Spaceway",
+      "lon": -95.412393,
+      "lat": 29.762885,
+      "category": "park",
+      "tags": {
+        "website": "https://www.houstontx.gov/parks/pdfs/2013/District_C.pdf"
+      },
+      "node": 2898,
+      "snap_m": 3.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w221232817",
+      "name": null,
+      "lon": -95.400916,
+      "lat": 29.763701,
+      "category": "park",
+      "tags": {},
+      "node": 2945,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w221233748",
+      "name": "Knox Park",
+      "lon": -95.397844,
+      "lat": 29.766176,
+      "category": "park",
+      "tags": {},
+      "node": 2396,
+      "snap_m": 2.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w256610977",
+      "name": "Mandell Park",
+      "lon": -95.399191,
+      "lat": 29.733954,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 5295,
+      "snap_m": 1.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w256611754",
+      "name": "Levy Park",
+      "lon": -95.423051,
+      "lat": 29.732639,
+      "category": "park",
+      "tags": {
+        "operator": "Upper Kirby TIRZ",
+        "website": "https://levyparkhouston.org/"
+      },
+      "node": 5546,
+      "snap_m": 0.7,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -995,8 +4901,39 @@
       "tags": {
         "operator": "Houston Parks and Recreation Department"
       },
-      "node": 390,
+      "node": 1383,
       "snap_m": 7.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w530491589",
+      "name": "Buffalo Bayou Park",
+      "lon": -95.392259,
+      "lat": 29.76176,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department",
+        "website": "https://buffalobayou.org"
+      },
+      "node": 4363,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w54030375",
+      "name": "Spotts Park",
+      "lon": -95.395572,
+      "lat": 29.765327,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 2393,
+      "snap_m": 2.2,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1010,8 +4947,102 @@
       "tags": {
         "operator": "Houston Parks and Recreation Department"
       },
-      "node": 999,
+      "node": 4551,
       "snap_m": 2.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w87450708",
+      "name": "Menil Park",
+      "lon": -95.396926,
+      "lat": 29.737435,
+      "category": "park",
+      "tags": {
+        "operator": "Menil Collection"
+      },
+      "node": 6174,
+      "snap_m": 1.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w87450845",
+      "name": "Cherryhurst Park",
+      "lon": -95.398584,
+      "lat": 29.744306,
+      "category": "park",
+      "tags": {
+        "operator": "Houston Parks and Recreation Department"
+      },
+      "node": 770,
+      "snap_m": 6.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11308510643",
+      "name": "CVS Pharmacy",
+      "lon": -95.421894,
+      "lat": 29.742586,
+      "category": "pharmacy",
+      "tags": {
+        "brand": "CVS Pharmacy",
+        "website": "https://www.cvs.com/store-locator/houston-tx-pharmacies/2910-westheimer-rd-houston-tx-77098/storeid=7126"
+      },
+      "node": 3215,
+      "snap_m": 24.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1569261269",
+      "name": "CVS Pharmacy",
+      "lon": -95.391542,
+      "lat": 29.733744,
+      "category": "pharmacy",
+      "tags": {
+        "brand": "CVS Pharmacy",
+        "website": "https://www.cvs.com/store-locator/houston-tx-pharmacies/1003-richmond-ave-houston-tx-77006/storeid=7162"
+      },
+      "node": 4701,
+      "snap_m": 33.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2642233544",
+      "name": "H-E-B Pharmacy",
+      "lon": -95.403102,
+      "lat": 29.737967,
+      "category": "pharmacy",
+      "tags": {
+        "brand": "H-E-B",
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-18:00; Su 10:00-17:00",
+        "website": "https://www.heb.com/"
+      },
+      "node": 9392,
+      "snap_m": 28.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6240897315",
+      "name": "Walgreens",
+      "lon": -95.410024,
+      "lat": 29.766589,
+      "category": "pharmacy",
+      "tags": {
+        "brand": "Walgreens"
+      },
+      "node": 2576,
+      "snap_m": 16.2,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1025,8 +5056,41 @@
       "tags": {
         "brand": "Walgreens"
       },
-      "node": 895,
+      "node": 3699,
       "snap_m": 16.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6818164814",
+      "name": "CVS Pharmacy",
+      "lon": -95.397445,
+      "lat": 29.756967,
+      "category": "pharmacy",
+      "tags": {
+        "brand": "CVS Pharmacy",
+        "website": "https://www.cvs.com/store-locator/houston-tx-pharmacies/1001-waugh-dr-houston-tx-77019/storeid=5840"
+      },
+      "node": 743,
+      "snap_m": 30.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9407539261",
+      "name": "Walgreens",
+      "lon": -95.390342,
+      "lat": 29.742801,
+      "category": "pharmacy",
+      "tags": {
+        "brand": "Walgreens",
+        "opening_hours": "08:00-22:00",
+        "wheelchair": "yes"
+      },
+      "node": 4663,
+      "snap_m": 26.2,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1041,8 +5105,325 @@
         "brand": "CVS Pharmacy",
         "website": "https://www.cvs.com/store-locator/houston-tx-pharmacies/2075-westheimer-rd-houston-tx-77098/storeid=17802"
       },
-      "node": 11,
+      "node": 23,
       "snap_m": 31.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9903514220",
+      "name": "CVS Pharmacy",
+      "lon": -95.411472,
+      "lat": 29.738174,
+      "category": "pharmacy",
+      "tags": {
+        "brand": "CVS Pharmacy",
+        "website": "https://www.cvs.com/store-locator/houston-tx-pharmacies/2111-w-alabama-st-houston-tx-77098/storeid=10554"
+      },
+      "node": 5765,
+      "snap_m": 32.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3176812217",
+      "name": null,
+      "lon": -95.397929,
+      "lat": 29.759314,
+      "category": "picnic_site",
+      "tags": {},
+      "node": 3396,
+      "snap_m": 14.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3176812218",
+      "name": null,
+      "lon": -95.397846,
+      "lat": 29.759327,
+      "category": "picnic_site",
+      "tags": {},
+      "node": 3396,
+      "snap_m": 12.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3176812220",
+      "name": null,
+      "lon": -95.397796,
+      "lat": 29.759341,
+      "category": "picnic_site",
+      "tags": {},
+      "node": 3396,
+      "snap_m": 14.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3176812223",
+      "name": null,
+      "lon": -95.397714,
+      "lat": 29.759376,
+      "category": "picnic_site",
+      "tags": {},
+      "node": 3825,
+      "snap_m": 10.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3176812230",
+      "name": null,
+      "lon": -95.397861,
+      "lat": 29.759388,
+      "category": "picnic_site",
+      "tags": {},
+      "node": 4358,
+      "snap_m": 17.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3176812233",
+      "name": null,
+      "lon": -95.39778,
+      "lat": 29.759417,
+      "category": "picnic_site",
+      "tags": {},
+      "node": 3825,
+      "snap_m": 9.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w848097914",
+      "name": "Picnic Area 1",
+      "lon": -95.429961,
+      "lat": 29.765867,
+      "category": "picnic_site",
+      "tags": {},
+      "node": 6043,
+      "snap_m": 0.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1270313162",
+      "name": null,
+      "lon": -95.402433,
+      "lat": 29.732488,
+      "category": "playground",
+      "tags": {
+        "access": "yes"
+      },
+      "node": 2956,
+      "snap_m": 27.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1113396210",
+      "name": null,
+      "lon": -95.402453,
+      "lat": 29.732304,
+      "category": "playground",
+      "tags": {},
+      "node": 2956,
+      "snap_m": 13.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w128542154",
+      "name": null,
+      "lon": -95.395513,
+      "lat": 29.764991,
+      "category": "playground",
+      "tags": {},
+      "node": 2054,
+      "snap_m": 0.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w128542158",
+      "name": null,
+      "lon": -95.395352,
+      "lat": 29.766411,
+      "category": "playground",
+      "tags": {},
+      "node": 2069,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w128542174",
+      "name": null,
+      "lon": -95.396024,
+      "lat": 29.765587,
+      "category": "playground",
+      "tags": {},
+      "node": 2308,
+      "snap_m": 43.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w128542185",
+      "name": null,
+      "lon": -95.395498,
+      "lat": 29.76621,
+      "category": "playground",
+      "tags": {},
+      "node": 2025,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1421449906",
+      "name": null,
+      "lon": -95.425175,
+      "lat": 29.753116,
+      "category": "playground",
+      "tags": {},
+      "node": 7973,
+      "snap_m": 9.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w315612332",
+      "name": null,
+      "lon": -95.42133,
+      "lat": 29.747628,
+      "category": "playground",
+      "tags": {},
+      "node": 107,
+      "snap_m": 35.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w315612333",
+      "name": null,
+      "lon": -95.421263,
+      "lat": 29.747065,
+      "category": "playground",
+      "tags": {},
+      "node": 106,
+      "snap_m": 75.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w315612334",
+      "name": null,
+      "lon": -95.42132,
+      "lat": 29.746812,
+      "category": "playground",
+      "tags": {},
+      "node": 3884,
+      "snap_m": 67.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w315612336",
+      "name": null,
+      "lon": -95.421518,
+      "lat": 29.747228,
+      "category": "playground",
+      "tags": {},
+      "node": 3882,
+      "snap_m": 63.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w315612337",
+      "name": null,
+      "lon": -95.421744,
+      "lat": 29.747514,
+      "category": "playground",
+      "tags": {},
+      "node": 3882,
+      "snap_m": 24.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w319268025",
+      "name": null,
+      "lon": -95.398267,
+      "lat": 29.74668,
+      "category": "playground",
+      "tags": {},
+      "node": 4028,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w319268026",
+      "name": null,
+      "lon": -95.398237,
+      "lat": 29.746829,
+      "category": "playground",
+      "tags": {},
+      "node": 4027,
+      "snap_m": 1.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w319268027",
+      "name": null,
+      "lon": -95.398348,
+      "lat": 29.747003,
+      "category": "playground",
+      "tags": {},
+      "node": 4025,
+      "snap_m": 1.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w392861138",
+      "name": null,
+      "lon": -95.398809,
+      "lat": 29.744106,
+      "category": "playground",
+      "tags": {},
+      "node": 597,
+      "snap_m": 8.4,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1054,8 +5435,64 @@
       "lat": 29.752216,
       "category": "playground",
       "tags": {},
-      "node": 1000,
+      "node": 4552,
       "snap_m": 1.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w625305881",
+      "name": "Children's Park",
+      "lon": -95.423292,
+      "lat": 29.732641,
+      "category": "playground",
+      "tags": {},
+      "node": 5534,
+      "snap_m": 4.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w625310343",
+      "name": null,
+      "lon": -95.423608,
+      "lat": 29.733434,
+      "category": "playground",
+      "tags": {},
+      "node": 6665,
+      "snap_m": 9.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10598865778",
+      "name": "Pizza Love",
+      "lon": -95.390575,
+      "lat": 29.742068,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza"
+      },
+      "node": 4667,
+      "snap_m": 23.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n10598865781",
+      "name": "Lao Sze Chuan",
+      "lon": -95.390917,
+      "lat": 29.741904,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "chinese"
+      },
+      "node": 4666,
+      "snap_m": 22.3,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1067,8 +5504,21 @@
       "lat": 29.755335,
       "category": "restaurant",
       "tags": {},
-      "node": 211,
+      "node": 666,
       "snap_m": 26.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n1075963819",
+      "name": "Cafe Express",
+      "lon": -95.399517,
+      "lat": 29.753448,
+      "category": "restaurant",
+      "tags": {},
+      "node": 2668,
+      "snap_m": 17.0,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1080,8 +5530,42 @@
       "lat": 29.752354,
       "category": "restaurant",
       "tags": {},
-      "node": 1798,
+      "node": 8766,
       "snap_m": 20.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11102893008",
+      "name": "Waffle Bus",
+      "lon": -95.399097,
+      "lat": 29.738885,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american",
+        "outdoor_seating": "yes",
+        "website": "https://www.thewafflebus.com"
+      },
+      "node": 8460,
+      "snap_m": 18.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11102893010",
+      "name": "Lúa Viet Kitchen",
+      "lon": -95.398766,
+      "lat": 29.738888,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "vietnamese",
+        "outdoor_seating": "yes",
+        "website": "https://www.luavietkitchen.com"
+      },
+      "node": 358,
+      "snap_m": 25.8,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1095,8 +5579,73 @@
       "tags": {
         "website": "https://albihouston.com/"
       },
-      "node": 903,
+      "node": 3707,
       "snap_m": 18.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11464500821",
+      "name": "La Griglia",
+      "lon": -95.395412,
+      "lat": 29.75721,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "italian",
+        "outdoor_seating": "yes",
+        "website": "https://www.lagrigliarestaurant.com/"
+      },
+      "node": 7590,
+      "snap_m": 18.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11464500822",
+      "name": "Katami",
+      "lon": -95.395042,
+      "lat": 29.757263,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "japanese",
+        "website": "https://www.katamihouston.com/"
+      },
+      "node": 7589,
+      "snap_m": 20.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11570060918",
+      "name": "Oui Banh Mi",
+      "lon": -95.39972,
+      "lat": 29.734166,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "vietnamese",
+        "opening_hours": "Mo 10:15-22:00; Tu-Fr 10:15-23:00; Sa 10:30-23:00; Su 10:30-20:00",
+        "website": "https://oui-banhmi.square.site"
+      },
+      "node": 5294,
+      "snap_m": 8.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n11570063087",
+      "name": "Texas Pizza & Grill",
+      "lon": -95.406607,
+      "lat": 29.733969,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza"
+      },
+      "node": 7470,
+      "snap_m": 11.1,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1112,8 +5661,335 @@
         "opening_hours": "Mo-Su 11:00-21:00",
         "website": "https://www.peppertwinsriveroaks.com/"
       },
-      "node": 893,
+      "node": 3697,
       "snap_m": 32.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12014895269",
+      "name": "The Sunrise House",
+      "lon": -95.405895,
+      "lat": 29.738925,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "breakfast",
+        "opening_hours": "Mo-Fr 08:00-15:00; Sa-Su 07:00-16:00",
+        "website": "https://www.thesunrisehouse.com/"
+      },
+      "node": 5887,
+      "snap_m": 26.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12175623859",
+      "name": "The Kennedy Houston",
+      "lon": -95.399942,
+      "lat": 29.757433,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american",
+        "website": "https://www.thekennedyhouston.com/"
+      },
+      "node": 6704,
+      "snap_m": 19.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12299496234",
+      "name": "Candente",
+      "lon": -95.39291,
+      "lat": 29.734239,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "tex-mex",
+        "opening_hours": "Th 11:00-21:00; Fr 11:00-22:00; Sa 10:00-22:00; Su 10:00-21:00; Mo-We off",
+        "outdoor_seating": "yes",
+        "website": "https://www.candentehtx.com"
+      },
+      "node": 6412,
+      "snap_m": 23.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12398063937",
+      "name": "Coco Crepes, Waffles & Coffee",
+      "lon": -95.426459,
+      "lat": 29.733747,
+      "category": "restaurant",
+      "tags": {
+        "opening_hours": "Su-Th 07:00-22:00; Fr-Sa 07:00-23:00",
+        "website": "https://www.cococrepes.com/"
+      },
+      "node": 8470,
+      "snap_m": 16.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12398063938",
+      "name": "Zoa Moroccan Kitchen",
+      "lon": -95.426648,
+      "lat": 29.733749,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "moroccan",
+        "opening_hours": "Su-Sa 10:30-21:00",
+        "website": "https://www.zoamoroccan.com/"
+      },
+      "node": 7640,
+      "snap_m": 27.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12463956781",
+      "name": "Verde Garden",
+      "lon": -95.395218,
+      "lat": 29.756896,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "outdoor_seating": "yes",
+        "website": "https://www.verdegardenhtx.com/"
+      },
+      "node": 7324,
+      "snap_m": 24.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12463956789",
+      "name": "Emma Jane",
+      "lon": -95.395403,
+      "lat": 29.755572,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "british",
+        "website": "https://www.emmajanehtx.com/"
+      },
+      "node": 948,
+      "snap_m": 23.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12542603459",
+      "name": "Pizaro's Pizza Napoletana",
+      "lon": -95.391952,
+      "lat": 29.753564,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza"
+      },
+      "node": 9322,
+      "snap_m": 11.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12875527401",
+      "name": "Nobie's",
+      "lon": -95.410081,
+      "lat": 29.735342,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american",
+        "opening_hours": "Fr-Sa 17:00-24:00; Su-Mo,We-Th 17:00-23:00",
+        "website": "http://nobieshtx.com"
+      },
+      "node": 6238,
+      "snap_m": 13.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12875528703",
+      "name": "Dripped Birria (Montrose)",
+      "lon": -95.410977,
+      "lat": 29.73438,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "Mo-Su 11:00-16:00",
+        "website": "https://drippedbirria.com"
+      },
+      "node": 4872,
+      "snap_m": 16.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12875550401",
+      "name": "Taquería Vicente (Food Truck)",
+      "lon": -95.410577,
+      "lat": 29.734406,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "Mo-Su 10:00-16:00"
+      },
+      "node": 2298,
+      "snap_m": 9.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12875555301",
+      "name": "Amore",
+      "lon": -95.410852,
+      "lat": 29.736097,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "italian",
+        "opening_hours": "Su,Tu-Th 11:00-22:00; Fr-Sa 11:00-23:00",
+        "website": "https://amorehouston.com/"
+      },
+      "node": 1531,
+      "snap_m": 23.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12875559901",
+      "name": "Gusto Gourmet",
+      "lon": -95.410838,
+      "lat": 29.736281,
+      "category": "restaurant",
+      "tags": {
+        "opening_hours": "Mo-Th 07:00-18:00; Fr 07:00-19:00; Sa 09:00-19:00; Su 10:00-14:00",
+        "website": "https://gustogourmettogo.com/"
+      },
+      "node": 1531,
+      "snap_m": 39.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n12912735601",
+      "name": "Drake's Hollywood",
+      "lon": -95.392926,
+      "lat": 29.744903,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "steak_house",
+        "opening_hours": "Mo-Sa 16:00-22:00; Su 04:00-21:00",
+        "website": "http://drakeshollywood.con"
+      },
+      "node": 6758,
+      "snap_m": 21.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14021161701",
+      "name": "Mala Sichuan Bistro",
+      "lon": -95.393128,
+      "lat": 29.74412,
+      "category": "restaurant",
+      "tags": {},
+      "node": 6465,
+      "snap_m": 26.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14023392713",
+      "name": "Velvet Taco",
+      "lon": -95.390601,
+      "lat": 29.744434,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican"
+      },
+      "node": 6124,
+      "snap_m": 19.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14285594253",
+      "name": "Tio Trompo",
+      "lon": -95.409078,
+      "lat": 29.765846,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "Tu-Sa 08:00-20:00",
+        "outdoor_seating": "yes",
+        "website": "http://tiotrompo.com/"
+      },
+      "node": 4399,
+      "snap_m": 22.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14295106912",
+      "name": "Ramen Moto",
+      "lon": -95.415278,
+      "lat": 29.738873,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "ramen",
+        "opening_hours": "Tu-Su 15:00-01:00"
+      },
+      "node": 3526,
+      "snap_m": 16.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n14335171930",
+      "name": "Southern Yankee Crafthouse",
+      "lon": -95.395261,
+      "lat": 29.738966,
+      "category": "restaurant",
+      "tags": {
+        "opening_hours": "Su-Sa 11:00-22:00",
+        "outdoor_seating": "yes",
+        "website": "https://crafthousehtx.com/"
+      },
+      "node": 7554,
+      "snap_m": 42.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2333724414",
+      "name": "Relish Restaurant & Bar",
+      "lon": -95.421236,
+      "lat": 29.742563,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american",
+        "website": "https://www.relishrestauranthoustontx.com/"
+      },
+      "node": 3217,
+      "snap_m": 22.6,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1127,8 +6003,23 @@
       "tags": {
         "cuisine": "steak_house"
       },
-      "node": 688,
+      "node": 2987,
       "snap_m": 20.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2571482804",
+      "name": "Duck and Bao",
+      "lon": -95.418133,
+      "lat": 29.760608,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "asian"
+      },
+      "node": 2341,
+      "snap_m": 18.5,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1140,7 +6031,7 @@
       "lat": 29.742409,
       "category": "restaurant",
       "tags": {},
-      "node": 1491,
+      "node": 7756,
       "snap_m": 14.7,
       "rating": null,
       "n": null,
@@ -1158,8 +6049,118 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "website": "https://www.jasonsdeli.com/"
       },
-      "node": 640,
+      "node": 2809,
       "snap_m": 22.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2752882617",
+      "name": "Fat Bao",
+      "lon": -95.418083,
+      "lat": 29.735139,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "chinese",
+        "website": "https://www.fatbaohouston.com/"
+      },
+      "node": 3597,
+      "snap_m": 25.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2752883916",
+      "name": "Luna Pizzaria",
+      "lon": -95.417782,
+      "lat": 29.735123,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza"
+      },
+      "node": 125,
+      "snap_m": 17.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2843095901",
+      "name": "Sushi King",
+      "lon": -95.418411,
+      "lat": 29.735141,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "sushi",
+        "outdoor_seating": "yes"
+      },
+      "node": 2523,
+      "snap_m": 21.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n2848422202",
+      "name": "Bollo Woodfired Pizza",
+      "lon": -95.413419,
+      "lat": 29.738867,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "italian;pasta;pizza",
+        "opening_hours": "Su,Tu-Th 11:00-22:00; Mo 16:00-22:00; Fr-Sa 11:00-23:00",
+        "website": "http://bollohouston.com"
+      },
+      "node": 3555,
+      "snap_m": 16.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3009789353",
+      "name": "Hungry Like The Wolf",
+      "lon": -95.391725,
+      "lat": 29.767187,
+      "category": "restaurant",
+      "tags": {
+        "opening_hours": "Tu 11:00-24:00, We-Th 11:00-22:00, Fr 11:00-24:00, Sa 10:00-24:00, Su 11:00-18:00",
+        "outdoor_seating": "yes",
+        "website": "https://hungrylikethewolfhouston.com/"
+      },
+      "node": 5092,
+      "snap_m": 17.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3914677265",
+      "name": "Miri's Kitchen Persian",
+      "lon": -95.420281,
+      "lat": 29.760997,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "persian",
+        "website": "https://miriskitchen.com/"
+      },
+      "node": 5805,
+      "snap_m": 14.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n4736456636",
+      "name": "Fajita Pete’s",
+      "lon": -95.419713,
+      "lat": 29.761766,
+      "category": "restaurant",
+      "tags": {},
+      "node": 2868,
+      "snap_m": 36.9,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1175,8 +6176,41 @@
         "opening_hours": "Mo-Su 08:00-15:00,17:00-22:00",
         "website": "https://www.pondichericafe.com/"
       },
-      "node": 1307,
+      "node": 5459,
       "snap_m": 20.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5218700817",
+      "name": "Eddie V's",
+      "lon": -95.419092,
+      "lat": 29.740279,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "steak;seafood",
+        "opening_hours": "Su-Th 16:00-22:00; Fr-Sa 16:00-23:00",
+        "website": "https://www.eddiev.com/"
+      },
+      "node": 7708,
+      "snap_m": 15.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5218721621",
+      "name": "La Tapatia",
+      "lon": -95.404155,
+      "lat": 29.733995,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "Su-Th 08:00-03:00, Fr-Sa 08:00-04:00"
+      },
+      "node": 5920,
+      "snap_m": 14.3,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1191,8 +6225,34 @@
         "opening_hours": "Mo-Th 16:00-22:00; Fr-Sa 16:00-23:00",
         "website": "https://www.iloveroost.com/"
       },
-      "node": 1915,
+      "node": 9120,
       "snap_m": 25.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5902807684",
+      "name": "Snap Kitchen",
+      "lon": -95.418971,
+      "lat": 29.733362,
+      "category": "restaurant",
+      "tags": {},
+      "node": 3438,
+      "snap_m": 18.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n5902808485",
+      "name": "Kata Robata",
+      "lon": -95.419603,
+      "lat": 29.733527,
+      "category": "restaurant",
+      "tags": {},
+      "node": 3436,
+      "snap_m": 27.7,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1207,8 +6267,96 @@
         "cuisine": "chinese",
         "opening_hours": "Su-Th 10:00-21:30; Fr-Sa 10:00-22:30"
       },
-      "node": 602,
+      "node": 2665,
       "snap_m": 18.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6311475162",
+      "name": "Mint Thai Kitchen",
+      "lon": -95.398563,
+      "lat": 29.760163,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "thai",
+        "opening_hours": "Mo-Sa 11:00-22:00",
+        "website": "https://ordermintthaikitchen.com/"
+      },
+      "node": 5285,
+      "snap_m": 17.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6573544937",
+      "name": "bellagreen",
+      "lon": -95.415243,
+      "lat": 29.738339,
+      "category": "restaurant",
+      "tags": {},
+      "node": 3528,
+      "snap_m": 21.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6573544938",
+      "name": "Hops Meets Barley",
+      "lon": -95.414853,
+      "lat": 29.738226,
+      "category": "restaurant",
+      "tags": {},
+      "node": 3549,
+      "snap_m": 11.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6573544943",
+      "name": "Aka Sushi House",
+      "lon": -95.416137,
+      "lat": 29.73884,
+      "category": "restaurant",
+      "tags": {},
+      "node": 3240,
+      "snap_m": 26.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6573567095",
+      "name": "Flemings",
+      "lon": -95.41662,
+      "lat": 29.738129,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "steak_house"
+      },
+      "node": 3245,
+      "snap_m": 26.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n6997297908",
+      "name": "Jaxton's World Flavors",
+      "lon": -95.42129,
+      "lat": 29.74123,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american",
+        "opening_hours": "Mo-Sa 16:00-24:00; Su 11:00-17:00",
+        "website": "http://www.jaxtonsworldflavors.com"
+      },
+      "node": 6215,
+      "snap_m": 29.0,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1220,7 +6368,7 @@
       "lat": 29.74801,
       "category": "restaurant",
       "tags": {},
-      "node": 50,
+      "node": 133,
       "snap_m": 22.6,
       "rating": null,
       "n": null,
@@ -1233,7 +6381,7 @@
       "lat": 29.741953,
       "category": "restaurant",
       "tags": {},
-      "node": 1222,
+      "node": 5885,
       "snap_m": 24.2,
       "rating": null,
       "n": null,
@@ -1248,7 +6396,7 @@
       "tags": {
         "website": "https://riceboxed.com/location-river-oaks"
       },
-      "node": 841,
+      "node": 3348,
       "snap_m": 20.4,
       "rating": null,
       "n": null,
@@ -1263,7 +6411,7 @@
       "tags": {
         "cuisine": "hawaiian"
       },
-      "node": 8,
+      "node": 20,
       "snap_m": 13.0,
       "rating": null,
       "n": null,
@@ -1278,8 +6426,24 @@
       "tags": {
         "cuisine": "seafood;steak_house"
       },
-      "node": 638,
+      "node": 2807,
       "snap_m": 16.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n9616227838",
+      "name": "Sam's Cafe",
+      "lon": -95.391678,
+      "lat": 29.767591,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "chinese",
+        "opening_hours": "Mo-Su 11:00-23:30"
+      },
+      "node": 5094,
+      "snap_m": 27.8,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1295,7 +6459,7 @@
         "outdoor_seating": "yes",
         "website": "https://www.houstonlocalfoods.com/"
       },
-      "node": 225,
+      "node": 827,
       "snap_m": 8.8,
       "rating": null,
       "n": null,
@@ -1311,8 +6475,101 @@
         "opening_hours": "Mo 11:00-21:00; Tu-Fr 07:00-21:00; Sa-Su 08:00-21:00",
         "website": "https://barnabyscafe.com"
       },
-      "node": 287,
+      "node": 1089,
       "snap_m": 24.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1080464843",
+      "name": "Mia's Table",
+      "lon": -95.417259,
+      "lat": 29.737115,
+      "category": "restaurant",
+      "tags": {},
+      "node": 7050,
+      "snap_m": 14.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1080464977",
+      "name": null,
+      "lon": -95.416472,
+      "lat": 29.734862,
+      "category": "restaurant",
+      "tags": {},
+      "node": 6464,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1085016551",
+      "name": "Chuy's",
+      "lon": -95.420417,
+      "lat": 29.742608,
+      "category": "restaurant",
+      "tags": {
+        "brand": "Chuy's",
+        "cuisine": "tex-mex"
+      },
+      "node": 3222,
+      "snap_m": 5.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1085016888",
+      "name": "Becks Prime",
+      "lon": -95.419094,
+      "lat": 29.739812,
+      "category": "restaurant",
+      "tags": {},
+      "node": 6007,
+      "snap_m": 3.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1085222348",
+      "name": "Hobbit Cafe",
+      "lon": -95.41466,
+      "lat": 29.733618,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "american;burger",
+        "description": "Themed after Lord of the Rings franchise.",
+        "opening_hours": "Mo-Th 11:00-21:30; Fr 11:00-22:30; Sa 10:30-22:30; Su 10:30-21:00",
+        "outdoor_seating": "yes",
+        "website": "https://hobbitcafehtx.com/"
+      },
+      "node": 6463,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1086071844",
+      "name": "Lupe Tortilla",
+      "lon": -95.416744,
+      "lat": 29.732068,
+      "category": "restaurant",
+      "tags": {
+        "brand": "Lupe Tortilla",
+        "cuisine": "tex-mex",
+        "opening_hours": "Su-Th 11:00-21:00; Fr-Sa 11:00-22:00",
+        "outdoor_seating": "yes",
+        "website": "https://tex-mex.com/west-university-downtown/"
+      },
+      "node": 4726,
+      "snap_m": 33.9,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1328,7 +6585,7 @@
         "opening_hours": "Mo-Tu 07:00-15:00; We-Su 07:00-21:00",
         "website": "https://www.laguadalupanacafeandbakery.com/"
       },
-      "node": 1771,
+      "node": 8723,
       "snap_m": 9.8,
       "rating": null,
       "n": null,
@@ -1341,8 +6598,184 @@
       "lat": 29.744545,
       "category": "restaurant",
       "tags": {},
-      "node": 1852,
+      "node": 8944,
       "snap_m": 9.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1088303020",
+      "name": "The Pit Room",
+      "lon": -95.394108,
+      "lat": 29.734203,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "barbecue",
+        "opening_hours": "Mo-Su 07:00-21:00",
+        "outdoor_seating": "yes",
+        "website": "https://thepitroombbq.com/"
+      },
+      "node": 9367,
+      "snap_m": 7.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1088303210",
+      "name": "El Pueblito Patio",
+      "lon": -95.398527,
+      "lat": 29.734174,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "Mo-Th 11:00-22:00, Fr 11:00-01:00, Sa 09:00-01:00, Su 09:00-23:00",
+        "outdoor_seating": "yes",
+        "website": "https://www.elpueblitopatio.com/"
+      },
+      "node": 7485,
+      "snap_m": 5.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1096361542",
+      "name": null,
+      "lon": -95.414687,
+      "lat": 29.734,
+      "category": "restaurant",
+      "tags": {},
+      "node": 4723,
+      "snap_m": 10.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1096361543",
+      "name": null,
+      "lon": -95.414858,
+      "lat": 29.733895,
+      "category": "restaurant",
+      "tags": {},
+      "node": 4724,
+      "snap_m": 6.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1096436519",
+      "name": "Nidda Thai Cuisine",
+      "lon": -95.394209,
+      "lat": 29.74466,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "thai",
+        "opening_hours": "Mo-Th,Su 11:00-21:30; Fr-Sa 11:00-22:00",
+        "website": "https://niddathaicuisine.com/"
+      },
+      "node": 4611,
+      "snap_m": 9.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1097354696",
+      "name": "El Tiempo Cantina",
+      "lon": -95.425655,
+      "lat": 29.734377,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "Mo-Fr 11:00-21:00; Sa 10:00-22:00; Su 09:30-21:00",
+        "website": "https://www.eltiempocantina.com/locations/richmond"
+      },
+      "node": 3467,
+      "snap_m": 8.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1106856364",
+      "name": "Blue Nile",
+      "lon": -95.426498,
+      "lat": 29.737614,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "ethiopian",
+        "opening_hours": "Mo-Th,Su 11:00-22:00; Fr-Sa 11:00-23:00",
+        "website": "https://www.bluenilerestaurant.com/"
+      },
+      "node": 6613,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1276531792",
+      "name": "Southern Yankee Crafthouse",
+      "lon": -95.395245,
+      "lat": 29.738946,
+      "category": "restaurant",
+      "tags": {
+        "description": "Parking for this location is within the parking garage located at 3807 Graustark St",
+        "opening_hours": "Su-Sa 11:00-22:00",
+        "outdoor_seating": "yes",
+        "website": "https://crafthousehtx.com/"
+      },
+      "node": 7554,
+      "snap_m": 34.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1278635017",
+      "name": "Hearsay Levy Park",
+      "lon": -95.422488,
+      "lat": 29.732417,
+      "category": "restaurant",
+      "tags": {},
+      "node": 5537,
+      "snap_m": 0.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1341599318",
+      "name": "BCN Taste & Traditions",
+      "lon": -95.390123,
+      "lat": 29.734897,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "spanish",
+        "website": "https://www.bcnhouston.com/"
+      },
+      "node": 6723,
+      "snap_m": 12.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1384492846",
+      "name": "Think Tacos",
+      "lon": -95.394809,
+      "lat": 29.73256,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "We-Sa 08:00-14:00"
+      },
+      "node": 6717,
+      "snap_m": 3.2,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1358,8 +6791,295 @@
         "opening_hours": "Mo-Sa 11:00-21:00",
         "website": "https://www.pauliesrestaurant.com/"
       },
-      "node": 1881,
+      "node": 9034,
       "snap_m": 1.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w371764575",
+      "name": "Black Walnut Cafe",
+      "lon": -95.418107,
+      "lat": 29.761874,
+      "category": "restaurant",
+      "tags": {
+        "opening_hours": "Mo-Th 06:30-22:00; Fr 06:30-23:00; Sa 07:00-23:00; Su 07:00-22:00"
+      },
+      "node": 4308,
+      "snap_m": 15.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w392186382",
+      "name": "Flora",
+      "lon": -95.401874,
+      "lat": 29.761144,
+      "category": "restaurant",
+      "tags": {},
+      "node": 5185,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w401093523",
+      "name": "Bambolino's Italian Kitchen",
+      "lon": -95.398711,
+      "lat": 29.742579,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza;italian"
+      },
+      "node": 6218,
+      "snap_m": 6.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w405213081",
+      "name": "Aladdin Mediterranean cuisine",
+      "lon": -95.39107,
+      "lat": 29.744855,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mediterranean;lebanese;greek;middle_eastern",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "website": "https://aladdinshouston.com/"
+      },
+      "node": 6790,
+      "snap_m": 2.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w405213082",
+      "name": "Uchi",
+      "lon": -95.390759,
+      "lat": 29.744963,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "sushi"
+      },
+      "node": 6813,
+      "snap_m": 3.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w425632224",
+      "name": "Nonno's Family Pizza Tavern",
+      "lon": -95.400165,
+      "lat": 29.734033,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza"
+      },
+      "node": 6002,
+      "snap_m": 10.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w425632226",
+      "name": "The Toasted Coconut",
+      "lon": -95.400263,
+      "lat": 29.734111,
+      "category": "restaurant",
+      "tags": {
+        "outdoor_seating": "yes"
+      },
+      "node": 6002,
+      "snap_m": 15.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w428095772",
+      "name": "Postino Montrose",
+      "lon": -95.390295,
+      "lat": 29.746526,
+      "category": "restaurant",
+      "tags": {
+        "website": "https://www.postinowinecafe.com/locations/texas/montrose/"
+      },
+      "node": 5977,
+      "snap_m": 10.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w428095779",
+      "name": "La Mexicana",
+      "lon": -95.391607,
+      "lat": 29.748374,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "Mo-Th 07:00-22:00; Fr-Sa 07:00-23:00; Su 07:00-21:00",
+        "outdoor_seating": "yes",
+        "website": "https://www.lamexicanarestaurant.com/"
+      },
+      "node": 7168,
+      "snap_m": 3.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w428095831",
+      "name": "Pizza Hut",
+      "lon": -95.394554,
+      "lat": 29.743785,
+      "category": "restaurant",
+      "tags": {
+        "brand": "Pizza Hut",
+        "cuisine": "pizza",
+        "opening_hours": "Su-Th 11:00-23:00; Fr-Sa 11:00-24:00",
+        "website": "https://locations.pizzahut.com/tx/houston/1225-westheimer-rd"
+      },
+      "node": 7447,
+      "snap_m": 5.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w428097005",
+      "name": "Snooze, an A.M. Eatery",
+      "lon": -95.390963,
+      "lat": 29.743952,
+      "category": "restaurant",
+      "tags": {
+        "opening_hours": "Mo-Su 06:30-14:30",
+        "outdoor_seating": "yes",
+        "website": "https://snoozeeatery.com/locations/montrose/"
+      },
+      "node": 4647,
+      "snap_m": 3.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w485985925",
+      "name": "DeMeris Bar-B-Q",
+      "lon": -95.410463,
+      "lat": 29.739431,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "barbecue",
+        "wheelchair": "yes"
+      },
+      "node": 812,
+      "snap_m": 9.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w545313442",
+      "name": "Niko Niko's",
+      "lon": -95.392176,
+      "lat": 29.746523,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "greek",
+        "opening_hours": "Mo-Th,Su 10:00-21:00; Fr-Sa 10:00-22:00",
+        "outdoor_seating": "yes",
+        "website": "https://www.nikonikos.com/",
+        "wheelchair": "yes"
+      },
+      "node": 7450,
+      "snap_m": 0.1,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w625310037",
+      "name": "BB's Tex-Orleans Restaurant",
+      "lon": -95.426144,
+      "lat": 29.733699,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "cajun",
+        "opening_hours": "Su-Th 11:00-23:00; Fr-Sa 11:00-02:00"
+      },
+      "node": 8471,
+      "snap_m": 13.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w666572682",
+      "name": "Federal American Grill",
+      "lon": -95.409145,
+      "lat": 29.767045,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "burger;seafood;steak_house"
+      },
+      "node": 3010,
+      "snap_m": 13.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w673944884",
+      "name": "Luby's",
+      "lon": -95.398869,
+      "lat": 29.754347,
+      "category": "restaurant",
+      "tags": {
+        "brand": "Luby's",
+        "cuisine": "american",
+        "opening_hours": "Mo-Su 11:00-20:00"
+      },
+      "node": 825,
+      "snap_m": 12.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w674007080",
+      "name": "La Villa",
+      "lon": -95.390837,
+      "lat": 29.733887,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "french"
+      },
+      "node": 4707,
+      "snap_m": 8.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w685990610",
+      "name": "Ramen Tatsu-Ya",
+      "lon": -95.398287,
+      "lat": 29.743256,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "japanese",
+        "outdoor_seating": "yes"
+      },
+      "node": 2155,
+      "snap_m": 13.4,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1375,8 +7095,23 @@
         "opening_hours": "Mo-Th 15:00-24:00; Fr-Sa 11:00-01:00; Su 11:00-23:00",
         "website": "https://redlionpubhouston.com/"
       },
-      "node": 1047,
+      "node": 4764,
       "snap_m": 5.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w835916190",
+      "name": "Khung Khai Thai",
+      "lon": -95.391874,
+      "lat": 29.755801,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "thai"
+      },
+      "node": 5120,
+      "snap_m": 20.0,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1391,8 +7126,153 @@
         "outdoor_seating": "yes",
         "website": "https://www.piggyskitchen.com"
       },
-      "node": 1279,
+      "node": 6213,
       "snap_m": 8.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w846944290",
+      "name": "Pico's",
+      "lon": -95.418057,
+      "lat": 29.733729,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "outdoor_seating": "yes",
+        "wheelchair": "yes"
+      },
+      "node": 3427,
+      "snap_m": 16.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w846944304",
+      "name": "Little Papasitos",
+      "lon": -95.417783,
+      "lat": 29.734399,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican"
+      },
+      "node": 3615,
+      "snap_m": 3.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w846944305",
+      "name": "Khyber North Indian Grill",
+      "lon": -95.417194,
+      "lat": 29.734411,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "indian",
+        "website": "https://www.khyberhouston.com"
+      },
+      "node": 6511,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w846944326",
+      "name": "Star Pizza",
+      "lon": -95.411077,
+      "lat": 29.732352,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pizza;italian",
+        "opening_hours": "Su-Th 11:00-22:00; Fr-Sa 11:00-23:00",
+        "outdoor_seating": "yes",
+        "website": "http://starpizza.net/",
+        "wheelchair": "yes"
+      },
+      "node": 1956,
+      "snap_m": 18.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w846944332",
+      "name": "House of Pies",
+      "lon": -95.41906,
+      "lat": 29.737084,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "pie",
+        "opening_hours": "Mo-Su 07:00-24:00",
+        "website": "https://houseofpies.com/kirby-houston-location"
+      },
+      "node": 4817,
+      "snap_m": 10.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w902288030",
+      "name": "Da Marco",
+      "lon": -95.397849,
+      "lat": 29.743087,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "italian;noodle;pizza"
+      },
+      "node": 2154,
+      "snap_m": 9.4,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w902288266",
+      "name": "Riva's",
+      "lon": -95.392546,
+      "lat": 29.746041,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "italian",
+        "opening_hours": "Mo-Th 17:00-21:30; Fr-Sa 17:00-21:45; Su 11:00-21:45",
+        "website": "http://rivasinmontrose.com/"
+      },
+      "node": 1189,
+      "snap_m": 11.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w903668252",
+      "name": "Graces",
+      "lon": -95.418436,
+      "lat": 29.737157,
+      "category": "restaurant",
+      "tags": {},
+      "node": 4832,
+      "snap_m": 12.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w903668253",
+      "name": "Carrabba's Italian Grill",
+      "lon": -95.418376,
+      "lat": 29.736494,
+      "category": "restaurant",
+      "tags": {
+        "brand": "Carrabba's Italian Grill",
+        "cuisine": "italian"
+      },
+      "node": 1510,
+      "snap_m": 8.9,
       "rating": null,
       "n": null,
       "rating_src": null
@@ -1409,8 +7289,168 @@
         "outdoor_seating": "yes",
         "website": "https://empirecafe.com"
       },
-      "node": 877,
+      "node": 3635,
       "snap_m": 11.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w991212718",
+      "name": "Hugo's",
+      "lon": -95.399684,
+      "lat": 29.742966,
+      "category": "restaurant",
+      "tags": {
+        "cuisine": "mexican",
+        "opening_hours": "Su-Th 11:00-22:00; Fr-Sa 11:00-23:00"
+      },
+      "node": 7904,
+      "snap_m": 6.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w371778276",
+      "name": null,
+      "lon": -95.403715,
+      "lat": 29.761515,
+      "category": "shelter",
+      "tags": {},
+      "node": 4348,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w518332537",
+      "name": null,
+      "lon": -95.393652,
+      "lat": 29.762998,
+      "category": "shelter",
+      "tags": {},
+      "node": 5207,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w713956570",
+      "name": null,
+      "lon": -95.396432,
+      "lat": 29.762197,
+      "category": "shelter",
+      "tags": {},
+      "node": 2439,
+      "snap_m": 21.3,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w713956571",
+      "name": null,
+      "lon": -95.395358,
+      "lat": 29.761945,
+      "category": "shelter",
+      "tags": {},
+      "node": 2437,
+      "snap_m": 13.8,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w713957540",
+      "name": null,
+      "lon": -95.39412,
+      "lat": 29.762315,
+      "category": "shelter",
+      "tags": {},
+      "node": 7489,
+      "snap_m": 3.5,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w713957541",
+      "name": null,
+      "lon": -95.393518,
+      "lat": 29.762205,
+      "category": "shelter",
+      "tags": {},
+      "node": 7495,
+      "snap_m": 21.9,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "n3815724192",
+      "name": null,
+      "lon": -95.402598,
+      "lat": 29.763401,
+      "category": "toilets",
+      "tags": {
+        "access": "yes",
+        "unisex": "yes"
+      },
+      "node": 557,
+      "snap_m": 14.2,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1028996202",
+      "name": null,
+      "lon": -95.423245,
+      "lat": 29.753714,
+      "category": "toilets",
+      "tags": {},
+      "node": 8003,
+      "snap_m": 6.7,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1419713142",
+      "name": null,
+      "lon": -95.429354,
+      "lat": 29.765725,
+      "category": "toilets",
+      "tags": {
+        "fee": "no",
+        "opening_hours": "24/7",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "node": 6044,
+      "snap_m": 1.6,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "w1419713143",
+      "name": null,
+      "lon": -95.429278,
+      "lat": 29.765613,
+      "category": "toilets",
+      "tags": {
+        "access": "yes",
+        "fee": "no",
+        "opening_hours": "24/7",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "node": 5945,
+      "snap_m": 1.9,
       "rating": null,
       "n": null,
       "rating_src": null

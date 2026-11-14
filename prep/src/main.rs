@@ -8,6 +8,7 @@
 
 mod factors;
 mod geo;
+mod listings;
 mod night;
 mod objects;
 mod region;
@@ -420,6 +421,26 @@ fn run() -> Result<(), String> {
     }
     print!("{stats}");
     println!("wrote data/{name}/graph.json ({:.1} MB), places.json, objects.json, stats.txt", graph_json.len() as f64 / 1e6);
+
+    // ---- 9. CoStar listings (task 033), LOCAL ONLY: gitignored, and kept out of stats.txt (which is committed)
+    let kit = std::env::var("COSTAR_DIR").unwrap_or_else(|_| r"Z:\App Data\Downloads\costar".into());
+    let kit = Path::new(&kit);
+    if kit.join("data").is_dir() {
+        let snap = |lon: f64, lat: f64| {
+            let p = proj.xy(lon, lat);
+            node_xy.iter().enumerate().map(|(i, &q)| (i as u32, dist(p, q))).fold((0, f64::MAX), |b, x| if x.1 < b.1 { x } else { b })
+        };
+        let l = listings::build(kit, bbox, &snap)?;
+        if l.stats.starts_with("listings 0 ") {
+            println!("CoStar kit: no listings in this box");
+        } else {
+            std::fs::write(out.join("listings.json"), &l.json).map_err(|e| format!("listings.json: {e}"))?;
+            print!("{}", l.stats);
+            println!("wrote data/{name}/listings.json (local only, gitignored)");
+        }
+    } else {
+        println!("CoStar kit not found at {} (set COSTAR_DIR): no listings.json", kit.display());
+    }
     Ok(())
 }
 
