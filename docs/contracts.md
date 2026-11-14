@@ -29,7 +29,7 @@ Path: `data/<region>/graph.json` (real: `data/princeton/`, toy: `data/fixtures/`
     "bbox": [-74.68, 40.33, -74.64, 40.36],   // [west, south, east, north]
     "tz": "America/New_York",
     "date": "2026-11-14",                      // demo date for sun times and shade slots
-    "sunrise_min": 395, "sunset_min": 1004,    // local minutes since midnight (06:35, 16:44)
+    "sunrise_min": 404, "sunset_min": 1003,    // local minutes since midnight (06:44, 16:43)
     "slot_min": 30, "slots": 48,               // time-dependent arrays: 48 slots of 30 min from 00:00
     "generated": "2026-11-14T05:00Z",          // optional
     "source": "OSM Overpass + Open-Meteo elevation"  // optional
