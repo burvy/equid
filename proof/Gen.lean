@@ -119,7 +119,7 @@ mod tests {
             for forward in [true, false] {
                 for mode in [Mode::Foot, Mode::Bike] {
                     for t in [0.0, 420.0, 600.0, 780.0, 960.0, 1000.0, 1200.0] {
-                        let hand = features::edge_features(e, forward, mode, &g.meta, t);
+                        let hand = features::edge_features_hand(e, forward, mode, &g.meta, t);
                         let gen = edge_features(e, forward, mode, &g.meta, t);
                         for k in 0..N_FEATURES {
                             let (a, b) = (hand[k], gen[k]);

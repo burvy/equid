@@ -67,9 +67,16 @@ pub fn is_night(meta: &Meta, t_min: f32) -> bool {
     t < meta.sunrise_min || t >= meta.sunset_min
 }
 
+/// The engine's feature function: generated from the Lean-proven formulas (proof/, `lake exe gen`).
+#[inline]
+pub fn edge_features(edge: &Edge, forward: bool, mode: Mode, meta: &Meta, t_min: f32) -> [f32; N_FEATURES] {
+    crate::metrics_gen::edge_features(edge, forward, mode, meta, t_min)
+}
+
+/// Hand-written reference implementation, kept only so a test can check the generated one against it bit for bit.
 /// Feature vector of `edge` traversed forwards (from -> to) or backwards, at time `t_min`.
 /// Every entry is >= 0 for any valid edge (lengths, climbs and fractions are all >= 0).
-pub fn edge_features(edge: &Edge, forward: bool, mode: Mode, meta: &Meta, t_min: f32) -> [f32; N_FEATURES] {
+pub fn edge_features_hand(edge: &Edge, forward: bool, mode: Mode, meta: &Meta, t_min: f32) -> [f32; N_FEATURES] {
     let len = edge.length_m;
     let climb = if forward { edge.climb_m } else { edge.descent_m };
     let night = is_night(meta, t_min);
