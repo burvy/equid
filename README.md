@@ -1,76 +1,69 @@
 # Equid
 
-A map for how you are right now. Equid measures distance the way *you* experience it
-(hills, shade, lit streets at night, benches, a stroller or a wheelchair) and warps the map around you,
-so you can see what is really close and which places are worth the trip.
+**A map for how you are right now.** Normal maps measure distance in metres or minutes. Equid measures it the way
+*you* feel it (hills, steps, shade, lit streets at night, benches, a stroller or a wheelchair) and redraws the map
+around you, so "close" means close for you.
 
-HackPrinceton Fall 2026. Demo region: Princeton, NJ.
+HackPrinceton Fall 2026 · Healthcare track · demo regions: Princeton, NJ and Houston, TX.
 
-## How it works (one paragraph)
-Every street segment has features (length, climb, steepness, stairs, surface, traffic, lighting, shade, …).
-You pick weights for them (or a preset such as *wheelchair* or *shady*), so a segment costs `Σ aᵢ·fᵢ`
-with every weight and feature ≥ 0. The engine (Rust, compiled to WebAssembly, running in your browser)
-runs Dijkstra from where you are and gets your personal cost to every street and place.
-The interfaces are documented in [docs/contracts.md](docs/contracts.md).
+![Shaded walk at 13:00](docs/img/shade_route_1300.png)
 
-## Layout
-| path | what |
-|---|---|
-| `engine/` | Rust crate: data types, features, metrics, `field`. Builds native (tests) and `wasm32` (browser) |
-| `web/` | Vite + TypeScript app that loads the engine as WASM |
-| `data/presets.json` | finder presets (weight vectors), embedded in the engine |
-| `data/fixtures/` | tiny hand-made graph for tests and early web work |
-| `data/<region>/` | real prepared data (`graph.json`, `places.json`) |
-| `docs/contracts.md` | file formats, feature list, WASM API |
+## How it works
+1. **Streets have features**, all ≥ 0: walking time, climb, steps, rough surface, busy road, unlit, sun (LiDAR shade by
+   time of day), flood zone, crossings, no sidewalk, distance to a bench or toilet, … (20 in all).
+2. **You pick weights** (or a preset: wheelchair, stroller, shady, night, …, or ask the AI in plain English).
+   Your cost of a street = Σ weightᵢ × featureᵢ.
+3. **Shortest paths from you.** Dijkstra (Rust, compiled to WebAssembly, in your browser) gives your cost to every
+   street and place. Sliders update the map live; the *warp* and *3D* views bend the map so distance = your cost.
 
-## Build and run
-Needs: Rust with the `wasm32-unknown-unknown` target, `wasm-bindgen-cli` **0.2.117** (must match the crate), Node 20+.
+## Run it
+Needs Rust + `wasm32-unknown-unknown`, `wasm-bindgen-cli` **0.2.117**, Node 20+.
 
 ```sh
 rustup target add wasm32-unknown-unknown
-cargo install wasm-bindgen-cli --version 0.2.117   # skip if `wasm-bindgen --version` already says 0.2.117
-
-cargo test                                            # engine tests (native)
-cargo build --target wasm32-unknown-unknown -p engine # check the wasm build
-
-cd web
-npm install
-npm run dev      # builds the wasm into web/src/pkg, then serves http://localhost:5173
-npm run build    # production build into web/dist (static files)
-npm run preview  # serve web/dist
+cargo install wasm-bindgen-cli --version 0.2.117
+cargo test --workspace
+cd web && npm install && npm run dev        # http://localhost:5173
+cargo run --release -p server               # AI trip panel on :8787 (EQUID_DATA=data/princeton)
 ```
+Windows: `.\build.ps1`, then `.\run.ps1`. No Claude key → the AI panel runs on an offline mock model with the same tool loop.
 
-## Web app (web/)
-One cost field, three views. `web/src/main.ts` is glue only; all math is in the engine.
+## What the Lean proof shows (and what it doesn't)
+[`proof/`](proof/README.md) proves in Lean 4 that all 20 features are ≥ 0, so **any** weights ≥ 0 (a preset, your
+sliders, or the AI's) give a valid Dijkstra metric. The engine's feature code is **generated from the proven formulas**
+and tested bit-for-bit against the hand-written version.
 
-- **Data flow:** controls → metric JSON → `engine.field(origin, metric, t)` (Dijkstra) → per-node and per-place costs →
-  `engine.view_buffers(field, origin, warp, lift, metresPerS, budgetS, hideBeyond)` → typed arrays → deck.gl layers
-  (`COORDINATE_SYSTEM.LNGLAT_OFFSETS`) over a MapLibre basemap (OpenFreeMap positron, no key).
-- **Views:** `map` (warp 0, flat), `warp` (warp 1: bearing kept, radius = your cost; rings every N min), `3d` (height = cost).
-  `setView` animates warp/lift between them.
-- **Which controls call the engine:** weights, mode, time and origin re-run `field`; budget, ratings α and view only
-  re-run `view_buffers` / the list.
-- **main.ts sections:** datasets (auto-discovers every `data/<region>/` with graph.json + places.json; fixture = fallback) ·
-  state `S` · map + deck · engine (`runField`) · rendering (`layers`, list, formula, legend) · views · controls · loading.
-- **URL params** for demos: `?data=princeton&view=warp&preset=night&t=1320&origin=123`. `window.equid` holds the state in devtools.
-- Presets come from `data/presets.json`; the sliders come from `Engine.features_json()`. Adding a feature in the engine adds a slider.
-- **AI trip panel** (top of the sidebar): text box + 3 example chips → `POST /agent` (Vite proxies `/agent` to
-  `cargo run -p server` on :8787; `EQUID_AGENT=http://host:port npm run dev` or `?agent=<url>` to change). The answer's metric
-  becomes the `Custom (AI)` preset (sliders, formula, field), its stops are numbered amber markers in every view, and the
-  pitch + plain-English weights show in the panel. Run the server on the same data as the page: `EQUID_DATA=data/princeton`.
-
-## Status
-Work in progress (hackathon build). The engine's `field` is real (petgraph Dijkstra over user-weighted, time-dependent edge costs).
+Not proven: floating-point rounding (proofs are over exact rationals), data quality (whether a street really is lit),
+the hand-written field reader, and Dijkstra itself (textbook petgraph; we prove its precondition).
 
 ## Credits
-Map data © OpenStreetMap contributors (ODbL).
+**Data**
+- Streets, places, objects: © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors (ODbL), via the Overpass API
+- Elevation: USGS 3DEP 1/3 arc-second (ned10m), via [OpenTopoData](https://www.opentopodata.org/)
+- Shade, trees, sunset and stargazing spots: USGS 3DEP LiDAR (public domain), Entwine Point Tiles on AWS
+- Flood zones: FEMA National Flood Hazard Layer
+- Aerial object detection (Houston: parking lots, tennis courts, solar panels): [Vexcel](https://vexcel.com/)
+- Homes and apartments (Houston, local only, not in this repo): CoStar data kit, with Matterport 3D tours
+- Basemap: [OpenFreeMap](https://openfreemap.org/) (OpenMapTiles, OSM data)
+- Sunrise/sunset: NOAA solar position formulas
 
-## AI trip agent
+**Software**
+- AI trip agent: [Claude](https://www.anthropic.com/claude) (Anthropic API, tool use)
+- Proofs: [Lean 4](https://lean-lang.org/)
+- Engine: Rust, [petgraph](https://github.com/petgraph/petgraph), serde / serde_json, wasm-bindgen
+- Web: [deck.gl](https://deck.gl/), [MapLibre GL JS](https://maplibre.org/), Vite, TypeScript
+- Server: axum, tokio, reqwest, tower-http
+- Data prep: las (LAZ), ureq, rayon, png
 
-```
-export ANTHROPIC_API_KEY=sk-ant-...      # optional: without it a mock model runs the same tool loop
-cargo run -p server                      # http://127.0.0.1:8787, data from data/fixtures (EQUID_DATA=data/princeton for the web demo)
-curl -X POST localhost:8787/agent -H 'content-type: application/json'   -d '{"text":"stroller, want a coffee","origin":{"lon":-74.662,"lat":40.348},"t":600}'
-cargo test -p server                     # the three scripted prompts through the whole loop (mock)
-```
-Details: docs/contracts.md section 6.
+Built with help from Claude Code agents.
+
+## Repo
+| path | what |
+|---|---|
+| `engine/` | Rust: features, metrics, Dijkstra, views; native + WASM |
+| `web/` | the app (Vite + TS, deck.gl); internals in [docs/web.md](docs/web.md) |
+| `server/` | AI trip agent (Claude tool use over the engine) |
+| `prep/`, `prep-shade/` | data builders (OSM, elevation, flood, LiDAR shade) |
+| `proof/` | Lean 4 proofs + Rust code generator |
+| `data/` | prepared regions, presets, test fixture |
+| `docs/contracts.md` | file formats, features, WASM and agent APIs |
