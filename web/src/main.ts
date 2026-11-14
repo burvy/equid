@@ -358,7 +358,7 @@ function renderSunsetList() {
     ? `At ${fmtTime(S.t)} you can still catch <b>${n} of ${sunRows.length}</b> sunset spots.`
     : `At ${fmtTime(S.t)} it's too late for every sunset spot: try an earlier time.`) +
     (tgt ? ` Budget = <b>${S.budgetMin} min</b>, until the sun leaves <b>${esc(spotName(tgt.p))}</b> at ${tgt.p.tags?.sun_visible_until}.` : '') +
-    ' <small>Judged on real walking time along your route (your preferences pick the route).</small>';
+    ' <small>Judged on walking time along your route, on flat ground (hills not counted; your preferences pick the route).</small>';
   $('places').innerHTML = sunRows.map(r =>
     `<li data-i="${r.i}" class="${r.ok ? '' : 'out'}${r === tgt ? ' target' : ''}">${esc(spotName(r.p))}` +
     ` <small class="sun">☀ until ${r.p.tags?.sun_visible_until}</small><span class="c">${sunWalkLabel(r)}</span>` +
