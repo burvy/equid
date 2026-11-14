@@ -3,27 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Equid</title>
-    <style>
-      body { font: 14px/1.4 system-ui, sans-serif; margin: 1rem; color: #222; }
-      #map { border: 1px solid #ccc; background: #fafafa; }
-      .row { display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap; }
-      table { border-collapse: collapse; } td, th { padding: 2px 8px; text-align: left; }
-      #status { color: #666; }
-    </style>
+    <title>Equid: a map for how you are right now</title>
+    <link rel="icon" href="data:," />
   </head>
   <body>
-    <h1>Equid <small>(scaffold: stub field on the toy fixture)</small></h1>
-    <p id="status">loading wasm…</p>
-    <p>
-      Preset <select id="preset"></select>
-      Time <input id="time" type="range" min="0" max="1439" step="30" value="720" /> <span id="timeLabel"></span>
-      <em>click the map to move the origin</em>
-    </p>
-    <div class="row">
-      <svg id="map" width="520" height="320"></svg>
-      <table id="places"></table>
-    </div>
+    <aside id="panel">
+      <header>
+        <h1>Equid</h1>
+        <p class="sub">Click where you are. Distance, measured the way <em>you</em> experience it.</p>
+      </header>
+
+      <section class="views" id="views">
+        <button data-view="map" class="on">Map</button>
+        <button data-view="warp">Warp</button>
+        <button data-view="3d">3D</button>
+      </section>
+
+      <section>
+        <label>Who's going? <select id="preset"></select></label>
+        <p class="desc" id="presetDesc"></p>
+      </section>
+
+      <section>
+        <label class="row">Time <span id="timeLabel" class="val"></span>
+          <button id="play" title="Play noon → night">▶</button></label>
+        <input id="time" type="range" min="0" max="1425" step="15" value="720" />
+      </section>
+
+      <section>
+        <label class="row">Budget <span id="budgetLabel" class="val"></span></label>
+        <input id="budget" type="range" min="1" max="60" step="1" value="15" />
+      </section>
+
+      <section>
+        <label class="row">Ratings matter (α) <span id="alphaLabel" class="val"></span></label>
+        <input id="alpha" type="range" min="0" max="2" step="0.1" value="0" />
+      </section>
+
+      <section>
+        <div class="formula" id="formula"></div>
+        <details id="weightsBox">
+          <summary>Build your own distance</summary>
+          <div id="weights"></div>
+        </details>
+      </section>
+
+      <section class="list">
+        <label class="row">Places <select id="category"></select></label>
+        <ol id="places"></ol>
+      </section>
+
+      <footer>
+        <label>Data <select id="dataset"></select></label>
+        <span id="status"></span>
+      </footer>
+    </aside>
+    <main id="map"></main>
+    <div id="legend"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
