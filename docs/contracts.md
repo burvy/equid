@@ -125,6 +125,25 @@ Path: `data/<region>/places.json`.
 
 Place cost = cost of its snapped node (the `snap_m` walk is ignored for now; it is the same for every metric).
 
+## 2b. `objects.json` (open-vocabulary objects, task 015)
+
+Path: `data/<region>/objects.json` (optional). Any plain-language label can become a street feature: the file is just
+the points where that kind of object was seen (OSM tags, Vexcel `elements/detect`, ...).
+
+```json
+{ "version": 1, "objects": [ { "label": "playground", "lon": -74.6591, "lat": 40.3487, "src": "vexcel", "conf": 0.83 } ] }
+```
+
+`label` is trimmed + lower-cased by the engine (free text: "dog park", "trash can"). `src` and `conf` are optional.
+The engine derives, per edge, the distance from the edge geometry to the nearest object of each label (metres, **capped at 500**,
+like `near_bench_m`), so no per-edge data is stored in `graph.json`. A live detect just adds points
+(`Core::add_objects` / `Engine.add_objects`). Offline cache of a label menu: `cargo run -p server --bin build_objects`.
+
+**Metric weight `near:<label>`** (any label with object data): cost term = `weight x length x distance_to_nearest / 500`
+(>= 0, so Dijkstra / the Lean proof still hold). Positive weight = "I want to be near these" (cost grows with distance
+from them). `near:bench`, `near:toilets`, `near:water` are the built-in `bench_gap` / `toilet_gap` / `water_gap`.
+Weighting a label with no data is an error from `field` (never silently free). Not forbiddable.
+
 ## 3. Features, metrics and presets
 
 Edge cost under a metric:
@@ -213,6 +232,15 @@ costed at that time), drops impassable arcs, and runs `petgraph::algo::dijkstra`
 nodes/places are `Infinity`; a place's cost is its snapped node's cost. Timing on a synthetic 19.8k-edge grid
 (hiking preset): ~3.3 ms native release, ~3.7 ms in wasm (node), so it is fine to call on every slider move.
 
+### Open-vocabulary objects in the WASM API
+
+```ts
+engine.load_objects(objectsJsonText);          // -> number of objects; enables near:<label> weights for those labels
+engine.add_objects('playground', JSON.stringify([[lon, lat], ...])); // -> total objects for the label (live detects)
+engine.labels_json();                           // '[{"label":"playground","objects":4,"edges_near":37}, ...]' (the label menu)
+```
+Features from `features_json()` stay the fixed built-in list; labels come from `labels_json()`.
+
 ### View buffers (task 016)
 
 The per-vertex math for the three views lives in the engine (`engine/src/view.rs`); the page hands the arrays to deck.gl.
@@ -253,7 +281,7 @@ and an edge with unknown surface/lit. Use it in unit tests and for web work befo
 Claude tool use (no framework). Env: `ANTHROPIC_API_KEY` (read from the environment only; never logged or committed;
 without it a deterministic **mock** model drives the same loop, and the response says `"llm":"mock"`),
 `EQUID_MODEL` (default `claude-sonnet-5-5`), `EQUID_DATA` (dir with graph.json + places.json, default `data/fixtures`),
-`PORT` (default 8787). CORS is open (dev).
+`PORT` (default 8787), `VEXCEL_API_KEY` or a file `VEXCEL_ENV_FILE` (default `Z:\App Data\Downloadsexcel.env`, the bare key or `VEXCEL_API_KEY=...`; never printed) for live detects; `objects.json` next to the graph is loaded at start. CORS is open (dev).
 
 ```jsonc
 // request
@@ -263,13 +291,15 @@ without it a deterministic **mock** model drives the same loop, and the response
 { "metric": {"mode":"foot","weights":{"time":1,"climb":10,"steep":3,"rough":3},"forbid":["steps"]},  // a valid §3 metric: pass to engine.field
   "stops": [ {"id":"n1","name":"Toy Café","category":"cafe","minutes":13.5,"why":"..."} ],
   "pitch": "2-4 sentences, realtor tone",
-  "llm": "anthropic:claude-sonnet-5-5", "tools_called": ["list_features","make_metric", "..."] }
+  "llm": "anthropic:claude-sonnet-5-5", "tools_called": ["list_features","make_metric", "..."],
+  "detected": [ {"label":"playground","lon":-74.659,"lat":40.349,"src":"vexcel","conf":0.8} ] }   // objects found live: web calls engine.add_objects
 // errors: 502 {"error": "..."} (model/API failure, no finish, bad origin)
 ```
 
 Tools the model gets: `list_features`, `list_places(categories)`, `make_metric(mode, weights, forbid)` (validated by
 `Metric::compile`: weights >= 0), `field(categories, limit)` (cheapest places, minutes, computed natively by `engine::Core`),
-`explain(place_id)` (route length + per-feature share of the cost on the cheapest route, `Core::explain`), and `finish(stops, pitch)`.
+`list_labels` (the object label menu: `Core::labels`), `detect(label, radius_m)` (live Vexcel detect in a small square
+around the origin, adds the label; `near:<label>` can then be weighted), `explain(place_id)` (route length + per-feature share of the cost on the cheapest route, `Core::explain`), and `finish(stops, pitch)`.
 The model's only outputs are a weight vector and place ids, so every cost comes from the engine over non-negative weights.
 **Grounding check:** `finish` is rejected (and the model must retry) if any number in the pitch is absent from the request
 or the tool results; stop ids must exist. Costs are quoted in minutes of personal cost.

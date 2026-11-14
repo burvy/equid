@@ -35,6 +35,9 @@ pub struct Metric {
     pub mode: Mode,
     pub weights: Vec<f32>,
     pub forbid: Vec<bool>,
+    /// Open-vocabulary object features `near:<label>` (labels beyond the built-in bench/toilets/water):
+    /// (label, weight). Cost per edge = weight x length x distance-to-nearest-object / 500 (capped at 500 m).
+    pub dynamic: Vec<(String, f32)>,
 }
 
 impl Metric {
@@ -42,18 +45,30 @@ impl Metric {
     /// which is the condition Dijkstra needs (and what the Lean proof states).
     pub fn compile(spec: &MetricSpec) -> Result<Metric, String> {
         let mut weights = vec![0.0; FEATURES.len()];
+        let mut dynamic: Vec<(String, f32)> = vec![];
         for (id, &a) in &spec.weights {
-            let i = feature_index(id).ok_or_else(|| format!("unknown feature '{id}'"))?;
             if !(a >= 0.0 && a.is_finite()) {
                 return Err(format!("weight for '{id}' must be finite and >= 0, got {a}"));
             }
+            if let Some(label) = id.strip_prefix("near:") {
+                // bench / toilets / water are the built-in near features: same thing as *_gap
+                match label {
+                    "bench" => weights[feature_index("bench_gap").unwrap()] += a,
+                    "toilets" | "toilet" => weights[feature_index("toilet_gap").unwrap()] += a,
+                    "water" | "drinking_water" => weights[feature_index("water_gap").unwrap()] += a,
+                    "" => return Err("empty label in 'near:'".into()),
+                    _ => dynamic.push((label.to_string(), a)),
+                }
+                continue;
+            }
+            let i = feature_index(id).ok_or_else(|| format!("unknown feature '{id}'"))?;
             weights[i] = a;
         }
         let mut forbid = vec![false; FEATURES.len()];
         for id in &spec.forbid {
-            forbid[feature_index(id).ok_or_else(|| format!("unknown feature '{id}'"))?] = true;
+            forbid[feature_index(id).ok_or_else(|| format!("unknown or non-forbiddable feature '{id}'"))?] = true;
         }
-        Ok(Metric { mode: spec.mode, weights, forbid })
+        Ok(Metric { mode: spec.mode, weights, forbid, dynamic })
     }
 
     pub fn from_json(json: &str) -> Result<Metric, String> {

@@ -123,6 +123,24 @@ impl Engine {
         self.core.ring(origin, radius_m).map_err(|e| JsError::new(&e))
     }
 
+    /// Load an objects.json (open-vocabulary objects: `{"version":1,"objects":[{"label","lon","lat"}]}`).
+    /// Afterwards `near:<label>` can be weighted in a metric. Returns the number of objects added.
+    pub fn load_objects(&mut self, objects_json: &str) -> Result<u32, JsError> {
+        self.core.load_objects(objects_json).map(|n| n as u32).map_err(|e| JsError::new(&e))
+    }
+
+    /// Add objects of one label: `points_json` = `[[lon,lat],...]`. Returns the label's total object count.
+    pub fn add_objects(&mut self, label: &str, points_json: &str) -> Result<u32, JsError> {
+        let pts: Vec<(f64, f64)> = serde_json::from_str(points_json).map_err(|e| JsError::new(&format!("points: {e}")))?;
+        self.core.add_objects(label, &pts).map(|n| n as u32).map_err(|e| JsError::new(&e))
+    }
+
+    /// The label menu: `[{"label","objects","edges_near"}]` for every label with object data
+    /// (plus the built-in `bench`, `toilets`, `water`, which are always available).
+    pub fn labels_json(&self) -> String {
+        serde_json::to_string(&self.core.labels()).unwrap()
+    }
+
     /// `[{id, unit, desc}, ...]` in feature-vector order, for building sliders.
     pub fn features_json() -> String {
         let v: Vec<_> = FEATURES

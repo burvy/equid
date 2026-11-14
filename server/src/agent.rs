@@ -5,8 +5,10 @@
 //! The pitch is checked: every number in it must appear in a tool result or in the user's request.
 
 use crate::llm::Llm;
+use crate::vexcel::Detector;
 use engine::features::FEATURES;
 use engine::metric::{Metric, MetricSpec};
+use engine::objects::Object;
 use engine::Core;
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
@@ -47,6 +49,8 @@ pub struct AgentResponse {
     pub pitch: String,
     pub llm: String,
     pub tools_called: Vec<String>,
+    /// Objects found by live detects during this request (so the web can `engine.add_objects` and run the metric itself).
+    pub detected: Vec<Object>,
 }
 
 const SYSTEM: &str = "You are Equid's trip agent. Equid measures distance as personal cost: every street edge costs \
@@ -57,6 +61,7 @@ sum(weight_i x feature_i), and you choose the weights. Given the user's trip des
 (e.g. a bench or fountain along the way, plus the destination the user wants). Use explain on your top pick to learn why it costs what it does.\n\
 3. Finish by calling finish with stops (place ids from the tools, each with a short 'why') and a pitch: 2-4 sentences, \
 like a friendly realtor, about the top pick for THIS user.\n\
+Open vocabulary: besides the built-in features, any object can matter ('near:<label>' weights: cost grows with distance to the nearest such object, so a positive weight pulls the route toward them). Call list_labels to see which objects the data has (e.g. playground, crosswalk, trash can); use make_metric weights like {\"near:playground\": 2}. If the trip needs an object that is not in the menu, call detect(label) to find it live in a small area around the user, then use it. Only use labels from list_labels or ones you detected successfully.
 Rules: use only facts the tools returned. Every number in your pitch (minutes, metres, counts) must appear in a tool \
 result; do not compute new numbers or invent facts (no opening hours or reviews unless a tool returned them). \
 Costs are in minutes of personal cost, not clock time. Never output weights or costs as the final answer; call finish.";
@@ -65,6 +70,10 @@ fn tools() -> Vec<Value> {
     vec![
         json!({"name": "list_features", "description": "The features a metric can weight: id, unit, meaning.",
                "input_schema": {"type": "object", "properties": {}}}),
+        json!({"name": "list_labels", "description": "The object labels the data has (open vocabulary, e.g. playground, crosswalk): label, number of objects, number of edges within 100 m. bench, toilets and water are always available. Weight one as 'near:<label>' in make_metric.",
+               "input_schema": {"type": "object", "properties": {}}}),
+        json!({"name": "detect", "description": "Find a NEW kind of object live from aerial imagery in a small square around the user's origin (any plain-language label, e.g. 'dog park'). Adds it to the label menu so make_metric can weight 'near:<label>'. Slow (seconds): only for labels missing from list_labels.",
+               "input_schema": {"type": "object", "properties": {"label": {"type": "string"}, "radius_m": {"type": "integer", "minimum": 50, "maximum": 300}}, "required": ["label"]}}),
         json!({"name": "list_places", "description": "Places in the area (id, name, category, rating, tags), optionally filtered by category. No costs: use field for costs.",
                "input_schema": {"type": "object", "properties": {"categories": {"type": "array", "items": {"type": "string"}}}}}),
         json!({"name": "make_metric", "description": "Set the cost metric for this trip. weights: feature id -> non-negative number. forbid: feature ids that make an edge impassable. mode: foot or bike. Replaces any earlier metric.",
@@ -124,7 +133,9 @@ fn minutes(s: f32) -> f64 {
 }
 
 struct Session<'a> {
-    core: &'a Core,
+    core: &'a mut Core,
+    detector: Option<&'a Detector>,
+    detected: Vec<Object>,
     origin: u32,
     t: f32,
     metric: Option<(MetricSpec, Metric)>,
@@ -153,6 +164,10 @@ impl Session<'_> {
                 .iter()
                 .map(|f| json!({"id": f.id, "unit": f.unit, "desc": f.desc}))
                 .collect::<Vec<_>>())),
+            "list_labels" => Ok(json!({
+                "labels": self.core.labels(),
+                "always_available": ["bench", "toilets", "water"],
+                "can_detect_new": self.detector.is_some()})),
             "list_places" => {
                 let v: Vec<Value> = (0..self.core.places.places.len())
                     .filter(|&i| Self::wants(args, &self.core.places.places[i]))
@@ -207,6 +222,28 @@ impl Session<'_> {
         }
     }
 
+    /// Live detect of a new label around the origin (async: calls the detector).
+    async fn detect(&mut self, args: &Value) -> Result<Value, String> {
+        let det = self.detector.ok_or("live detection is not available (no Vexcel key)")?;
+        let label = args["label"].as_str().ok_or("label required")?.trim().to_lowercase();
+        if label.is_empty() || label.len() > 60 {
+            return Err("bad label".into());
+        }
+        let radius = args["radius_m"].as_f64().unwrap_or(150.0).clamp(50.0, 300.0);
+        let o = &self.core.graph.nodes[self.origin as usize];
+        let (dlat, dlon) = (radius / 110_540.0, radius / (111_320.0 * o.lat.to_radians().cos()));
+        let found = det.detect(&label, [o.lon - dlon, o.lat - dlat, o.lon + dlon, o.lat + dlat]).await?;
+        if found.is_empty() {
+            return Ok(json!({"label": label, "found": 0, "note": "none detected in this area; do not use this label"}));
+        }
+        let pts: Vec<(f64, f64)> = found.iter().map(|d| (d.lon, d.lat)).collect();
+        let total = self.core.add_objects(&label, &pts)?;
+        for d in &found {
+            self.detected.push(Object { label: label.clone(), lon: d.lon, lat: d.lat, src: Some(det.name().into()), conf: Some(d.conf) });
+        }
+        Ok(json!({"label": label, "found": found.len(), "total_objects": total, "area_m": (radius * 2.0) as i64}))
+    }
+
     /// Validate a `finish` call; Ok = the final answer.
     fn finish(&self, args: &Value, llm: &str, called: Vec<String>) -> Result<AgentResponse, String> {
         let (spec, m) = self.metric.as_ref().ok_or("call make_metric before finish")?;
@@ -233,11 +270,11 @@ impl Session<'_> {
         if !bad.is_empty() {
             return Err(format!("these numbers in your pitch are not in any tool result: {bad:?}. Rewrite the pitch using only numbers the tools returned."));
         }
-        Ok(AgentResponse { metric: spec.clone(), stops, pitch, llm: llm.to_string(), tools_called: called })
+        Ok(AgentResponse { metric: spec.clone(), stops, pitch, llm: llm.to_string(), tools_called: called, detected: self.detected.clone() })
     }
 }
 
-pub async fn run(core: &Core, llm: &Llm, req: AgentRequest) -> Result<AgentResponse, String> {
+pub async fn run(core: &mut Core, llm: &Llm, detector: Option<&Detector>, req: AgentRequest) -> Result<AgentResponse, String> {
     let origin = match &req.origin {
         Some(Origin { node: Some(n), .. }) if (*n as usize) < core.graph.nodes.len() => *n,
         Some(Origin { lon: Some(lon), lat: Some(lat), .. }) => core.nearest_node(*lon, *lat),
@@ -247,7 +284,7 @@ pub async fn run(core: &Core, llm: &Llm, req: AgentRequest) -> Result<AgentRespo
     let t = req.t.unwrap_or(720.0).rem_euclid(1440.0);
     let ctx = format!("{}\n\n(Context: leaving at {:02}:{:02} local time; sunrise {:02}:{:02}, sunset {:02}:{:02}.)", req.text.trim(), t as u32 / 60, t as u32 % 60,
         core.graph.meta.sunrise_min as u32 / 60, core.graph.meta.sunrise_min as u32 % 60, core.graph.meta.sunset_min as u32 / 60, core.graph.meta.sunset_min as u32 % 60);
-    let mut s = Session { core, origin, t, metric: None, grounding: ctx.clone() };
+    let mut s = Session { core, detector, detected: vec![], origin, t, metric: None, grounding: ctx.clone() };
     let tools = tools();
     let mut messages = vec![json!({"role": "user", "content": ctx})];
     let mut called: Vec<String> = vec![];
@@ -270,7 +307,8 @@ pub async fn run(core: &Core, llm: &Llm, req: AgentRequest) -> Result<AgentRespo
                 }
                 continue;
             }
-            match s.call(name, args) {
+            let outcome = if name == "detect" { s.detect(args).await } else { s.call(name, args) };
+            match outcome {
                 Ok(v) => {
                     let text = v.to_string();
                     s.grounding.push('\n');

@@ -1,0 +1,53 @@
+{
+ "version": 1,
+ "objects": [
+  {
+   "label": "dog park",
+   "lon": -74.662,
+   "lat": 40.3498,
+   "src": "fixture"
+  },
+  {
+   "label": "dog park",
+   "lon": -74.66062,
+   "lat": 40.3499,
+   "src": "fixture"
+  },
+  {
+   "label": "trash can",
+   "lon": -74.66082,
+   "lat": 40.3489,
+   "src": "fixture"
+  },
+  {
+   "label": "trash can",
+   "lon": -74.65964,
+   "lat": 40.3489,
+   "src": "fixture"
+  },
+  {
+   "label": "trash can",
+   "lon": -74.65964,
+   "lat": 40.3498,
+   "src": "fixture"
+  },
+  {
+   "label": "crosswalk",
+   "lon": -74.66082,
+   "lat": 40.348,
+   "src": "fixture"
+  },
+  {
+   "label": "crosswalk",
+   "lon": -74.65964,
+   "lat": 40.348,
+   "src": "fixture"
+  },
+  {
+   "label": "crosswalk",
+   "lon": -74.65846,
+   "lat": 40.3489,
+   "src": "fixture"
+  }
+ ]
+}

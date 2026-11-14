@@ -4,6 +4,7 @@
 pub mod features;
 pub mod graph;
 pub mod metric;
+pub mod objects;
 pub mod view;
 pub mod wasm;
 
@@ -30,7 +31,7 @@ pub struct Explain {
     /// Total cost along the path (= field value at the target).
     pub total: f32,
     /// (feature id, raw amount in the feature's unit, weight, weight x raw = seconds-equivalent), only weight > 0 or raw > 0.
-    pub terms: Vec<(&'static str, f32, f32, f32)>,
+    pub terms: Vec<(String, f32, f32, f32)>,
 }
 
 pub struct Core {
@@ -40,6 +41,9 @@ pub struct Core {
     /// weight (i, true)) and arc 2i+1 (to->from, weight (i, false)); costs are filled per query.
     arcs: DiGraph<(), (u32, bool), u32>,
     shapes: view::Shapes,
+    metres: objects::Metres,
+    /// Open-vocabulary object layers by label (see `objects`).
+    objects: std::collections::BTreeMap<String, objects::Layer>,
 }
 
 impl Core {
@@ -57,7 +61,8 @@ impl Core {
             arcs.add_edge(NodeIndex::new(e.to as usize), NodeIndex::new(e.from as usize), (i as u32, false));
         }
         let shapes = view::Shapes::new(&graph);
-        Ok(Core { graph, places, arcs, shapes })
+        let metres = objects::Metres::new(&graph);
+        Ok(Core { graph, places, arcs, shapes, metres, objects: Default::default() })
     }
 
     /// Nearest graph node to a point (linear scan; fine for ~10k nodes, called once per click).
@@ -97,13 +102,63 @@ impl Core {
     /// `INFINITY` = impassable. All finite costs are >= 0 (weights >= 0, features >= 0).
     pub fn arc_costs(&self, metric: &Metric, t_min: f32) -> Vec<f32> {
         let meta = &self.graph.meta;
+        let layers: Vec<(f32, &objects::Layer)> =
+            metric.dynamic.iter().filter_map(|(l, w)| self.objects.get(l).map(|ly| (*w, ly))).collect();
         let mut out = Vec::with_capacity(self.graph.edges.len() * 2);
-        for e in &self.graph.edges {
+        for (i, e) in self.graph.edges.iter().enumerate() {
+            let extra: f32 = layers.iter().map(|(w, ly)| w * e.length_m * ly.near[i] / graph::NEAR_CAP_M).sum();
             for forward in [true, false] {
-                out.push(metric.edge_cost(e, forward, meta, t_min).unwrap_or(f32::INFINITY));
+                out.push(metric.edge_cost(e, forward, meta, t_min).map(|c| c + extra).unwrap_or(f32::INFINITY));
             }
         }
         out
+    }
+
+    /// Errors if the metric weights an object label we have no data for (it would silently cost nothing).
+    fn check_labels(&self, metric: &Metric) -> Result<(), String> {
+        for (l, _) in &metric.dynamic {
+            if !self.objects.contains_key(l) {
+                let have: Vec<&str> = self.objects.keys().map(String::as_str).collect();
+                return Err(format!("no object data for label 'near:{l}' (known labels: {}); detect it first", have.join(", ")));
+            }
+        }
+        Ok(())
+    }
+
+    /// Add objects of `label` (lon, lat points). Recomputes that label's per-edge distances.
+    /// Labels are trimmed and lower-cased. Returns the total object count for the label.
+    pub fn add_objects(&mut self, label: &str, points: &[(f64, f64)]) -> Result<usize, String> {
+        let label = label.trim().to_lowercase();
+        if label.is_empty() || label.contains(char::is_control) {
+            return Err("bad object label".into());
+        }
+        let mut layer = self.objects.remove(&label).unwrap_or_default();
+        layer.points.extend_from_slice(points);
+        layer.near = objects::near_per_edge(&self.graph, &self.metres, &layer.points);
+        let n = layer.points.len();
+        self.objects.insert(label, layer);
+        Ok(n)
+    }
+
+    /// Load an `objects.json` (see `objects::Objects`); returns the number of objects added.
+    pub fn load_objects(&mut self, json: &str) -> Result<usize, String> {
+        let o: objects::Objects = serde_json::from_str(json).map_err(|e| format!("objects.json: {e}"))?;
+        let mut by: std::collections::BTreeMap<String, Vec<(f64, f64)>> = Default::default();
+        for ob in &o.objects {
+            by.entry(ob.label.trim().to_lowercase()).or_default().push((ob.lon, ob.lat));
+        }
+        for (l, pts) in &by {
+            self.add_objects(l, pts)?;
+        }
+        Ok(o.objects.len())
+    }
+
+    /// The label menu: every label with object data, with how many objects / nearby edges.
+    pub fn labels(&self) -> Vec<objects::LabelInfo> {
+        self.objects
+            .iter()
+            .map(|(l, ly)| objects::LabelInfo { label: l.clone(), objects: ly.points.len(), edges_near: ly.near.iter().filter(|d| **d < 100.0).count() })
+            .collect()
     }
 
     /// Cost field from `origin` under `metric` at local time `t_min` (the departure time; costs
@@ -113,6 +168,7 @@ impl Core {
         if origin as usize >= self.graph.nodes.len() {
             return Err("origin node out of range".into());
         }
+        self.check_labels(metric)?;
         let costs = self.arc_costs(metric, t_min);
         let passable = EdgeFiltered::from_fn(&self.arcs, |e| costs[e.id().index()].is_finite());
         let dist = dijkstra(&passable, NodeIndex::new(origin as usize), None, |e| costs[e.id().index()]);
@@ -144,6 +200,7 @@ impl Core {
         seen[target as usize] = true;
         let mut raw = vec![0.0f32; features::FEATURES.len()];
         let mut length_m = 0.0;
+        let mut dyn_raw = vec![0.0f32; metric.dynamic.len()];
         let mut v = target as usize;
         while v != origin as usize {
             let best = self
@@ -161,17 +218,25 @@ impl Core {
                 *r += x;
             }
             length_m += e.length_m;
+            for (r, (l, _)) in dyn_raw.iter_mut().zip(&metric.dynamic) {
+                *r += e.length_m * self.objects[l].near[ei as usize] / graph::NEAR_CAP_M;
+            }
             v = best.source().index();
             seen[v] = true;
             path.push(v as u32);
         }
         path.reverse();
-        let terms = features::FEATURES
+        let mut terms: Vec<(String, f32, f32, f32)> = features::FEATURES
             .iter()
             .enumerate()
             .filter(|(i, _)| raw[*i] > 0.0 && metric.weights[*i] > 0.0)
-            .map(|(i, fi)| (fi.id, raw[i], metric.weights[i], raw[i] * metric.weights[i]))
+            .map(|(i, fi)| (fi.id.to_string(), raw[i], metric.weights[i], raw[i] * metric.weights[i]))
             .collect();
+        for ((l, w), r) in metric.dynamic.iter().zip(&dyn_raw) {
+            if *r > 0.0 {
+                terms.push((format!("near:{l}"), *r, *w, r * w));
+            }
+        }
         Ok(Explain { path, length_m, total: d[target as usize], terms })
     }
 }
