@@ -4,6 +4,7 @@
 pub mod features;
 pub mod graph;
 pub mod metric;
+pub mod view;
 pub mod wasm;
 
 use graph::{Graph, Places};
@@ -26,6 +27,7 @@ pub struct Core {
     /// Directed petgraph view, built once at load. Undirected edge i becomes arc 2i (from->to,
     /// weight (i, true)) and arc 2i+1 (to->from, weight (i, false)); costs are filled per query.
     arcs: DiGraph<(), (u32, bool), u32>,
+    shapes: view::Shapes,
 }
 
 impl Core {
@@ -42,7 +44,8 @@ impl Core {
             arcs.add_edge(NodeIndex::new(e.from as usize), NodeIndex::new(e.to as usize), (i as u32, true));
             arcs.add_edge(NodeIndex::new(e.to as usize), NodeIndex::new(e.from as usize), (i as u32, false));
         }
-        Ok(Core { graph, places, arcs })
+        let shapes = view::Shapes::new(&graph);
+        Ok(Core { graph, places, arcs, shapes })
     }
 
     /// Nearest graph node to a point (linear scan; fine for ~10k nodes, called once per click).
@@ -56,6 +59,26 @@ impl Core {
             .min_by(|a, b| a.1.total_cmp(&b.1))
             .map(|(i, _)| i as u32)
             .unwrap_or(0)
+    }
+
+    /// GPU-ready buffers for the map / warp / 3D views from a field (see `view`).
+    pub fn view_buffers(&self, field: &FieldResult, origin: u32, p: &view::ViewParams) -> Result<view::ViewBuffers, String> {
+        if origin as usize >= self.graph.nodes.len() {
+            return Err("origin node out of range".into());
+        }
+        if field.node_cost.len() != self.graph.nodes.len() || field.place_cost.len() != self.places.places.len() {
+            return Err("field does not match this graph".into());
+        }
+        let pts: Vec<(f64, f64)> = self.places.places.iter().map(|q| (q.lon, q.lat)).collect();
+        Ok(view::build(&self.graph, &self.shapes, &field.node_cost, &field.place_cost, &pts, origin, p))
+    }
+
+    /// Warp-view ring of `radius_m` around `origin`, as (dLon, dLat) offsets (97 points, closed).
+    pub fn ring(&self, origin: u32, radius_m: f32) -> Result<Vec<f32>, String> {
+        if origin as usize >= self.graph.nodes.len() {
+            return Err("origin node out of range".into());
+        }
+        Ok(view::ring(&self.graph, &self.shapes, origin, radius_m, 96))
     }
 
     /// Cost of every arc (index 2i = edge i forward, 2i+1 = backward) under `metric` at `t_min`.

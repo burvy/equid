@@ -213,6 +213,30 @@ costed at that time), drops impassable arcs, and runs `petgraph::algo::dijkstra`
 nodes/places are `Infinity`; a place's cost is its snapped node's cost. Timing on a synthetic 19.8k-edge grid
 (hiking preset): ~3.3 ms native release, ~3.7 ms in wasm (node), so it is fine to call on every slider move.
 
+### View buffers (task 016)
+
+The per-vertex math for the three views lives in the engine (`engine/src/view.rs`); the page hands the arrays to deck.gl.
+
+```ts
+const vb = engine.view_buffers(f /* the Field from field() */, origin, warp, lift, metresPerS, budgetS);
+vb.positions;      // Float32Array xyz per vertex: (dLon deg, dLat deg, z m) OFFSETS from (vb.origin_lon, vb.origin_lat)
+vb.colors;         // Uint8Array rgba per vertex (green -> yellow -> red at budgetS, grey beyond / unreachable)
+vb.vertex_cost;    // Float32Array seconds-equivalent per vertex (linear along the edge)
+vb.start_indices;  // Uint32Array path starts, total vertex count appended (deck binary PathLayer startIndices)
+vb.path_edge;      // Uint32Array graph edge index per path (picking); edges with both ends unreachable are omitted
+vb.place_positions, vb.place_colors;   // per place, places.json order; unreachable: real position, z 0, grey
+vb.origin_lon, vb.origin_lat;          // bbox centre
+vb.free();
+engine.ring(origin, radiusM);          // Float32Array xy offsets, 97 points, closed (warp-view rings)
+```
+
+- `warp` 0..1 blends real -> warped: `warped = origin + direction-to-vertex x (cost x metresPerS)` (bearing kept, radius = cost).
+- `lift` = metres of height per second of cost (z); 0 = flat.
+- Use `coordinateSystem: COORDINATE_SYSTEM.LNGLAT_OFFSETS` and `coordinateOrigin: [vb.origin_lon, vb.origin_lat]`
+  on the layers: absolute f32 lon/lat would jitter by ~1 m. Pass `startIndices` + `attributes.getPath {value: positions, size: 3}`,
+  `getColor {value: colors, size: 4}`; set `_pathType: 'open'`.
+- Timing (19.8k edges, 79k vertices): ~2.1 ms native release; ~9 ms in wasm incl. the 5 typed-array copies.
+
 Native Rust (tests, a future server) uses the same logic through `engine::Core`
 (`Core::load`, `nearest_node`, `field(origin, &Metric, t)`).
 
