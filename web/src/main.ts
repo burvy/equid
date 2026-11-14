@@ -256,16 +256,16 @@ function tooltip(info: PickingInfo): string | null {
 }
 
 // ---------- views (animated blend) ----------
-/** Camera for a view: the whole region for map/3D, the budget circle around you for warp. */
+/** Camera for a view: the whole region for the map, the budget circle around you for warp and 3D. */
 function fitView(view: View, duration: number) {
   if (!S.graph) return;
   let [w, s, e, n] = S.graph.meta.bbox;
-  if (view === 'warp') {
+  if (view !== 'map') {
     const o = originNode(), r = S.budgetMin * 60 * speed(S.metric);
     const dLat = r / 110_540, dLon = r / (111_320 * Math.cos((o.lat * Math.PI) / 180));
     [w, s, e, n] = [o.lon - dLon, o.lat - dLat, o.lon + dLon, o.lat + dLat];
   }
-  map.fitBounds([[w, s], [e, n]], { padding: view === '3d' ? { top: 220, bottom: 40, left: 60, right: 60 } : 60, duration, pitch: view === '3d' ? 55 : 0, bearing: view === '3d' ? -20 : 0 });
+  map.fitBounds([[w, s], [e, n]], { padding: view === '3d' ? { top: 160, bottom: 20, left: 40, right: 40 } : 60, duration, pitch: view === '3d' ? 55 : 0, bearing: view === '3d' ? -20 : 0 });
 }
 let anim = 0;
 function setView(view: View, animate = true, refit = true) {
