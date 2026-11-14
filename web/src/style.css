@@ -51,6 +51,8 @@ button:disabled { opacity: .55; cursor: wait; }
 #aiOut li { margin: 2px 0; }
 #aiOut .stops li { cursor: pointer; }
 #aiOut .stops li:hover b { color: var(--accent); }
+#aiOut .wt { color: var(--muted); font-size: 11px; }
+#aiOut ul li[title] { cursor: help; }
 #aiOut .why { color: var(--muted); font-size: 12px; }
 #aiOut .meta { color: var(--muted); font-size: 11px; margin-top: 4px; }
 #aiOut .err { color: #b91c1c; }

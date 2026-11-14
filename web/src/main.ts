@@ -408,7 +408,7 @@ function buildWeightSliders() {
     [...S.features, ...extra].map(f => {
       const a = S.metric.weights[f.id] ?? 0, max = f.id === 'time' ? 5 : 30;
       const forbid = S.metric.forbid.includes(f.id);
-      return `<div class="w${forbid ? ' forbid' : ''}" title="${f.desc} (${f.unit})"><span>${f.id}</span>` +
+      return `<div class="w${forbid ? ' forbid' : ''}" title="${termPhrase(f.id)}: ${f.desc} (${f.unit})"><span>${f.id}</span>` +
         `<input type="range" min="0" max="${max}" step="0.1" value="${a}" data-f="${f.id}">` +
         `<span class="num">${a}</span><input type="checkbox" title="forbid: edges with any ${f.id} are impassable" data-forbid="${f.id}"${forbid ? ' checked' : ''}></div>`;
     }).join('');
@@ -493,11 +493,41 @@ const AGENT_TIMEOUT_MS = 180_000; // real Claude runs a multi-tool loop: tens of
 const tidy = (s: string) => s.replace(/\d+\.\d{4,}/g, x => String(+Number(x).toFixed(1)));
 const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 
-/** Plain-English meaning of one metric term, for the 'why these weights' list. */
+/** Precise meaning of one metric term (the engine's formula), shown on hover. */
 function termDesc(id: string): string {
-  if (id.startsWith('near:')) return `stay near ${id.slice(5)} (cost grows with distance to the nearest one)`;
+  if (id.startsWith('near:')) return `cost grows with distance to the nearest ${id.slice(5)}`;
   return S.features.find(f => f.id === id)?.desc ?? id;
 }
+
+/** What a positive weight / a forbid on each feature means for the walker, in a few words (the formula is on hover). */
+const PHRASE: Record<string, [weight: string, forbid: string]> = {
+  time: ['get there quickly', 'no time limit'],
+  climb: ['avoid climbing', 'no uphill at all'],
+  steep: ['avoid steep slopes', 'no steep slopes'],
+  steps: ['avoid stairs', 'no stairs at all'],
+  rough: ['avoid rough surfaces', 'no rough surfaces'],
+  busy: ['stay off busy roads', 'no busy roads'],
+  unlit: ['stay on lit streets', 'no dark streets'],
+  sun: ['stay in the shade', 'no sunny stretches'],
+  exposed: ['stay under cover', 'no uncovered stretches'],
+  stress: ['stay on calm bike streets', 'no stressful bike streets'],
+  bench_gap: ['stay near benches', 'no stretches far from a bench'],
+  toilet_gap: ['stay near toilets', 'no stretches far from toilets'],
+  water_gap: ['stay near drinking water', 'no stretches far from water'],
+  // features being added in the engine (shown only once the engine lists them)
+  icy: ['avoid icy hills', 'no icy stretches'],
+  flood: ['avoid flood zones', 'no flood zones'],
+  crossing: ['fewer road crossings', 'no road crossings'],
+  no_sidewalk: ['stay on sidewalks', 'no roads without a sidewalk'],
+  kerb: ['avoid raised kerbs', 'no raised kerbs'],
+  dull: ['go past greenery and water', 'only green or waterside streets'],
+};
+function termPhrase(id: string, forbid = false): string {
+  if (id.startsWith('near:')) return forbid ? `no ${id.slice(5)} nearby` : `stay near ${id.slice(5)}`;
+  return PHRASE[id]?.[forbid ? 1 : 0] ?? (forbid ? `no ${id}` : `avoid ${id}`);
+}
+/** Weight size in words, so '×0.5' and '×3' read at a glance (time is 1 by convention). */
+const strength = (w: number) => w >= 5 ? 'strong' : w >= 1.5 ? 'medium' : 'light';
 
 /** 'Custom (AI)' appears in the preset menu only while there is an AI answer. */
 function syncAiPreset() {
@@ -542,9 +572,16 @@ function renderAi() {
     const mins = i >= 0 && Number.isFinite(S.placeCost[i]) ? fmtMin(S.placeCost[i]) : fmtMin(st.minutes * 60);
     return `<li data-i="${i}"><b>${name}</b> · ${mins} min<div class="why">${esc(tidy(st.why))}</div></li>`;
   }).join('');
-  const terms = Object.entries(r.metric.weights).filter(([, w]) => w > 0)
-    .map(([id, w]) => `<li><b>${esc(id)} ×${+w.toFixed(2)}</b>: ${esc(termDesc(id))}</li>`);
-  for (const f of r.metric.forbid ?? []) terms.push(`<li><b>no ${esc(f)}</b>: impassable for this trip</li>`);
+  // plain phrase first; the feature id, weight and formula are one hover away
+  const forbids = r.metric.forbid ?? [];
+  const terms = forbids.map(f => `<li title="${esc(f)}: forbidden, any street with it is impassable">` +
+    `<b>${esc(termPhrase(f, true))}</b></li>`);
+  terms.push(...Object.entries(r.metric.weights).filter(([id, w]) => w > 0 && !forbids.includes(id))
+    .sort(([a, x], [b, y]) => (a === 'time' ? 1 : 0) - (b === 'time' ? 1 : 0) || y - x)
+    .map(([id, w]) => {
+      const s = id === 'time' ? '' : strength(w), wt = +w.toFixed(2);
+      return `<li title="${esc(id)} ×${wt}: ${esc(termDesc(id))}"><b>${esc(termPhrase(id))}</b> <span class="wt">${s ? `${s} ` : ''}×${wt}</span></li>`;
+    }));
   const missing = a.stopIdx.filter(i => i < 0).length;
   $('aiOut').innerHTML =
     `<p class="pitch">${esc(tidy(r.pitch))}</p>` +
