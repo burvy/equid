@@ -185,6 +185,7 @@ function layers() {
 
   const sunTarget = S.sunset ? sunsetTarget()?.i ?? -1 : -1;
   const sunOk = new Set(S.sunset ? sunRows.filter(r => r.ok).map(r => r.i) : []);
+  const sunKey = [...sunOk].join(','); // spot colour = the list's verdict (orange = catchable), never personal cost
   const placeData = S.places.map((p, i) => ({ p, i, c: S.placeCost[i], pos: [placePos[3 * i], placePos[3 * i + 1], placePos[3 * i + 2]] }))
     .filter(d => Number.isFinite(d.c) && (S.category === 'all' || d.p.category === S.category) && (v.hide < 1 || d.c <= budgetS || sunOk.has(d.i)));
   const beyondAlpha = Math.round(150 * (1 - v.hide));
@@ -196,7 +197,7 @@ function layers() {
     getFillColor: (d: { c: number; i: number; p: Place }) => (!inReach(d) ? (S.sunset && d.p.category === 'sunset' ? [110, 110, 120, 220] : [160, 160, 170, beyondAlpha]) : d.p.category === 'sunset' ? [234, 88, 12, 240] : [124, 58, 237, 230]),
     getLineColor: (d: { c: number; i: number; p: Place }) => [255, 255, 255, inReach(d) ? 255 : beyondAlpha],
     lineWidthMinPixels: 1.5, stroked: true, billboard: true,
-    updateTriggers: { getRadius: [S.highlight, sunTarget], getFillColor: [S.budgetMin, beyondAlpha, S.sunset, S.t], getLineColor: [S.budgetMin, beyondAlpha, S.sunset, S.t] },
+    updateTriggers: { getRadius: [S.highlight, sunTarget], getFillColor: [S.budgetMin, beyondAlpha, S.sunset, S.t, sunKey], getLineColor: [S.budgetMin, beyondAlpha, S.sunset, S.t, sunKey] },
   }));
 
   // the AI's curated stops: numbered amber markers on top of the places, in every view
