@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equid</title>
+    <style>
+      body { font: 14px/1.4 system-ui, sans-serif; margin: 1rem; color: #222; }
+      #map { border: 1px solid #ccc; background: #fafafa; }
+      .row { display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap; }
+      table { border-collapse: collapse; } td, th { padding: 2px 8px; text-align: left; }
+      #status { color: #666; }
+    </style>
+  </head>
+  <body>
+    <h1>Equid <small>(scaffold: stub field on the toy fixture)</small></h1>
+    <p id="status">loading wasm…</p>
+    <p>
+      Preset <select id="preset"></select>
+      Time <input id="time" type="range" min="0" max="1439" step="30" value="720" /> <span id="timeLabel"></span>
+      <em>click the map to move the origin</em>
+    </p>
+    <div class="row">
+      <svg id="map" width="520" height="320"></svg>
+      <table id="places"></table>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

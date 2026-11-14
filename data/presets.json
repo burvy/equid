@@ -1,0 +1,66 @@
+[
+  {
+    "id": "walk",
+    "name": "Walk",
+    "description": "Plain walking time.",
+    "mode": "foot",
+    "weights": { "time": 1 }
+  },
+  {
+    "id": "hiking",
+    "name": "Hills count",
+    "description": "Naismith's rule: about one extra hour per 600 m climbed (6 s per metre).",
+    "mode": "foot",
+    "weights": { "time": 1, "climb": 6 }
+  },
+  {
+    "id": "wheelchair",
+    "name": "Wheelchair",
+    "description": "No stairs; climbs, steep grades and rough surfaces cost a lot.",
+    "mode": "foot",
+    "weights": { "time": 1, "climb": 15, "steep": 3, "rough": 2 },
+    "forbid": ["steps"]
+  },
+  {
+    "id": "stroller",
+    "name": "Stroller",
+    "description": "Stairs possible but painful; rough and steep paths avoided.",
+    "mode": "foot",
+    "weights": { "time": 1, "climb": 6, "steep": 1, "rough": 1, "steps": 30 }
+  },
+  {
+    "id": "shade",
+    "name": "Shady",
+    "description": "Each sunny metre costs as much as a second of walking.",
+    "mode": "foot",
+    "weights": { "time": 1, "sun": 1 }
+  },
+  {
+    "id": "night",
+    "name": "Lit at night",
+    "description": "Unlit streets after dark cost double.",
+    "mode": "foot",
+    "weights": { "time": 1, "unlit": 1.5 }
+  },
+  {
+    "id": "rest",
+    "name": "Rest stops",
+    "description": "Stay near benches and toilets.",
+    "mode": "foot",
+    "weights": { "time": 1, "bench_gap": 0.5, "toilet_gap": 0.3 }
+  },
+  {
+    "id": "rain",
+    "name": "Stay dry",
+    "description": "Prefer covered walkways.",
+    "mode": "foot",
+    "weights": { "time": 1, "exposed": 0.5 }
+  },
+  {
+    "id": "bike",
+    "name": "Bike",
+    "description": "Cycling time plus hills, traffic stress and rough surfaces.",
+    "mode": "bike",
+    "weights": { "time": 1, "climb": 4, "stress": 0.3, "rough": 0.3 }
+  }
+]

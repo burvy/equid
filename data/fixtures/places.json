@@ -1,0 +1,88 @@
+{
+ "version": 1,
+ "places": [
+  {
+   "id": "n1",
+   "name": "Toy Café",
+   "lon": -74.65841,
+   "lat": 40.34983,
+   "category": "cafe",
+   "tags": {
+    "opening_hours": "Mo-Su 07:00-18:00",
+    "wheelchair": "yes"
+   },
+   "node": 11,
+   "snap_m": 5.4,
+   "rating": 4.6,
+   "n": 812,
+   "rating_src": "fixture"
+  },
+  {
+   "id": "n2",
+   "name": null,
+   "lon": -74.66077,
+   "lat": 40.34893,
+   "category": "bench",
+   "tags": {},
+   "node": 5,
+   "snap_m": 5.4,
+   "rating": null,
+   "n": null,
+   "rating_src": null
+  },
+  {
+   "id": "n3",
+   "name": "Fountain",
+   "lon": -74.65841,
+   "lat": 40.34893,
+   "category": "drinking_water",
+   "tags": {},
+   "node": 7,
+   "snap_m": 5.4,
+   "rating": null,
+   "n": null,
+   "rating_src": null
+  },
+  {
+   "id": "n4",
+   "name": "Station Toilets",
+   "lon": -74.65959,
+   "lat": 40.34983,
+   "category": "toilets",
+   "tags": {
+    "wheelchair": "limited"
+   },
+   "node": 10,
+   "snap_m": 5.4,
+   "rating": null,
+   "n": null,
+   "rating_src": null
+  },
+  {
+   "id": "w5",
+   "name": "Little Park",
+   "lon": -74.66195,
+   "lat": 40.34983,
+   "category": "park",
+   "tags": {},
+   "node": 8,
+   "snap_m": 5.4,
+   "rating": null,
+   "n": null,
+   "rating_src": null
+  },
+  {
+   "id": "n6",
+   "name": "Hill Lookout",
+   "lon": -74.65841,
+   "lat": 40.34803,
+   "category": "viewpoint",
+   "tags": {},
+   "node": 3,
+   "snap_m": 5.4,
+   "rating": null,
+   "n": null,
+   "rating_src": null
+  }
+ ]
+}
