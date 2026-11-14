@@ -4,6 +4,7 @@
 //! writes, costs come from `Core::field` over non-negative weights (the Lean-proved setting).
 //! The pitch is checked: every number in it must appear in a tool result or in the user's request.
 
+use crate::hours;
 use crate::llm::Llm;
 use crate::vexcel::Detector;
 use engine::features::FEATURES;
@@ -65,7 +66,11 @@ Open vocabulary: besides the built-in features, any object can matter ('near:<la
 \nFactor cheat-sheet (features from list_features): icy (shady slopes stay icy: winter/ice/frost; try 3-5), flood (FEMA flood zones, 4-8), crossing (street crossings, unsignalled count most; seconds per crossing, 15-30; older walkers, kids), no_sidewalk (roads without sidewalks; strollers, wheelchairs, kids), kerb (raised kerbs at crossings; wheelchair: weight 30+ or forbid), dull (not near greenery or water: use for peaceful or scenic walks, 0.4-1, with busy). Data can be missing in an area: such a feature then costs nothing, so say so if the explain shows no effect.
 Rules: use only facts the tools returned. Every number in your pitch (minutes, metres, counts) must appear in a tool \
 result; do not compute new numbers or invent facts (no opening hours or reviews unless a tool returned them). \
-Costs are in minutes of personal cost, not clock time. Never output weights or costs as the final answer; call finish.";
+Costs are in minutes of personal cost, not clock time. Never output weights or costs as the final answer; call finish.\n\
+Opening hours: the context gives the day and time of the trip. Places with readable hours carry hours_today, open_at_departure \
+and closes_at; trust those (e.g. 'open until 21:00 tonight') rather than re-reading opening_hours, and prefer places that are open.\n\
+Writing: the pitch and each why are plain sentences for a person. Name places by their name (or category and street if unnamed); \
+never write place ids (like n4802855943 or w109782066), JSON, braces or quotes around the text.";
 
 fn tools() -> Vec<Value> {
     vec![
@@ -75,8 +80,8 @@ fn tools() -> Vec<Value> {
                "input_schema": {"type": "object", "properties": {}}}),
         json!({"name": "detect", "description": "Find a NEW kind of object live from aerial imagery in a small square around the user's origin (any plain-language label, e.g. 'dog park'). Adds it to the label menu so make_metric can weight 'near:<label>'. Slow (seconds): only for labels missing from list_labels.",
                "input_schema": {"type": "object", "properties": {"label": {"type": "string"}, "radius_m": {"type": "integer", "minimum": 50, "maximum": 300}}, "required": ["label"]}}),
-        json!({"name": "list_places", "description": "Places in the area (id, name, category, rating, tags), optionally filtered by category. No costs: use field for costs.",
-               "input_schema": {"type": "object", "properties": {"categories": {"type": "array", "items": {"type": "string"}}}}}),
+        json!({"name": "list_places", "description": "Places in the area (id, name, category, rating, opening hours), optionally filtered by category and/or name (case-insensitive substring, e.g. 'conte' for a destination the user names). At most 60 per call. No costs: use field for costs.",
+               "input_schema": {"type": "object", "properties": {"categories": {"type": "array", "items": {"type": "string"}}, "name": {"type": "string"}}}}),
         json!({"name": "make_metric", "description": "Set the cost metric for this trip. weights: feature id -> non-negative number. forbid: feature ids that make an edge impassable. mode: foot or bike. Replaces any earlier metric.",
                "input_schema": {"type": "object", "properties": {
                    "mode": {"type": "string", "enum": ["foot", "bike"]},
@@ -129,6 +134,61 @@ pub fn ungrounded_numbers(pitch: &str, grounding: &str) -> Vec<f64> {
     numbers_in(pitch).into_iter().filter(|n| !known.iter().any(|k| (k - n).abs() < 1e-9)).collect()
 }
 
+fn words(s: &str) -> impl Iterator<Item = &str> {
+    s.split(|c: char| !(c.is_ascii_alphanumeric() || c == '-' || c == '_')).map(|w| w.trim_matches('-')).filter(|w| !w.is_empty())
+}
+
+/// `n4802855943`, `w109782066`, `r2918026`: OSM node/way/relation ids as the data uses them.
+pub fn looks_like_osm_id(w: &str) -> bool {
+    let b = w.as_bytes();
+    b.len() >= 5 && matches!(b[0], b'n' | b'w' | b'r') && b[1..].iter().all(u8::is_ascii_digit)
+}
+
+/// Model text with tool-call debris removed: a leading `pitch:` key, quotes wrapping the whole text,
+/// unbalanced quotes and stray `{ } [ ] \` at either end. Balanced quotes inside are kept.
+pub fn clean_text(s: &str) -> String {
+    let mut t = s.trim().to_string();
+    for key in ["{\"pitch\":", "\"pitch\":", "pitch:"] {
+        if let Some(rest) = t.strip_prefix(key) {
+            t = rest.trim().to_string();
+        }
+    }
+    let count = |t: &str, c: char| t.matches(c).count();
+    loop {
+        let before = t.clone();
+        if count(&t, '"') == 2 && t.len() >= 2 && t.starts_with('"') && t.ends_with('"') {
+            t = t[1..t.len() - 1].to_string();
+        }
+        if let Some(c) = t.chars().last() {
+            let stray = match c {
+                '"' => count(&t, '"') % 2 == 1,
+                '}' => count(&t, '{') < count(&t, '}'),
+                ']' => count(&t, '[') < count(&t, ']'),
+                '\\' => true,
+                _ => false,
+            };
+            if stray {
+                t.pop();
+            }
+        }
+        if let Some(c) = t.chars().next() {
+            let stray = match c {
+                '"' => count(&t, '"') % 2 == 1,
+                '{' => count(&t, '{') > count(&t, '}'),
+                '[' => count(&t, '[') > count(&t, ']'),
+                _ => false,
+            };
+            if stray {
+                t.remove(0);
+            }
+        }
+        t = t.trim().to_string();
+        if t == before {
+            return t;
+        }
+    }
+}
+
 fn minutes(s: f32) -> f64 {
     (s as f64 / 60.0 * 10.0).round() / 10.0
 }
@@ -139,6 +199,8 @@ struct Session<'a> {
     detected: Vec<Object>,
     origin: u32,
     t: f32,
+    /// Weekday of the trip (meta.date), Monday = 0; None if the date can't be read.
+    day: Option<usize>,
     metric: Option<(MetricSpec, Metric)>,
     /// Everything the model may legitimately quote: the request and every tool result.
     grounding: String,
@@ -147,8 +209,16 @@ struct Session<'a> {
 impl Session<'_> {
     fn place_json(&self, i: usize) -> Value {
         let p = &self.core.places.places[i];
-        json!({"id": p.id, "name": p.name, "category": p.category, "rating": p.rating,
-               "opening_hours": p.tags.get("opening_hours")})
+        let oh = p.tags.get("opening_hours");
+        let mut v = json!({"id": p.id, "name": p.name, "category": p.category, "rating": p.rating, "opening_hours": oh});
+        if let (Some(oh), Some(day)) = (oh.and_then(Value::as_str), self.day) {
+            if let Some(h) = hours::today(oh, day, self.t) {
+                for (k, x) in h.as_object().into_iter().flatten() {
+                    v[k] = x.clone();
+                }
+            }
+        }
+        v
     }
 
     fn wants(args: &Value, p: &engine::graph::Place) -> bool {
@@ -170,12 +240,17 @@ impl Session<'_> {
                 "always_available": ["bench", "toilets", "water"],
                 "can_detect_new": self.detector.is_some()})),
             "list_places" => {
-                let v: Vec<Value> = (0..self.core.places.places.len())
-                    .filter(|&i| Self::wants(args, &self.core.places.places[i]))
-                    .take(60)
-                    .map(|i| self.place_json(i))
+                let q = args["name"].as_str().map(|q| q.trim().to_lowercase()).filter(|q| !q.is_empty());
+                let hit = |p: &engine::graph::Place| q.as_ref().is_none_or(|q| p.name.as_deref().is_some_and(|n| n.to_lowercase().contains(q.as_str())));
+                let all: Vec<usize> = (0..self.core.places.places.len())
+                    .filter(|&i| Self::wants(args, &self.core.places.places[i]) && hit(&self.core.places.places[i]))
                     .collect();
-                Ok(json!({"places": v}))
+                let v: Vec<Value> = all.iter().take(60).map(|&i| self.place_json(i)).collect();
+                let mut out = json!({"places": v});
+                if all.len() > 60 {
+                    out["note"] = json!(format!("showing 60 of {} matches: narrow with categories or name", all.len()));
+                }
+                Ok(out)
             }
             "make_metric" => {
                 let spec: MetricSpec = serde_json::from_value(args.clone()).map_err(|e| format!("bad metric: {e}"))?;
@@ -253,10 +328,26 @@ impl Session<'_> {
         Ok(json!({"label": label, "found": found.len(), "total_objects": total, "area_m": (radius * 2.0) as i64}))
     }
 
+    /// Place ids (known ones, or anything shaped like an OSM id) that appear as words in `s`.
+    fn ids_in(&self, s: &str) -> Vec<String> {
+        words(s).filter(|w| looks_like_osm_id(w) || self.core.places.places.iter().any(|p| p.id == *w)).map(String::from).collect()
+    }
+
+    /// `why` lines are shown as-is, so fix rather than reject: "(n123)" goes, a bare id becomes the place's name.
+    fn drop_ids(&self, s: &str) -> String {
+        let mut out = s.to_string();
+        for id in self.ids_in(s) {
+            let place = self.core.places.places.iter().find(|p| p.id == id);
+            let name = place.map(|p| p.name.clone().unwrap_or_else(|| p.category.replace('_', " "))).unwrap_or_else(|| "this place".into());
+            out = out.replace(&format!(" ({id})"), "").replace(&format!("({id})"), "").replace(&id, &name);
+        }
+        out
+    }
+
     /// Validate a `finish` call; Ok = the final answer.
     fn finish(&self, args: &Value, llm: &str, called: Vec<String>) -> Result<AgentResponse, String> {
         let (spec, m) = self.metric.as_ref().ok_or("call make_metric before finish")?;
-        let pitch = args["pitch"].as_str().ok_or("pitch required")?.trim().to_string();
+        let pitch = clean_text(args["pitch"].as_str().ok_or("pitch required")?);
         let raw = args["stops"].as_array().ok_or("stops required")?;
         if raw.is_empty() || pitch.is_empty() {
             return Err("need at least one stop and a pitch".into());
@@ -272,8 +363,12 @@ impl Session<'_> {
                 name: p.name.clone(),
                 category: p.category.clone(),
                 minutes: f.place_cost[i].is_finite().then(|| minutes(f.place_cost[i])),
-                why: s["why"].as_str().unwrap_or("").to_string(),
+                why: self.drop_ids(&clean_text(s["why"].as_str().unwrap_or(""))),
             });
+        }
+        let ids = self.ids_in(&pitch);
+        if !ids.is_empty() {
+            return Err(format!("your pitch mentions place ids {ids:?}. A person reads it: name the places instead (or their category and street), and call finish again."));
         }
         let bad = ungrounded_numbers(&pitch, &self.grounding);
         if !bad.is_empty() {
@@ -291,9 +386,11 @@ pub async fn run(core: &mut Core, llm: &Llm, detector: Option<&Detector>, req: A
         _ => return Err("origin must be {lon, lat} or a valid {node}".into()),
     };
     let t = req.t.unwrap_or(720.0).rem_euclid(1440.0);
-    let ctx = format!("{}\n\n(Context: leaving at {:02}:{:02} local time; sunrise {:02}:{:02}, sunset {:02}:{:02}.)", req.text.trim(), t as u32 / 60, t as u32 % 60,
+    let day = hours::weekday(&core.graph.meta.date);
+    let when = day.map(|d| format!("{} {}, ", hours::DAY_NAMES[d], core.graph.meta.date)).unwrap_or_default();
+    let ctx = format!("{}\n\n(Context: {when}leaving at {:02}:{:02} local time; sunrise {:02}:{:02}, sunset {:02}:{:02}.)", req.text.trim(), t as u32 / 60, t as u32 % 60,
         core.graph.meta.sunrise_min as u32 / 60, core.graph.meta.sunrise_min as u32 % 60, core.graph.meta.sunset_min as u32 / 60, core.graph.meta.sunset_min as u32 % 60);
-    let mut s = Session { core, detector, detected: vec![], origin, t, metric: None, grounding: ctx.clone() };
+    let mut s = Session { core, detector, detected: vec![], origin, t, day, metric: None, grounding: ctx.clone() };
     let tools = tools();
     let mut messages = vec![json!({"role": "user", "content": ctx})];
     let mut called: Vec<String> = vec![];

@@ -1,6 +1,7 @@
 //! Equid trip-agent server. `POST /agent {text, origin?, t?}` -> `{metric, stops, pitch, llm, tools_called}`.
 
 pub mod agent;
+pub mod hours;
 pub mod llm;
 pub mod mock;
 pub mod vexcel;
