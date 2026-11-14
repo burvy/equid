@@ -3,6 +3,7 @@ name = "server"
 version = "0.1.0"
 edition = "2021"
 description = "Equid AI trip agent: POST /agent -> Claude tool use over the engine"
+default-run = "server"
 
 [dependencies]
 engine = { path = "../engine" }

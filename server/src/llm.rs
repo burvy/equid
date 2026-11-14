@@ -16,13 +16,17 @@ pub const DEFAULT_MODEL: &str = "claude-sonnet-5-5";
 impl Llm {
     /// `ANTHROPIC_API_KEY` set -> real Claude (model from `EQUID_MODEL`, default `DEFAULT_MODEL`); else the mock.
     pub fn from_env() -> Llm {
-        match std::env::var("ANTHROPIC_API_KEY") {
-            Ok(key) if !key.trim().is_empty() => Llm::Anthropic {
+        let from_file = || {
+            let path = std::env::var("ANTHROPIC_ENV_FILE").unwrap_or_else(|_| r"Z:\App Data\Downloads\claude.env".to_string());
+            crate::vexcel::key_from_env_file(&path, "ANTHROPIC_API_KEY")
+        };
+        match std::env::var("ANTHROPIC_API_KEY").ok().filter(|k| !k.trim().is_empty()).or_else(from_file) {
+            Some(key) => Llm::Anthropic {
                 key: key.trim().to_string(),
                 model: std::env::var("EQUID_MODEL").unwrap_or_else(|_| DEFAULT_MODEL.to_string()),
                 client: reqwest::Client::new(),
             },
-            _ => Llm::Mock,
+            None => Llm::Mock,
         }
     }
 

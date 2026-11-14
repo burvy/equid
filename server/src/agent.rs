@@ -38,7 +38,7 @@ pub struct Stop {
     pub id: String,
     pub name: Option<String>,
     pub category: String,
-    pub minutes: Option<f32>,
+    pub minutes: Option<f64>,
     pub why: String,
 }
 
@@ -262,7 +262,7 @@ impl Session<'_> {
                 id: p.id.clone(),
                 name: p.name.clone(),
                 category: p.category.clone(),
-                minutes: f.place_cost[i].is_finite().then(|| minutes(f.place_cost[i]) as f32),
+                minutes: f.place_cost[i].is_finite().then(|| minutes(f.place_cost[i])),
                 why: s["why"].as_str().unwrap_or("").to_string(),
             });
         }

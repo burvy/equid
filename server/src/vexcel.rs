@@ -25,12 +25,12 @@ pub enum Detector {
 }
 
 /// Reads the key from `VEXCEL_API_KEY=...` (optionally `export`ed / quoted), or, failing that, a file that is just the bare key.
-fn key_from_env_file(path: &str) -> Option<String> {
+pub fn key_from_env_file(path: &str, var: &str) -> Option<String> {
     let text = std::fs::read_to_string(path).ok()?;
     let lines: Vec<&str> = text.lines().map(str::trim).filter(|l| !l.is_empty() && !l.starts_with('#')).collect();
     let named = lines.iter().find_map(|l| {
         let l = l.trim_start_matches("export ").trim();
-        let v = l.strip_prefix("VEXCEL_API_KEY")?.trim_start().strip_prefix('=')?;
+        let v = l.strip_prefix(var)?.trim_start().strip_prefix('=')?;
         let v = v.trim().trim_matches(|c| c == '"' || c == '\'');
         (!v.is_empty()).then(|| v.to_string())
     });
@@ -47,7 +47,7 @@ impl Detector {
             .ok()
             .filter(|k| !k.trim().is_empty())
             .map(|k| k.trim().to_string())
-            .or_else(|| key_from_env_file(&std::env::var("VEXCEL_ENV_FILE").unwrap_or_else(|_| DEFAULT_ENV_FILE.to_string())))?;
+            .or_else(|| key_from_env_file(&std::env::var("VEXCEL_ENV_FILE").unwrap_or_else(|_| DEFAULT_ENV_FILE.to_string()), "VEXCEL_API_KEY"))?;
         Some(Detector::Live { key, client: reqwest::Client::new() })
     }
 
@@ -180,10 +180,10 @@ mod tests {
     fn env_file_line_parsing_never_needs_the_real_key() {
         let dir = std::env::temp_dir().join("equid_vexcel_test.env");
         std::fs::write(&dir, "# c\nOTHER=1\nexport VEXCEL_API_KEY = \"abc123\"\n").unwrap();
-        assert_eq!(key_from_env_file(dir.to_str().unwrap()).as_deref(), Some("abc123"));
+        assert_eq!(key_from_env_file(dir.to_str().unwrap(), "VEXCEL_API_KEY").as_deref(), Some("abc123"));
         std::fs::write(&dir, "  barekeyvalue123  
 ").unwrap();
-        assert_eq!(key_from_env_file(dir.to_str().unwrap()).as_deref(), Some("barekeyvalue123"));
+        assert_eq!(key_from_env_file(dir.to_str().unwrap(), "VEXCEL_API_KEY").as_deref(), Some("barekeyvalue123"));
         std::fs::remove_file(dir).ok();
     }
 }
