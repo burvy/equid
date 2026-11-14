@@ -6,6 +6,7 @@
 //! to the nearest node -> validate with the engine's own loader -> write.
 
 mod geo;
+mod night;
 mod tags;
 
 use engine::graph::{Cycleway, Edge, Graph, Meta, Node, Place, Places, Surface, NEAR_CAP_M};
@@ -65,6 +66,8 @@ fn run() -> Result<(), String> {
     let elements = osm["elements"].as_array().ok_or("overpass.json: no elements")?;
     let grid = ElevGrid::load(&raw.join("elev_points.txt"), &raw.join("ned10m"))?;
     let proj = Proj::new((BBOX[0] + BBOX[2]) / 2.0, (BBOX[1] + BBOX[3]) / 2.0);
+    let night_text = std::fs::read_to_string(raw.join("night.json")).map_err(|e| format!("night.json: {e} (run prep/fetch.sh)"))?;
+    let night = night::Night::load(&serde_json::from_str(&night_text).map_err(|e| e.to_string())?, &proj);
 
     // ---- 1. ways
     let mut ways = Vec::new();
@@ -288,6 +291,7 @@ fn run() -> Result<(), String> {
         let (surface, surface_raw) = tags::surface(t);
         let own = tags::road_class(&hw);
         let busy = if own > 0 { own } else { road_beside(xy[xy.len() / 2]).max(road_beside(mid(&xy))) };
+        let (lit, lit_src) = night.lit(tags::lit(t), &hw, surface, busy, &xy, mid(&xy));
         let near = |pts: &[(f64, f64)]| -> f32 {
             let d = pts
                 .iter()
@@ -311,7 +315,8 @@ fn run() -> Result<(), String> {
             steps: hw == "steps",
             surface,
             surface_raw,
-            lit: tags::lit(t),
+            lit,
+            lit_src: lit_src.map(str::to_string),
             covered: tags::covered(t),
             busy,
             cycleway: tags::cycleway(t, bike),
@@ -378,7 +383,7 @@ fn run() -> Result<(), String> {
     engine::Core::load(&graph_json, &places_json).map_err(|e| format!("output failed the engine's validation: {e}"))?;
 
     std::fs::create_dir_all(&out).map_err(|e| e.to_string())?;
-    let stats = stats(&graph, &places, n_components, nodes_before, &grid);
+    let stats = stats(&graph, &places, n_components, nodes_before, &grid, &night);
     for (name, body) in [("graph.json", &graph_json), ("places.json", &places_json), ("stats.txt", &stats)] {
         std::fs::write(out.join(name), body).map_err(|e| format!("{name}: {e}"))?;
     }
@@ -407,12 +412,12 @@ fn mid(xy: &[(f64, f64)]) -> (f64, f64) {
 }
 
 /// Data-quality summary: counts and how much of the network carries each tag.
-fn stats(g: &Graph, p: &Places, components: usize, nodes_before: usize, grid: &ElevGrid) -> String {
+fn stats(g: &Graph, p: &Places, components: usize, nodes_before: usize, grid: &ElevGrid, night: &night::Night) -> String {
     let n = g.edges.len() as f64;
     let km: f64 = g.edges.iter().map(|e| e.length_m as f64).sum::<f64>() / 1000.0;
     let pct = |f: &dyn Fn(&Edge) -> bool| {
         let c = g.edges.iter().filter(|e| f(e)).count() as f64;
-        let l: f64 = g.edges.iter().filter(|e| f(e)).map(|e| e.length_m as f64).sum::<f64>() / 1000.0;
+        let l: f64 = 0.0 + g.edges.iter().filter(|e| f(e)).map(|e| e.length_m as f64).sum::<f64>() / 1000.0; // 0.0 + : an empty sum is -0.0
         format!("{:5.1}% of edges, {:5.1}% of length", 100.0 * c / n, 100.0 * l / km)
     };
     let mut s = String::new();
@@ -423,8 +428,13 @@ fn stats(g: &Graph, p: &Places, components: usize, nodes_before: usize, grid: &E
     let _ = writeln!(s, "elevation {lo:.1}..{hi:.1} m; max edge grade {maxg:.1}%; sunrise {} min, sunset {} min", g.meta.sunrise_min, g.meta.sunset_min);
     let _ = writeln!(s, "foot allowed      {}", pct(&|e| e.foot));
     let _ = writeln!(s, "bike allowed      {}", pct(&|e| e.bike));
-    let _ = writeln!(s, "lit tagged        {}", pct(&|e| e.lit.is_some()));
+    let _ = writeln!(s, "lit tagged in OSM {}", pct(&|e| e.lit_src.as_deref() == Some("tag")));
+    let _ = writeln!(s, "lit known (after rules) {}  ({} street lamps in OSM; campus = {})", pct(&|e| e.lit.is_some()), night.n_lamps, night.campus_names.join(" + "));
+    for src in ["tag", "lamp", "road", "campus", "trail"] {
+        let _ = writeln!(s, "  lit_src={src:7} {}", pct(&|e| e.lit_src.as_deref() == Some(src)));
+    }
     let _ = writeln!(s, "  lit=yes         {}", pct(&|e| e.lit == Some(true)));
+    let _ = writeln!(s, "  lit=no          {}", pct(&|e| e.lit == Some(false)));
     let _ = writeln!(s, "surface tagged    {}", pct(&|e| e.surface_raw.is_some()));
     let _ = writeln!(s, "surface known     {}  (untagged car roads assumed paved)", pct(&|e| e.surface.is_some()));
     let _ = writeln!(s, "  not paved       {}", pct(&|e| e.surface.is_some_and(|x| x != Surface::Paved)));

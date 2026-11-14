@@ -78,7 +78,8 @@ the engine swaps them for `to → from`. One example (all fields):
 | `steps` | bool | stairs |
 | `surface` | `"paved"`/`"compacted"`/`"unpaved"`/`"rough"`/null | normalised; `rough` = cobbles, sett, unhewn stone, roots. null = unknown |
 | `surface_raw` | string? | the OSM `surface` tag as-is |
-| `lit` | bool? | OSM `lit`; null = unknown |
+| `lit` | bool? | lit at night; null = unknown. OSM `lit` tag when present, else inferred (see `lit_src`) |
+| `lit_src` | string? | `"tag"` OSM lit tag, `"lamp"` street lamp within 25 m, `"road"` tertiary-or-bigger road or a path within 15 m of one, `"campus"` footway/steps on Princeton University grounds, `"trail"` unpaved/untagged path, track or bridleway away from roads (lit = false). Rules in prep/src/night.rs |
 | `covered` | bool | under a roof: `covered=yes`, tunnel, arcade |
 | `busy` | 0–3 | adjacent traffic: 0 path away from roads, 1 residential/service, 2 tertiary/secondary, 3 primary/trunk |
 | `cycleway` | `"track"`/`"lane"`/`"shared"`/`"none"`/null | best cycling infrastructure on the edge |

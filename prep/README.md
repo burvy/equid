@@ -5,6 +5,7 @@ Builds the files the engine and web load. Run once; outputs are committed, so no
 ```sh
 bash prep/fetch.sh               # downloads into data/raw/ (gitignored, ~10 min, skips what's cached)
 cargo run --release -p prep      # data/raw/ -> data/princeton/{graph,places}.json + stats.txt (seconds, offline)
+cargo run --release -p prep-shade  # then: fills shade/tree in place (task 018); re-run it after every prep run
 ```
 
 Format: `docs/contracts.md`. prep fills the engine's own structs (`engine::graph`) and runs the
@@ -26,7 +27,11 @@ engine's loader on its output before writing, so the files always match the cont
   Bridges and tunnels ignore the ground below and go straight from end to end.
 - **surface:** OSM `surface` grouped by bumpiness (paved / compacted / unpaved / rough). Untagged
   car roads are assumed paved; untagged paths stay `null`.
-- **lit, covered, wheelchair, steps:** straight from tags (`covered`, `tunnel`, `indoor`, corridors count as covered).
+- **lit / lit_src** (prep/src/night.rs): OSM `lit` tags cover ~1% and OSM has no street lamps here, so rules fill
+  the gap, first match wins: `tag` (OSM lit) > `lamp` (street lamp within 25 m) > `road` (tertiary-or-bigger road, or a
+  path beside one) > `campus` (footway/steps on Princeton University or Seminary grounds) > `trail` (unpaved path/track
+  away from roads = unlit). Residential streets stay unknown. Check: `cargo run --release -p prep --example night_check`.
+- **covered, wheelchair, steps:** straight from tags (`covered`, `tunnel`, `indoor`, corridors count as covered).
 - **busy:** a road's own traffic class (1 local, 2 collector, 3 arterial). A footway or cycleway
   gets the class of the busiest road within 15 m (sidewalks, crossings); 0 if none.
 - **cycleway, lts:** simplified bike Level of Traffic Stress (Mekuria/Furth/Nixon 2012) from road

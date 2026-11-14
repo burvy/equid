@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Downloads raw inputs into data/raw/ (gitignored). Safe to re-run: skips files that exist.
-# 1) OSM ways + amenities from Overpass (prep/overpass.ql).
+# 1) OSM ways + amenities from Overpass (prep/overpass.ql); street lamps + campus outlines (prep/night.ql).
 # 2) Elevation on a ~25 m grid from OpenTopoData's public API, dataset ned10m
 #    (USGS 3DEP 1/3 arc-second, ~10 m), 100 points per request, ~1 request/second
 #    (the public API's limit; 1000 requests/day, this needs ~370).
@@ -15,6 +15,12 @@ DLAT=0.000225; DLON=0.000295
 if [ ! -s "$RAW/overpass.json" ]; then
   echo "overpass..."
   curl -sf -A "$UA" --data-urlencode "data@prep/overpass.ql" -o "$RAW/overpass.json" https://overpass-api.de/api/interpreter
+fi
+
+if [ ! -s "$RAW/night.json" ]; then
+  echo "overpass (street lamps, campus outlines)..."
+  sleep 2
+  curl -sf -A "$UA" --data-urlencode "data@prep/night.ql" -o "$RAW/night.json" https://overpass-api.de/api/interpreter
 fi
 
 # grid points, row-major: rows from S to N, columns from W to E

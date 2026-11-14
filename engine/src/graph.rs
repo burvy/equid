@@ -79,6 +79,9 @@ pub struct Edge {
     pub surface_raw: Option<String>,
     #[serde(default)]
     pub lit: Option<bool>,
+    /// Where `lit` comes from: "tag" (OSM lit), or an inference rule: "lamp", "road", "campus", "trail". null when lit is null.
+    #[serde(default)]
+    pub lit_src: Option<String>,
     #[serde(default)]
     pub covered: bool,
     /// Adjacent traffic: 0 path away from roads, 1 residential/service, 2 tertiary/secondary, 3 primary/trunk.
