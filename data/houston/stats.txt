@@ -34,16 +34,25 @@ bench within 100 m   5.6% of edges,   4.4% of length
 toilets within 250 m   0.0% of edges,   0.0% of length
 water within 250 m   0.0% of edges,   0.0% of length
 places 91 (55 named): bench 6, bicycle_parking 28, cafe 8, fast_food 10, garden 3, ice_cream 2, museum 3, park 5, pharmacy 2, playground 1, restaurant 23
-objects 717 (osm 717); per label: objects / edges within 100 m
+flood zone (FEMA NFHL 1% + 0.2%, 9 polygons): 0.2% of length; edges touching one   0.1% of edges,   0.5% of length
+green within 30 m (20 OSM features): 7.0% of length
+water within 30 m (3 OSM features): 0.0% of length
+crossings 313 of 318 OSM crossing nodes charged (241 unsignalled; 5 sit on roads with no mapped crossing path: not charged)
+stops (stop / give_way / signals on roads) 107; kerb=raised 1 (OSM kerb tags are sparse)
+sidewalk on roads (74.6 km): yes 3.4%, no 0.0%, untagged 96.6% of road length
+objects 740 (osm 717, vexcel 23); per label: objects / edges within 100 m
   bike rack         28 / 1021
   bus stop           5 / 226
   crosswalk        556 / 2450
   mailbox            2 / 84
+  parking lot       15 / 650
   picnic table       6 / 78
   playground         1 / 54
+  solar panel        1 / 55
   sports field      10 / 230
   street lamp        5 / 113
   swimming pool     17 / 302
+  tennis court       7 / 61
   traffic light     28 / 1339
   trash can          2 / 64
   tree              57 / 86

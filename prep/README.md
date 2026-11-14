@@ -21,6 +21,7 @@ engine's loader on its output before writing, so the files always match the cont
 ## Sources
 - **Streets, paths, amenities:** OpenStreetMap via Overpass API (`prep/overpass.ql`), bbox
   W -74.690, S 40.330, E -74.630, N 40.370 (downtown, campus, down to Lake Carnegie). (c) OSM contributors, ODbL.
+- **Flood zones:** FEMA National Flood Hazard Layer (public ArcGIS REST, layer 28), 1 % and 0.2 % zones.
 - **Elevation:** USGS 3DEP 1/3 arc-second DEM (~10 m) via OpenTopoData's public API (`ned10m`),
   sampled on a ~25 m grid and interpolated bilinearly.
 
@@ -44,6 +45,10 @@ engine's loader on its output before writing, so the files always match the cont
 - **cycleway, lts:** simplified bike Level of Traffic Stress (Mekuria/Furth/Nixon 2012) from road
   class, bike lane/track, speed limit and lane count. Car-free paths are LTS 1.
 - **near_bench_m / near_toilets_m / near_water_m:** distance from the edge to the nearest one, capped at 500 m.
+- **Path factors** (prep/src/factors.rs, task 027): `flood` (FEMA NFHL 1 % + 0.2 % zones, `flood.json`), `crossings` /
+  `crossings_unsignalled` / `stops` / `kerb_raised` (OSM nodes from `prep/nodes.ql`, each charged to one edge only so
+  a route through it pays once; crossings go to the crossing way), `sidewalk` (roads), `green` / `water_view` (share within
+  30 m of `prep/landscape.ql` areas). Coverage in stats.txt: sidewalk and kerb tags are sparse.
 - **places:** OSM amenities/tourism/leisure of the categories in `tags::place_category`; areas use
   their centroid and snap to the graph node nearest to their outline.
 - **meta.sunrise_min / sunset_min:** NOAA solar formula for the demo date.

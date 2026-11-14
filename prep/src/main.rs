@@ -6,6 +6,7 @@
 //! -> keep the largest connected piece -> elevation per vertex -> per-edge features -> places snapped
 //! to the nearest node -> validate with the engine's own loader -> write.
 
+mod factors;
 mod geo;
 mod night;
 mod objects;
@@ -67,6 +68,13 @@ fn run() -> Result<(), String> {
     let proj = Proj::new((bbox[0] + bbox[2]) / 2.0, (bbox[1] + bbox[3]) / 2.0);
     let night_text = std::fs::read_to_string(raw.join("night.json")).map_err(|e| format!("night.json: {e} (run prep/fetch.sh {name})"))?;
     let night = night::Night::load(&serde_json::from_str(&night_text).map_err(|e| e.to_string())?, &proj, reg.campus_prefix.as_deref());
+    let read_json = |f: &str| -> Result<Value, String> {
+        let t = std::fs::read_to_string(raw.join(f)).map_err(|e| format!("{f}: {e} (run prep/fetch.sh {name})"))?;
+        serde_json::from_str(&t).map_err(|e| format!("{f}: {e}"))
+    };
+    let flood = read_json("flood.json")?;
+    let flood = flood["features"].as_array().is_some_and(|f| !f.is_empty()).then_some(&flood);
+    let factors = factors::Factors::load(&read_json("nodes.json")?, &read_json("landscape.json")?, flood, &proj);
 
     // ---- 1. ways
     let mut ways = Vec::new();
@@ -231,6 +239,8 @@ fn run() -> Result<(), String> {
 
     // ---- 5. edges with features
     let mut edges = Vec::new();
+    let mut edge_ids: Vec<Vec<i64>> = Vec::new(); // OSM node ids along each edge, for factors::fill
+    let mut edge_tags: Vec<&Tags> = Vec::new();
     for e in &raw_edges {
         let (a, b) = (idx[&e.ids[0]], idx[e.ids.last().unwrap()]);
         if new_idx[a] == u32::MAX {
@@ -298,6 +308,8 @@ fn run() -> Result<(), String> {
                 .fold(NEAR_CAP_M as f64, f64::min);
             r1(d)
         };
+        edge_ids.push(e.ids.clone());
+        edge_tags.push(&w.tags);
         edges.push(Edge {
             from: new_idx[a],
             to: new_idx[b],
@@ -336,6 +348,8 @@ fn run() -> Result<(), String> {
             water_view: None,
         });
     }
+
+    let factor_report = factors.fill(&mut edges, &edge_ids, &edge_tags, &proj);
 
     // ---- 6. snap places to the nearest graph node (areas: nearest to any outline vertex)
     let node_xy: Vec<(f64, f64)> = nodes.iter().map(|n| proj.xy(n.lon, n.lat)).collect();
@@ -398,6 +412,7 @@ fn run() -> Result<(), String> {
 
     std::fs::create_dir_all(&out).map_err(|e| e.to_string())?;
     let mut stats = stats(&graph, &places, n_components, nodes_before, &grid, &night);
+    stats += &factors::stats(&graph.edges, &factor_report);
     stats += &objects::stats(&objs, &core.labels());
     for (file, body) in [("graph.json", &graph_json), ("places.json", &places_json), ("objects.json", &objects_json), ("stats.txt", &stats)] {
         std::fs::write(out.join(file), body).map_err(|e| format!("{file}: {e}"))?;

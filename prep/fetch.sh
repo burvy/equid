@@ -4,7 +4,8 @@
 #   bash prep/fetch.sh            # princeton (default) -> data/raw/
 #   bash prep/fetch.sh houston    # -> data/raw/houston/
 # 1) OSM ways + amenities (prep/overpass.ql), street lamps + campus outlines (prep/night.ql), point objects
-#    (prep/objects.ql), all from Overpass; the queries' {{BBOX}} is filled from regions.tsv.
+#    (prep/objects.ql), crossing/signal/stop/kerb nodes (prep/nodes.ql), green + water areas (prep/landscape.ql),
+#    all from Overpass; the queries' {{BBOX}} is filled from regions.tsv. Then FEMA NFHL flood zones.
 # 2) Elevation on a ~25 m grid from OpenTopoData's public API, dataset ned10m
 #    (USGS 3DEP 1/3 arc-second, ~10 m), 100 points per request, ~1 request/second
 #    (the public API's limit; 1000 requests/day; Princeton needs ~370, Houston ~60).
@@ -33,6 +34,15 @@ overpass() { # $1 = query file, $2 = output
 overpass prep/overpass.ql "$RAW/overpass.json"
 overpass prep/night.ql "$RAW/night.json"
 overpass prep/objects.ql "$RAW/objects.json"
+overpass prep/nodes.ql "$RAW/nodes.json"
+overpass prep/landscape.ql "$RAW/landscape.json"
+
+# FEMA National Flood Hazard Layer, layer 28 (flood hazard zones): only the 1% (SFHA) and 0.2% zones, GeoJSON.
+if [ ! -s "$RAW/flood.json" ]; then
+  echo "FEMA NFHL flood zones..."
+  curl -sf -m 180 -A "$UA" -G https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28/query     --data-urlencode "geometry=$W,$S,$E,$N" --data-urlencode "geometryType=esriGeometryEnvelope"     --data-urlencode "inSR=4326" --data-urlencode "outSR=4326" --data-urlencode "spatialRel=esriSpatialRelIntersects"     --data-urlencode "where=SFHA_TF='T' OR ZONE_SUBTY LIKE '0.2 PCT%'"     --data-urlencode "outFields=FLD_ZONE,ZONE_SUBTY,SFHA_TF" --data-urlencode "geometryPrecision=6"     --data-urlencode "f=geojson" -o "$RAW/flood.json.tmp"
+  grep -q '"features"' "$RAW/flood.json.tmp" && mv "$RAW/flood.json.tmp" "$RAW/flood.json" || { echo "NFHL query failed"; exit 1; }
+fi
 
 # grid points, row-major: rows from S to N, columns from W to E
 awk -v s=$S -v w=$W -v n=$N -v e=$E -v dl=$DLAT -v dn=$DLON 'BEGIN{

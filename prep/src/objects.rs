@@ -61,7 +61,9 @@ pub fn build(osm: &Value, inside: &dyn Fn((f64, f64)) -> bool, old: Option<&str>
     objects.dedup_by(|a, b| a.label == b.label && a.lon == b.lon && a.lat == b.lat);
     if let Some(text) = old {
         let o: Objects = serde_json::from_str(text).map_err(|e| format!("existing objects.json: {e}"))?;
-        objects.extend(o.objects.into_iter().filter(|x| x.src.as_deref() != Some("osm")));
+        // rounded like the OSM points (0.1 m): serde_json's float parsing isn't exact, so unrounded values drift by
+        // one ulp on every re-run
+        objects.extend(o.objects.into_iter().filter(|x| x.src.as_deref() != Some("osm")).map(|x| Object { lon: r6(x.lon), lat: r6(x.lat), ..x }));
     }
     Ok(Objects { version: 1, objects })
 }
