@@ -232,7 +232,15 @@ impl Session<'_> {
         let radius = args["radius_m"].as_f64().unwrap_or(150.0).clamp(50.0, 300.0);
         let o = &self.core.graph.nodes[self.origin as usize];
         let (dlat, dlon) = (radius / 110_540.0, radius / (111_320.0 * o.lat.to_radians().cos()));
-        let found = det.detect(&label, [o.lon - dlon, o.lat - dlat, o.lon + dlon, o.lat + dlat]).await?;
+        let found = match det.detect(&label, [o.lon - dlon, o.lat - dlat, o.lon + dlon, o.lat + dlat]).await {
+            Ok(f) => f,
+            // 401/403 = no imagery access for this area (geofenced key): retrying any label here cannot work.
+            Err(e) if e.contains(" 403") || e.contains(" 401") => {
+                return Ok(json!({"label": label, "found": 0, "retryable": false,
+                    "note": "live detection is not available for this area (imagery access denied). Not retryable here: do not call detect again for any label; use only labels from list_labels or built-in features."}));
+            }
+            Err(e) => return Err(e),
+        };
         if found.is_empty() {
             return Ok(json!({"label": label, "found": 0, "note": "none detected in this area; do not use this label"}));
         }
