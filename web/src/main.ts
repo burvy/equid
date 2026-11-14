@@ -62,6 +62,8 @@ const S = {
   defaultBudgetMin: 15, // per dataset; an AI answer resets the budget to this, then widens it to fit its stops
   alpha: 0,
   category: 'all',
+  /** 'Catch the sunset' mode: sunset spots only, each judged against its own sun-until; the budget follows one spot. */
+  sunset: params.get('sunset') === '1',
   view: (params.get('view') as View) ?? 'map',
   blend: { warp: 0, lift: 0, metresPerSecond: 1.34, hide: 0 } as ViewBlend,
   nodeCost: new Float32Array(0) as Float32Array<ArrayBufferLike>,
@@ -181,17 +183,20 @@ function layers() {
     ...geo, _pathType: 'open', getColor: [11, 107, 203, 190], getWidth: 2, widthUnits: 'pixels', jointRounded: true,
   }));
 
+  const sunTarget = S.sunset ? sunsetTarget()?.i ?? -1 : -1;
+  const sunOk = new Set(S.sunset ? sunRows.filter(r => r.ok).map(r => r.i) : []);
   const placeData = S.places.map((p, i) => ({ p, i, c: S.placeCost[i], pos: [placePos[3 * i], placePos[3 * i + 1], placePos[3 * i + 2]] }))
-    .filter(d => Number.isFinite(d.c) && (S.category === 'all' || d.p.category === S.category) && (v.hide < 1 || d.c <= budgetS));
+    .filter(d => Number.isFinite(d.c) && (S.category === 'all' || d.p.category === S.category) && (v.hide < 1 || d.c <= budgetS || sunOk.has(d.i)));
   const beyondAlpha = Math.round(150 * (1 - v.hide));
+  const inReach = (d: { c: number; i: number; p: Place }) => (S.sunset && d.p.category === 'sunset' ? sunOk.has(d.i) : d.c <= budgetS);
   out.push(new ScatterplotLayer({
     id: 'places', data: placeData, ...geo, pickable: true,
     getPosition: (d: { pos: [number, number, number] }) => d.pos,
-    getRadius: (d: { i: number; p: Place }) => (d.i === S.highlight ? 9 : d.p.category === 'sunset' ? 7 : 5), radiusUnits: 'pixels',
-    getFillColor: (d: { c: number; p: Place }) => (d.c > budgetS ? [160, 160, 170, beyondAlpha] : d.p.category === 'sunset' ? [234, 88, 12, 240] : [124, 58, 237, 230]),
-    getLineColor: (d: { c: number }) => [255, 255, 255, d.c <= budgetS ? 255 : beyondAlpha],
+    getRadius: (d: { i: number; p: Place }) => (d.i === S.highlight || d.i === sunTarget ? 9 : d.p.category === 'sunset' ? 7 : 5), radiusUnits: 'pixels',
+    getFillColor: (d: { c: number; i: number; p: Place }) => (!inReach(d) ? (S.sunset && d.p.category === 'sunset' ? [110, 110, 120, 220] : [160, 160, 170, beyondAlpha]) : d.p.category === 'sunset' ? [234, 88, 12, 240] : [124, 58, 237, 230]),
+    getLineColor: (d: { c: number; i: number; p: Place }) => [255, 255, 255, inReach(d) ? 255 : beyondAlpha],
     lineWidthMinPixels: 1.5, stroked: true, billboard: true,
-    updateTriggers: { getRadius: S.highlight, getFillColor: [S.budgetMin, beyondAlpha], getLineColor: [S.budgetMin, beyondAlpha] },
+    updateTriggers: { getRadius: [S.highlight, sunTarget], getFillColor: [S.budgetMin, beyondAlpha, S.sunset, S.t], getLineColor: [S.budgetMin, beyondAlpha, S.sunset, S.t] },
   }));
 
   // the AI's curated stops: numbered amber markers on top of the places, in every view
@@ -252,6 +257,7 @@ function pickedEdge(info: PickingInfo): GEdge | null {
 }
 
 function render() {
+  if (S.sunset) syncSunset();
   overlay.setProps({ layers: layers() as never });
   renderList();
   renderFormula();
@@ -281,7 +287,78 @@ const placeLabel = (p: Place) => p.name ?? categoryLabel(p.category);
 /** 'sun until 16:35' for places where prep-shade found the low sun visible (sunset spots, some parks), else ''. */
 const sunUntil = (p: Place) => (p.tags?.sun_visible_until ? `sun until ${p.tags.sun_visible_until}` : '');
 
+// ---------- 'catch the sunset' ----------
+// Every sunset spot has its own deadline: the minute the low sun stops being visible there (prep's sun_visible_until).
+// A spot is catchable now if what it costs you to get there (minutes, from the live field) fits in the minutes left.
+type SunRow = { i: number; p: Place; c: number; left: number; ok: boolean };
+const hhmmMin = (s?: string | number) => { const m = /^(\d{1,2}):(\d{2})$/.exec(String(s ?? '')); return m ? +m[1] * 60 + +m[2] : NaN; };
+const hasSunsetSpots = () => S.places.some(p => p.category === 'sunset' && Number.isFinite(hhmmMin(p.tags?.sun_visible_until)));
+let sunRows: SunRow[] = [];
+
+/** Sunset spots with minutes left and cost, most time to spare first. */
+function sunsetRows(): SunRow[] {
+  return S.places.flatMap((p, i) => {
+    const until = hhmmMin(p.tags?.sun_visible_until);
+    if (p.category !== 'sunset' || !Number.isFinite(until)) return [];
+    const c = S.placeCost[i] / 60, left = until - S.t;
+    return [{ i, p, c, left, ok: Number.isFinite(c) && left > 0 && c <= left }];
+  }).sort((a, b) => (b.left - b.c) - (a.left - a.c) || b.left - a.left);
+}
+
+/** The spot the budget follows: the one picked in the list or on the map, else the catchable one with the most time to spare. */
+function sunsetTarget(): SunRow | undefined {
+  return sunRows.find(r => r.i === S.highlight) ?? sunRows.find(r => r.ok);
+}
+
+/** Budget = minutes left before the target spot loses the sun (so the rings show exactly how far you can still go). */
+function syncSunset() {
+  sunRows = sunsetRows();
+  const tgt = sunsetTarget();
+  const b = tgt ? Math.min(60, Math.max(1, Math.floor(tgt.left))) : S.defaultBudgetMin;
+  if (b !== S.budgetMin) {
+    S.budgetMin = b;
+    $<HTMLInputElement>('budget').value = String(b);
+    $('budgetLabel').textContent = `${b} min`;
+  }
+}
+
+const spotName = (p: Place) => placeLabel(p).replace(/^Sunset spot: /, '');
+function sunVerdict(r: SunRow): string {
+  if (r.left <= 0) return 'sun already gone';
+  if (!Number.isFinite(r.c)) return 'can\'t get there';
+  return r.ok ? `✓ catch it, ${fmtMin((r.left - r.c) * 60)} min to spare` : `too late by ${fmtMin((r.c - r.left) * 60)} min`;
+}
+
+function renderSunsetList() {
+  const tgt = sunsetTarget(), n = sunRows.filter(r => r.ok).length;
+  $('sunsetNote').innerHTML = (n
+    ? `At ${fmtTime(S.t)} you can still catch <b>${n} of ${sunRows.length}</b> sunset spots.`
+    : `At ${fmtTime(S.t)} it's too late for every sunset spot: try an earlier time.`) +
+    (tgt ? ` Budget = <b>${S.budgetMin} min</b>, until the sun leaves <b>${esc(spotName(tgt.p))}</b> at ${tgt.p.tags?.sun_visible_until}.` : '');
+  $('places').innerHTML = sunRows.map(r =>
+    `<li data-i="${r.i}" class="${r.ok ? '' : 'out'}${r === tgt ? ' target' : ''}">${esc(spotName(r.p))}` +
+    ` <small class="sun">☀ until ${r.p.tags?.sun_visible_until}</small><span class="c">${fmtMin(r.c * 60)} min</span>` +
+    `<div class="verdict ${r.ok ? 'ok' : 'late'}">${sunVerdict(r)}</div></li>`).join('');
+}
+
+/** Turn the mode on/off: on = sunset spots only and a budget that follows them; off = back to all places and the usual budget. */
+function setSunset(on: boolean, draw = true) {
+  S.sunset = on && hasSunsetSpots();
+  $('sunsetMode').classList.toggle('on', S.sunset);
+  if (S.sunset) S.category = 'sunset';
+  else {
+    $('sunsetNote').innerHTML = '';
+    if (S.category === 'sunset') S.category = 'all';
+    S.budgetMin = S.defaultBudgetMin;
+    $<HTMLInputElement>('budget').value = String(S.budgetMin);
+    $('budgetLabel').textContent = `${S.budgetMin} min`;
+  }
+  $<HTMLSelectElement>('category').value = S.category;
+  if (draw && S.field) render();
+}
+
 function renderList() {
+  if (S.sunset) return renderSunsetList();
   const budgetS = S.budgetMin * 60;
   const rows = S.places.map((p, i) => ({ p, i, c: S.placeCost[i], d: S.placeCost[i] / Math.pow(worth(p), S.alpha) }))
     .filter(r => Number.isFinite(r.c) && (S.category === 'all' || r.p.category === S.category))
@@ -331,7 +408,8 @@ function tooltip(info: PickingInfo): string | null {
   }
   if (o?.p) return `${placeLabel(o.p)}${o.p.name && o.p.category !== 'sunset' ? ` (${categoryLabel(o.p.category)})` : ''} · ${fmtMin(o.c!)} min for you` +
     `${sunUntil(o.p) ? `
-☀ ${sunUntil(o.p)}${o.p.tags?.sunset ? ` (sunset ${o.p.tags.sunset})` : ''}` : ''}`;
+☀ ${sunUntil(o.p)}${o.p.tags?.sunset ? ` (sunset ${o.p.tags.sunset})` : ''}` : ''}` +
+    `${S.sunset && o.p.category === 'sunset' ? `\n${sunVerdict(sunRows.find(r => r.p === o.p)!)}` : ''}`;
   return null;
 }
 
@@ -462,10 +540,15 @@ function wireControls() {
     }, 200);
   };
   const budget = $<HTMLInputElement>('budget');
-  budget.oninput = () => { S.budgetMin = Number(budget.value); $('budgetLabel').textContent = `${S.budgetMin} min`; render(); };
+  budget.oninput = () => { if (S.sunset) { S.sunset = false; $('sunsetMode').classList.remove('on'); $('sunsetNote').innerHTML = ''; } S.budgetMin = Number(budget.value); $('budgetLabel').textContent = `${S.budgetMin} min`; render(); };
   const alpha = $<HTMLInputElement>('alpha');
   alpha.oninput = () => { S.alpha = Number(alpha.value); $('alphaLabel').textContent = S.alpha.toFixed(1); renderList(); renderFormula(); };
-  $<HTMLSelectElement>('category').onchange = e => { S.category = (e.target as HTMLSelectElement).value; render(); };
+  $<HTMLSelectElement>('category').onchange = e => {
+    S.category = (e.target as HTMLSelectElement).value;
+    if (S.sunset && S.category !== 'sunset') setSunset(false, false);
+    render();
+  };
+  $('sunsetMode').onclick = () => { S.highlight = -1; setSunset(!S.sunset); };
   $('places').addEventListener('click', e => {
     const li = (e.target as HTMLElement).closest('li');
     if (!li?.dataset.i) return;
@@ -701,6 +784,8 @@ async function loadDataset(region: string) {
   $('category').innerHTML = `<option value="all">all (${S.places.length})</option>` +
     [...counts].sort((a, b) => b[1] - a[1]).map(([c, k]) => `<option value="${c}">${categoryLabel(c)} (${k})</option>`).join('');
   S.category = 'all';
+  $('sunsetMode').hidden = !hasSunsetSpots();
+  setSunset(S.sunset, false);
   updateTimeLabel();
   applyPreset(S.presets.some(p => p.id === S.presetId) ? S.presetId : 'walk');
 }
