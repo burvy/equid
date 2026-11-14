@@ -66,3 +66,57 @@ fn factor_presets_change_princeton_routes() {
         }
     }
 }
+
+/// Does 'Few crossings' dodge crossings? Compare the mapped crossings a route pays for with the side roads it
+/// walks past at junctions (a proxy for street crossings that are not mapped as crossing ways).
+#[test]
+#[ignore = "diagnostic: cargo test -p engine --test factor_examples crossing_dodge -- --ignored --nocapture"]
+fn crossing_dodge_diagnostic() {
+    use std::collections::HashMap;
+    let Some(core) = core() else { return };
+    let road = |h: &str| matches!(h, "residential" | "service" | "tertiary" | "secondary" | "primary" | "trunk" | "unclassified" | "living_street");
+    let n = core.graph.nodes.len();
+    let mut inc: Vec<Vec<usize>> = vec![vec![]; n];
+    let mut by_ends: HashMap<(u32, u32), usize> = HashMap::new();
+    for (i, e) in core.graph.edges.iter().enumerate() {
+        inc[e.from as usize].push(i);
+        inc[e.to as usize].push(i);
+        let k = (e.from.min(e.to), e.from.max(e.to));
+        if by_ends.get(&k).is_none_or(|&j| core.graph.edges[j].length_m > e.length_m) {
+            by_ends.insert(k, i);
+        }
+    }
+    // side roads passed along a route: at each interior node, car roads (foot-walkable) that are neither the edge in nor out
+    let side_roads = |path: &[u32]| -> f32 {
+        let mut s = 0.0;
+        for w in path.windows(3) {
+            let ein = by_ends[&(w[0].min(w[1]), w[0].max(w[1]))];
+            let eout = by_ends[&(w[1].min(w[2]), w[1].max(w[2]))];
+            s += inc[w[1] as usize].iter().filter(|&&i| i != ein && i != eout && road(&core.graph.edges[i].highway) && core.graph.edges[i].foot).count() as f32;
+        }
+        s
+    };
+    let mapped = |path: &[u32]| -> f32 {
+        path.windows(2).map(|w| { let e = &core.graph.edges[by_ends[&(w[0].min(w[1]), w[0].max(w[1]))]]; e.crossings_unsignalled as f32 + 0.3 * (e.crossings - e.crossings_unsignalled) as f32 }).sum()
+    };
+    let ps = presets();
+    let cr = Metric::compile(&ps.iter().find(|p| p.id == "crossings").unwrap().metric).unwrap();
+    let walk = Metric::from_json(r#"{"weights":{"time":1}}"#).unwrap();
+    let nn = n as u32;
+    let step = (nn / 12).max(1) as usize;
+    let (mut c, mut mw, mut mc, mut sw, mut sc, mut lw, mut lc) = (0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+    for a in (0..nn).step_by(step) {
+        for b in (0..nn).step_by(step) {
+            let (Ok(w), Ok(r)) = (core.explain(a, &walk, 780.0, b), core.explain(a, &cr, 780.0, b)) else { continue };
+            if w.length_m < 500.0 || w.length_m > 3000.0 {
+                continue;
+            }
+            c += 1;
+            mw += mapped(&w.path); mc += mapped(&r.path);
+            sw += side_roads(&w.path); sc += side_roads(&r.path);
+            lw += w.length_m; lc += r.length_m;
+        }
+    }
+    let k = c as f32;
+    println!("DODGE {c} routes: mapped crossings walk {:.1} -> few-crossings {:.1}; side roads passed walk {:.1} -> {:.1}; length {:.0} -> {:.0} m", mw / k, mc / k, sw / k, sc / k, lw / k, lc / k);
+}
