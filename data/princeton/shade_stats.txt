@@ -19,7 +19,34 @@ sunset 16:43: 3 of 7133 nodes have an open view west (skyline <= 3 deg) and keep
   Sunset spot: Russell Road: sun until 16:27 (sunset 16:43), skyline 2.5 deg, (-74.68499, 40.33648)
   Sunset spot: Pauline Drive: sun until 16:24 (sunset 16:43), skyline 1.4 deg, (-74.66095, 40.35750)
   Sunset spot: Witherspoon Street: sun until 16:23 (sunset 16:43), skyline 2.9 deg, (-74.66421, 40.36029)
-sunset + skylines in 0.3 s
+sunset + skylines in 0.4 s
+stargazing: sky share above 10 deg (36 skyline rays) x darkness (full at 250 m from a lit street; 32336 lit + 33130 maybe-lit sample points); spots (>= 400 m apart), 0.1 s:
+  Stargazing spot: Cross Country Course: sky 100%, 273 m from a lit street, score 1.00, (-74.63627, 40.33849)
+  Stargazing spot: Greenway Meadows: sky 92%, 273 m from a lit street, score 0.92, (-74.68606, 40.34326)
+  Stargazing spot: Guyot Avenue: sky 89%, 203 m from a lit street, score 0.72, (-74.65417, 40.36077)
+  Stargazing spot: General Johnson Road: sky 76%, 186 m from a lit street, score 0.57, (-74.68441, 40.34932)
+  Stargazing spot: Farmview Fields: sky 95%, 133 m from a lit street, score 0.51, (-74.68567, 40.35837)
+  Stargazing spot #6: sky 88%, 136 m from a lit street, score 0.48, (-74.68589, 40.33602)
+  Stargazing spot: Cross Country Course: sky 100%, 113 m from a lit street, score 0.45, (-74.63963, 40.33416)
+  Stargazing spot: Tiger Trail: sky 100%, 82 m from a lit street, score 0.33, (-74.64499, 40.33830)
+  named streets/paths >= 300 m by stargazing score; best:
+    Cross Country Course                2659 m  score 0.41  sky  95%   110 m from light
+    Nature Trail                         616 m  score 0.14  sky  39%   118 m from light
+    Johnson Trolley Line                 905 m  score 0.10  sky  21%   153 m from light
+    Delaware & Raritan Canal Towpath    2739 m  score 0.06  sky  40%    58 m from light
+    Littlebrook Road Footpath            443 m  score 0.02  sky  42%    10 m from light
+    Court Drive                          504 m  score 0.02  sky  86%     5 m from light
+  worst:
+    Lovers Lane                          409 m  score 0.00  sky  12%     2 m from light
+    Wheatsheaf Lane                      306 m  score 0.00  sky  19%     3 m from light
+    Hodge Road                          1004 m  score 0.00  sky  23%     2 m from light
+    Hibben Road                          317 m  score 0.00  sky  17%     4 m from light
+  check: Nassau Street                       2314 m  score 0.00  sky  48%     2 m from light
+  check: Witherspoon Street                  1349 m  score 0.01  sky  56%     2 m from light
+  check: Washington Road                     2972 m  score 0.01  sky  55%     3 m from light
+  check: Cross Country Course                2659 m  score 0.41  sky  95%   110 m from light
+  check: Delaware & Raritan Canal Towpath    2739 m  score 0.06  sky  40%    58 m from light
+  check: Johnson Trolley Line                 905 m  score 0.10  sky  21%   153 m from light
 named streets >= 300 m, shade at 13:00 (and tree cover); 175 streets:
   shadiest:
     Pretty Brook Road              609 m  shade   92%  trees   36%

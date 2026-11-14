@@ -1,11 +1,11 @@
-# prep-shade: LiDAR shade, tree cover and sunset spots
+# prep-shade: LiDAR shade, tree cover, sunset and stargazing spots
 
 Fills `edges[].shade` (48 half-hour slots) and `edges[].tree` in `data/princeton/graph.json`, and adds
-`sunset` places to `data/princeton/places.json`. Runs **after** `prep` (re-running `prep` wipes shade until this runs again).
+`sunset` and `stargazing` places to `data/princeton/places.json`. Runs **after** `prep` (re-running `prep` wipes shade until this runs again).
 
 ```sh
 cargo run --release -p prep                 # OSM + elevation -> graph.json, places.json
-cargo run --release -p prep-shade           # LiDAR -> shade, tree, sunset spots (+ data/princeton/shade_stats.txt)
+cargo run --release -p prep-shade           # LiDAR -> shade, tree, sunset + stargazing spots (+ data/princeton/shade_stats.txt)
 ```
 
 The first run downloads ~1.4 GB of LiDAR (2 min) and builds the rasters (40 s), caching both in
@@ -59,6 +59,14 @@ an open view toward the sunset (nothing more than 3° above the horizon in that 
 `sun_visible_until` ("16:35"), `sun_visible_until_min`, `sunset`, `skyline_deg`, `date`, `source`. They are named after the
 nearest named park (≤ 200 m) or street (≤ 150 m). Existing parks/gardens/viewpoints get a `sun_visible_until` tag too.
 
+**6b. Stargazing spots (`src/stargaze.rs`).** Every graph node is a candidate. *Open sky*: from head height, the skyline angle in
+36 directions (every 10°); crowns count as solid here (bare branches still clutter a star field). Only the sky above 10° counts
+(haze and town glow hide the stars lower down); `sky_open` = the visible part of that sky, weighted by solid angle, 0–1.
+*Darkness*: `dark_m` = metres to the nearest lit street (`lit` = true in graph.json). Most residential streets have no lighting
+data; they probably have a few lamps and porch lights, so a car street of unknown lighting counts as lit at twice its distance.
+Light outside the region is unknown, so `dark_m` is capped by the distance to the region edge. `score` = `sky_open` ×
+min(`dark_m` / 250 m, 1). The 8 best with `sky_open` ≥ 0.7, ≥ 400 m apart, become places with category `stargazing`.
+
 **7. Check and write.** The engine's own loader (`Core::load`) must accept the files before they are written.
 `data/princeton/shade_stats.txt` holds the stats, a named-street sanity table and a 13:00 vs 16:00 route demo (`src/demo.rs`).
 
@@ -71,8 +79,14 @@ nearest named park (≤ 200 m) or street (≤ 150 m). Existing parks/gardens/vie
 - Sunset 16:43; best spot keeps the sun until 16:35 (Rosedale Road fields). Nobody keeps it to the last minute: the
   horizon is lined with trees ~0.5–1° high.
 
+- Stargazing: the cross-country course (sky 100 %, 270 m from a lit street) and Greenway Meadows top the list. Sanity:
+  Nassau St, Witherspoon St and Washington Rd score 0.00–0.01 (lit, sky ~50 %), the cross-country course 0.41 on average
+  over its 2.7 km.
+
 ## Limits (say them before a judge does)
 - LiDAR is from 2015 (newer buildings and grown trees are missing) and was flown leaf-off; crown density is modelled by season, not measured.
 - κ, the crown base and the 50 % "visible" threshold are round, defensible numbers, not calibrated against light meters.
 - Shade is computed on the street centreline, so both sidewalks share one value. The whole trip is costed at the departure time (engine rule).
 - Sunset skylines stop at the LiDAR edge (1 km beyond the box); farther terrain is assumed flat (true for the farmland west of Princeton).
+- Stargazing darkness is distance to lit streets only: no light-pollution raster (VIIRS is ~500 m per pixel, about 10 pixels
+  across this town, and needs a login), no building or stadium lights, no moon or weather.

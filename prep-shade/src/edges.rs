@@ -8,6 +8,7 @@
 use crate::geo::{Grid, Proj};
 use crate::shade::{kappa_for_day, Scene, EYE_M};
 use crate::sun::Day;
+use crate::stargaze;
 use crate::sunset::{self, Candidate};
 use crate::{load_rasters, proj, Paths};
 use engine::graph::{Graph, Place, Places};
@@ -25,6 +26,11 @@ const SUNSET_SPOTS: usize = 8;
 const SUNSET_SPACING_M: f64 = 400.0;
 const SUNSET_SLACK_MIN: u32 = 10;
 const OPEN_SKYLINE_DEG: f64 = 3.0;
+/// Stargazing spots: how many and how far apart.
+const STAR_SPOTS: usize = 8;
+const STAR_SPACING_M: f64 = 400.0;
+/// A stargazing spot must see at least this share of the sky above 10 deg (darkness alone in a wood is no use).
+const STAR_MIN_OPEN: f64 = 0.7;
 
 pub fn run(p: &Paths) -> Result<(), String> {
     let dir = match std::env::args().nth(2) {
@@ -169,6 +175,61 @@ pub fn run(p: &Paths) -> Result<(), String> {
         }
     }
 
+    // ---- stargazing: open sky (36 skyline rays per node) + distance to the nearest lit street
+    let t_star = std::time::Instant::now();
+    let lit_pts: Vec<(f64, f64)> = graph.edges.iter().filter(|e| e.lit == Some(true)).flat_map(|e| samples(&pr, &e.geom)).collect();
+    let (bx0, by0) = pr.xy(crate::BBOX[0], crate::BBOX[1]);
+    let (bx1, by1) = pr.xy(crate::BBOX[2], crate::BBOX[3]);
+    let maybe_pts: Vec<(f64, f64)> =
+        graph.edges.iter().filter(|e| e.lit.is_none() && stargaze::maybe_lit(&e.highway)).flat_map(|e| samples(&pr, &e.geom)).collect();
+    let skies = stargaze::evaluate(&scene, &graph, &pr, &lit_pts, &maybe_pts, [bx0, by0, bx1, by1]);
+    let mut order: Vec<usize> = (0..skies.len()).filter(|&i| skies[i].ok && skies[i].open >= STAR_MIN_OPEN && skies[i].score() > 0.0).collect();
+    // best score first; ties: more sky, then higher ground
+    order.sort_by(|&a, &b| {
+        skies[b].score().partial_cmp(&skies[a].score()).unwrap_or(std::cmp::Ordering::Equal)
+            .then(skies[b].open.partial_cmp(&skies[a].open).unwrap_or(std::cmp::Ordering::Equal))
+            .then(graph.nodes[b].elev_m.partial_cmp(&graph.nodes[a].elev_m).unwrap_or(std::cmp::Ordering::Equal))
+    });
+    let mut picked: Vec<usize> = Vec::new();
+    for &i in &order {
+        if picked.len() == STAR_SPOTS {
+            break;
+        }
+        if picked.iter().all(|&j| dist(&cands[i], &cands[j]) >= STAR_SPACING_M) {
+            picked.push(i);
+        }
+    }
+    places.places.retain(|pl| pl.category != "stargazing");
+    let mut star_lines = String::new();
+    for (rank, &i) in picked.iter().enumerate() {
+        let k = &skies[i];
+        let n = &graph.nodes[i];
+        let name = match names.near(cands[i].x, cands[i].y) {
+            Some(s) => format!("Stargazing spot: {s}"),
+            None => format!("Stargazing spot #{}", rank + 1),
+        };
+        let mut tags = serde_json::Map::new();
+        tags.insert("sky_open".into(), json!(r2(k.open)));
+        tags.insert("dark_m".into(), json!(k.dark_m.round()));
+        tags.insert("score".into(), json!(r2(k.score())));
+        tags.insert("source".into(), json!("USGS 3DEP LiDAR 2015 skyline + OSM street lighting (prep-shade)"));
+        let _ = writeln!(star_lines, "  {name}: sky {:.0}%, {:.0} m from a lit street, score {:.2}, ({:.5}, {:.5})", k.open * 100.0, k.dark_m, k.score(), n.lon, n.lat);
+        places.places.push(Place {
+            id: format!("stargazing-{}", rank + 1),
+            name: Some(name),
+            lon: n.lon,
+            lat: n.lat,
+            category: "stargazing".into(),
+            tags,
+            node: i as u32,
+            snap_m: 0.0,
+            rating: None,
+            n: None,
+            rating_src: None,
+        });
+    }
+    let t_star = t_star.elapsed().as_secs_f64();
+
     // ---- check with the engine's own loader, then write
     let graph_json = serde_json::to_string(&graph).map_err(|e| e.to_string())?;
     let places_json = serde_json::to_string_pretty(&places).map_err(|e| e.to_string())?;
@@ -201,6 +262,40 @@ pub fn run(p: &Paths) -> Result<(), String> {
         hhmm(sunset_min), watch_sunset, cands.len(), SUNSET_SLACK_MIN, SUNSET_SPACING_M);
     s.push_str(&spot_lines);
     let _ = writeln!(s, "sunset + skylines in {:.1} s", t0.elapsed().as_secs_f64() - t_shade);
+    let _ = writeln!(s, "stargazing: sky share above {} deg (36 skyline rays) x darkness (full at {} m from a lit street; {} lit + {} maybe-lit sample points); spots (>= {} m apart), {:.1} s:",
+        stargaze::MIN_ALT_DEG, stargaze::DARK_FULL_M, lit_pts.len(), maybe_pts.len(), STAR_SPACING_M, t_star);
+    s.push_str(&star_lines);
+    // Sanity check: named streets/paths (>= 300 m), mean stargazing score of their end nodes.
+    let mut by_name: std::collections::BTreeMap<&str, (f64, f64, f64, f64)> = Default::default(); // (length, score*len, open*len, dark*len)
+    for e in &graph.edges {
+        let Some(name) = e.osm.and_then(|id| names.way_name.get(&id)) else { continue };
+        let (a, b) = (&skies[e.from as usize], &skies[e.to as usize]);
+        if !(a.ok && b.ok) {
+            continue;
+        }
+        let l = e.length_m as f64;
+        let r = by_name.entry(name.as_str()).or_default();
+        r.0 += l;
+        r.1 += (a.score() + b.score()) / 2.0 * l;
+        r.2 += (a.open + b.open) / 2.0 * l;
+        r.3 += (a.dark_m + b.dark_m) / 2.0 * l;
+    }
+    let mut rows: Vec<(&str, f64, f64, f64, f64)> = by_name.into_iter().filter(|(_, r)| r.0 >= 300.0).map(|(n, r)| (n, r.0, r.1 / r.0, r.2 / r.0, r.3 / r.0)).collect();
+    rows.sort_by(|a, b| b.2.partial_cmp(&a.2).unwrap());
+    let fmt = |r: &(&str, f64, f64, f64, f64)| format!("    {:<34} {:5.0} m  score {:.2}  sky {:3.0}%  {:4.0} m from light", r.0, r.1, r.2, r.3 * 100.0, r.4);
+    let _ = writeln!(s, "  named streets/paths >= 300 m by stargazing score; best:");
+    for r in rows.iter().take(6) {
+        let _ = writeln!(s, "{}", fmt(r));
+    }
+    let _ = writeln!(s, "  worst:");
+    for r in rows.iter().rev().take(4) {
+        let _ = writeln!(s, "{}", fmt(r));
+    }
+    for want in ["Nassau Street", "Witherspoon Street", "Washington Road", "Cross Country Course", "Delaware & Raritan Canal Towpath", "Johnson Trolley Line"] {
+        if let Some(r) = rows.iter().find(|r| r.0 == want) {
+            let _ = writeln!(s, "  check: {}", fmt(r).trim_start());
+        }
+    }
     // Sanity check against what you see on the street: named streets (>= 300 m in the network), by shade at 13:00.
     let slot13 = (13 * 60) / graph.meta.slot_min as usize;
     let mut by_name: std::collections::BTreeMap<&str, (f64, f64, f64)> = Default::default(); // (length, shade13*len, tree*len)

@@ -1,10 +1,10 @@
-//! prep-shade: USGS 3DEP LiDAR -> shade by time of day, tree cover and sunset viewpoints.
+//! prep-shade: USGS 3DEP LiDAR -> shade by time of day, tree cover, sunset viewpoints and stargazing spots.
 //! See prep-shade/README.md for the method, step by step.
 //!
 //!   cargo run --release -p prep-shade            # all steps; fetch/raster skip if their output is cached
 //!   cargo run --release -p prep-shade -- fetch   # 1. download LiDAR tiles  -> data/raw/lidar/ept/
 //!   cargo run --release -p prep-shade -- raster  # 2. points -> 1 m DSM/DTM -> data/raw/lidar/*.bin
-//!   cargo run --release -p prep-shade -- shade   # 3. sun + rasters -> graph.json shade/tree, places.json sunset,
+//!   cargo run --release -p prep-shade -- shade   # 3. sun + rasters -> graph.json shade/tree, places.json sunset + stargazing,
 //!                                                #    stats + a 13:00 vs 16:00 route demo -> data/princeton/shade_stats.txt
 
 mod demo;
@@ -14,6 +14,7 @@ mod geo;
 mod image;
 mod raster;
 mod shade;
+mod stargaze;
 mod sun;
 mod sunset;
 

@@ -4032,6 +4032,150 @@
       "rating": null,
       "n": null,
       "rating_src": null
+    },
+    {
+      "id": "stargazing-1",
+      "name": "Stargazing spot: Cross Country Course",
+      "lon": -74.636271,
+      "lat": 40.338489,
+      "category": "stargazing",
+      "tags": {
+        "dark_m": 273.0,
+        "score": 1.0,
+        "sky_open": 1.0,
+        "source": "USGS 3DEP LiDAR 2015 skyline + OSM street lighting (prep-shade)"
+      },
+      "node": 6954,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "stargazing-2",
+      "name": "Stargazing spot: Greenway Meadows",
+      "lon": -74.686059,
+      "lat": 40.343264,
+      "category": "stargazing",
+      "tags": {
+        "dark_m": 273.0,
+        "score": 0.9200000166893005,
+        "sky_open": 0.9200000166893005,
+        "source": "USGS 3DEP LiDAR 2015 skyline + OSM street lighting (prep-shade)"
+      },
+      "node": 1892,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "stargazing-3",
+      "name": "Stargazing spot: Guyot Avenue",
+      "lon": -74.654172,
+      "lat": 40.360772,
+      "category": "stargazing",
+      "tags": {
+        "dark_m": 203.0,
+        "score": 0.7200000286102295,
+        "sky_open": 0.8899999856948853,
+        "source": "USGS 3DEP LiDAR 2015 skyline + OSM street lighting (prep-shade)"
+      },
+      "node": 5335,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "stargazing-4",
+      "name": "Stargazing spot: General Johnson Road",
+      "lon": -74.684413,
+      "lat": 40.349317,
+      "category": "stargazing",
+      "tags": {
+        "dark_m": 186.0,
+        "score": 0.5699999928474426,
+        "sky_open": 0.7599999904632568,
+        "source": "USGS 3DEP LiDAR 2015 skyline + OSM street lighting (prep-shade)"
+      },
+      "node": 3978,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "stargazing-5",
+      "name": "Stargazing spot: Farmview Fields",
+      "lon": -74.685668,
+      "lat": 40.35837,
+      "category": "stargazing",
+      "tags": {
+        "dark_m": 133.0,
+        "score": 0.5099999904632568,
+        "sky_open": 0.949999988079071,
+        "source": "USGS 3DEP LiDAR 2015 skyline + OSM street lighting (prep-shade)"
+      },
+      "node": 3711,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "stargazing-6",
+      "name": "Stargazing spot #6",
+      "lon": -74.685894,
+      "lat": 40.336018,
+      "category": "stargazing",
+      "tags": {
+        "dark_m": 136.0,
+        "score": 0.47999998927116394,
+        "sky_open": 0.8799999952316284,
+        "source": "USGS 3DEP LiDAR 2015 skyline + OSM street lighting (prep-shade)"
+      },
+      "node": 6091,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "stargazing-7",
+      "name": "Stargazing spot: Cross Country Course",
+      "lon": -74.639635,
+      "lat": 40.334161,
+      "category": "stargazing",
+      "tags": {
+        "dark_m": 113.0,
+        "score": 0.44999998807907104,
+        "sky_open": 1.0,
+        "source": "USGS 3DEP LiDAR 2015 skyline + OSM street lighting (prep-shade)"
+      },
+      "node": 6956,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
+    },
+    {
+      "id": "stargazing-8",
+      "name": "Stargazing spot: Tiger Trail",
+      "lon": -74.644988,
+      "lat": 40.338303,
+      "category": "stargazing",
+      "tags": {
+        "dark_m": 82.0,
+        "score": 0.33000001311302185,
+        "sky_open": 1.0,
+        "source": "USGS 3DEP LiDAR 2015 skyline + OSM street lighting (prep-shade)"
+      },
+      "node": 6917,
+      "snap_m": 0.0,
+      "rating": null,
+      "n": null,
+      "rating_src": null
     }
   ]
 }
