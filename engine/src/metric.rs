@@ -2,7 +2,7 @@
 //! Presets (data/presets.json) are named metrics. JSON form (also what `field` takes):
 //! `{"mode":"foot","weights":{"time":1,"climb":10},"forbid":["steps"]}`
 
-use crate::features::{edge_features, feature_index, Mode, N_FEATURES};
+use crate::features::{edge_features, feature_index, Mode, FEATURES};
 use crate::graph::{Edge, Meta};
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
@@ -33,15 +33,15 @@ pub struct Preset {
 #[derive(Debug, Clone)]
 pub struct Metric {
     pub mode: Mode,
-    pub weights: [f32; N_FEATURES],
-    pub forbid: [bool; N_FEATURES],
+    pub weights: Vec<f32>,
+    pub forbid: Vec<bool>,
 }
 
 impl Metric {
     /// Rejects unknown feature ids and negative/NaN weights: a_i >= 0 is what keeps cost >= 0,
     /// which is the condition Dijkstra needs (and what the Lean proof states).
     pub fn compile(spec: &MetricSpec) -> Result<Metric, String> {
-        let mut weights = [0.0; N_FEATURES];
+        let mut weights = vec![0.0; FEATURES.len()];
         for (id, &a) in &spec.weights {
             let i = feature_index(id).ok_or_else(|| format!("unknown feature '{id}'"))?;
             if !(a >= 0.0 && a.is_finite()) {
@@ -49,7 +49,7 @@ impl Metric {
             }
             weights[i] = a;
         }
-        let mut forbid = [false; N_FEATURES];
+        let mut forbid = vec![false; FEATURES.len()];
         for id in &spec.forbid {
             forbid[feature_index(id).ok_or_else(|| format!("unknown feature '{id}'"))?] = true;
         }
