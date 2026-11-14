@@ -54,6 +54,10 @@ One cost field, three views. `web/src/main.ts` is glue only; all math is in the 
   state `S` · map + deck · engine (`runField`) · rendering (`layers`, list, formula, legend) · views · controls · loading.
 - **URL params** for demos: `?data=princeton&view=warp&preset=night&t=1320&origin=123`. `window.equid` holds the state in devtools.
 - Presets come from `data/presets.json`; the sliders come from `Engine.features_json()`. Adding a feature in the engine adds a slider.
+- **AI trip panel** (top of the sidebar): text box + 3 example chips → `POST /agent` (Vite proxies `/agent` to
+  `cargo run -p server` on :8787; `EQUID_AGENT=http://host:port npm run dev` or `?agent=<url>` to change). The answer's metric
+  becomes the `Custom (AI)` preset (sliders, formula, field), its stops are numbered amber markers in every view, and the
+  pitch + plain-English weights show in the panel. Run the server on the same data as the page: `EQUID_DATA=data/princeton`.
 
 ## Status
 Work in progress (hackathon build). The engine's `field` is real (petgraph Dijkstra over user-weighted, time-dependent edge costs).
@@ -65,7 +69,7 @@ Map data © OpenStreetMap contributors (ODbL).
 
 ```
 export ANTHROPIC_API_KEY=sk-ant-...      # optional: without it a mock model runs the same tool loop
-cargo run -p server                      # http://127.0.0.1:8787, data from data/fixtures (EQUID_DATA to change)
+cargo run -p server                      # http://127.0.0.1:8787, data from data/fixtures (EQUID_DATA=data/princeton for the web demo)
 curl -X POST localhost:8787/agent -H 'content-type: application/json'   -d '{"text":"stroller, want a coffee","origin":{"lon":-74.662,"lat":40.348},"t":600}'
 cargo test -p server                     # the three scripted prompts through the whole loop (mock)
 ```

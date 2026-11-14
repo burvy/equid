@@ -35,3 +35,23 @@ footer label { font-weight: 400; display: inline; }
 #legend .bar { width: 180px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, rgb(26,152,80), rgb(254,224,90), rgb(215,48,39)); margin: 3px 0; }
 #legend .ends { display: flex; justify-content: space-between; color: var(--muted); }
 #map canvas.maplibregl-canvas { transition: opacity .8s; }
+/* AI trip panel */
+#ai { background: #f5f3ff; border: 1px solid #e4defc; border-radius: 8px; padding: 8px 10px; }
+#ai textarea { width: 100%; margin-top: 4px; font: inherit; resize: vertical; border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 6px; }
+.chips button { font: inherit; font-size: 12px; border: 1px solid #d8d0fa; background: #fff; border-radius: 999px; padding: 2px 8px; cursor: pointer; }
+.chips button:hover { border-color: #7c3aed; }
+button.go { font: inherit; width: 100%; padding: 5px; border: 0; border-radius: 6px; background: #7c3aed; color: #fff; cursor: pointer; }
+button:disabled { opacity: .55; cursor: wait; }
+#aiOut:empty { display: none; }
+#aiOut { margin-top: 8px; }
+#aiOut .pitch { margin: 0 0 6px; font-style: italic; }
+#aiOut h4 { margin: 6px 0 2px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+#aiOut ol, #aiOut ul { margin: 0; padding-left: 20px; }
+#aiOut li { margin: 2px 0; }
+#aiOut .stops li { cursor: pointer; }
+#aiOut .stops li:hover b { color: var(--accent); }
+#aiOut .why { color: var(--muted); font-size: 12px; }
+#aiOut .meta { color: var(--muted); font-size: 11px; margin-top: 4px; }
+#aiOut .err { color: #b91c1c; }
+#aiOut .busy { color: #5b21b6; }

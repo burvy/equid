@@ -23,15 +23,25 @@ type MetricSpec = { mode: 'foot' | 'bike'; weights: Record<string, number>; forb
 type Preset = MetricSpec & { id: string; name: string; description: string };
 type Feature = { id: string; unit: string; desc: string };
 type View = 'map' | 'warp' | '3d';
+/** POST /agent response (docs/contracts.md section 6). */
+type AgentStop = { id: string; name: string | null; category: string; minutes: number; why: string };
+type AgentReply = {
+  metric: Partial<MetricSpec> & { weights: Record<string, number> };
+  stops: AgentStop[]; pitch: string; llm: string; tools_called?: string[];
+  detected?: { label: string; lon: number; lat: number; src?: string }[];
+};
+/** The last AI answer: stops resolved to indices into S.places (-1 = not in this dataset). */
+type AiTrip = { text: string; reply: AgentReply; stopIdx: number[] };
 
 // ---------- datasets: every data/<region>/ with graph.json + places.json ----------
 const graphUrls = import.meta.glob('../../data/*/graph.json', { query: '?url', import: 'default', eager: true }) as Record<string, string>;
 const placesUrls = import.meta.glob('../../data/*/places.json', { query: '?url', import: 'default', eager: true }) as Record<string, string>;
-const datasets: Record<string, { graph: string; places: string }> = {};
+const objectsUrls = import.meta.glob('../../data/*/objects.json', { query: '?url', import: 'default', eager: true }) as Record<string, string>;
+const datasets: Record<string, { graph: string; places: string; objects?: string }> = {};
 for (const [path, url] of Object.entries(graphUrls)) {
   const region = path.split('/').at(-2)!;
   const places = placesUrls[path.replace('graph.json', 'places.json')];
-  if (places) datasets[region] = { graph: url, places };
+  if (places) datasets[region] = { graph: url, places, objects: objectsUrls[path.replace('graph.json', 'objects.json')] };
 }
 
 // ---------- state ----------
@@ -48,6 +58,7 @@ const S = {
   origin: 0,
   t: Number(params.get('t') ?? 720),
   budgetMin: 15,
+  defaultBudgetMin: 15, // per dataset; an AI answer resets the budget to this, then widens it to fit its stops
   alpha: 0,
   category: 'all',
   view: (params.get('view') as View) ?? 'map',
@@ -56,6 +67,7 @@ const S = {
   placeCost: new Float32Array(0) as Float32Array<ArrayBufferLike>,
   fieldMs: 0,
   highlight: -1,
+  ai: null as AiTrip | null,
 };
 
 (window as unknown as { equid: typeof S }).equid = S; // handy in the devtools console
@@ -188,6 +200,25 @@ function layers() {
     updateTriggers: { getRadius: S.highlight, getFillColor: [S.budgetMin, beyondAlpha], getLineColor: [S.budgetMin, beyondAlpha] },
   }));
 
+  // the AI's curated stops: numbered amber markers on top of the places, in every view
+  const stops = (S.ai?.stopIdx ?? []).map((i, k) => ({ k: k + 1, i, pos: [placePos[3 * i], placePos[3 * i + 1], placePos[3 * i + 2]] }))
+    .filter(d => d.i >= 0);
+  if (stops.length) {
+    out.push(new ScatterplotLayer({
+      id: 'stops', data: stops, ...geo, pickable: true,
+      getPosition: (d: { pos: [number, number, number] }) => d.pos,
+      getRadius: (d: { i: number }) => (d.i === S.highlight ? 14 : 11), radiusUnits: 'pixels',
+      getFillColor: [245, 158, 11], getLineColor: [255, 255, 255], lineWidthMinPixels: 2.5, stroked: true, billboard: true,
+      updateTriggers: { getRadius: S.highlight },
+    }));
+    out.push(new TextLayer({
+      id: 'stop-numbers', data: stops, ...geo,
+      getPosition: (d: { pos: [number, number, number] }) => d.pos,
+      getText: (d: { k: number }) => String(d.k), getSize: 12, getColor: [255, 255, 255],
+      fontFamily: 'system-ui, sans-serif', fontWeight: 700, billboard: true,
+    }));
+  }
+
   const o = originNode();
   out.push(new ScatterplotLayer({
     id: 'origin', data: [o], ...geo,
@@ -209,6 +240,7 @@ function render() {
   renderList();
   renderFormula();
   renderLegend();
+  renderAi(); // stop minutes follow the current field
   const g = S.graph!;
   $('status').textContent = `${g.meta.region}: ${g.nodes.length} nodes · ${g.edges.length} edges · ${S.places.length} places · field ${S.fieldMs.toFixed(1)} ms`;
 }
@@ -264,7 +296,11 @@ function tooltip(info: PickingInfo): string | null {
     const c = Math.min(S.nodeCost[e.from], S.nodeCost[e.to]);
     return `${e.highway}${e.steps ? ' (stairs)' : ''} · ${fmtMin(c)} min for you`;
   }
-  const o = info.object as { p?: Place; c?: number } | null;
+  const o = info.object as { p?: Place; c?: number; k?: number; i?: number } | null;
+  if (o?.k && o.i != null && S.ai) {
+    const p = S.places[o.i];
+    return `${o.k}. ${placeLabel(p)} · ${fmtMin(S.placeCost[o.i])} min for you\n${tidy(S.ai.reply.stops[o.k - 1]?.why ?? '')}`;
+  }
   if (o?.p) return `${placeLabel(o.p)}${o.p.name ? ` (${categoryLabel(o.p.category)})` : ''} · ${fmtMin(o.c!)} min for you`;
   return null;
 }
@@ -313,6 +349,7 @@ function onMapClick(info: PickingInfo) {
     // warped positions are not geographic, so snap to what was clicked (the edge's far end) instead of the coordinate
     if (edge) S.origin = S.nodeCost[edge.from] <= S.nodeCost[edge.to] ? edge.to : edge.from;
     else if (obj?.p) S.origin = obj.p.node;
+    else if ((obj as { i?: number } | undefined)?.i != null) S.origin = S.places[(obj as { i: number }).i].node;
     else return;
   } else if (info.coordinate) {
     S.origin = S.engine.nearest_node(info.coordinate[0], info.coordinate[1]);
@@ -334,12 +371,15 @@ function applyPreset(id: string) {
 }
 
 function buildWeightSliders() {
+  // built-in features, plus any other weight the metric uses (the AI can weight near:<label> object terms)
+  const extra: Feature[] = Object.keys(S.metric.weights).filter(id => !S.features.some(f => f.id === id))
+    .map(id => ({ id, unit: 'object distance', desc: termDesc(id) }));
   $('weights').innerHTML = `<div class="w"><span>mode</span><select id="mode"><option value="foot">foot</option><option value="bike">bike</option></select><span></span><span></span></div>` +
-    S.features.map(f => {
+    [...S.features, ...extra].map(f => {
       const a = S.metric.weights[f.id] ?? 0, max = f.id === 'time' ? 5 : 30;
       const forbid = S.metric.forbid.includes(f.id);
       return `<div class="w${forbid ? ' forbid' : ''}" title="${f.desc} (${f.unit})"><span>${f.id}</span>` +
-        `<input type="range" min="0" max="${max}" step="0.5" value="${a}" data-f="${f.id}">` +
+        `<input type="range" min="0" max="${max}" step="0.1" value="${a}" data-f="${f.id}">` +
         `<span class="num">${a}</span><input type="checkbox" title="forbid: edges with any ${f.id} are impassable" data-forbid="${f.id}"${forbid ? ' checked' : ''}></div>`;
     }).join('');
   $<HTMLSelectElement>('mode').value = S.metric.mode;
@@ -356,7 +396,10 @@ function wireControls() {
     const v = (e.target as HTMLElement).dataset.view as View | undefined;
     if (v) setView(v);
   });
-  $<HTMLSelectElement>('preset').onchange = e => applyPreset((e.target as HTMLSelectElement).value);
+  $<HTMLSelectElement>('preset').onchange = e => {
+    const v = (e.target as HTMLSelectElement).value;
+    if (v === 'ai' && S.ai) applyAiMetric(); else applyPreset(v);
+  };
   $('weights').addEventListener('input', e => {
     const el = e.target as HTMLInputElement;
     if (el.dataset.f) {
@@ -401,6 +444,7 @@ function wireControls() {
     if (S.view !== 'warp') map.easeTo({ center: [p.lon, p.lat], duration: 600 });
     render();
   });
+  wireAi();
   const ds = $<HTMLSelectElement>('dataset');
   ds.onchange = () => loadDataset(ds.value);
 }
@@ -409,6 +453,153 @@ function updateTimeLabel() {
   const m = S.graph?.meta;
   const night = m ? S.t < m.sunrise_min || S.t >= m.sunset_min : false;
   $('timeLabel').textContent = `${fmtTime(S.t)} ${night ? '🌙 night' : '☀ day'}`;
+}
+
+// ---------- AI trip panel (POST /agent, docs/contracts.md section 6) ----------
+// The server is reached on the page's own origin (Vite proxies /agent to cargo run -p server); ?agent=<url> overrides.
+const AGENT_URL = params.get('agent') ?? '/agent';
+const AGENT_TIMEOUT_MS = 180_000; // real Claude runs a multi-tool loop: tens of seconds is normal
+/** f32 noise in model/server text ('0.699999988079071 minutes') -> '0.7'; other numbers untouched. */
+const tidy = (s: string) => s.replace(/\d+\.\d{4,}/g, x => String(+Number(x).toFixed(1)));
+const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+
+/** Plain-English meaning of one metric term, for the 'why these weights' list. */
+function termDesc(id: string): string {
+  if (id.startsWith('near:')) return `stay near ${id.slice(5)} (cost grows with distance to the nearest one)`;
+  return S.features.find(f => f.id === id)?.desc ?? id;
+}
+
+/** 'Custom (AI)' appears in the preset menu only while there is an AI answer. */
+function syncAiPreset() {
+  const sel = $<HTMLSelectElement>('preset');
+  const opt = sel.querySelector('option[value="ai"]');
+  if (S.ai && !opt) sel.insertAdjacentHTML('beforeend', '<option value="ai">Custom (AI)</option>');
+  if (!S.ai && opt) opt.remove();
+}
+
+/** Put the AI's metric in charge: preset menu, sliders, formula, field, map. */
+function applyAiMetric() {
+  const m = S.ai!.reply.metric;
+  S.presetId = 'ai';
+  S.metric = { mode: m.mode ?? 'foot', weights: { ...m.weights }, forbid: [...(m.forbid ?? [])] };
+  syncAiPreset();
+  $<HTMLSelectElement>('preset').value = 'ai';
+  $('presetDesc').textContent = `Weights chosen by the AI for “${S.ai!.text}”.`;
+  buildWeightSliders();
+  $<HTMLDetailsElement>('weightsBox').open = true; // show the sliders the AI just set
+  if (S.view === '3d') setView('3d', false, false);
+  runField(); // synchronous, so the budget check below sees the new costs
+  // budget = the usual one, widened so every stop is inside it (beyond-budget places are hidden in warp / 3D)
+  const worst = Math.max(0, ...S.ai!.stopIdx.filter(i => i >= 0).map(i => S.placeCost[i]).filter(Number.isFinite));
+  const fit = Math.min(60, Math.max(S.defaultBudgetMin, Math.ceil(worst / 60) + 1));
+  if (fit !== S.budgetMin) {
+    S.budgetMin = fit;
+    $<HTMLInputElement>('budget').value = String(S.budgetMin);
+    $('budgetLabel').textContent = `${S.budgetMin} min`;
+    if (S.view !== 'map') fitView(S.view, 600);
+    render();
+  }
+}
+
+/** Pitch, numbered stops (minutes from the current field) and the AI's weights in plain English. */
+function renderAi() {
+  const a = S.ai;
+  if (!a || aiPending) return; // don't overwrite the 'Thinking…' line
+  const r = a.reply;
+  const stops = r.stops.map((st, k) => {
+    const i = a.stopIdx[k];
+    const name = esc(st.name ?? categoryLabel(st.category));
+    const mins = i >= 0 && Number.isFinite(S.placeCost[i]) ? fmtMin(S.placeCost[i]) : fmtMin(st.minutes * 60);
+    return `<li data-i="${i}"><b>${name}</b> · ${mins} min<div class="why">${esc(tidy(st.why))}</div></li>`;
+  }).join('');
+  const terms = Object.entries(r.metric.weights).filter(([, w]) => w > 0)
+    .map(([id, w]) => `<li><b>${esc(id)} ×${+w.toFixed(2)}</b>: ${esc(termDesc(id))}</li>`);
+  for (const f of r.metric.forbid ?? []) terms.push(`<li><b>no ${esc(f)}</b>: impassable for this trip</li>`);
+  const missing = a.stopIdx.filter(i => i < 0).length;
+  $('aiOut').innerHTML =
+    `<p class="pitch">${esc(tidy(r.pitch))}</p>` +
+    (r.stops.length ? `<h4>Stops</h4><ol class="stops">${stops}</ol>` : '') +
+    (missing ? `<p class="err">${missing} stop(s) aren't in this map's data: is the server on the same dataset (EQUID_DATA)?</p>` : '') +
+    `<h4>Why these weights</h4><ul>${terms.join('')}</ul>` +
+    `<div class="meta">${r.llm === 'mock' ? 'offline mock model (no API key on the server)' : esc(r.llm)}` +
+    `${r.detected?.length ? ` · found ${r.detected.length} object(s) live` : ''}</div>`;
+}
+
+let aiAsk = 0, aiPending = false;
+async function askAgent(text: string) {
+  if (!S.engine || !S.graph || !text.trim()) return;
+  const id = ++aiAsk, go = $<HTMLButtonElement>('aiGo');
+  go.disabled = true;
+  aiPending = true;
+  const t0 = performance.now();
+  const tick = () => { if (id === aiAsk) $('aiOut').innerHTML = `<p class="busy">Thinking… the agent is picking weights and checking places (${Math.round((performance.now() - t0) / 1000)} s)</p>`; };
+  tick();
+  const timer = setInterval(tick, 1000);
+  const ctl = new AbortController();
+  const kill = setTimeout(() => ctl.abort(), AGENT_TIMEOUT_MS);
+  const o = originNode();
+  try {
+    const res = await fetch(AGENT_URL, {
+      method: 'POST', headers: { 'content-type': 'application/json' }, signal: ctl.signal,
+      body: JSON.stringify({ text, origin: { lon: o.lon, lat: o.lat }, t: S.t }),
+    });
+    const body = await res.json().catch(() => null);
+    if (id !== aiAsk) return; // a newer question was asked meanwhile
+    clearInterval(timer);
+    aiPending = false;
+    if (!res.ok || !body?.metric) {
+      // the Vite proxy answers 500/502/504 with no JSON when the server isn't running
+      throw new Error(body?.error ?? (res.status >= 500 && !body ? 'unreachable' : `the agent answered HTTP ${res.status}`));
+    }
+    const reply = body as AgentReply;
+    // objects the agent found live (Vexcel) must exist in our engine before its near:<label> weights compile
+    const byLabel = new Map<string, [number, number][]>();
+    for (const d of reply.detected ?? []) byLabel.set(d.label, [...(byLabel.get(d.label) ?? []), [d.lon, d.lat]]);
+    for (const [label, pts] of byLabel) S.engine.add_objects(label, JSON.stringify(pts));
+    S.ai = { text, reply, stopIdx: reply.stops.map(st => S.places.findIndex(p => p.id === st.id)) };
+    S.highlight = -1;
+    applyAiMetric();
+    renderAi();
+  } catch (e) {
+    if (id !== aiAsk) return;
+    clearInterval(timer);
+    aiPending = false;
+    const err = e as Error;
+    const msg = err.name === 'AbortError' ? `No answer after ${AGENT_TIMEOUT_MS / 1000} s.`
+      : err instanceof TypeError || err.message === 'unreachable'
+        ? `Can't reach the trip agent at ${esc(AGENT_URL)}. Start it with <code>cargo run -p server</code>.`
+        : `The agent failed: ${esc(err.message)}`;
+    $('aiOut').innerHTML = `<p class="err">${msg}</p>`;
+  } finally {
+    clearInterval(timer);
+    clearTimeout(kill);
+    if (id === aiAsk) go.disabled = false;
+  }
+}
+
+function wireAi() {
+  const box = $<HTMLTextAreaElement>('aiText');
+  $('aiGo').onclick = () => askAgent(box.value);
+  box.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); askAgent(box.value); } });
+  $('aiChips').addEventListener('click', e => {
+    const b = (e.target as HTMLElement).closest('button');
+    if (!b?.dataset.text) return;
+    box.value = b.dataset.text;
+    // each example is about a time of day: set the clock first so the agent and the field use it
+    S.t = Number(b.dataset.t);
+    $<HTMLInputElement>('time').value = String(S.t);
+    updateTimeLabel();
+    askAgent(b.dataset.text);
+  });
+  $('aiOut').addEventListener('click', e => {
+    const li = (e.target as HTMLElement).closest<HTMLElement>('li[data-i]');
+    const i = Number(li?.dataset.i ?? -1);
+    if (i < 0) return;
+    S.highlight = i;
+    const p = S.places[i];
+    if (S.view === 'map') map.easeTo({ center: [p.lon, p.lat], duration: 600 });
+    render();
+  });
 }
 
 // ---------- loading ----------
@@ -420,10 +611,17 @@ async function loadDataset(region: string) {
   S.engine = new Engine(gText, pText);
   S.graph = JSON.parse(gText) as Graph;
   S.places = JSON.parse(pText).places;
+  if (d.objects) {
+    // object positions for near:<label> weights (the agent may weight them); optional per dataset
+    try { S.engine.load_objects(await fetch(d.objects).then(r => r.text())); } catch (e) { console.warn('objects.json:', e); }
+  }
   S.highlight = -1;
+  S.ai = null;
+  $('aiOut').innerHTML = '';
+  syncAiPreset();
   const [w, s, e, n] = S.graph.meta.bbox;
   S.origin = params.has('origin') ? Number(params.get('origin')) : S.engine.nearest_node((w + e) / 2, (s + n) / 2);
-  S.budgetMin = region === 'fixtures' ? 4 : 15;
+  S.budgetMin = S.defaultBudgetMin = region === 'fixtures' ? 4 : 15;
   $<HTMLInputElement>('budget').value = String(S.budgetMin);
   $('budgetLabel').textContent = `${S.budgetMin} min`;
   map.fitBounds([[w, s], [e, n]], { padding: 40, duration: 0 });
