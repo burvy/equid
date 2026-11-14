@@ -1,27 +1,38 @@
 #!/usr/bin/env bash
-# Downloads raw inputs into data/raw/ (gitignored). Safe to re-run: skips files that exist.
-# 1) OSM ways + amenities from Overpass (prep/overpass.ql); street lamps + campus outlines (prep/night.ql).
+# Downloads raw inputs for one region (prep/regions.tsv) into its raw_dir (gitignored).
+# Safe to re-run: skips files that exist.
+#   bash prep/fetch.sh            # princeton (default) -> data/raw/
+#   bash prep/fetch.sh houston    # -> data/raw/houston/
+# 1) OSM ways + amenities (prep/overpass.ql), street lamps + campus outlines (prep/night.ql), point objects
+#    (prep/objects.ql), all from Overpass; the queries' {{BBOX}} is filled from regions.tsv.
 # 2) Elevation on a ~25 m grid from OpenTopoData's public API, dataset ned10m
 #    (USGS 3DEP 1/3 arc-second, ~10 m), 100 points per request, ~1 request/second
-#    (the public API's limit; 1000 requests/day, this needs ~370).
+#    (the public API's limit; 1000 requests/day; Princeton needs ~370, Houston ~60).
 set -euo pipefail
 cd "$(dirname "$0")/.."
-RAW=data/raw; mkdir -p "$RAW/ned10m"
+REGION=${1:-princeton}
+read -r W S E N RAW < <(awk -v r="$REGION" '$1==r {print $2, $3, $4, $5, $9}' prep/regions.tsv)
+[ -n "${RAW:-}" ] || { echo "unknown region '$REGION' (see prep/regions.tsv)"; exit 1; }
+mkdir -p "$RAW/ned10m"
 UA="equid-prep/0.1 (hackathon data prep)"
-# bbox and grid step: must match GRID in prep/src/main.rs
-S=40.330; W=-74.690; N=40.370; E=-74.630
+# grid step (~25 m)
 DLAT=0.000225; DLON=0.000295
 
-if [ ! -s "$RAW/overpass.json" ]; then
-  echo "overpass..."
-  curl -sf -A "$UA" --data-urlencode "data@prep/overpass.ql" -o "$RAW/overpass.json" https://overpass-api.de/api/interpreter
-fi
-
-if [ ! -s "$RAW/night.json" ]; then
-  echo "overpass (street lamps, campus outlines)..."
-  sleep 2
-  curl -sf -A "$UA" --data-urlencode "data@prep/night.ql" -o "$RAW/night.json" https://overpass-api.de/api/interpreter
-fi
+overpass() { # $1 = query file, $2 = output
+  [ -s "$2" ] && return 0
+  echo "overpass $1..."
+  sed "s/{{BBOX}}/$S,$W,$N,$E/g" "$1" > "$2.ql"
+  for try in 1 2 3 4 5; do
+    curl -sf -A "$UA" --data-urlencode "data@$2.ql" -o "$2.tmp" https://overpass-api.de/api/interpreter && mv "$2.tmp" "$2" && break
+    echo "  failed (try $try; Overpass rate limit?), backing off"; sleep $((try*15))
+  done
+  rm -f "$2.ql" "$2.tmp"
+  [ -s "$2" ] || { echo "giving up on $1"; exit 1; }
+  sleep 5
+}
+overpass prep/overpass.ql "$RAW/overpass.json"
+overpass prep/night.ql "$RAW/night.json"
+overpass prep/objects.ql "$RAW/objects.json"
 
 # grid points, row-major: rows from S to N, columns from W to E
 awk -v s=$S -v w=$W -v n=$N -v e=$E -v dl=$DLAT -v dn=$DLON 'BEGIN{

@@ -4,7 +4,7 @@
 //!  tag    OSM `lit` on the way (authoritative)
 //!  lamp   a mapped street lamp within LAMP_M (none in OSM today; kept so added lamps count)
 //!  road   a tertiary-or-bigger road, or a footway/cycleway beside one: US town arterials have streetlights
-//!  campus footway / pedestrian / steps on Princeton University or Seminary grounds (lamp-posted walks)
+//!  campus footway / pedestrian / steps on university grounds (regions.tsv campus_prefix; Princeton: University + Seminary)
 //!  trail  path / track / bridleway away from roads that isn't paved: woods and towpath, unlit
 //!  (none) everything else stays unknown (residential streets: some lit, some not)
 
@@ -24,8 +24,9 @@ pub struct Night {
 }
 
 impl Night {
-    /// From data/raw/night.json (prep/night.ql): street lamps + university polygons.
-    pub fn load(v: &Value, proj: &Proj) -> Night {
+    /// From the region's night.json (prep/night.ql): street lamps + university polygons whose name
+    /// starts with `campus_prefix` (none if `None`).
+    pub fn load(v: &Value, proj: &Proj, campus_prefix: Option<&str>) -> Night {
         let mut lamps = Vec::new();
         let mut campus = Vec::new();
         let mut campus_names = Vec::new();
@@ -37,10 +38,10 @@ impl Night {
                 }
                 continue;
             }
-            // Only Princeton University / Seminary grounds: the Institute for Advanced Study
-            // polygon is mostly the Institute Woods, which are not lit.
+            // Princeton: only Princeton University / Seminary grounds (prefix "Princeton"): the Institute
+            // for Advanced Study polygon is mostly the Institute Woods, which are not lit.
             let name = t["name"].as_str().unwrap_or("");
-            if !(t["amenity"] == "university" && name.starts_with("Princeton")) {
+            if !(t["amenity"] == "university" && campus_prefix.is_some_and(|c| name.starts_with(c))) {
                 continue;
             }
             let rings: Vec<&Vec<Value>> = match e["type"].as_str() {
@@ -112,7 +113,7 @@ mod tests {
             {"type":"way","tags":{"amenity":"university","name":"Institute for Advanced Study"},"geometry":[]},
             {"type":"node","lon":0.02,"lat":0.0,"tags":{"highway":"street_lamp"}}
         ]});
-        Night::load(&v, &proj)
+        Night::load(&v, &proj, Some("Princeton"))
     }
 
     #[test]

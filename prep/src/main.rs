@@ -1,4 +1,5 @@
-//! prep: raw downloads (data/raw/, from prep/fetch.sh) -> data/princeton/{graph,places}.json + stats.txt.
+//! prep: raw downloads (from prep/fetch.sh) -> data/<region>/{graph,places,objects}.json + stats.txt.
+//! Regions are listed in prep/regions.tsv: `cargo run --release -p prep [-- <region>]` (default princeton).
 //! Deterministic: same cache in, same files out. No network access here.
 //!
 //! Pipeline: OSM ways -> keep walkable/rideable -> clip to bbox -> split at intersections into edges
@@ -7,6 +8,8 @@
 
 mod geo;
 mod night;
+mod objects;
+mod region;
 mod tags;
 
 use engine::graph::{Cycleway, Edge, Graph, Meta, Node, Place, Places, Surface, NEAR_CAP_M};
@@ -17,12 +20,8 @@ use std::fmt::Write as _;
 use std::path::Path;
 use tags::{get, Tags};
 
-/// Region box [west, south, east, north]: downtown Princeton + campus + Lake Carnegie edge.
-/// Must match prep/fetch.sh and prep/overpass.ql.
-const BBOX: [f64; 4] = [-74.690, 40.330, -74.630, 40.370];
 /// Demo day; sunrise/sunset and (later) shade slots are computed for it.
 const DATE: (i32, u32, u32) = (2026, 11, 15);
-const UTC_OFFSET_H: f64 = -5.0; // EST
 /// Elevation profile sample spacing along edges, and the window over which grade is measured
 /// (shorter windows just amplify DEM noise).
 const SAMPLE_M: f64 = 5.0;
@@ -35,10 +34,6 @@ struct Way {
     nodes: Vec<i64>,
     pts: Vec<(f64, f64)>, // (lon, lat)
     tags: Tags,
-}
-
-fn inside(p: (f64, f64)) -> bool {
-    p.0 >= BBOX[0] && p.0 <= BBOX[2] && p.1 >= BBOX[1] && p.1 <= BBOX[3]
 }
 
 fn r6(x: f64) -> f64 {
@@ -57,17 +52,21 @@ fn main() {
 
 fn run() -> Result<(), String> {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..");
-    let raw = root.join("data/raw");
-    let out = root.join("data/princeton");
+    let name = std::env::args().nth(1).unwrap_or_else(|| "princeton".into());
+    let reg = region::Region::load(&root.join("prep/regions.tsv"), &name)?;
+    let raw = root.join(&reg.raw_dir);
+    let out = root.join("data").join(&reg.name);
+    let bbox = reg.bbox;
+    let inside = |p: (f64, f64)| p.0 >= bbox[0] && p.0 <= bbox[2] && p.1 >= bbox[1] && p.1 <= bbox[3];
 
-    let osm_text = std::fs::read_to_string(raw.join("overpass.json")).map_err(|e| format!("overpass.json: {e} (run prep/fetch.sh)"))?;
+    let osm_text = std::fs::read_to_string(raw.join("overpass.json")).map_err(|e| format!("overpass.json: {e} (run prep/fetch.sh {name})"))?;
     let osm: Value = serde_json::from_str(&osm_text).map_err(|e| e.to_string())?;
     let osm_time = osm["osm3s"]["timestamp_osm_base"].as_str().unwrap_or("?").to_string();
     let elements = osm["elements"].as_array().ok_or("overpass.json: no elements")?;
     let grid = ElevGrid::load(&raw.join("elev_points.txt"), &raw.join("ned10m"))?;
-    let proj = Proj::new((BBOX[0] + BBOX[2]) / 2.0, (BBOX[1] + BBOX[3]) / 2.0);
-    let night_text = std::fs::read_to_string(raw.join("night.json")).map_err(|e| format!("night.json: {e} (run prep/fetch.sh)"))?;
-    let night = night::Night::load(&serde_json::from_str(&night_text).map_err(|e| e.to_string())?, &proj);
+    let proj = Proj::new((bbox[0] + bbox[2]) / 2.0, (bbox[1] + bbox[3]) / 2.0);
+    let night_text = std::fs::read_to_string(raw.join("night.json")).map_err(|e| format!("night.json: {e} (run prep/fetch.sh {name})"))?;
+    let night = night::Night::load(&serde_json::from_str(&night_text).map_err(|e| e.to_string())?, &proj, reg.campus_prefix.as_deref());
 
     // ---- 1. ways
     let mut ways = Vec::new();
@@ -359,13 +358,13 @@ fn run() -> Result<(), String> {
     places.sort_by(|a, b| (&a.category, &a.id).cmp(&(&b.category, &b.id)));
 
     // ---- 7. assemble, validate with the engine's loader, write
-    let (sunrise, sunset) = geo::sun_times(DATE.0, DATE.1, DATE.2, (BBOX[1] + BBOX[3]) / 2.0, (BBOX[0] + BBOX[2]) / 2.0, UTC_OFFSET_H);
+    let (sunrise, sunset) = geo::sun_times(DATE.0, DATE.1, DATE.2, (bbox[1] + bbox[3]) / 2.0, (bbox[0] + bbox[2]) / 2.0, reg.utc_offset_h);
     let graph = Graph {
         meta: Meta {
             version: 1,
-            region: "princeton".into(),
-            bbox: BBOX,
-            tz: "America/New_York".into(),
+            region: reg.name.clone(),
+            bbox,
+            tz: reg.tz.clone(),
             date: format!("{:04}-{:02}-{:02}", DATE.0, DATE.1, DATE.2),
             sunrise_min: sunrise.round() as f32,
             sunset_min: sunset.round() as f32,
@@ -380,15 +379,23 @@ fn run() -> Result<(), String> {
     let places = Places { version: 1, places };
     let graph_json = serde_json::to_string(&graph).map_err(|e| e.to_string())?;
     let places_json = serde_json::to_string_pretty(&places).map_err(|e| e.to_string())?;
-    engine::Core::load(&graph_json, &places_json).map_err(|e| format!("output failed the engine's validation: {e}"))?;
+    let mut core = engine::Core::load(&graph_json, &places_json).map_err(|e| format!("output failed the engine's validation: {e}"))?;
+
+    // ---- 8. point objects (contracts §2b): OSM ones are rebuilt, others (Vexcel, ...) already in the file are kept
+    let objects_text = std::fs::read_to_string(raw.join("objects.json")).map_err(|e| format!("objects.json: {e} (run prep/fetch.sh {name})"))?;
+    let old = std::fs::read_to_string(out.join("objects.json")).ok();
+    let objs = objects::build(&serde_json::from_str(&objects_text).map_err(|e| e.to_string())?, &inside, old.as_deref())?;
+    let objects_json = serde_json::to_string_pretty(&objs).map_err(|e| e.to_string())?;
+    core.load_objects(&objects_json).map_err(|e| format!("objects failed the engine's validation: {e}"))?;
 
     std::fs::create_dir_all(&out).map_err(|e| e.to_string())?;
-    let stats = stats(&graph, &places, n_components, nodes_before, &grid, &night);
-    for (name, body) in [("graph.json", &graph_json), ("places.json", &places_json), ("stats.txt", &stats)] {
-        std::fs::write(out.join(name), body).map_err(|e| format!("{name}: {e}"))?;
+    let mut stats = stats(&graph, &places, n_components, nodes_before, &grid, &night);
+    stats += &objects::stats(&objs, &core.labels());
+    for (file, body) in [("graph.json", &graph_json), ("places.json", &places_json), ("objects.json", &objects_json), ("stats.txt", &stats)] {
+        std::fs::write(out.join(file), body).map_err(|e| format!("{file}: {e}"))?;
     }
     print!("{stats}");
-    println!("wrote data/princeton/graph.json ({:.1} MB), places.json, stats.txt", graph_json.len() as f64 / 1e6);
+    println!("wrote data/{name}/graph.json ({:.1} MB), places.json, objects.json, stats.txt", graph_json.len() as f64 / 1e6);
     Ok(())
 }
 
@@ -429,7 +436,7 @@ fn stats(g: &Graph, p: &Places, components: usize, nodes_before: usize, grid: &E
     let _ = writeln!(s, "foot allowed      {}", pct(&|e| e.foot));
     let _ = writeln!(s, "bike allowed      {}", pct(&|e| e.bike));
     let _ = writeln!(s, "lit tagged in OSM {}", pct(&|e| e.lit_src.as_deref() == Some("tag")));
-    let _ = writeln!(s, "lit known (after rules) {}  ({} street lamps in OSM; campus = {})", pct(&|e| e.lit.is_some()), night.n_lamps, night.campus_names.join(" + "));
+    let _ = writeln!(s, "lit known (after rules) {}  ({} street lamps in OSM; campus = {})", pct(&|e| e.lit.is_some()), night.n_lamps, if night.campus_names.is_empty() { "none".into() } else { night.campus_names.join(" + ") });
     for src in ["tag", "lamp", "road", "campus", "trail"] {
         let _ = writeln!(s, "  lit_src={src:7} {}", pct(&|e| e.lit_src.as_deref() == Some(src)));
     }

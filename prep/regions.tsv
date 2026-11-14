@@ -1,0 +1,6 @@
+# Regions prep can build. One line each, tab or space separated. Read by prep/fetch.sh and prep/src/main.rs.
+# name     west     south   east     north   tz                utc_offset_h  campus_prefix  raw_dir
+# campus_prefix: amenity=university polygons whose name starts with this count as lit campus walks ("-" = none).
+# raw_dir: download cache (gitignored). Princeton keeps the original data/raw/ (prep-shade reads it there).
+princeton  -74.690  40.330  -74.630  40.370  America/New_York  -5  Princeton  data/raw
+houston    -95.420  29.741  -95.400  29.759  America/Chicago   -6  -          data/raw/houston

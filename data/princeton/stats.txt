@@ -34,3 +34,17 @@ bench within 100 m   2.4% of edges,   3.5% of length
 toilets within 250 m  11.8% of edges,  10.9% of length
 water within 250 m   3.2% of edges,   4.0% of length
 places 268 (154 named): artwork 31, attraction 2, bench 44, bicycle_parking 32, cafe 15, drinking_water 3, fast_food 16, garden 6, ice_cream 6, library 6, museum 1, nature_reserve 4, park 20, playground 15, restaurant 52, shelter 6, toilets 8, viewpoint 1
+objects 2509 (osm 2509); per label: objects / edges within 100 m
+  bike rack         32 / 1500
+  bus stop          83 / 2311
+  crosswalk       1601 / 8647
+  fountain           5 / 260
+  mailbox            4 / 401
+  playground        15 / 329
+  public art        31 / 1373
+  shelter            6 / 188
+  sports field     152 / 1256
+  swimming pool    258 / 1385
+  traffic light     53 / 1825
+  trash can          3 / 90
+  tree             266 / 981

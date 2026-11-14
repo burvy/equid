@@ -1,0 +1,5024 @@
+{
+  "version": 1,
+  "objects": [
+    {
+      "label": "bike rack",
+      "lon": -95.41822,
+      "lat": 29.742611,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.41032,
+      "lat": 29.750538,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.410156,
+      "lat": 29.741888,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.409942,
+      "lat": 29.752905,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.409813,
+      "lat": 29.741377,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.409452,
+      "lat": 29.752902,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.409232,
+      "lat": 29.752923,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.408722,
+      "lat": 29.755721,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.40859,
+      "lat": 29.755861,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.407385,
+      "lat": 29.753696,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.407183,
+      "lat": 29.742515,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.406694,
+      "lat": 29.752826,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.406203,
+      "lat": 29.742945,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.405682,
+      "lat": 29.75375,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.405608,
+      "lat": 29.758432,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.405401,
+      "lat": 29.757516,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.405315,
+      "lat": 29.758247,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.403694,
+      "lat": 29.743008,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.402772,
+      "lat": 29.74238,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.402503,
+      "lat": 29.756757,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.402335,
+      "lat": 29.742873,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.402058,
+      "lat": 29.747757,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.401317,
+      "lat": 29.752758,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.401282,
+      "lat": 29.752759,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.400772,
+      "lat": 29.754274,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.400608,
+      "lat": 29.743585,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.400567,
+      "lat": 29.742963,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bike rack",
+      "lon": -95.400297,
+      "lat": 29.754386,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bus stop",
+      "lon": -95.418712,
+      "lat": 29.748243,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bus stop",
+      "lon": -95.413632,
+      "lat": 29.742618,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bus stop",
+      "lon": -95.411028,
+      "lat": 29.742549,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bus stop",
+      "lon": -95.410936,
+      "lat": 29.746798,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "bus stop",
+      "lon": -95.41082,
+      "lat": 29.742816,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.419988,
+      "lat": 29.742176,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.419934,
+      "lat": 29.742338,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.419931,
+      "lat": 29.742338,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.419594,
+      "lat": 29.742361,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418973,
+      "lat": 29.746703,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418972,
+      "lat": 29.746697,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418967,
+      "lat": 29.74571,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418966,
+      "lat": 29.745714,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418949,
+      "lat": 29.74226,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418945,
+      "lat": 29.742315,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418943,
+      "lat": 29.744722,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418943,
+      "lat": 29.744723,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418942,
+      "lat": 29.742357,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418941,
+      "lat": 29.743729,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418941,
+      "lat": 29.743732,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418934,
+      "lat": 29.742705,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418932,
+      "lat": 29.743049,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418924,
+      "lat": 29.741671,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418924,
+      "lat": 29.741695,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418859,
+      "lat": 29.74242,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418856,
+      "lat": 29.742215,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418828,
+      "lat": 29.746767,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418827,
+      "lat": 29.746628,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418819,
+      "lat": 29.745782,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418818,
+      "lat": 29.745645,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418817,
+      "lat": 29.745782,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418815,
+      "lat": 29.745645,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418799,
+      "lat": 29.742218,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418795,
+      "lat": 29.74242,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418727,
+      "lat": 29.74242,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41872,
+      "lat": 29.742222,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418682,
+      "lat": 29.746699,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418681,
+      "lat": 29.746692,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418677,
+      "lat": 29.744698,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418676,
+      "lat": 29.744702,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418674,
+      "lat": 29.745697,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418674,
+      "lat": 29.745703,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418657,
+      "lat": 29.743738,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418656,
+      "lat": 29.743736,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418654,
+      "lat": 29.743278,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418654,
+      "lat": 29.74328,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41865,
+      "lat": 29.742368,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418648,
+      "lat": 29.742323,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418646,
+      "lat": 29.742273,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418632,
+      "lat": 29.741674,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418632,
+      "lat": 29.741684,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418493,
+      "lat": 29.752116,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418492,
+      "lat": 29.752119,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41843,
+      "lat": 29.752026,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418422,
+      "lat": 29.752029,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418364,
+      "lat": 29.752257,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418353,
+      "lat": 29.752261,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418343,
+      "lat": 29.742425,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418293,
+      "lat": 29.752056,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418284,
+      "lat": 29.752058,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41821,
+      "lat": 29.752307,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418156,
+      "lat": 29.752192,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.418153,
+      "lat": 29.752204,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.417924,
+      "lat": 29.753664,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.417806,
+      "lat": 29.753925,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.417765,
+      "lat": 29.753308,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.417763,
+      "lat": 29.753314,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.417607,
+      "lat": 29.742455,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.417605,
+      "lat": 29.742283,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.417603,
+      "lat": 29.742455,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.417599,
+      "lat": 29.742284,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.417429,
+      "lat": 29.742293,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.416871,
+      "lat": 29.755598,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.416869,
+      "lat": 29.755601,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.416758,
+      "lat": 29.755775,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.416754,
+      "lat": 29.755782,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.416596,
+      "lat": 29.742329,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.416593,
+      "lat": 29.742472,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.416567,
+      "lat": 29.755561,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.416563,
+      "lat": 29.755567,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.416411,
+      "lat": 29.742337,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.416397,
+      "lat": 29.742337,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.415565,
+      "lat": 29.742517,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.415557,
+      "lat": 29.742518,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.415428,
+      "lat": 29.748885,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.415222,
+      "lat": 29.742531,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.415145,
+      "lat": 29.748922,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.415071,
+      "lat": 29.742537,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414827,
+      "lat": 29.7448,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414823,
+      "lat": 29.744738,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414821,
+      "lat": 29.744696,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414784,
+      "lat": 29.742548,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414762,
+      "lat": 29.742549,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41476,
+      "lat": 29.744853,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41475,
+      "lat": 29.744637,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414742,
+      "lat": 29.744638,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414741,
+      "lat": 29.744856,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414719,
+      "lat": 29.742409,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414715,
+      "lat": 29.742409,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414689,
+      "lat": 29.7448,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414687,
+      "lat": 29.744752,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414685,
+      "lat": 29.744696,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414574,
+      "lat": 29.742558,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41456,
+      "lat": 29.742559,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.414417,
+      "lat": 29.758436,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413944,
+      "lat": 29.74244,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413935,
+      "lat": 29.74244,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413587,
+      "lat": 29.758797,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41355,
+      "lat": 29.744685,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413549,
+      "lat": 29.74474,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413549,
+      "lat": 29.744788,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413479,
+      "lat": 29.744855,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413477,
+      "lat": 29.744625,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413464,
+      "lat": 29.744623,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413464,
+      "lat": 29.744855,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413409,
+      "lat": 29.744783,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413408,
+      "lat": 29.744739,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413406,
+      "lat": 29.744687,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41314,
+      "lat": 29.742476,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41313,
+      "lat": 29.742476,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413068,
+      "lat": 29.743193,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413068,
+      "lat": 29.743194,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413067,
+      "lat": 29.743094,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413067,
+      "lat": 29.743096,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.413029,
+      "lat": 29.743704,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412977,
+      "lat": 29.743038,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412837,
+      "lat": 29.758925,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412735,
+      "lat": 29.743153,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412735,
+      "lat": 29.743154,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412616,
+      "lat": 29.744812,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412596,
+      "lat": 29.744811,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412569,
+      "lat": 29.744176,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412563,
+      "lat": 29.743728,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41251,
+      "lat": 29.743858,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412402,
+      "lat": 29.743727,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412402,
+      "lat": 29.743729,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412348,
+      "lat": 29.742486,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412329,
+      "lat": 29.742485,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412267,
+      "lat": 29.742552,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.412267,
+      "lat": 29.742557,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411964,
+      "lat": 29.742654,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411618,
+      "lat": 29.758992,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411616,
+      "lat": 29.758993,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411579,
+      "lat": 29.744722,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411578,
+      "lat": 29.744694,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411571,
+      "lat": 29.744668,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411554,
+      "lat": 29.742508,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411537,
+      "lat": 29.743137,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411531,
+      "lat": 29.742508,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411435,
+      "lat": 29.743732,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411435,
+      "lat": 29.743737,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411374,
+      "lat": 29.742661,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.411233,
+      "lat": 29.74374,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410865,
+      "lat": 29.743849,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410863,
+      "lat": 29.743835,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410842,
+      "lat": 29.752999,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410841,
+      "lat": 29.752973,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410839,
+      "lat": 29.742579,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410839,
+      "lat": 29.742592,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410827,
+      "lat": 29.752011,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410827,
+      "lat": 29.752012,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410793,
+      "lat": 29.749064,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410792,
+      "lat": 29.749071,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410767,
+      "lat": 29.744672,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410767,
+      "lat": 29.744679,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410754,
+      "lat": 29.744672,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410753,
+      "lat": 29.742671,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410749,
+      "lat": 29.742516,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410745,
+      "lat": 29.742671,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410742,
+      "lat": 29.742516,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410736,
+      "lat": 29.753111,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410732,
+      "lat": 29.752889,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410731,
+      "lat": 29.75289,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410731,
+      "lat": 29.75311,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410698,
+      "lat": 29.749151,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410697,
+      "lat": 29.749004,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410691,
+      "lat": 29.749152,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410689,
+      "lat": 29.749006,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410663,
+      "lat": 29.742595,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410662,
+      "lat": 29.742587,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410658,
+      "lat": 29.744593,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410648,
+      "lat": 29.744769,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410643,
+      "lat": 29.74477,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410642,
+      "lat": 29.744592,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410618,
+      "lat": 29.752524,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410618,
+      "lat": 29.752525,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410618,
+      "lat": 29.752712,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410618,
+      "lat": 29.752721,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410614,
+      "lat": 29.753007,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410613,
+      "lat": 29.752198,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410613,
+      "lat": 29.752224,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410612,
+      "lat": 29.752011,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410612,
+      "lat": 29.752014,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410585,
+      "lat": 29.749093,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410584,
+      "lat": 29.749083,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410554,
+      "lat": 29.742671,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410535,
+      "lat": 29.74467,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410534,
+      "lat": 29.744682,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410401,
+      "lat": 29.753104,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410397,
+      "lat": 29.752918,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410394,
+      "lat": 29.752918,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410286,
+      "lat": 29.742694,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410253,
+      "lat": 29.744588,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410203,
+      "lat": 29.744776,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.41004,
+      "lat": 29.752924,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410039,
+      "lat": 29.753114,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410031,
+      "lat": 29.752924,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.410008,
+      "lat": 29.752276,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409949,
+      "lat": 29.742724,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409938,
+      "lat": 29.75316,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409871,
+      "lat": 29.75312,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409867,
+      "lat": 29.752927,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409788,
+      "lat": 29.741487,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409738,
+      "lat": 29.744765,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40973,
+      "lat": 29.744596,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409726,
+      "lat": 29.744769,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409724,
+      "lat": 29.744596,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409704,
+      "lat": 29.742745,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409691,
+      "lat": 29.742746,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409644,
+      "lat": 29.744683,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409643,
+      "lat": 29.74468,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40951,
+      "lat": 29.7529,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409509,
+      "lat": 29.753119,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409507,
+      "lat": 29.752902,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.409493,
+      "lat": 29.741488,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40927,
+      "lat": 29.744784,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408935,
+      "lat": 29.753127,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408806,
+      "lat": 29.744792,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408802,
+      "lat": 29.744609,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408799,
+      "lat": 29.744793,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408795,
+      "lat": 29.744609,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408748,
+      "lat": 29.742818,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408744,
+      "lat": 29.742817,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408568,
+      "lat": 29.757121,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408546,
+      "lat": 29.75295,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408469,
+      "lat": 29.7572,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408466,
+      "lat": 29.757048,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408452,
+      "lat": 29.753048,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408419,
+      "lat": 29.757204,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408416,
+      "lat": 29.757047,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40839,
+      "lat": 29.757206,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408388,
+      "lat": 29.757047,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408375,
+      "lat": 29.753137,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40837,
+      "lat": 29.752954,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40836,
+      "lat": 29.753137,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408358,
+      "lat": 29.752954,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408286,
+      "lat": 29.753051,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408285,
+      "lat": 29.753051,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408284,
+      "lat": 29.757129,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.408284,
+      "lat": 29.757134,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407987,
+      "lat": 29.757051,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407879,
+      "lat": 29.744627,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407879,
+      "lat": 29.744778,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407869,
+      "lat": 29.744778,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407867,
+      "lat": 29.744628,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407857,
+      "lat": 29.742845,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407783,
+      "lat": 29.757058,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407782,
+      "lat": 29.757058,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407427,
+      "lat": 29.757063,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407426,
+      "lat": 29.757063,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407385,
+      "lat": 29.753154,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407384,
+      "lat": 29.753154,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40736,
+      "lat": 29.742839,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407149,
+      "lat": 29.757069,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407134,
+      "lat": 29.741907,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407134,
+      "lat": 29.741911,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407133,
+      "lat": 29.742754,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407132,
+      "lat": 29.742754,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407128,
+      "lat": 29.741154,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407128,
+      "lat": 29.741155,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407095,
+      "lat": 29.744625,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407089,
+      "lat": 29.744803,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407084,
+      "lat": 29.744803,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407082,
+      "lat": 29.742824,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407082,
+      "lat": 29.744626,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407081,
+      "lat": 29.742672,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407077,
+      "lat": 29.742825,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407075,
+      "lat": 29.742672,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407065,
+      "lat": 29.741228,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407062,
+      "lat": 29.741086,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407052,
+      "lat": 29.741228,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407047,
+      "lat": 29.741086,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407008,
+      "lat": 29.742752,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.407008,
+      "lat": 29.742762,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406986,
+      "lat": 29.741166,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406984,
+      "lat": 29.741155,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406952,
+      "lat": 29.757077,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406946,
+      "lat": 29.757079,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40674,
+      "lat": 29.757226,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406736,
+      "lat": 29.757226,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406694,
+      "lat": 29.757086,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406687,
+      "lat": 29.757086,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406518,
+      "lat": 29.757236,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406514,
+      "lat": 29.757237,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406451,
+      "lat": 29.757084,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406449,
+      "lat": 29.757084,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406432,
+      "lat": 29.75317,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406423,
+      "lat": 29.75317,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406312,
+      "lat": 29.744652,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406311,
+      "lat": 29.744777,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406289,
+      "lat": 29.744778,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406287,
+      "lat": 29.744653,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406278,
+      "lat": 29.742808,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406258,
+      "lat": 29.742807,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.406077,
+      "lat": 29.744787,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405769,
+      "lat": 29.753187,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405761,
+      "lat": 29.753187,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405491,
+      "lat": 29.744784,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405487,
+      "lat": 29.74464,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405475,
+      "lat": 29.74464,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405458,
+      "lat": 29.742812,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405453,
+      "lat": 29.757178,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405453,
+      "lat": 29.757185,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405447,
+      "lat": 29.742812,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405366,
+      "lat": 29.757269,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405345,
+      "lat": 29.757269,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405276,
+      "lat": 29.757181,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405276,
+      "lat": 29.757189,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405256,
+      "lat": 29.753008,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405107,
+      "lat": 29.753196,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.405101,
+      "lat": 29.753197,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404993,
+      "lat": 29.742818,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404865,
+      "lat": 29.757116,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404862,
+      "lat": 29.757116,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404837,
+      "lat": 29.752379,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404836,
+      "lat": 29.75238,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404835,
+      "lat": 29.753113,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404834,
+      "lat": 29.753104,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404768,
+      "lat": 29.753198,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404763,
+      "lat": 29.753015,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404758,
+      "lat": 29.752443,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404756,
+      "lat": 29.753198,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404754,
+      "lat": 29.752316,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404753,
+      "lat": 29.753016,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404744,
+      "lat": 29.752443,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404742,
+      "lat": 29.752316,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404732,
+      "lat": 29.744725,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404732,
+      "lat": 29.744728,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404684,
+      "lat": 29.742739,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404684,
+      "lat": 29.742748,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404682,
+      "lat": 29.753112,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404682,
+      "lat": 29.753115,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404676,
+      "lat": 29.752381,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404676,
+      "lat": 29.752383,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404668,
+      "lat": 29.757112,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404667,
+      "lat": 29.741184,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404659,
+      "lat": 29.75711,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404639,
+      "lat": 29.74466,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404638,
+      "lat": 29.744793,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404626,
+      "lat": 29.74466,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404606,
+      "lat": 29.742822,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404605,
+      "lat": 29.742675,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.4046,
+      "lat": 29.742011,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404598,
+      "lat": 29.741869,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404598,
+      "lat": 29.742822,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404596,
+      "lat": 29.742674,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404591,
+      "lat": 29.741468,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404587,
+      "lat": 29.74126,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404587,
+      "lat": 29.742011,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404585,
+      "lat": 29.741115,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404584,
+      "lat": 29.741869,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404578,
+      "lat": 29.741468,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404575,
+      "lat": 29.741261,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404572,
+      "lat": 29.741115,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404541,
+      "lat": 29.744728,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404541,
+      "lat": 29.74473,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404527,
+      "lat": 29.742741,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404527,
+      "lat": 29.74275,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404515,
+      "lat": 29.74194,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404515,
+      "lat": 29.741943,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404505,
+      "lat": 29.741186,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404505,
+      "lat": 29.74119,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40439,
+      "lat": 29.753208,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404367,
+      "lat": 29.753023,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40425,
+      "lat": 29.75321,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404151,
+      "lat": 29.757271,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.404149,
+      "lat": 29.757271,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403796,
+      "lat": 29.744671,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403777,
+      "lat": 29.744795,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403774,
+      "lat": 29.744671,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403774,
+      "lat": 29.753216,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403757,
+      "lat": 29.744794,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403754,
+      "lat": 29.742827,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403744,
+      "lat": 29.757116,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403743,
+      "lat": 29.742827,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403743,
+      "lat": 29.757116,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403703,
+      "lat": 29.753033,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403546,
+      "lat": 29.753218,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403268,
+      "lat": 29.742835,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40319,
+      "lat": 29.753224,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403188,
+      "lat": 29.753224,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403098,
+      "lat": 29.750777,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40307,
+      "lat": 29.749177,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40307,
+      "lat": 29.749179,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403059,
+      "lat": 29.748208,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403042,
+      "lat": 29.746986,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403015,
+      "lat": 29.74474,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.403015,
+      "lat": 29.744745,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402939,
+      "lat": 29.744796,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402937,
+      "lat": 29.74468,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402933,
+      "lat": 29.744796,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402931,
+      "lat": 29.74468,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402916,
+      "lat": 29.742841,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402909,
+      "lat": 29.742841,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402832,
+      "lat": 29.75323,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402819,
+      "lat": 29.75323,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40279,
+      "lat": 29.753048,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402508,
+      "lat": 29.74284,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402457,
+      "lat": 29.757572,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402457,
+      "lat": 29.757577,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402454,
+      "lat": 29.753056,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402452,
+      "lat": 29.757231,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402443,
+      "lat": 29.756665,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402425,
+      "lat": 29.756349,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402415,
+      "lat": 29.756115,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402414,
+      "lat": 29.755246,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402414,
+      "lat": 29.756113,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402413,
+      "lat": 29.755239,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402411,
+      "lat": 29.755772,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402411,
+      "lat": 29.755776,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402406,
+      "lat": 29.754554,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402406,
+      "lat": 29.754559,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402405,
+      "lat": 29.754383,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402392,
+      "lat": 29.753696,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402384,
+      "lat": 29.753147,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402384,
+      "lat": 29.753152,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402371,
+      "lat": 29.752838,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402368,
+      "lat": 29.757287,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402361,
+      "lat": 29.752633,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402352,
+      "lat": 29.757134,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402346,
+      "lat": 29.757137,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402342,
+      "lat": 29.757284,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402333,
+      "lat": 29.752425,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402332,
+      "lat": 29.752422,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402301,
+      "lat": 29.753238,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402293,
+      "lat": 29.75306,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402286,
+      "lat": 29.753238,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402283,
+      "lat": 29.750783,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402283,
+      "lat": 29.750785,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402283,
+      "lat": 29.753061,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402269,
+      "lat": 29.757199,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402268,
+      "lat": 29.757196,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402257,
+      "lat": 29.749185,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402257,
+      "lat": 29.749188,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402244,
+      "lat": 29.748216,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402244,
+      "lat": 29.748224,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402237,
+      "lat": 29.747897,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402233,
+      "lat": 29.7475,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402227,
+      "lat": 29.746997,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402227,
+      "lat": 29.747003,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402211,
+      "lat": 29.753155,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40221,
+      "lat": 29.745744,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40221,
+      "lat": 29.745745,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40221,
+      "lat": 29.753151,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402208,
+      "lat": 29.744748,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402208,
+      "lat": 29.744759,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402196,
+      "lat": 29.750851,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402191,
+      "lat": 29.744205,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402186,
+      "lat": 29.743764,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402182,
+      "lat": 29.742781,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402182,
+      "lat": 29.742782,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402181,
+      "lat": 29.743323,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40218,
+      "lat": 29.74315,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40215,
+      "lat": 29.74695,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402144,
+      "lat": 29.741979,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402143,
+      "lat": 29.741967,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40214,
+      "lat": 29.746954,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402134,
+      "lat": 29.741209,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402134,
+      "lat": 29.741219,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402117,
+      "lat": 29.744849,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402115,
+      "lat": 29.744678,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402113,
+      "lat": 29.744678,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402113,
+      "lat": 29.74485,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40211,
+      "lat": 29.757232,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402103,
+      "lat": 29.750784,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402103,
+      "lat": 29.750788,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402093,
+      "lat": 29.742711,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402091,
+      "lat": 29.742852,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402086,
+      "lat": 29.7492,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402085,
+      "lat": 29.749188,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402083,
+      "lat": 29.74271,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402083,
+      "lat": 29.742853,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402074,
+      "lat": 29.748354,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402069,
+      "lat": 29.742042,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402068,
+      "lat": 29.742042,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402067,
+      "lat": 29.741899,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402062,
+      "lat": 29.741899,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402056,
+      "lat": 29.741288,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402055,
+      "lat": 29.741288,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402054,
+      "lat": 29.741143,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402053,
+      "lat": 29.747049,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402053,
+      "lat": 29.747061,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402018,
+      "lat": 29.744759,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402018,
+      "lat": 29.744769,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402001,
+      "lat": 29.74278,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.402001,
+      "lat": 29.742783,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401983,
+      "lat": 29.741969,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401982,
+      "lat": 29.741971,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401969,
+      "lat": 29.741211,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401969,
+      "lat": 29.741214,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401946,
+      "lat": 29.757191,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401943,
+      "lat": 29.757191,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401634,
+      "lat": 29.75717,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401617,
+      "lat": 29.748283,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401522,
+      "lat": 29.757026,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401521,
+      "lat": 29.757026,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401449,
+      "lat": 29.742858,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401448,
+      "lat": 29.753259,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401444,
+      "lat": 29.753259,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401441,
+      "lat": 29.748225,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401441,
+      "lat": 29.748228,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401346,
+      "lat": 29.757195,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401341,
+      "lat": 29.742715,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401305,
+      "lat": 29.745001,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401298,
+      "lat": 29.745005,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401274,
+      "lat": 29.74286,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401271,
+      "lat": 29.74286,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401253,
+      "lat": 29.748238,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401253,
+      "lat": 29.748247,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401122,
+      "lat": 29.753074,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.401023,
+      "lat": 29.75722,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400824,
+      "lat": 29.753268,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400818,
+      "lat": 29.753268,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400816,
+      "lat": 29.757088,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400804,
+      "lat": 29.757089,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400704,
+      "lat": 29.742718,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400687,
+      "lat": 29.757249,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40047,
+      "lat": 29.742859,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400469,
+      "lat": 29.742858,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400465,
+      "lat": 29.744745,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400459,
+      "lat": 29.744749,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40039,
+      "lat": 29.757918,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.40039,
+      "lat": 29.757923,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400377,
+      "lat": 29.757203,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400377,
+      "lat": 29.757209,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400369,
+      "lat": 29.744589,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400364,
+      "lat": 29.744592,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400348,
+      "lat": 29.744671,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400346,
+      "lat": 29.744666,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400313,
+      "lat": 29.757849,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400312,
+      "lat": 29.757849,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400302,
+      "lat": 29.742721,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400301,
+      "lat": 29.757281,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400292,
+      "lat": 29.757129,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400288,
+      "lat": 29.757282,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400281,
+      "lat": 29.75713,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400255,
+      "lat": 29.753099,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400242,
+      "lat": 29.753099,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400229,
+      "lat": 29.757222,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400228,
+      "lat": 29.75721,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400204,
+      "lat": 29.74793,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.4002,
+      "lat": 29.747925,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400172,
+      "lat": 29.748014,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400168,
+      "lat": 29.748015,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400163,
+      "lat": 29.753185,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400163,
+      "lat": 29.753193,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400106,
+      "lat": 29.747912,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400104,
+      "lat": 29.747913,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400092,
+      "lat": 29.742863,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400059,
+      "lat": 29.747994,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "crosswalk",
+      "lon": -95.400056,
+      "lat": 29.74799,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "mailbox",
+      "lon": -95.410448,
+      "lat": 29.741311,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "mailbox",
+      "lon": -95.406989,
+      "lat": 29.75724,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "picnic table",
+      "lon": -95.409471,
+      "lat": 29.754347,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "picnic table",
+      "lon": -95.409238,
+      "lat": 29.754336,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "picnic table",
+      "lon": -95.400942,
+      "lat": 29.751254,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "picnic table",
+      "lon": -95.400813,
+      "lat": 29.751138,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "picnic table",
+      "lon": -95.400518,
+      "lat": 29.751963,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "picnic table",
+      "lon": -95.400441,
+      "lat": 29.75185,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "playground",
+      "lon": -95.400703,
+      "lat": 29.75219,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "sports field",
+      "lon": -95.419308,
+      "lat": 29.752779,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "sports field",
+      "lon": -95.417822,
+      "lat": 29.757303,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "sports field",
+      "lon": -95.416389,
+      "lat": 29.754418,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "sports field",
+      "lon": -95.411591,
+      "lat": 29.744293,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "sports field",
+      "lon": -95.411438,
+      "lat": 29.744315,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "sports field",
+      "lon": -95.411173,
+      "lat": 29.744299,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "sports field",
+      "lon": -95.406687,
+      "lat": 29.742039,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "sports field",
+      "lon": -95.401178,
+      "lat": 29.752229,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "sports field",
+      "lon": -95.40099,
+      "lat": 29.75223,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "sports field",
+      "lon": -95.400931,
+      "lat": 29.751693,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "street lamp",
+      "lon": -95.411713,
+      "lat": 29.743775,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "street lamp",
+      "lon": -95.411567,
+      "lat": 29.743777,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "street lamp",
+      "lon": -95.41142,
+      "lat": 29.743778,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "street lamp",
+      "lon": -95.411277,
+      "lat": 29.74378,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "street lamp",
+      "lon": -95.411068,
+      "lat": 29.743872,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.419297,
+      "lat": 29.752437,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.419198,
+      "lat": 29.753524,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.417051,
+      "lat": 29.757627,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.416915,
+      "lat": 29.742888,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.416689,
+      "lat": 29.754481,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.416533,
+      "lat": 29.758,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.416257,
+      "lat": 29.742893,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.410482,
+      "lat": 29.750841,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.407676,
+      "lat": 29.757565,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.407561,
+      "lat": 29.756601,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.407058,
+      "lat": 29.754242,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.406658,
+      "lat": 29.751372,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.406619,
+      "lat": 29.750844,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.406041,
+      "lat": 29.757935,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.404217,
+      "lat": 29.756236,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.403659,
+      "lat": 29.753685,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "swimming pool",
+      "lon": -95.40116,
+      "lat": 29.756027,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.418989,
+      "lat": 29.742258,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.418859,
+      "lat": 29.742448,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.41884,
+      "lat": 29.748389,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.418829,
+      "lat": 29.7467,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.41872,
+      "lat": 29.742194,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.418617,
+      "lat": 29.742369,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.418538,
+      "lat": 29.752112,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.418351,
+      "lat": 29.75229,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.418306,
+      "lat": 29.752017,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.418122,
+      "lat": 29.752199,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.410743,
+      "lat": 29.742581,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.410734,
+      "lat": 29.753005,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.410691,
+      "lat": 29.749075,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.410681,
+      "lat": 29.748128,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.410643,
+      "lat": 29.744669,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.408579,
+      "lat": 29.757119,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.40847,
+      "lat": 29.75722,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.408388,
+      "lat": 29.757029,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.408359,
+      "lat": 29.753049,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.408253,
+      "lat": 29.757136,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.407082,
+      "lat": 29.742753,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.405343,
+      "lat": 29.75718,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.404754,
+      "lat": 29.753114,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.404597,
+      "lat": 29.74274,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.402341,
+      "lat": 29.757214,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.402285,
+      "lat": 29.753153,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.402082,
+      "lat": 29.742782,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "traffic light",
+      "lon": -95.400244,
+      "lat": 29.753191,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "trash can",
+      "lon": -95.400831,
+      "lat": 29.752342,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "trash can",
+      "lon": -95.400774,
+      "lat": 29.752044,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419949,
+      "lat": 29.747623,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419945,
+      "lat": 29.747756,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419924,
+      "lat": 29.748047,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419899,
+      "lat": 29.747696,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419885,
+      "lat": 29.747961,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419852,
+      "lat": 29.747793,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419786,
+      "lat": 29.748023,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419759,
+      "lat": 29.747774,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419728,
+      "lat": 29.747887,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419722,
+      "lat": 29.748098,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419619,
+      "lat": 29.748043,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419505,
+      "lat": 29.748113,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419503,
+      "lat": 29.747886,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419487,
+      "lat": 29.748019,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419453,
+      "lat": 29.746784,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419398,
+      "lat": 29.748161,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419305,
+      "lat": 29.747896,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.41923,
+      "lat": 29.747055,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.41922,
+      "lat": 29.748018,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419166,
+      "lat": 29.747604,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419128,
+      "lat": 29.747872,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419125,
+      "lat": 29.74817,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419096,
+      "lat": 29.747333,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419065,
+      "lat": 29.746787,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419055,
+      "lat": 29.746982,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419032,
+      "lat": 29.747404,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.419026,
+      "lat": 29.747553,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.418974,
+      "lat": 29.746865,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.418973,
+      "lat": 29.747884,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406618,
+      "lat": 29.758882,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406608,
+      "lat": 29.758953,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406593,
+      "lat": 29.758795,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406466,
+      "lat": 29.758842,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.40646,
+      "lat": 29.758673,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406455,
+      "lat": 29.758744,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.40639,
+      "lat": 29.758745,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406265,
+      "lat": 29.758959,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406242,
+      "lat": 29.758584,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406237,
+      "lat": 29.758797,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406198,
+      "lat": 29.758527,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406024,
+      "lat": 29.758888,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.406021,
+      "lat": 29.758943,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405828,
+      "lat": 29.758742,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405819,
+      "lat": 29.758553,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405806,
+      "lat": 29.758855,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.40575,
+      "lat": 29.758912,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405744,
+      "lat": 29.758967,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405687,
+      "lat": 29.758584,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405684,
+      "lat": 29.758962,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405671,
+      "lat": 29.75888,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.40556,
+      "lat": 29.758933,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405514,
+      "lat": 29.758932,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405432,
+      "lat": 29.75884,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405424,
+      "lat": 29.75862,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405424,
+      "lat": 29.758765,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405423,
+      "lat": 29.758528,
+      "src": "osm",
+      "conf": null
+    },
+    {
+      "label": "tree",
+      "lon": -95.405422,
+      "lat": 29.758687,
+      "src": "osm",
+      "conf": null
+    }
+  ]
+}

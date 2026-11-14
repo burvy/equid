@@ -1,12 +1,19 @@
-# prep: Princeton data
+# prep: region data (Princeton, Houston)
 
 Builds the files the engine and web load. Run once; outputs are committed, so nobody else needs to.
 
 ```sh
 bash prep/fetch.sh               # downloads into data/raw/ (gitignored, ~10 min, skips what's cached)
-cargo run --release -p prep      # data/raw/ -> data/princeton/{graph,places}.json + stats.txt (seconds, offline)
+cargo run --release -p prep      # data/raw/ -> data/princeton/{graph,places,objects}.json + stats.txt (seconds, offline)
 cargo run --release -p prep-shade  # then: fills shade/tree in place (task 018); re-run it after every prep run
+
+bash prep/fetch.sh houston                 # -> data/raw/houston/ (~2 min)
+cargo run --release -p prep -- houston     # -> data/houston/ (no LiDAR shade there)
 ```
+
+Regions live in `prep/regions.tsv` (name, bbox, time zone, UTC offset, campus rule, raw cache dir); the Overpass
+queries' `{{BBOX}}` is filled from it. Houston is a ~2 x 2 km box around Buffalo Bayou / Montrose (29.75, -95.41),
+where the Vexcel imagery key works (Princeton is geofenced: 403).
 
 Format: `docs/contracts.md`. prep fills the engine's own structs (`engine::graph`) and runs the
 engine's loader on its output before writing, so the files always match the contract.
@@ -41,5 +48,9 @@ engine's loader on its output before writing, so the files always match the cont
   their centroid and snap to the graph node nearest to their outline.
 - **meta.sunrise_min / sunset_min:** NOAA solar formula for the demo date.
 - **shade, tree:** `null`, filled by a later LiDAR / tree-cover task.
+- **objects.json** (prep/src/objects.rs, `prep/objects.ql`): OSM points for the open-vocabulary `near:<label>`
+  features, one plain label per tag (crosswalk, tree, trash can, bike rack, playground, dog park, swimming pool, ...;
+  crossing ways count at their centre). Bench / toilets / drinking water are left out: they are built-in features.
+  Re-running prep replaces the `src: "osm"` points and keeps the rest (Vexcel points from `build_objects`).
 
-`data/princeton/stats.txt` lists counts and how much of the network carries each tag.
+`data/<region>/stats.txt` lists counts (and objects per label) and how much of the network carries each tag.

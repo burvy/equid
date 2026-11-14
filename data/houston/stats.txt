@@ -1,0 +1,49 @@
+Equid data prep stats (prep from OSM snapshot 2026-11-14T10:25:02Z)
+nodes 2020  edges 2810  network 100.3 km  (kept 1 of 7 connected pieces, 2020 of 2038 nodes)
+elevation 0.6..18.0 m; max edge grade 10.7%; sunrise 406 min, sunset 1047 min
+foot allowed      100.0% of edges, 100.0% of length
+bike allowed       61.6% of edges,  74.5% of length
+lit tagged in OSM   4.6% of edges,   7.9% of length
+lit known (after rules)  51.4% of edges,  41.0% of length  (5 street lamps in OSM; campus = none)
+  lit_src=tag       4.6% of edges,   7.9% of length
+  lit_src=lamp      0.7% of edges,   0.6% of length
+  lit_src=road     46.1% of edges,  32.4% of length
+  lit_src=campus    0.0% of edges,   0.0% of length
+  lit_src=trail     0.0% of edges,   0.0% of length
+  lit=yes          51.0% of edges,  39.9% of length
+  lit=no            0.4% of edges,   1.1% of length
+surface tagged     37.9% of edges,  53.8% of length
+surface known      63.1% of edges,  77.1% of length  (untagged car roads assumed paved)
+  not paved         0.0% of edges,   0.0% of length
+steps               0.0% of edges,   0.0% of length
+covered             0.4% of edges,   0.1% of length
+wheelchair tagged   0.0% of edges,   0.0% of length
+grade > 5%          0.5% of edges,   1.1% of length
+busy=0              1.4% of edges,   2.5% of length
+busy=1             48.1% of edges,  58.3% of length
+busy=2             35.3% of edges,  29.3% of length
+busy=3             15.2% of edges,  10.0% of length
+bike lts=1         44.1% of edges,  54.6% of length
+bike lts=2          6.1% of edges,   8.1% of length
+bike lts=3          3.3% of edges,   5.5% of length
+bike lts=4          8.1% of edges,   6.4% of length
+cycleway=track      1.4% of edges,   1.1% of length
+cycleway=lane       0.6% of edges,   0.4% of length
+cycleway=shared     0.2% of edges,   0.1% of length
+bench within 100 m   5.6% of edges,   4.4% of length
+toilets within 250 m   0.0% of edges,   0.0% of length
+water within 250 m   0.0% of edges,   0.0% of length
+places 91 (55 named): bench 6, bicycle_parking 28, cafe 8, fast_food 10, garden 3, ice_cream 2, museum 3, park 5, pharmacy 2, playground 1, restaurant 23
+objects 717 (osm 717); per label: objects / edges within 100 m
+  bike rack         28 / 1021
+  bus stop           5 / 226
+  crosswalk        556 / 2450
+  mailbox            2 / 84
+  picnic table       6 / 78
+  playground         1 / 54
+  sports field      10 / 230
+  street lamp        5 / 113
+  swimming pool     17 / 302
+  traffic light     28 / 1339
+  trash can          2 / 64
+  tree              57 / 86
