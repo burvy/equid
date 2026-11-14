@@ -289,20 +289,38 @@ const sunUntil = (p: Place) => (p.tags?.sun_visible_until ? `sun until ${p.tags.
 
 // ---------- 'catch the sunset' ----------
 // Every sunset spot has its own deadline: the minute the low sun stops being visible there (prep's sun_visible_until).
-// A spot is catchable now if what it costs you to get there (minutes, from the live field) fits in the minutes left.
-type SunRow = { i: number; p: Place; c: number; left: number; ok: boolean };
+// Your personal cost picks the route; the verdict uses the real walking time along that route (its length at the
+// mode's base speed), because cost includes penalty seconds (stroller, shade...) that aren't minutes on the clock.
+type SunRow = { i: number; p: Place; c: number; w: number; left: number; ok: boolean };
 const hhmmMin = (s?: string | number) => { const m = /^(\d{1,2}):(\d{2})$/.exec(String(s ?? '')); return m ? +m[1] * 60 + +m[2] : NaN; };
 const hasSunsetSpots = () => S.places.some(p => p.category === 'sunset' && Number.isFinite(hhmmMin(p.tags?.sun_visible_until)));
 let sunRows: SunRow[] = [];
+/** Real walking minutes to each sunset spot (by place index), for the field they were computed under. */
+let sunWalk: { field: unknown; min: Map<number, number> } = { field: null, min: new Map() };
 
-/** Sunset spots with minutes left and cost, most time to spare first. */
+/** One engine.route_lengths call per new field (origin, metric or time changed): ~8 spots, cheap. */
+function sunsetWalkMinutes(idx: number[]): Map<number, number> {
+  if (sunWalk.field === S.field && idx.every(i => sunWalk.min.has(i))) return sunWalk.min;
+  const min = new Map<number, number>();
+  if (S.engine && idx.length) {
+    try {
+      const len = S.engine.route_lengths(S.origin, metricForEngine(), S.t, Uint32Array.from(idx, i => S.places[i].node));
+      idx.forEach((i, k) => min.set(i, len[k] / speed(S.metric) / 60));
+    } catch (e) { console.warn('route_lengths:', e); }
+  }
+  sunWalk = { field: S.field, min };
+  return min;
+}
+
+/** Sunset spots with minutes left, real walking minutes and personal cost, most time to spare first. */
 function sunsetRows(): SunRow[] {
-  return S.places.flatMap((p, i) => {
-    const until = hhmmMin(p.tags?.sun_visible_until);
-    if (p.category !== 'sunset' || !Number.isFinite(until)) return [];
-    const c = S.placeCost[i] / 60, left = until - S.t;
-    return [{ i, p, c, left, ok: Number.isFinite(c) && left > 0 && c <= left }];
-  }).sort((a, b) => (b.left - b.c) - (a.left - a.c) || b.left - a.left);
+  const spots = S.places.flatMap((p, i) => (p.category === 'sunset' && Number.isFinite(hhmmMin(p.tags?.sun_visible_until)) ? [i] : []));
+  const walk = sunsetWalkMinutes(spots.filter(i => Number.isFinite(S.placeCost[i])));
+  return spots.map(i => {
+    const p = S.places[i], c = S.placeCost[i] / 60, left = hhmmMin(p.tags?.sun_visible_until) - S.t;
+    const w = Number.isFinite(c) ? walk.get(i) ?? NaN : NaN;
+    return { i, p, c, w, left, ok: Number.isFinite(w) && left > 0 && w <= left };
+  }).sort((a, b) => (b.left - b.w) - (a.left - a.w) || b.left - a.left);
 }
 
 /** The spot the budget follows: the one picked in the list or on the map, else the catchable one with the most time to spare. */
@@ -325,19 +343,24 @@ function syncSunset() {
 const spotName = (p: Place) => placeLabel(p).replace(/^Sunset spot: /, '');
 function sunVerdict(r: SunRow): string {
   if (r.left <= 0) return 'sun already gone';
-  if (!Number.isFinite(r.c)) return 'can\'t get there';
-  return r.ok ? `✓ catch it, ${fmtMin((r.left - r.c) * 60)} min to spare` : `too late by ${fmtMin((r.c - r.left) * 60)} min`;
+  if (!Number.isFinite(r.w)) return 'can\'t get there';
+  return r.ok ? `✓ catch it, ${fmtMin((r.left - r.w) * 60)} min to spare` : `too late by ${fmtMin((r.w - r.left) * 60)} min`;
 }
+/** '12 min walk', plus your cost when penalties make it differ: '12 min walk · costs you 19'. */
+const sunWalkLabel = (r: SunRow) => (!Number.isFinite(r.w) ? '' :
+  `${fmtMin(r.w * 60)} min ${S.metric.mode === 'bike' ? 'ride' : 'walk'}` +
+  (fmtMin(r.c * 60) !== fmtMin(r.w * 60) ?` <small title="your personal cost (picks the route, includes penalties)">· costs you ${fmtMin(r.c * 60)}</small>` : ''));
 
 function renderSunsetList() {
   const tgt = sunsetTarget(), n = sunRows.filter(r => r.ok).length;
   $('sunsetNote').innerHTML = (n
     ? `At ${fmtTime(S.t)} you can still catch <b>${n} of ${sunRows.length}</b> sunset spots.`
     : `At ${fmtTime(S.t)} it's too late for every sunset spot: try an earlier time.`) +
-    (tgt ? ` Budget = <b>${S.budgetMin} min</b>, until the sun leaves <b>${esc(spotName(tgt.p))}</b> at ${tgt.p.tags?.sun_visible_until}.` : '');
+    (tgt ? ` Budget = <b>${S.budgetMin} min</b>, until the sun leaves <b>${esc(spotName(tgt.p))}</b> at ${tgt.p.tags?.sun_visible_until}.` : '') +
+    ' <small>Judged on real walking time along your route (your preferences pick the route).</small>';
   $('places').innerHTML = sunRows.map(r =>
     `<li data-i="${r.i}" class="${r.ok ? '' : 'out'}${r === tgt ? ' target' : ''}">${esc(spotName(r.p))}` +
-    ` <small class="sun">☀ until ${r.p.tags?.sun_visible_until}</small><span class="c">${fmtMin(r.c * 60)} min</span>` +
+    ` <small class="sun">☀ until ${r.p.tags?.sun_visible_until}</small><span class="c">${sunWalkLabel(r)}</span>` +
     `<div class="verdict ${r.ok ? 'ok' : 'late'}">${sunVerdict(r)}</div></li>`).join('');
 }
 

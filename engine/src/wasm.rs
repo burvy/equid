@@ -109,6 +109,14 @@ impl Engine {
         Ok(Field { node_cost: r.node_cost, place_cost: r.place_cost })
     }
 
+    /// Length in metres of the cheapest route under `metric` from `origin` to each node in `targets`
+    /// (the route `explain` backtracks), NaN where unreachable. The cost picks the route; the length gives the
+    /// real walking time on it (length / base speed), free of penalty seconds. Used by 'catch the sunset'.
+    pub fn route_lengths(&self, origin: u32, metric_json: &str, t_min: f32, targets: Vec<u32>) -> Result<Vec<f32>, JsError> {
+        let metric = Metric::from_json(metric_json).map_err(|e| JsError::new(&e))?;
+        Ok(targets.iter().map(|&n| self.core.explain(origin, &metric, t_min, n).map_or(f32::NAN, |e| e.length_m)).collect())
+    }
+
     /// Buffers for the three views from a `field` result (docs/contracts.md section 4). `warp` 0..1 blends
     /// real -> warped positions, `lift` = metres of height per second of cost, `metres_per_s` = warp radius
     /// per second of cost, `budget_s` = cost where the colour ramp reaches red, `hide_beyond` (0..1) fades out
