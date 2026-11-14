@@ -129,7 +129,7 @@ pub fn ungrounded_numbers(pitch: &str, grounding: &str) -> Vec<f64> {
 }
 
 fn minutes(s: f32) -> f64 {
-    ((s / 60.0 * 10.0).round() / 10.0) as f64
+    (s as f64 / 60.0 * 10.0).round() / 10.0
 }
 
 struct Session<'a> {
