@@ -31,6 +31,9 @@ pub struct Explain {
     /// Graph nodes from origin to target.
     pub path: Vec<u32>,
     pub length_m: f32,
+    /// Metres climbed along the path in the travel direction, whatever the weights (raw, unweighted;
+    /// `terms` drops zero-weight features). Used for Naismith walking time (6 s per metre climbed).
+    pub climb_m: f32,
     /// Total cost along the path (= field value at the target).
     pub total: f32,
     /// (feature id, raw amount in the feature's unit, weight, weight x raw = seconds-equivalent), only weight > 0 or raw > 0.
@@ -217,6 +220,7 @@ impl Core {
         seen[target as usize] = true;
         let mut raw = vec![0.0f32; features::FEATURES.len()];
         let mut length_m = 0.0;
+        let mut climb_m = 0.0;
         let mut dyn_raw = vec![0.0f32; metric.dynamic.len()];
         let mut v = target as usize;
         while v != origin as usize {
@@ -235,6 +239,7 @@ impl Core {
                 *r += x;
             }
             length_m += e.length_m;
+            climb_m += if fwd { e.climb_m } else { e.descent_m };
             for (r, (l, _)) in dyn_raw.iter_mut().zip(&metric.dynamic) {
                 *r += e.length_m * self.objects[l].near[ei as usize] / graph::NEAR_CAP_M;
             }
@@ -254,7 +259,7 @@ impl Core {
                 terms.push((format!("near:{l}"), *r, *w, r * w));
             }
         }
-        Ok(Explain { path, length_m, total: d[target as usize], terms })
+        Ok(Explain { path, length_m, climb_m, total: d[target as usize], terms })
     }
 }
 

@@ -298,16 +298,20 @@ const hasSunsetSpots = () => S.places.some(p => p.category === 'sunset' && Numbe
 let sunRows: SunRow[] = [];
 /** Real walking minutes to each sunset spot (by place index), for the field they were computed under. */
 let sunWalk: { field: unknown; min: Map<number, number> } = { field: null, min: new Map() };
+/** Naismith's rule: walking takes an extra ~6 s per metre climbed (1 h per 600 m). Rides stay length / speed. */
+const NAISMITH_S_PER_M = 6;
 
-/** One engine.route_lengths call per new field (origin, metric or time changed): ~8 spots, cheap. */
+/** One engine.route_walk call per new field (origin, metric or time changed): ~8 spots, cheap.
+ *  Minutes = length / base speed + (on foot) 6 s per metre climbed, on the route your preferences pick. */
 function sunsetWalkMinutes(idx: number[]): Map<number, number> {
   if (sunWalk.field === S.field && idx.every(i => sunWalk.min.has(i))) return sunWalk.min;
   const min = new Map<number, number>();
   if (S.engine && idx.length) {
     try {
-      const len = S.engine.route_lengths(S.origin, metricForEngine(), S.t, Uint32Array.from(idx, i => S.places[i].node));
-      idx.forEach((i, k) => min.set(i, len[k] / speed(S.metric) / 60));
-    } catch (e) { console.warn('route_lengths:', e); }
+      const lc = S.engine.route_walk(S.origin, metricForEngine(), S.t, Uint32Array.from(idx, i => S.places[i].node));
+      const climbS = S.metric.mode === 'bike' ? 0 : NAISMITH_S_PER_M;
+      idx.forEach((i, k) => min.set(i, (lc[2 * k] / speed(S.metric) + climbS * lc[2 * k + 1]) / 60));
+    } catch (e) { console.warn('route_walk:', e); }
   }
   sunWalk = { field: S.field, min };
   return min;
@@ -358,7 +362,9 @@ function renderSunsetList() {
     ? `At ${fmtTime(S.t)} you can still catch <b>${n} of ${sunRows.length}</b> sunset spots.`
     : `At ${fmtTime(S.t)} it's too late for every sunset spot: try an earlier time.`) +
     (tgt ? ` Budget = <b>${S.budgetMin} min</b>, until the sun leaves <b>${esc(spotName(tgt.p))}</b> at ${tgt.p.tags?.sun_visible_until}.` : '') +
-    ' <small>Judged on walking time along your route, on flat ground (hills not counted; your preferences pick the route).</small>';
+    (S.metric.mode === 'bike'
+      ? ' <small>Judged on riding time along your route, on flat ground (hills not counted; your preferences pick the route).</small>'
+      : ' <small>Judged on walking time along your route, plus 6 s per metre climbed (Naismith); your preferences pick the route.</small>');
   $('places').innerHTML = sunRows.map(r =>
     `<li data-i="${r.i}" class="${r.ok ? '' : 'out'}${r === tgt ? ' target' : ''}">${esc(spotName(r.p))}` +
     ` <small class="sun">☀ until ${r.p.tags?.sun_visible_until}</small><span class="c">${sunWalkLabel(r)}</span>` +
