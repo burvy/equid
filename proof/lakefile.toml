@@ -1,0 +1,9 @@
+name = "equid"
+defaultTargets = ["Equid", "gen"]
+
+[[lean_lib]]
+name = "Equid"
+
+[[lean_exe]]
+name = "gen"
+root = "Gen"

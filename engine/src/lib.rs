@@ -2,6 +2,8 @@
 //! (`wasm::Engine`) the web app calls. Contract: docs/contracts.md.
 
 pub mod features;
+/// Feature formulas generated from the Lean proofs (proof/, `lake exe gen`); drop-in for `features::edge_features`.
+pub mod metrics_gen;
 pub mod graph;
 pub mod metric;
 pub mod objects;
