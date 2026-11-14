@@ -8,6 +8,9 @@ pub mod wasm;
 
 use graph::{Graph, Places};
 use metric::Metric;
+use petgraph::algo::dijkstra;
+use petgraph::graph::{DiGraph, NodeIndex};
+use petgraph::visit::{EdgeFiltered, EdgeRef};
 
 /// Result of `field`: cost (seconds-equivalent) from the origin to every node and every place,
 /// in file order. `f32::INFINITY` = unreachable under this metric.
@@ -20,6 +23,9 @@ pub struct FieldResult {
 pub struct Core {
     pub graph: Graph,
     pub places: Places,
+    /// Directed petgraph view, built once at load. Undirected edge i becomes arc 2i (from->to,
+    /// weight (i, true)) and arc 2i+1 (to->from, weight (i, false)); costs are filled per query.
+    arcs: DiGraph<(), (u32, bool), u32>,
 }
 
 impl Core {
@@ -28,7 +34,15 @@ impl Core {
         graph.validate()?;
         let places: Places = serde_json::from_str(places_json).map_err(|e| format!("places.json: {e}"))?;
         places.validate(&graph)?;
-        Ok(Core { graph, places })
+        let mut arcs = DiGraph::with_capacity(graph.nodes.len(), graph.edges.len() * 2);
+        for _ in &graph.nodes {
+            arcs.add_node(());
+        }
+        for (i, e) in graph.edges.iter().enumerate() {
+            arcs.add_edge(NodeIndex::new(e.from as usize), NodeIndex::new(e.to as usize), (i as u32, true));
+            arcs.add_edge(NodeIndex::new(e.to as usize), NodeIndex::new(e.from as usize), (i as u32, false));
+        }
+        Ok(Core { graph, places, arcs })
     }
 
     /// Nearest graph node to a point (linear scan; fine for ~10k nodes, called once per click).
@@ -44,18 +58,33 @@ impl Core {
             .unwrap_or(0)
     }
 
-    /// Cost field from `origin` under `metric` at local time `t_min`.
-    /// STUB (task 001): straight-line distance / mode speed. Task 003 replaces the body with
-    /// petgraph Dijkstra over `metric.edge_cost`; the signature and output stay the same.
-    pub fn field(&self, origin: u32, metric: &Metric, _t_min: f32) -> Result<FieldResult, String> {
-        let o = self.graph.nodes.get(origin as usize).ok_or("origin node out of range")?;
-        let speed = metric.mode.speed_mps() as f64;
-        let node_cost: Vec<f32> = self
-            .graph
-            .nodes
-            .iter()
-            .map(|n| (haversine_m(o.lon, o.lat, n.lon, n.lat) / speed) as f32)
-            .collect();
+    /// Cost of every arc (index 2i = edge i forward, 2i+1 = backward) under `metric` at `t_min`.
+    /// `INFINITY` = impassable. All finite costs are >= 0 (weights >= 0, features >= 0).
+    pub fn arc_costs(&self, metric: &Metric, t_min: f32) -> Vec<f32> {
+        let meta = &self.graph.meta;
+        let mut out = Vec::with_capacity(self.graph.edges.len() * 2);
+        for e in &self.graph.edges {
+            for forward in [true, false] {
+                out.push(metric.edge_cost(e, forward, meta, t_min).unwrap_or(f32::INFINITY));
+            }
+        }
+        out
+    }
+
+    /// Cost field from `origin` under `metric` at local time `t_min` (the departure time; costs
+    /// are evaluated at that time for the whole trip). Dijkstra from petgraph over the arc costs;
+    /// impassable arcs are filtered out, so unreachable nodes/places get `f32::INFINITY`.
+    pub fn field(&self, origin: u32, metric: &Metric, t_min: f32) -> Result<FieldResult, String> {
+        if origin as usize >= self.graph.nodes.len() {
+            return Err("origin node out of range".into());
+        }
+        let costs = self.arc_costs(metric, t_min);
+        let passable = EdgeFiltered::from_fn(&self.arcs, |e| costs[e.id().index()].is_finite());
+        let dist = dijkstra(&passable, NodeIndex::new(origin as usize), None, |e| costs[e.id().index()]);
+        let mut node_cost = vec![f32::INFINITY; self.graph.nodes.len()];
+        for (n, d) in dist {
+            node_cost[n.index()] = d;
+        }
         let place_cost = self.places.places.iter().map(|p| node_cost[p.node as usize]).collect();
         Ok(FieldResult { node_cost, place_cost })
     }

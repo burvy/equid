@@ -41,7 +41,7 @@ npm run preview  # serve web/dist
 ```
 
 ## Status
-Work in progress (hackathon build). The engine's `field` is still a stub (straight-line distance).
+Work in progress (hackathon build). The engine's `field` is real (petgraph Dijkstra over user-weighted, time-dependent edge costs).
 
 ## Credits
 Map data © OpenStreetMap contributors (ODbL).

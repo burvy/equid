@@ -82,7 +82,7 @@ fn unlit_only_counts_at_night_and_sun_only_by_day() {
 }
 
 #[test]
-fn stub_field_shapes() {
+fn field_shapes() {
     let c = fixture();
     let m = Metric::from_json(r#"{"weights":{"time":1}}"#).unwrap();
     let o = c.nearest_node(-74.662, 40.348);
@@ -92,4 +92,5 @@ fn stub_field_shapes() {
     assert_eq!(r.place_cost.len(), 6);
     assert_eq!(r.node_cost[0], 0.0);
     assert!(r.node_cost.iter().all(|v| *v >= 0.0));
+    assert!(c.field(99, &m, 600.0).is_err());
 }
