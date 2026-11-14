@@ -23460,164 +23460,1018 @@
     },
     {
       "label": "parking lot",
-      "lon": -95.419463,
-      "lat": 29.742974,
+      "lon": -95.425734,
+      "lat": 29.733542,
       "src": "vexcel",
-      "conf": 0.55810547
+      "conf": 0.57373047
     },
     {
       "label": "parking lot",
-      "lon": -95.419317,
-      "lat": 29.742582,
+      "lon": -95.419169,
+      "lat": 29.733702,
+      "src": "vexcel",
+      "conf": 0.70654297
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.41934,
+      "lat": 29.732571,
+      "src": "vexcel",
+      "conf": 0.5097656
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.421452,
+      "lat": 29.735029,
+      "src": "vexcel",
+      "conf": 0.5595703
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.416901,
+      "lat": 29.733144,
+      "src": "vexcel",
+      "conf": 0.6855469
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.396004,
+      "lat": 29.733713,
+      "src": "vexcel",
+      "conf": 0.5751953
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.392235,
+      "lat": 29.733491,
+      "src": "vexcel",
+      "conf": 0.6254883
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.390513,
+      "lat": 29.733121,
+      "src": "vexcel",
+      "conf": 0.63427734
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.427793,
+      "lat": 29.737271,
+      "src": "vexcel",
+      "conf": 0.7163086
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.429092,
+      "lat": 29.737099,
+      "src": "vexcel",
+      "conf": 0.5673828
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.429317,
+      "lat": 29.737934,
+      "src": "vexcel",
+      "conf": 0.6308594
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.426746,
+      "lat": 29.738948,
+      "src": "vexcel",
+      "conf": 0.5541992
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.425066,
+      "lat": 29.735981,
+      "src": "vexcel",
+      "conf": 0.5410156
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.424304,
+      "lat": 29.738064,
+      "src": "vexcel",
+      "conf": 0.68408203
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.424307,
+      "lat": 29.738611,
+      "src": "vexcel",
+      "conf": 0.5551758
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.424999,
+      "lat": 29.736328,
+      "src": "vexcel",
+      "conf": 0.56152344
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.418127,
+      "lat": 29.738888,
+      "src": "vexcel",
+      "conf": 0.5576172
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.417852,
+      "lat": 29.737273,
+      "src": "vexcel",
+      "conf": 0.6040039
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.415589,
+      "lat": 29.735827,
+      "src": "vexcel",
+      "conf": 0.5307617
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.415757,
+      "lat": 29.73873,
+      "src": "vexcel",
+      "conf": 0.5234375
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.405902,
+      "lat": 29.738863,
+      "src": "vexcel",
+      "conf": 0.53564453
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.402757,
+      "lat": 29.737133,
+      "src": "vexcel",
+      "conf": 0.62597656
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.394463,
+      "lat": 29.736398,
+      "src": "vexcel",
+      "conf": 0.81933594
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.391612,
+      "lat": 29.737336,
       "src": "vexcel",
       "conf": 0.5048828
     },
     {
       "label": "parking lot",
-      "lon": -95.416884,
+      "lon": -95.389396,
+      "lat": 29.738548,
+      "src": "vexcel",
+      "conf": 0.5288086
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.429368,
+      "lat": 29.740379,
+      "src": "vexcel",
+      "conf": 0.6074219
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.429359,
+      "lat": 29.741174,
+      "src": "vexcel",
+      "conf": 0.5703125
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.422514,
+      "lat": 29.739519,
+      "src": "vexcel",
+      "conf": 0.6513672
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.42547,
+      "lat": 29.742513,
+      "src": "vexcel",
+      "conf": 0.5361328
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.418146,
+      "lat": 29.74264,
+      "src": "vexcel",
+      "conf": 0.5649414
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.419315,
+      "lat": 29.742582,
+      "src": "vexcel",
+      "conf": 0.5214844
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.416881,
       "lat": 29.742171,
       "src": "vexcel",
-      "conf": 0.55078125
-    },
-    {
-      "label": "parking lot",
-      "lon": -95.417048,
-      "lat": 29.74267,
-      "src": "vexcel",
-      "conf": 0.5175781
-    },
-    {
-      "label": "parking lot",
-      "lon": -95.416976,
-      "lat": 29.742548,
-      "src": "vexcel",
-      "conf": 0.5253906
-    },
-    {
-      "label": "parking lot",
-      "lon": -95.409399,
-      "lat": 29.741988,
-      "src": "vexcel",
-      "conf": 0.5078125
-    },
-    {
-      "label": "parking lot",
-      "lon": -95.403572,
-      "lat": 29.743235,
-      "src": "vexcel",
-      "conf": 0.52197266
-    },
-    {
-      "label": "parking lot",
-      "lon": -95.404227,
-      "lat": 29.742549,
-      "src": "vexcel",
-      "conf": 0.5571289
-    },
-    {
-      "label": "parking lot",
-      "lon": -95.413677,
-      "lat": 29.747209,
-      "src": "vexcel",
-      "conf": 0.5258789
+      "conf": 0.5053711
     },
     {
       "label": "solar panel",
-      "lon": -95.402377,
-      "lat": 29.745193,
+      "lon": -95.406814,
+      "lat": 29.73969,
       "src": "vexcel",
-      "conf": 0.52246094
+      "conf": 0.5991211
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.427677,
+      "lat": 29.744467,
+      "src": "vexcel",
+      "conf": 0.5371094
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.429295,
+      "lat": 29.746128,
+      "src": "vexcel",
+      "conf": 0.50146484
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.425737,
+      "lat": 29.74639,
+      "src": "vexcel",
+      "conf": 0.86816406
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.419447,
+      "lat": 29.74304,
+      "src": "vexcel",
+      "conf": 0.5366211
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.415348,
+      "lat": 29.743071,
+      "src": "vexcel",
+      "conf": 0.61816406
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.408994,
+      "lat": 29.743191,
+      "src": "vexcel",
+      "conf": 0.5205078
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.400692,
+      "lat": 29.743256,
+      "src": "vexcel",
+      "conf": 0.55908203
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.39982,
+      "lat": 29.743273,
+      "src": "vexcel",
+      "conf": 0.5185547
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.398377,
+      "lat": 29.744421,
+      "src": "vexcel",
+      "conf": 0.78515625
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.395687,
+      "lat": 29.744617,
+      "src": "vexcel",
+      "conf": 0.5317383
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.394181,
+      "lat": 29.744478,
+      "src": "vexcel",
+      "conf": 0.60595703
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.393527,
+      "lat": 29.744279,
+      "src": "vexcel",
+      "conf": 0.5288086
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.392215,
+      "lat": 29.745274,
+      "src": "vexcel",
+      "conf": 0.53271484
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.425305,
+      "lat": 29.747976,
+      "src": "vexcel",
+      "conf": 0.7910156
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.423168,
+      "lat": 29.749817,
+      "src": "vexcel",
+      "conf": 0.8276367
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.424199,
+      "lat": 29.750016,
+      "src": "vexcel",
+      "conf": 0.6479492
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.424526,
+      "lat": 29.747511,
+      "src": "vexcel",
+      "conf": 0.5024414
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.412284,
+      "lat": 29.748277,
+      "src": "vexcel",
+      "conf": 0.54785156
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.412392,
+      "lat": 29.748281,
+      "src": "vexcel",
+      "conf": 0.63916016
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.41249,
+      "lat": 29.748283,
+      "src": "vexcel",
+      "conf": 0.5292969
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.395079,
+      "lat": 29.74731,
+      "src": "vexcel",
+      "conf": 0.5620117
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.427925,
+      "lat": 29.752448,
+      "src": "vexcel",
+      "conf": 0.62841797
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.426953,
+      "lat": 29.751795,
+      "src": "vexcel",
+      "conf": 0.56640625
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.42696,
+      "lat": 29.751927,
+      "src": "vexcel",
+      "conf": 0.6040039
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.429739,
+      "lat": 29.751513,
+      "src": "vexcel",
+      "conf": 0.6689453
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.424055,
+      "lat": 29.752717,
+      "src": "vexcel",
+      "conf": 0.75341797
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.422928,
+      "lat": 29.753632,
+      "src": "vexcel",
+      "conf": 0.7236328
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.422737,
+      "lat": 29.753582,
+      "src": "vexcel",
+      "conf": 0.7421875
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.422692,
+      "lat": 29.753222,
+      "src": "vexcel",
+      "conf": 0.7192383
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.423067,
+      "lat": 29.753337,
+      "src": "vexcel",
+      "conf": 0.73291016
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.422508,
+      "lat": 29.753178,
+      "src": "vexcel",
+      "conf": 0.7026367
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.423281,
+      "lat": 29.753032,
+      "src": "vexcel",
+      "conf": 0.63720703
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.423099,
+      "lat": 29.752976,
+      "src": "vexcel",
+      "conf": 0.59228516
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.425568,
+      "lat": 29.752522,
+      "src": "vexcel",
+      "conf": 0.5786133
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.423252,
+      "lat": 29.75344,
+      "src": "vexcel",
+      "conf": 0.6713867
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.423651,
+      "lat": 29.753184,
+      "src": "vexcel",
+      "conf": 0.65722656
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.423472,
+      "lat": 29.753122,
+      "src": "vexcel",
+      "conf": 0.65478516
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.423129,
+      "lat": 29.753661,
+      "src": "vexcel",
+      "conf": 0.69140625
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.424805,
+      "lat": 29.752764,
+      "src": "vexcel",
+      "conf": 0.5551758
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.422895,
+      "lat": 29.753279,
+      "src": "vexcel",
+      "conf": 0.73095703
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.423433,
+      "lat": 29.753501,
+      "src": "vexcel",
+      "conf": 0.6567383
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.422554,
+      "lat": 29.753552,
+      "src": "vexcel",
+      "conf": 0.74609375
     },
     {
       "label": "tennis court",
       "lon": -95.419311,
-      "lat": 29.752804,
+      "lat": 29.752801,
       "src": "vexcel",
-      "conf": 0.7416992
-    },
-    {
-      "label": "tennis court",
-      "lon": -95.416374,
-      "lat": 29.754432,
-      "src": "vexcel",
-      "conf": 0.78125
-    },
-    {
-      "label": "tennis court",
-      "lon": -95.418464,
-      "lat": 29.754258,
-      "src": "vexcel",
-      "conf": 0.81347656
+      "conf": 0.66796875
     },
     {
       "label": "parking lot",
-      "lon": -95.405625,
-      "lat": 29.753456,
+      "lon": -95.405778,
+      "lat": 29.753444,
       "src": "vexcel",
-      "conf": 0.72265625
+      "conf": 0.61376953
     },
     {
       "label": "parking lot",
-      "lon": -95.407105,
-      "lat": 29.752472,
+      "lon": -95.407501,
+      "lat": 29.752464,
       "src": "vexcel",
-      "conf": 0.51660156
+      "conf": 0.6064453
     },
     {
       "label": "parking lot",
-      "lon": -95.400944,
-      "lat": 29.753842,
+      "lon": -95.405012,
+      "lat": 29.753448,
       "src": "vexcel",
-      "conf": 0.52490234
+      "conf": 0.63134766
     },
     {
       "label": "tennis court",
-      "lon": -95.401086,
-      "lat": 29.752234,
-      "src": "vexcel",
-      "conf": 0.58935547
-    },
-    {
-      "label": "tennis court",
-      "lon": -95.401171,
-      "lat": 29.752227,
-      "src": "vexcel",
-      "conf": 0.6459961
-    },
-    {
-      "label": "tennis court",
-      "lon": -95.400985,
+      "lon": -95.401151,
       "lat": 29.752231,
       "src": "vexcel",
-      "conf": 0.62109375
+      "conf": 0.63964844
     },
     {
       "label": "tennis court",
-      "lon": -95.417821,
-      "lat": 29.757333,
+      "lon": -95.401173,
+      "lat": 29.752225,
       "src": "vexcel",
-      "conf": 0.7573242
+      "conf": 0.57128906
     },
     {
       "label": "parking lot",
-      "lon": -95.404757,
-      "lat": 29.75756,
+      "lon": -95.400077,
+      "lat": 29.75169,
       "src": "vexcel",
-      "conf": 0.73876953
+      "conf": 0.5996094
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.400579,
+      "lat": 29.752741,
+      "src": "vexcel",
+      "conf": 0.5498047
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.400975,
+      "lat": 29.75222,
+      "src": "vexcel",
+      "conf": 0.5654297
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.400978,
+      "lat": 29.752229,
+      "src": "vexcel",
+      "conf": 0.5859375
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.399196,
+      "lat": 29.753434,
+      "src": "vexcel",
+      "conf": 0.6015625
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.391807,
+      "lat": 29.751545,
+      "src": "vexcel",
+      "conf": 0.52197266
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.422937,
+      "lat": 29.753995,
+      "src": "vexcel",
+      "conf": 0.6074219
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.42288,
+      "lat": 29.753765,
+      "src": "vexcel",
+      "conf": 0.50439453
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.422764,
+      "lat": 29.753939,
+      "src": "vexcel",
+      "conf": 0.56396484
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.423007,
+      "lat": 29.754064,
+      "src": "vexcel",
+      "conf": 0.5161133
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.423021,
+      "lat": 29.75402,
+      "src": "vexcel",
+      "conf": 0.6074219
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.422918,
+      "lat": 29.75403,
+      "src": "vexcel",
+      "conf": 0.5800781
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.422846,
+      "lat": 29.753968,
+      "src": "vexcel",
+      "conf": 0.59765625
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.417837,
+      "lat": 29.757267,
+      "src": "vexcel",
+      "conf": 0.6557617
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.418462,
+      "lat": 29.754259,
+      "src": "vexcel",
+      "conf": 0.8125
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.421278,
+      "lat": 29.756242,
+      "src": "vexcel",
+      "conf": 0.78222656
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.416202,
+      "lat": 29.754613,
+      "src": "vexcel",
+      "conf": 0.5239258
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.416372,
+      "lat": 29.754431,
+      "src": "vexcel",
+      "conf": 0.66845703
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.401619,
+      "lat": 29.754031,
+      "src": "vexcel",
+      "conf": 0.68359375
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.402916,
+      "lat": 29.75425,
+      "src": "vexcel",
+      "conf": 0.61376953
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.398856,
+      "lat": 29.754793,
+      "src": "vexcel",
+      "conf": 0.5073242
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.399478,
+      "lat": 29.755026,
+      "src": "vexcel",
+      "conf": 0.53564453
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.400972,
+      "lat": 29.753966,
+      "src": "vexcel",
+      "conf": 0.5239258
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.395166,
+      "lat": 29.756432,
+      "src": "vexcel",
+      "conf": 0.6303711
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.421991,
+      "lat": 29.75877,
+      "src": "vexcel",
+      "conf": 0.75927734
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.420292,
+      "lat": 29.759957,
+      "src": "vexcel",
+      "conf": 0.7685547
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.407452,
+      "lat": 29.759132,
+      "src": "vexcel",
+      "conf": 0.5957031
     },
     {
       "label": "parking lot",
       "lon": -95.406749,
-      "lat": 29.757851,
+      "lat": 29.757884,
       "src": "vexcel",
-      "conf": 0.59472656
+      "conf": 0.5527344
     },
     {
       "label": "parking lot",
-      "lon": -95.401172,
-      "lat": 29.756895,
+      "lon": -95.404709,
+      "lat": 29.75762,
       "src": "vexcel",
-      "conf": 0.5253906
+      "conf": 0.5854492
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.397497,
+      "lat": 29.75888,
+      "src": "vexcel",
+      "conf": 0.6904297
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.400757,
+      "lat": 29.759698,
+      "src": "vexcel",
+      "conf": 0.76416016
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.397592,
+      "lat": 29.760005,
+      "src": "vexcel",
+      "conf": 0.67333984
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.398699,
+      "lat": 29.760212,
+      "src": "vexcel",
+      "conf": 0.5625
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.39453,
+      "lat": 29.757832,
+      "src": "vexcel",
+      "conf": 0.6010742
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.393843,
+      "lat": 29.759757,
+      "src": "vexcel",
+      "conf": 0.7207031
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.394685,
+      "lat": 29.758512,
+      "src": "vexcel",
+      "conf": 0.79052734
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.390664,
+      "lat": 29.758512,
+      "src": "vexcel",
+      "conf": 0.90283203
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.429711,
+      "lat": 29.762588,
+      "src": "vexcel",
+      "conf": 0.62353516
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.429745,
+      "lat": 29.763172,
+      "src": "vexcel",
+      "conf": 0.62402344
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.418,
+      "lat": 29.76199,
+      "src": "vexcel",
+      "conf": 0.53515625
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.416753,
+      "lat": 29.762266,
+      "src": "vexcel",
+      "conf": 0.54589844
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.410924,
+      "lat": 29.764262,
+      "src": "vexcel",
+      "conf": 0.60498047
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.406285,
+      "lat": 29.763216,
+      "src": "vexcel",
+      "conf": 0.50390625
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.403504,
+      "lat": 29.763447,
+      "src": "vexcel",
+      "conf": 0.5888672
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.403599,
+      "lat": 29.763551,
+      "src": "vexcel",
+      "conf": 0.5913086
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.403544,
+      "lat": 29.7635,
+      "src": "vexcel",
+      "conf": 0.8105469
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.403599,
+      "lat": 29.763552,
+      "src": "vexcel",
+      "conf": 0.7192383
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.403504,
+      "lat": 29.763448,
+      "src": "vexcel",
+      "conf": 0.6801758
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.411222,
+      "lat": 29.766581,
+      "src": "vexcel",
+      "conf": 0.5239258
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.409873,
+      "lat": 29.766437,
+      "src": "vexcel",
+      "conf": 0.52978516
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.411317,
+      "lat": 29.765524,
+      "src": "vexcel",
+      "conf": 0.77783203
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.41116,
+      "lat": 29.765527,
+      "src": "vexcel",
+      "conf": 0.7939453
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.399713,
+      "lat": 29.765942,
+      "src": "vexcel",
+      "conf": 0.80566406
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.400253,
+      "lat": 29.767184,
+      "src": "vexcel",
+      "conf": 0.61328125
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.395037,
+      "lat": 29.766104,
+      "src": "vexcel",
+      "conf": 0.68115234
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.394885,
+      "lat": 29.766106,
+      "src": "vexcel",
+      "conf": 0.6567383
+    },
+    {
+      "label": "tennis court",
+      "lon": -95.394954,
+      "lat": 29.766127,
+      "src": "vexcel",
+      "conf": 0.70166016
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.39608,
+      "lat": 29.766155,
+      "src": "vexcel",
+      "conf": 0.5205078
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.3961,
+      "lat": 29.766219,
+      "src": "vexcel",
+      "conf": 0.5625
+    },
+    {
+      "label": "solar panel",
+      "lon": -95.396147,
+      "lat": 29.766394,
+      "src": "vexcel",
+      "conf": 0.52978516
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.390051,
+      "lat": 29.765928,
+      "src": "vexcel",
+      "conf": 0.52734375
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.391666,
+      "lat": 29.765853,
+      "src": "vexcel",
+      "conf": 0.7138672
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.391925,
+      "lat": 29.767503,
+      "src": "vexcel",
+      "conf": 0.56591797
+    },
+    {
+      "label": "parking lot",
+      "lon": -95.390928,
+      "lat": 29.765913,
+      "src": "vexcel",
+      "conf": 0.5336914
     }
   ]
 }

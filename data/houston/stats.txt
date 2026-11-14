@@ -40,24 +40,24 @@ water within 30 m (22 OSM features): 2.3% of length
 crossings 1394 of 1406 OSM crossing nodes charged (1095 unsignalled; 12 sit on roads with no mapped crossing path: not charged)
 stops (stop / give_way / signals on roads) 509; kerb=raised 7 (OSM kerb tags are sparse)
 sidewalk on roads (316.1 km): yes 8.0%, no 1.2%, untagged 90.8% of road length
-objects 3374 (osm 3351, vexcel 23); per label: objects / edges within 100 m
+objects 3496 (osm 3351, vexcel 145); per label: objects / edges within 100 m
   bike rack        105 / 4471
   bus stop          37 / 1759
   crosswalk       2313 / 11456
   dog park           4 / 108
   fountain          13 / 444
   mailbox            6 / 234
-  parking lot       15 / 669
+  parking lot       76 / 3120
   picnic area        7 / 148
   picnic table      15 / 166
   playground        19 / 314
   public art        16 / 697
   shelter            6 / 121
-  solar panel        1 / 55
+  solar panel       24 / 401
   sports field      83 / 996
   street lamp      167 / 953
   swimming pool    108 / 1931
-  tennis court       7 / 63
+  tennis court      45 / 424
   traffic light    176 / 5666
   trash can         16 / 361
   tree             260 / 825
